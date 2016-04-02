@@ -1,0 +1,24 @@
+# Hungarian translation of Browser class (7.x-1.7)
+# Copyright (c) 2015 by the Hungarian translation team
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Browser class (7.x-1.7)\n"
+"POT-Creation-Date: 2015-12-08 20:54+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Language-Team: Hungarian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+msgid "Operation"
+msgstr "Művelet"
+msgid "Browser"
+msgstr "Böngésző"
+msgid "Platform"
+msgstr "Platform"
+msgid "Type of the browser."
+msgstr "A böngésző típusa."
+msgid "Type of the platform."
+msgstr "A platform típusa."
