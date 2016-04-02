@@ -1,0 +1,26 @@
+# Hungarian translation of Commerce MailChimp (7.x-1.0)
+# Copyright (c) 2015 by the Hungarian translation team
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Commerce MailChimp (7.x-1.0)\n"
+"POT-Creation-Date: 2015-10-30 11:30+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Language-Team: Hungarian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+msgid "- None -"
+msgstr "- Nincs -"
+msgid "Store Name"
+msgstr "Bolt név"
+msgid "Order"
+msgstr "Sorrend"
+msgid "Mailchimp"
+msgstr "Mailchimp"
+msgid "Commerce (contrib)"
+msgstr "Commerce (kiegészítő modul)"
+msgid "Order in checkout"
+msgstr "Rendelés fizetés alatt"
