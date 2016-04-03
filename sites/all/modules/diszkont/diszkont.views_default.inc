@@ -398,13 +398,13 @@ print get_exposed_filter_output();
   $handler->display->display_options['fields']['rendered_entity']['display'] = 'view';
   $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'full';
   $handler->display->display_options['fields']['rendered_entity']['bypass_access'] = 0;
-  /* Mező: Tartalom: Kategoria */
-  $handler->display->display_options['fields']['field_kategoria']['id'] = 'field_kategoria';
-  $handler->display->display_options['fields']['field_kategoria']['table'] = 'field_data_field_kategoria';
-  $handler->display->display_options['fields']['field_kategoria']['field'] = 'field_kategoria';
-  $handler->display->display_options['fields']['field_kategoria']['label'] = '';
-  $handler->display->display_options['fields']['field_kategoria']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_kategoria']['type'] = 'taxonomy_term_reference_plain';
+  /* Mező: Tartalom: Kategória */
+  $handler->display->display_options['fields']['field_kategoriadisplay']['id'] = 'field_kategoriadisplay';
+  $handler->display->display_options['fields']['field_kategoriadisplay']['table'] = 'field_data_field_kategoriadisplay';
+  $handler->display->display_options['fields']['field_kategoriadisplay']['field'] = 'field_kategoriadisplay';
+  $handler->display->display_options['fields']['field_kategoriadisplay']['label'] = '';
+  $handler->display->display_options['fields']['field_kategoriadisplay']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_kategoriadisplay']['element_label_colon'] = FALSE;
   /* Sort criterion: kedvezmeny */
   $handler->display->display_options['sorts']['field_szazalek_value']['id'] = 'field_szazalek_value';
   $handler->display->display_options['sorts']['field_szazalek_value']['table'] = 'field_data_field_szazalek';
@@ -449,7 +449,7 @@ print get_exposed_filter_output();
     1 => 0,
     3 => 0,
   );
-  $handler->display->display_options['filters']['field_kategoria_tid_selective']['selective_display_field'] = 'field_kategoria';
+  $handler->display->display_options['filters']['field_kategoria_tid_selective']['selective_display_field'] = 'field_kategoriadisplay';
   $handler->display->display_options['filters']['field_kategoria_tid_selective']['selective_items_limit'] = '100';
   /* Filter criterion: Áruház (field_aruhaz) (selective) */
   $handler->display->display_options['filters']['field_aruhaz_tid_selective']['id'] = 'field_aruhaz_tid_selective';

@@ -232,6 +232,32 @@ function diszkont_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
+  // Exported field_base: 'field_kategoriadisplay'.
+  $field_bases['field_kategoriadisplay'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_kategoriadisplay',
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'elelmiszerek',
+          'parent' => 0,
+        ),
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'taxonomy_term_reference',
+  );
+
   // Exported field_base: 'field_logo'.
   $field_bases['field_logo'] = array(
     'active' => 1,
@@ -265,9 +291,9 @@ function diszkont_field_default_field_bases() {
     'locked' => 0,
     'module' => 'computed_field',
     'settings' => array(
-      'code' => '$entity_field[1][\'value\'] = $field_ar[0]["value"] + $field_akciosar[0]["value"];
-
-',
+      'code' => '$field_a = field_get_items($entity_type, $entity, "field_ar");
+$field_b = field_get_items($entity_type, $entity, "field_akciosar");
+$entity_field[1]["value"] = $field_a[0]["value"] - $field_b[0]["value"];',
       'database' => array(
         'data_default' => '',
         'data_index' => 0,

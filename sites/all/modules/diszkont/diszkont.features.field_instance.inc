@@ -655,6 +655,43 @@ function diszkont_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-products_display-field_kategoriadisplay'.
+  $field_instances['node-products_display-field_kategoriadisplay'] = array(
+    'bundle' => 'products_display',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 9,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_kategoriadisplay',
+    'label' => 'Kategória',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 12,
+    ),
+  );
+
   // Exported field_instance: 'node-products_display-field_olcsobban'.
   $field_instances['node-products_display-field_olcsobban'] = array(
     'bundle' => 'products_display',
@@ -819,6 +856,7 @@ function diszkont_field_default_field_instances() {
   t('Egységár');
   t('Gyarto');
   t('Kategoria');
+  t('Kategória');
   t('Logo');
   t('Olcsóbban');
   t('Osszetevok');

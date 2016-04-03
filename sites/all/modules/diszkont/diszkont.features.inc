@@ -21,7 +21,7 @@ function diszkont_node_info() {
       'base' => 'node_content',
       'description' => t('A termékek (név, leírás, fotó)'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Cím'),
       'help' => '',
     ),
     'products_display' => array(
@@ -29,7 +29,7 @@ function diszkont_node_info() {
       'base' => 'node_content',
       'description' => t('A termékek változó adatai (kiszerelés, ár, stb.) felviteléhez'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Cím'),
       'help' => '',
     ),
   );
