@@ -1,0 +1,9 @@
+name = Diszkont
+description = Bootstrap for Diszkont.
+core = 7.x
+base theme = bootstrap
+
+stylesheets[all][] = css/styles.css
+
+
+
