@@ -82,7 +82,7 @@ body {
   overflow-y: scroll;
 }
 
-.views-field-rendered-entity .field-name-field-ar,  .views-field-rendered-entity .field-name-field-akciosar, .views-field-rendered-entity .field-name-field-akciovege, .views-field-rendered-entity .field-name-field-szazalek, .views-field-rendered-entity .field-name-field-egysegar, .views-field-rendered-entity .field-name-field-ar, .views-field-rendered-entity footer, .views-field-rendered-entity .field-name-field-ar.views-field-rendered-entity .field-name-field-suly, .views-field-rendered-entity .field-name-field-olcsobban, .views-field-rendered-entity .field-name-field-suly, .views-field-rendered-entity .field-name-field-gyarto, .views-field-rendered-entity .field-name-field-osszetevok, .views-field-rendered-entity .field-name-field-tarolas, .views-field-rendered-entity .field-name-field-csomagolas, .views-field-rendered-entity .field-name-field-termekadatok, .views-field-rendered-entity .field-name-field-tapertek    {
+.views-field-rendered-entity .field-name-field-ar,  .views-field-rendered-entity .field-name-field-akciosar, .views-field-rendered-entity .field-name-field-akciovege, .views-field-rendered-entity .field-name-field-szazalek, .views-field-rendered-entity .field-name-field-egysegar, .views-field-rendered-entity .field-name-field-ar, .views-field-rendered-entity footer, .views-field-rendered-entity .field-name-field-ar.views-field-rendered-entity .field-name-field-suly, .views-field-rendered-entity .field-name-field-olcsobban, .views-field-rendered-entity .field-name-field-suly, .views-field-rendered-entity .field-name-field-gyarto, .views-field-rendered-entity .field-name-field-osszetevok, .views-field-rendered-entity .field-name-field-tarolas, .views-field-rendered-entity .field-name-field-csomagolas, .views-field-rendered-entity .field-name-field-termekadatok, .views-field-rendered-entity .field-name-field-tapertek, .views-field-rendered-entity .field-name-field-urmertek   {
   display: none;
 }
 
@@ -1986,6 +1986,20 @@ div.views-exposed-form {
 	padding-left: 20px;
 	height: 600px;
 }
+
+.block-mefibs div.views-exposed-form {
+  padding-left: 20px;
+  height: 100px;
+  background: transparent;
+}
+
+.block-mefibs div.views-exposed-widget.views-widget-sort-by {float:right;}
+
+.block-mefibs label {
+  display: none !important;
+}
+
+button#edit-mefibs-form-rendezes-submit-szures.ctools-use-ajax.ctools-auto-submit-click.btn.btn-default.form-submit {display: none;}
 
 div.views-exposed-form.stick {
     position: fixed;

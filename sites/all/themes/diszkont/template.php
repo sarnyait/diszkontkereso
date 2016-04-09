@@ -26,6 +26,8 @@ case 'views_exposed_form':
 
 
 
+
+
   if ( TRUE === in_array( $form_id, array( 'user_login', 'user_login_block', 'user_register_form') ) )
     $form['name']['#attributes']['placeholder'] = t( 'email' );
     $form['pass']['#attributes']['placeholder'] = t( 'jelszó' );
@@ -50,7 +52,7 @@ case 'views_exposed_form':
 
   function diszkont_preprocess_page(&$vars) {
   
-    /* drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/slider-min.js', array('scope' => 'header', 'weight' => 20)); */
+    drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/slider-min.js', array('scope' => 'header', 'weight' => 20));
     drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/login.js', array('scope' => 'footer'));
     drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/footer.js', array('scope' => 'footer'));
      
@@ -58,7 +60,7 @@ case 'views_exposed_form':
       drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/common.js', array('weight' => -13) );
       drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/infinite-ruler.js', array('weight' => -14) );
 	  drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/ajaxafter.js', array('weight' => -12) );
-      /* drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/pager.js', array('scope' => 'footer')); */
+      drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/pager.js', array('scope' => 'footer'));
       drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/sticky_sidebar.js', array('scope' => 'footer'));
     }
     

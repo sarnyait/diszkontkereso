@@ -131,6 +131,32 @@ function diszkont_field_default_field_bases() {
     'type' => 'url',
   );
 
+  // Exported field_base: 'field_category'.
+  $field_bases['field_category'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_category',
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'elelmiszerek',
+          'parent' => 0,
+        ),
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'taxonomy_term_reference',
+  );
+
   // Exported field_base: 'field_csomagolas'.
   $field_bases['field_csomagolas'] = array(
     'active' => 1,
@@ -150,6 +176,51 @@ function diszkont_field_default_field_bases() {
     'type' => 'text_long',
   );
 
+  // Exported field_base: 'field_darab'.
+  $field_bases['field_darab'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_darab',
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'darab',
+          'parent' => 0,
+        ),
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'taxonomy_term_reference',
+  );
+
+  // Exported field_base: 'field_darabsuly'.
+  $field_bases['field_darabsuly'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_darabsuly',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'decimal_separator' => '.',
+      'precision' => 15,
+      'scale' => 5,
+    ),
+    'translatable' => 0,
+    'type' => 'number_decimal',
+  );
+
   // Exported field_base: 'field_egysegar'.
   $field_bases['field_egysegar'] = array(
     'active' => 1,
@@ -160,9 +231,13 @@ function diszkont_field_default_field_bases() {
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
-    'settings' => array(),
+    'settings' => array(
+      'decimal_separator' => '.',
+      'precision' => 10,
+      'scale' => 3,
+    ),
     'translatable' => 0,
-    'type' => 'number_integer',
+    'type' => 'number_decimal',
   );
 
   // Exported field_base: 'field_gyarto'.
@@ -184,26 +259,25 @@ function diszkont_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_image'.
-  $field_bases['field_image'] = array(
+  // Exported field_base: 'field_hosszunev'.
+  $field_bases['field_hosszunev'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_image',
+    'field_name' => 'field_hosszunev',
     'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
+      'format' => array(
+        0 => 'format',
       ),
     ),
     'locked' => 0,
-    'module' => 'image',
+    'module' => 'text',
     'settings' => array(
-      'default_image' => FALSE,
-      'uri_scheme' => 'public',
+      'max_length' => 255,
     ),
     'translatable' => 0,
-    'type' => 'image',
+    'type' => 'text',
   );
 
   // Exported field_base: 'field_kategoria'.
@@ -213,32 +287,6 @@ function diszkont_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_kategoria',
-    'indexes' => array(
-      'tid' => array(
-        0 => 'tid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'taxonomy',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => array(
-          'vocabulary' => 'elelmiszerek',
-          'parent' => 0,
-        ),
-      ),
-    ),
-    'translatable' => 0,
-    'type' => 'taxonomy_term_reference',
-  );
-
-  // Exported field_base: 'field_kategoriadisplay'.
-  $field_bases['field_kategoriadisplay'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_kategoriadisplay',
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
@@ -291,14 +339,13 @@ function diszkont_field_default_field_bases() {
     'locked' => 0,
     'module' => 'computed_field',
     'settings' => array(
-      'code' => '$field_a = field_get_items($entity_type, $entity, "field_ar");
-$field_b = field_get_items($entity_type, $entity, "field_akciosar");
-$entity_field[1]["value"] = $field_a[0]["value"] - $field_b[0]["value"];',
+      'code' => '$entity_field[1][\'value\'] = ($entity->field_ar[LANGUAGE_NONE][0][\'value\']) - ($entity->field_akciosar[LANGUAGE_NONE][0][\'value\']);
+',
       'database' => array(
         'data_default' => '',
         'data_index' => 0,
         'data_length' => 32,
-        'data_not_NULL' => 0,
+        'data_not_NULL' => 1,
         'data_precision' => 10,
         'data_scale' => 2,
         'data_size' => 'normal',
@@ -331,6 +378,32 @@ $entity_field[1]["value"] = $field_a[0]["value"] - $field_b[0]["value"];',
     'type' => 'text_long',
   );
 
+  // Exported field_base: 'field_suly'.
+  $field_bases['field_suly'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_suly',
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'suly',
+          'parent' => 0,
+        ),
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'taxonomy_term_reference',
+  );
+
   // Exported field_base: 'field_szazalek'.
   $field_bases['field_szazalek'] = array(
     'active' => 1,
@@ -346,8 +419,7 @@ $entity_field[1]["value"] = $field_a[0]["value"] - $field_b[0]["value"];',
     'locked' => 0,
     'module' => 'computed_field',
     'settings' => array(
-      'code' => '$entity_field[0][\'value\'] = round(100 - (array_pop(array_pop(field_get_items($entity_type, $entity, \'field_akciosar\'))) / array_pop(array_pop(field_get_items($entity_type, $entity, \'field_ar\'))) * 100));
-',
+      'code' => '$entity_field[0][\'value\'] = round(100 - (array_pop(array_pop(field_get_items($entity_type, $entity, \'field_akciosar\'))) / array_pop(array_pop(field_get_items($entity_type, $entity, \'field_ar\'))) * 100));',
       'database' => array(
         'data_default' => '',
         'data_index' => 1,
@@ -358,7 +430,9 @@ $entity_field[1]["value"] = $field_a[0]["value"] - $field_b[0]["value"];',
         'data_size' => 'normal',
         'data_type' => 'int',
       ),
-      'display_format' => '$display_output = sprintf("%02d", $entity_field_item[\'value\']);',
+      'display_format' => '$ertek = sprintf("%02d", $entity_field_item[\'value\']);
+$szazalek = "$ertek%";
+$display_output = $szazalek;',
       'recalculate' => 0,
       'store' => 1,
     ),
@@ -473,6 +547,32 @@ $entity_field[1]["value"] = $field_a[0]["value"] - $field_b[0]["value"];',
     ),
     'translatable' => 0,
     'type' => 'image',
+  );
+
+  // Exported field_base: 'field_urmertek'.
+  $field_bases['field_urmertek'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_urmertek',
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'urmertekek',
+          'parent' => 0,
+        ),
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'taxonomy_term_reference',
   );
 
   return $field_bases;
