@@ -83,10 +83,9 @@ function diszkont_field_default_field_instances() {
         'weight' => 10,
       ),
       'diszkont' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
+        'label' => 'hidden',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'hidden',
         'weight' => 10,
       ),
       'search_index' => array(
@@ -143,7 +142,7 @@ function diszkont_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'text_plain',
         'weight' => 6,
       ),
       'search_index' => array(
@@ -193,14 +192,8 @@ function diszkont_field_default_field_instances() {
       ),
       'diszkont' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_decimal',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 9,
       ),
       'search_index' => array(
@@ -254,7 +247,7 @@ function diszkont_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'text_plain',
         'weight' => 7,
       ),
       'search_index' => array(
@@ -307,7 +300,7 @@ function diszkont_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'text_plain',
         'weight' => 3,
       ),
       'search_index' => array(
@@ -360,7 +353,7 @@ function diszkont_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'text_plain',
         'weight' => 4,
       ),
       'search_index' => array(
@@ -413,7 +406,7 @@ function diszkont_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'text_plain',
         'weight' => 5,
       ),
       'search_index' => array(
@@ -466,7 +459,7 @@ function diszkont_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'text_plain',
         'weight' => 8,
       ),
       'search_index' => array(
@@ -594,6 +587,18 @@ function diszkont_field_default_field_instances() {
         'type' => 'number_integer',
         'weight' => 1,
       ),
+      'diszkont' => array(
+        'label' => 'hidden',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 1,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -617,7 +622,7 @@ function diszkont_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 1,
+      'weight' => 6,
     ),
   );
 
@@ -628,6 +633,20 @@ function diszkont_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => FALSE,
+        ),
+        'type' => 'date_default',
+        'weight' => 2,
+      ),
+      'diszkont' => array(
         'label' => 'hidden',
         'module' => 'date',
         'settings' => array(
@@ -672,7 +691,7 @@ function diszkont_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_text',
-      'weight' => 6,
+      'weight' => 2,
     ),
   );
 
@@ -684,6 +703,18 @@ function diszkont_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 0,
+      ),
+      'diszkont' => array(
         'label' => 'hidden',
         'module' => 'number',
         'settings' => array(
@@ -718,7 +749,7 @@ function diszkont_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 2,
+      'weight' => 7,
     ),
   );
 
@@ -730,6 +761,12 @@ function diszkont_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 22,
+      ),
+      'diszkont' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
@@ -754,7 +791,7 @@ function diszkont_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 9,
+      'weight' => 14,
     ),
   );
 
@@ -766,6 +803,16 @@ function diszkont_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'url',
+        'settings' => array(
+          'nofollow' => FALSE,
+          'trim_length' => 80,
+        ),
+        'type' => 'url_default',
+        'weight' => 8,
+      ),
+      'diszkont' => array(
         'label' => 'hidden',
         'module' => 'url',
         'settings' => array(
@@ -798,7 +845,7 @@ function diszkont_field_default_field_instances() {
         'size' => 600,
       ),
       'type' => 'url_external',
-      'weight' => 7,
+      'weight' => 12,
     ),
   );
 
@@ -810,7 +857,14 @@ function diszkont_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_plain',
+        'weight' => 9,
+      ),
+      'diszkont' => array(
+        'label' => 'hidden',
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
@@ -835,7 +889,7 @@ function diszkont_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 13,
+      'weight' => 11,
     ),
   );
 
@@ -847,6 +901,18 @@ function diszkont_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 6,
+      ),
+      'diszkont' => array(
         'label' => 'above',
         'module' => 'number',
         'settings' => array(
@@ -881,7 +947,7 @@ function diszkont_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 3,
+      'weight' => 8,
     ),
   );
 
@@ -893,6 +959,12 @@ function diszkont_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 23,
+      ),
+      'diszkont' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -914,7 +986,7 @@ function diszkont_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'term_reference_tree',
+      'module' => 'shs',
       'settings' => array(
         'cascading_selection' => 0,
         'filter_view' => '',
@@ -922,12 +994,18 @@ function diszkont_field_default_field_instances() {
         'max_depth' => '',
         'parent_term_id' => '',
         'select_parents' => 0,
+        'shs' => array(
+          'create_new_levels' => FALSE,
+          'create_new_terms' => FALSE,
+          'force_deepest' => FALSE,
+          'node_count' => FALSE,
+        ),
         'start_minimized' => 0,
         'token_display' => '',
         'track_list' => 0,
       ),
-      'type' => 'term_reference_tree',
-      'weight' => 10,
+      'type' => 'taxonomy_shs',
+      'weight' => 4,
     ),
   );
 
@@ -938,7 +1016,14 @@ function diszkont_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'computed_field',
+        'settings' => array(),
+        'type' => 'computed_field_plain',
+        'weight' => 10,
+      ),
+      'diszkont' => array(
+        'label' => 'hidden',
         'module' => 'computed_field',
         'settings' => array(),
         'type' => 'computed_field_plain',
@@ -963,7 +1048,7 @@ function diszkont_field_default_field_instances() {
       'module' => 'computed_field',
       'settings' => array(),
       'type' => 'computed',
-      'weight' => 5,
+      'weight' => 1,
     ),
   );
 
@@ -975,10 +1060,15 @@ function diszkont_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
+        'label' => 'hidden',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'hidden',
+        'weight' => 20,
+      ),
+      'diszkont' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 8,
       ),
       'teaser' => array(
@@ -1000,7 +1090,7 @@ function diszkont_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 11,
+      'weight' => 9,
     ),
   );
 
@@ -1011,6 +1101,13 @@ function diszkont_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'computed_field',
+        'settings' => array(),
+        'type' => 'computed_field_plain',
+        'weight' => 3,
+      ),
+      'diszkont' => array(
         'label' => 'hidden',
         'module' => 'computed_field',
         'settings' => array(),
@@ -1036,7 +1133,7 @@ function diszkont_field_default_field_instances() {
       'module' => 'computed_field',
       'settings' => array(),
       'type' => 'computed',
-      'weight' => 4,
+      'weight' => 13,
     ),
   );
 
@@ -1048,6 +1145,15 @@ function diszkont_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'node_reference',
+        'settings' => array(
+          'node_reference_view_mode' => 'full',
+        ),
+        'type' => 'node_reference_node',
+        'weight' => 7,
+      ),
+      'diszkont' => array(
         'label' => 'hidden',
         'module' => 'node_reference',
         'settings' => array(
@@ -1075,7 +1181,7 @@ function diszkont_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 8,
+      'weight' => 3,
     ),
   );
 
@@ -1087,10 +1193,15 @@ function diszkont_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
+        'label' => 'hidden',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'hidden',
+        'weight' => 21,
+      ),
+      'diszkont' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 9,
       ),
       'teaser' => array(
@@ -1112,7 +1223,7 @@ function diszkont_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 12,
+      'weight' => 10,
     ),
   );
 
