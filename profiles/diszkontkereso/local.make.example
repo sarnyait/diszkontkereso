@@ -1,0 +1,80 @@
+; diszkontkereso make file for local development
+core = "7.x"
+api = "2"
+
+projects[drupal][version] = "7.x"
+; include the d.o. profile base
+includes[] = "drupal-org.make"
+
+; +++++ Libraries +++++
+
+; dompdf-master
+libraries[dompdf-master][directory_name] = "dompdf-master"
+libraries[dompdf-master][type] = "library"
+libraries[dompdf-master][destination] = "libraries"
+libraries[dompdf-master][download][type] = "get"
+libraries[dompdf-master][download][url] = "" ; TODO add download URI
+
+; autopager
+libraries[autopager][directory_name] = "autopager"
+libraries[autopager][type] = "library"
+libraries[autopager][destination] = "libraries"
+libraries[autopager][download][type] = "get"
+libraries[autopager][download][url] = "" ; TODO add download URI
+
+; jquery.postmessage
+libraries[jquery.postmessage][directory_name] = "jquery.postmessage"
+libraries[jquery.postmessage][type] = "library"
+libraries[jquery.postmessage][destination] = "libraries"
+libraries[jquery.postmessage][download][type] = "get"
+libraries[jquery.postmessage][download][url] = "" ; TODO add download URI
+
+; imagesloaded
+libraries[imagesloaded][directory_name] = "imagesloaded"
+libraries[imagesloaded][type] = "library"
+libraries[imagesloaded][destination] = "libraries"
+libraries[imagesloaded][download][type] = "get"
+libraries[imagesloaded][download][url] = "" ; TODO add download URI
+
+; jquery.cycle
+libraries[jquery.cycle][directory_name] = "jquery.cycle"
+libraries[jquery.cycle][type] = "library"
+libraries[jquery.cycle][destination] = "libraries"
+libraries[jquery.cycle][download][type] = "get"
+libraries[jquery.cycle][download][url] = "" ; TODO add download URI
+
+; mailchimp
+libraries[mailchimp][directory_name] = "mailchimp"
+libraries[mailchimp][type] = "library"
+libraries[mailchimp][destination] = "libraries"
+libraries[mailchimp][download][type] = "get"
+libraries[mailchimp][download][url] = "" ; TODO add download URI
+
+; isotope
+libraries[isotope][directory_name] = "isotope"
+libraries[isotope][type] = "library"
+libraries[isotope][destination] = "libraries"
+libraries[isotope][download][type] = "get"
+libraries[isotope][download][url] = "" ; TODO add download URI
+
+; Mobile_Detect
+libraries[Mobile_Detect][directory_name] = "Mobile_Detect"
+libraries[Mobile_Detect][type] = "library"
+libraries[Mobile_Detect][destination] = "libraries"
+libraries[Mobile_Detect][download][type] = "get"
+libraries[Mobile_Detect][download][url] = "" ; TODO add download URI
+
+; hybridauth
+libraries[hybridauth][directory_name] = "hybridauth"
+libraries[hybridauth][type] = "library"
+libraries[hybridauth][destination] = "libraries"
+libraries[hybridauth][download][type] = "get"
+libraries[hybridauth][download][url] = "" ; TODO add download URI
+
+; sidr
+libraries[sidr][directory_name] = "sidr"
+libraries[sidr][type] = "library"
+libraries[sidr][destination] = "libraries"
+libraries[sidr][download][type] = "get"
+libraries[sidr][download][url] = "" ; TODO add download URI
+
