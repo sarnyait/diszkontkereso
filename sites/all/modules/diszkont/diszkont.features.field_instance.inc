@@ -10,6 +10,103 @@
 function diszkont_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'node-heti_ajanlat-field_kategoria'.
+  $field_instances['node-heti_ajanlat-field_kategoria'] = array(
+    'bundle' => 'heti_ajanlat',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 2,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_kategoria',
+    'label' => 'Melyik kategória?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'shs',
+      'settings' => array(
+        'shs' => array(
+          'create_new_levels' => 0,
+          'create_new_terms' => 0,
+          'force_deepest' => 1,
+          'node_count' => 0,
+        ),
+      ),
+      'type' => 'taxonomy_shs',
+      'weight' => 34,
+    ),
+  );
+
+  // Exported field_instance: 'node-heti_ajanlat-field_melyikhet'.
+  $field_instances['node-heti_ajanlat-field_melyikhet'] = array(
+    'bundle' => 'heti_ajanlat',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_melyikhet',
+    'label' => 'Melyik hét?',
+    'required' => 1,
+    'settings' => array(
+      'max' => 52,
+      'min' => 1,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 32,
+    ),
+  );
+
   // Exported field_instance: 'node-products-body'.
   $field_instances['node-products-body'] = array(
     'bundle' => 'products',
@@ -1495,6 +1592,8 @@ function diszkont_field_default_field_instances() {
   t('Kategória (display)');
   t('Külső link az áruházhoz');
   t('Logo');
+  t('Melyik hét?');
+  t('Melyik kategória?');
   t('Olcsóbban');
   t('Százalék');
   t('Súly');

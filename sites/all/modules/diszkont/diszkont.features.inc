@@ -25,6 +25,16 @@ function diszkont_views_api($module = NULL, $api = NULL) {
  */
 function diszkont_node_info() {
   $items = array(
+    'heti_ajanlat' => array(
+      'name' => t('Heti ajanlat'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => t('Heti ajánlat:
+melyik hét?
+melyik kategória?'),
+    ),
     'products' => array(
       'name' => t('Products'),
       'base' => 'node_content',
