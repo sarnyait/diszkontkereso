@@ -1999,6 +1999,15 @@ div.views-exposed-form {
   display: none !important;
 }
 
+.block-mefibs .form-type-bef-link {
+  float: right;
+  margin-right: 15px;
+}
+
+.block-mefibs .form-type-bef-link a::after {
+  content: " elöl";
+}
+
 button#edit-mefibs-form-rendezes-submit-szures.ctools-use-ajax.ctools-auto-submit-click.btn.btn-default.form-submit {display: none;}
 
 div.views-exposed-form.stick {

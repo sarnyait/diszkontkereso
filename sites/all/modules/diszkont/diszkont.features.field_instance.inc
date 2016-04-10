@@ -568,6 +568,103 @@ function diszkont_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-products_display-field_ajanlott_a_heten_'.
+  $field_instances['node-products_display-field_ajanlott_a_heten_'] = array(
+    'bundle' => 'products_display',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 24,
+      ),
+      'diszkont' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_ajanlott_a_heten_',
+    'label' => 'Ajánlott a héten?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 15,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-products_display-field_ajanlott_a_kovetkezo_heten'.
+  $field_instances['node-products_display-field_ajanlott_a_kovetkezo_heten'] = array(
+    'bundle' => 'products_display',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 25,
+      ),
+      'diszkont' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_ajanlott_a_kovetkezo_heten',
+    'label' => 'Ajánlott a következő héten?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 16,
+    ),
+  );
+
   // Exported field_instance: 'node-products_display-field_akciosar'.
   $field_instances['node-products_display-field_akciosar'] = array(
     'bundle' => 'products_display',
@@ -588,6 +685,18 @@ function diszkont_field_default_field_instances() {
         'weight' => 1,
       ),
       'diszkont' => array(
+        'label' => 'hidden',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 1,
+      ),
+      'full' => array(
         'label' => 'hidden',
         'module' => 'number',
         'settings' => array(
@@ -647,6 +756,20 @@ function diszkont_field_default_field_instances() {
         'weight' => 2,
       ),
       'diszkont' => array(
+        'label' => 'hidden',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => FALSE,
+        ),
+        'type' => 'date_default',
+        'weight' => 2,
+      ),
+      'full' => array(
         'label' => 'hidden',
         'module' => 'date',
         'settings' => array(
@@ -726,6 +849,18 @@ function diszkont_field_default_field_instances() {
         'type' => 'number_integer',
         'weight' => 0,
       ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -771,6 +906,12 @@ function diszkont_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 11,
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 22,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -822,6 +963,16 @@ function diszkont_field_default_field_instances() {
         'type' => 'url_default',
         'weight' => 6,
       ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'url',
+        'settings' => array(
+          'nofollow' => FALSE,
+          'trim_length' => 80,
+        ),
+        'type' => 'url_default',
+        'weight' => 8,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -870,11 +1021,12 @@ function diszkont_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 10,
       ),
-      'teaser' => array(
-        'label' => 'above',
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'type' => 'taxonomy_term_reference_plain',
+        'weight' => 9,
       ),
     ),
     'entity_type' => 'node',
@@ -924,11 +1076,17 @@ function diszkont_field_default_field_instances() {
         'type' => 'number_decimal',
         'weight' => 5,
       ),
-      'teaser' => array(
+      'full' => array(
         'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'node',
@@ -970,11 +1128,11 @@ function diszkont_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 12,
       ),
-      'teaser' => array(
+      'full' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 23,
       ),
     ),
     'entity_type' => 'node',
@@ -1029,11 +1187,12 @@ function diszkont_field_default_field_instances() {
         'type' => 'computed_field_plain',
         'weight' => 13,
       ),
-      'teaser' => array(
-        'label' => 'above',
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'computed_field',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'type' => 'computed_field_plain',
+        'weight' => 10,
       ),
     ),
     'entity_type' => 'node',
@@ -1071,11 +1230,11 @@ function diszkont_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 8,
       ),
-      'teaser' => array(
-        'label' => 'above',
+      'full' => array(
+        'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 20,
       ),
     ),
     'entity_type' => 'node',
@@ -1108,6 +1267,13 @@ function diszkont_field_default_field_instances() {
         'weight' => 3,
       ),
       'diszkont' => array(
+        'label' => 'hidden',
+        'module' => 'computed_field',
+        'settings' => array(),
+        'type' => 'computed_field_plain',
+        'weight' => 3,
+      ),
+      'full' => array(
         'label' => 'hidden',
         'module' => 'computed_field',
         'settings' => array(),
@@ -1162,6 +1328,15 @@ function diszkont_field_default_field_instances() {
         'type' => 'node_reference_node',
         'weight' => 7,
       ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'node_reference',
+        'settings' => array(
+          'node_reference_view_mode' => 'full',
+        ),
+        'type' => 'node_reference_node',
+        'weight' => 7,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1204,11 +1379,11 @@ function diszkont_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 9,
       ),
-      'teaser' => array(
-        'label' => 'above',
+      'full' => array(
+        'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 21,
       ),
     ),
     'entity_type' => 'node',
@@ -1306,6 +1481,8 @@ function diszkont_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Ajánlott a héten?');
+  t('Ajánlott a következő héten?');
   t('Akció vége');
   t('Akciós ár');
   t('Csomagolás');

@@ -406,7 +406,7 @@ print get_exposed_filter_output();
     'interval' => 2,
     'interval_display' => 'time ago',
   );
-  /* Mező: Tartalom: Termékleírás */
+  /* Mező: Tartalom: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
