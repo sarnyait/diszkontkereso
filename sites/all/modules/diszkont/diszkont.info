@@ -3,6 +3,7 @@ description = Diszkontkereső Szűrő
 core = 7.x
 package = Features
 version = 7.x-1.0
+dependencies[] = auto_nodetitle
 dependencies[] = better_exposed_filters
 dependencies[] = computed_field
 dependencies[] = ctools
