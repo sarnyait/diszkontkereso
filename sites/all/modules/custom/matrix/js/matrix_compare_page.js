@@ -55,7 +55,7 @@
       $('.matrix_val').val('1');
 
 
-      $('.matrix_val_change').live("click", function() {
+      $('.matrix_val_change').on("click", function() {
         source = '#' + $(this).attr('data-source');
         if ($(this).attr('value') == '-') {
           if ($(source).val() > 1) {
@@ -67,7 +67,7 @@
         }
       })
 
-      $('.matrix_cart_button').live("click", function() {
+      $('.matrix_cart_button').on("click", function() {
         var top = $(this).attr('data-name');
         content = '';
         $('.starter_cell.active').each(function() {
@@ -79,23 +79,23 @@
         pushContent(content, $(this).attr('data-name'));
       })
 
-      $('.cart-minus').live("click", function() {
+      $('.cart-minus').on("click", function() {
         v = $(this).parent().next().html();
         if (v > 1) {
           $(this).parent().next().html(parseInt(v) - 1);
         }
       })
 
-      $('.cart-plus').live("click", function() {
+      $('.cart-plus').on("click", function() {
         v = $(this).parent().prev().html();
         $(this).parent().prev().html(parseInt(v) + 1);
       })
 
-      $('.cart-delete').live("click", function() {
+      $('.cart-delete').on("click", function() {
         $(this).parent().parent().remove();
       })
 
-      $('.check').live("click", function() {
+      $('.check').on("click", function() {
         if ($(this).next().is(':visible')) {
           $(this).next().hide();
           $(this).parent().removeClass('active');
@@ -106,7 +106,7 @@
         }
       })
 
-      $('.deleteRow').live("click", function() {
+      $('.deleteRow').on("click", function() {
         if ($('.table-row').length > 1) {
           name = $(this).attr('data-name');
           humanName = $('.starter_cell[data-name="' + name + '"] label').html();

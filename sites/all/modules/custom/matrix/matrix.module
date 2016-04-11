@@ -66,6 +66,8 @@ function matrix_tax2flat_array($terms) {
   $c = 0;
   $newterms = array();
   foreach ($terms as $term) {
+    $term = reset($term);
+    $term = taxonomy_term_load($term);
     $newterms[] = $term->name;
     $c++;
     if ($c == 4) {
@@ -189,13 +191,14 @@ function matrix_compare_page() {
 
   $colors = array('red', 'green', 'blue', 'purple', 'yellow');
 
-  $vocabulary = taxonomy_vocabulary_machine_name_load('_lelmiszerek');
-  $terms = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
+  $nodes = node_load_multiple(array(), array('type' => 'heti_ajanlat'));
+  $nodes = reset($nodes);
+  $terms = $nodes->field_kategoria[LANGUAGE_NONE];
   $lefts = matrix_tax2flat_array($terms);
   //$lefts = array('Sajt', 'Hus', 'Sor', 'aaa', 'bbb');
 
 
-  $vocabulary = taxonomy_vocabulary_machine_name_load('_ruh_z');
+  $vocabulary = taxonomy_vocabulary_machine_name_load('aruhaz');
   $terms2 = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
   $tops = matrix_tax2flat_array($terms2);
   //$tops = array('Spar', 'Tesco', 'Lidl', 'CBA');
