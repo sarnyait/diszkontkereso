@@ -440,7 +440,7 @@ print get_exposed_filter_output();
     'image_style' => '',
     'image_link' => '',
   );
-  /* Field: Tartalom: Kategória (display) */
+  /* Field: Tartalom: Melyik kategória? */
   $handler->display->display_options['fields']['field_kategoria']['id'] = 'field_kategoria';
   $handler->display->display_options['fields']['field_kategoria']['table'] = 'field_data_field_kategoria';
   $handler->display->display_options['fields']['field_kategoria']['field'] = 'field_kategoria';
@@ -660,7 +660,7 @@ print get_exposed_filter_output();
   $handler->display->display_options['fields']['title']['element_class'] = 'termeknev';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
-  /* Field: Tartalom: Kategória (display) */
+  /* Field: Tartalom: Melyik kategória? */
   $handler->display->display_options['fields']['field_kategoria']['id'] = 'field_kategoria';
   $handler->display->display_options['fields']['field_kategoria']['table'] = 'field_data_field_kategoria';
   $handler->display->display_options['fields']['field_kategoria']['field'] = 'field_kategoria';
