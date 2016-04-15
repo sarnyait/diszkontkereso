@@ -1,0 +1,14 @@
+name = Category pages
+core = 7.x
+package = Features
+dependencies[] = better_exposed_filters
+dependencies[] = ctools
+dependencies[] = masonry_views
+dependencies[] = views
+dependencies[] = views_bootstrap
+dependencies[] = views_modes
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = osszes_akcio
+features[views_view][] = taxonomy_menu
+features[views_view][] = taxonomy_page

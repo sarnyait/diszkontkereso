@@ -1,5 +1,6 @@
 var $ = jQuery.noConflict();
      (function($){
+            
   
      /* $("a#opener").click(function(event){
          event.preventDefault();

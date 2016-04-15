@@ -9,6 +9,6 @@ var $ = jQuery.noConflict();
 	
 	jQuery(window).on("hashchange", function () {
     window.scrollTo(window.scrollX, window.scrollY - 300);
-    });
+    });      
 	
 })(jQuery);

@@ -82,12 +82,58 @@ body {
   overflow-y: scroll;
 }
 
-.views-field-rendered-entity .field-name-field-ar,  .views-field-rendered-entity .field-name-field-akciosar, .views-field-rendered-entity .field-name-field-akciovege, .views-field-rendered-entity .field-name-field-szazalek, .views-field-rendered-entity .field-name-field-egysegar, .views-field-rendered-entity .field-name-field-ar, .views-field-rendered-entity footer, .views-field-rendered-entity .field-name-field-ar.views-field-rendered-entity .field-name-field-suly, .views-field-rendered-entity .field-name-field-olcsobban, .views-field-rendered-entity .field-name-field-suly, .views-field-rendered-entity .field-name-field-gyarto, .views-field-rendered-entity .field-name-field-osszetevok, .views-field-rendered-entity .field-name-field-tarolas, .views-field-rendered-entity .field-name-field-csomagolas, .views-field-rendered-entity .field-name-field-termekadatok, .views-field-rendered-entity .field-name-field-tapertek, .views-field-rendered-entity .field-name-field-urmertek   {
-  display: none;
+.panel-2col-bricks .panel-col-first, .panels-flexible-region-1-left{
+  width: 20% !important;
+} 
+
+.panel-2col-bricks .panel-col-last, .panels-flexible-region-1-center{
+  width: 79% !important;
+  background-color: #EEEEEE;
+} 
+
+body#pid-osszes-akcio .panel-col-first .pane-title {
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 10px 10px 0px;
+  display: block !important;
+  margin-bottom: 5px;
+  max-width: 100%;
 }
 
-.views-field-rendered-entity .field-name-body {
-  font-size: 145%;
+div.panel-pane.pane-views.pane-taxonomy-menu {
+  padding-left: 20px;
+}
+
+.view-taxonomy-menu h3 {
+  cursor: pointer;
+}
+
+.view-taxonomy-menu .ui-state-default {
+  border: 0;
+  background: none;  
+}
+
+
+.view-taxonomy-menu h4, .view-taxonomy-menu a {
+   margin-top: 0;
+   margin-bottom: 0;
+   color: rgb(52, 52, 52);
+   font-weight: 400;
+   font-size: 120%; 
+   font-family: "Lato", sans-serif !important;
+   line-height: 1.2;
+   
+}
+
+.panel-heading, .view-taxonomy-menu .panel-default {
+  border: 0 !important;
+  background: none !important;
+  border-color: none !important;
+}
+
+.view-taxonomy-menu a {
+text-decoration: none;
+color: rgb(52, 52, 52) !important;
 }
 
 iframe {
@@ -1209,7 +1255,20 @@ body.page-node div.field.field-name-fieldar {
   color: rgb(52,52,52);
 }
 
-div#block-menu-menu-f-men-.block.block-menu{
+div.region.region-header {
+  background: rgb(254,206,91);
+  padding: 15px;
+}
+
+.navbar {
+  margin-bottom: 0 !important;
+}
+
+.nav > li > a {
+font-size: 200%;  
+}
+
+section#block-menu-menu-diszkont.block.block-menu{
 width: 970px;
 margin: 0 auto;
 height: 30px;
@@ -1224,6 +1283,7 @@ display:-webkit-box;
 display:box;
 box-pack:center;
 box-align:center;
+
 }
 
 div#block-menu-menu-bev-s-rl-lista.block.block-menu{
@@ -1322,13 +1382,13 @@ text-align: center;
 ul.menu li {
 display: inline-block;
 float: none;
-margin: 0 10% 0 10%;
+margin: 0 5% 0 5%;
 text-transform: uppercase;
 line-height: 100%;
 }
 
 ul.menu li.first {
-margin: 0 20% 0 0%;
+margin: 0 5% 0 0%;
 }
 
 
@@ -1365,7 +1425,7 @@ div#header-group, .navbar.container-fluid {
   background-image: url('../images/food.jpeg');
   background-position-y: -500px;
   background-repeat: no-repeat;
-  height: 180px;
+  height: 130px;
   margin-top: 0;
 }
 
@@ -1747,26 +1807,14 @@ float:left;
 margin: 0;
 }
 
-div.views-field.views-field-field-akci-s-r {
+div.views-field.views-field-field-akciosar {
   position: relative;
-  top: 20px;
-  left: calc(1% - 44px);
   max-width: 125px;
 }
 
-.cart-product-quantity, .cart-product-total {
-  display: none;
-}
 
 
-.cart-image {
-background: url('../images/listam.png');
-width: 70px;
-height:70px;
-cursor: pointer;
-}
-
-body.front .field-name-field-aruhaz-hivatkozo a, body.front div.views-field.views-field-field-aruhaz-hivatkozo a {
+.field-name-field-aruhaz-hivatkozo a, div.views-field.views-field-field-aruhaz-hivatkozo a {
 display: block !important;
 text-indent: -9999px !important;
 background: url('../images/mycart.png') no-repeat!important;
@@ -1837,7 +1885,7 @@ div.lista-item div.views-field.views-field-field-image {
 }
 
 
-div.lista-item div.views-field.views-field-field--r {
+div.lista-item div.views-field.views-field-fieldar {
   background: rgb(236, 76, 67);
   color: white;
   margin: 0;
@@ -1846,7 +1894,7 @@ div.lista-item div.views-field.views-field-field--r {
   text-align: center;
 }
 
-div.lista-item div.views-field.views-field-field-akci-s-r {
+div.lista-item div.views-field.views-field-field-akciosar {
  clear: right;
   float: left;
   background: rgb(236, 76, 67);
@@ -1987,28 +2035,33 @@ div.views-exposed-form {
 	height: 600px;
 }
 
-.block-mefibs div.views-exposed-form {
+#views-exposed-form-osszes-akcio-osszesakcio-mefibs-form-rendezes div.views-exposed-form, #views-exposed-form-taxonomy-page-frontpage-mefibs-form-rendezes div.views-exposed-form, .panel-2col div.views-exposed-form, .block-mefibs div.views-exposed-form {
   padding-left: 20px;
-  height: 30px;
+  height: auto;
   background: transparent;
 }
 
 .block-mefibs div.views-exposed-widget.views-widget-sort-by {float:right;}
 
-.block-mefibs label {
+#views-exposed-form-taxonomy-page-frontpage-mefibs-form-rendezes label, #views-exposed-form-osszes-akcio-osszesakcio-mefibs-form-rendezes label, #views-exposed-form-taxonomy-page-frontpage-mefibs-form-rendezes  label, .block-mefibs label {
   display: none !important;
 }
 
-.block-mefibs .form-type-bef-link {
+#views-exposed-form-taxonomy-page-frontpage-mefibs-form-rendezes .form-type-bef-link, #views-exposed-form-osszes-akcio-osszesakcio-mefibs-form-rendezes .form-type-bef-link, #views-exposed-form-taxonomy-page-frontpage-mefibs-form-rendezes .form-type-bef-link, .block-mefibs .form-type-bef-link {
   float: right;
   margin-right: 15px;
 }
 
-.block-mefibs .form-type-bef-link a::after {
+#views-exposed-form-taxonomy-page-frontpage-mefibs-form-rendezes .form-type-bef-link a::after, #views-exposed-form-osszes-akcio-osszesakcio-mefibs-form-rendezes .form-type-bef-link a::after, #views-exposed-form-taxonomy-page-frontpage-mefibs-form-rendezes.form-type-bef-link a::after, .block-mefibs .form-type-bef-link a::after {
   content: " elöl";
+  display: inline;
 }
 
 button#edit-mefibs-form-rendezes-submit-szures.ctools-use-ajax.ctools-auto-submit-click.btn.btn-default.form-submit {display: none;}
+
+#views-exposed-form-taxonomy-page-frontpage-mefibs-form-rendezes .views-exposed-widget.views-submit-button, #views-exposed-form-osszes-akcio-osszesakcio-mefibs-form-rendezes .views-exposed-widget.views-submit-button, #views-exposed-form-taxonomy-page-frontpage-mefibs-form-rendezes .views-exposed-widget.views-submit-button {
+  display: none;
+}
 
 div.views-exposed-form.stick {
     position: fixed;
@@ -2266,6 +2319,7 @@ div#header-group {
 .panel-3col .panel-col-first {
   width: 100%;
 } 
+
 
 .panel-3col .panel-col {
   margin: -5em auto !important;
