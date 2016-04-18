@@ -14,12 +14,44 @@ function matrix_menu() {
     'page callback' => 'matrix_compare_page',
     'access arguments' => array('access content'),
   );
+  $items['matrix_cart'] = array(
+    'title' => 'Matrix cart',
+    'page callback' => 'matrix_cart_page',
+    'access arguments' => array('access content'),
+  );
+  $items['save-order'] = array(
+    'page callback' => 'matrix_save_order',
+    'access arguments' => array('access content'),
+  );
   return $items;
+}
+
+function matrix_block_info() {
+  $blocks['matrix'] = array(
+    'info' => t('Matrix - product compare page and cart system'),
+  );
+  return $blocks;
+}
+
+function matrix_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'matrix':
+      $block['subject'] = t('Compare products');
+      $block['content'] = matrix_cart_page();
+      break;
+  }
+  return $block;
 }
 
 function matrix_preprocess_matrix_compare_page(&$variables) {
   drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_compare_page.css');
   drupal_add_js(drupal_get_path('module', 'matrix') . '/js/matrix_compare_page.js');
+  drupal_add_js(drupal_get_path('module', 'matrix') . '/js/remodal/remodal.js');
+  drupal_add_css(drupal_get_path('module', 'matrix') . '/js/remodal/remodal.css');
+  drupal_add_css(drupal_get_path('module', 'matrix') . '/js/remodal/remodal-default-theme.css');
+
 }
 
 function matrix_theme($existing, $type, $theme, $path) {
@@ -38,6 +70,12 @@ function matrix_theme($existing, $type, $theme, $path) {
     'path' => $path,
   );
 
+  $theme['matrix_cart_print'] = array(
+    'variables' => array('vars' => NULL),
+    'template' => 'matrix_cart_print',
+    'path' => $path,
+  );
+
   return $theme;
 }
 
@@ -47,8 +85,8 @@ function matrix_add_tr(&$row) {
 
 function matrix_add_plus_minus($class = 'input') {
   $output = '';
-  $output .= '<input type="checkbox" class="check">';
-  $output .= '<div class="plus-minus invisible">';
+  $output .= '';
+  $output .= '<div class="plus-minus">';
   $output .= '<input type="button" value="-" class="matrix_val_change" data-source="' . $class . '_val">';
   $output .= '<input type="number" pattern="[0-9]*" id="' . $class . '_val" class="matrix_val">';
   $output .= '<input type="button" value="+" class="matrix_val_change" data-source="' . $class . '_val">';
@@ -63,16 +101,10 @@ function matrix_add_bottom_button($class = 'input') {
 }
 
 function matrix_tax2flat_array($terms) {
-  $c = 0;
   $newterms = array();
   foreach ($terms as $term) {
-    $term = reset($term);
-    $term = taxonomy_term_load($term);
-    $newterms[] = $term->name;
-    $c++;
-    if ($c == 4) {
-      break;
-    }
+
+    $newterms[] = (is_array($term)) ? $term['tid'] : $term->tid;
   }
   return $newterms;
 }
@@ -187,8 +219,43 @@ function convert($string) {
   return $string;
 }
 
-function matrix_compare_page() {
+function matrix_find_product($category, $shop) {
+  $query = db_select('node', 'n');
+  $query->leftJoin('field_data_field_aruhaz', 'a', 'n.nid = a.entity_id');
+  $query->leftJoin('field_data_field_kategoria', 'k', 'n.nid = k.entity_id');
+  //$query->leftJoin('field_data_field_ajanlott_a_heten_', 'aj', 'n.nid = aj.entity_id');
+  $query->fields('n', array('type', 'title', 'nid'))
+    ->fields('a', array('field_aruhaz_tid', 'entity_id'))
+   // ->fields('aj', array('field_ajanlott_a_heten__value', 'entity_id'))
+    ->condition('n.type', 'products_display')
+    ->condition('a.field_aruhaz_tid', $shop)
+    //->condition('aj.field_ajanlott_a_heten__value', 1)
+    ->condition('k.field_kategoria_tid', $category);
+  $result = $query->execute();
+  foreach ($result as $row) {
+    $rowitem = $row->nid;
+  }
 
+  return $rowitem;
+
+  /*$query->join('field_data_field_kategoria', 'k');
+  $query->join('field_data_field_aruhaz', 'a');
+  $query->condition('a', 519);
+  $query->condition('a', 1925);
+  $query->condition*/
+
+
+
+
+}
+
+function matrix_get_termname($tid) {
+  $term = taxonomy_term_load($tid);
+  return $term->name . '(' . $tid . ')';
+}
+
+function matrix_compare_page() {
+  drupal_add_library('system', 'jquery.cookie');
   $colors = array('red', 'green', 'blue', 'purple', 'yellow');
 
   $nodes = node_load_multiple(array(), array('type' => 'heti_ajanlat'));
@@ -208,7 +275,7 @@ function matrix_compare_page() {
   $header .= '<div id="header">';
   $c = 0;
   foreach ($tops as $top) {
-    $header .= '<div class="cell ' . convert($top) . '" data-name="' . convert($top) . '">' . $top . '</div>';
+    $header .= '<div class="cell ' . convert($top) . '" data-name="' . convert($top) . '">' .  matrix_get_termname($top) . '</div>';
     $c++;
   }
   $header .= '</div>';
@@ -217,9 +284,19 @@ function matrix_compare_page() {
   $table = '<div id="tableBody">';
   foreach ($lefts as $left) {
     $table .= '<div class="table-row">';
-    $table .= '<div class="cell starter_cell" data-name="' . convert($left) . '"><label>' . $left . '</label>' . matrix_add_plus_minus('amount_' . convert($left)) . '</div>';
+    $table .= '<div class="cell starter_cell active" data-name="' . convert($left) . '"><input type="checkbox" class="check" CHECKED><label>' . matrix_get_termname($left) . '</label>' . matrix_add_plus_minus('amount_' . convert($left)) . '</div>';
     foreach ($tops as $top) {
-      $table .= '<div class="cell ' . convert($top) . '" data-cell="' . convert($left) .'_' . convert($top) . '" data-shop="' . convert($top) . '">' . $left . '(' . $top . ')' . '</div>';
+      $pid = matrix_find_product($left, $top);
+      $product = node_load($pid);
+      if (!empty($product)) {
+        //$product = node_view($product, 'diszkont');
+        //$product = drupal_render($product);
+        $product = $product->title . '(' . $product->field_ajanlott_a_heten_[LANGUAGE_NONE][0]['value'] .')';
+      }
+      else {
+        $product = '-';
+      }
+      $table .= '<div class="cell ' . convert($top) . '" data-cell="' . convert($left) .'_' . convert($top) . '" data-shop="' . convert($top) . '" data-pid="' . $pid . '">' . $product . '</div>';
     }
 //    $table .= '<div class="deleteRow" data-name="' . convert($left) . '">X</div>';
     $table .= '</div>';
@@ -254,6 +331,90 @@ function matrix_compare_page() {
   return theme('matrix_compare_page', $vars) . theme('matrix_cart', array());
 }
 
-function matrix_add_selected($selected, $amount) {
+function matrix_cookie_to_items() {
+  $cookie = $_COOKIE['diszkont'];
+  $items = explode(',', $cookie);
+  $line_items = array();
+  foreach ($items as $item) {
+    $parts = explode('|', $item);
+    if (!empty($parts[1])) {
+      $product = node_load($parts[1]);
+      $shop = $product->field_aruhaz[LANGUAGE_NONE][0]['tid'];
+      $offer = (empty($product->field_ajanlott_a_heten_[LANGUAGE_NONE][0]['value'])) ? 0 : $product->field_ajanlott_a_heten_[LANGUAGE_NONE][0]['value'];
+      $amount = $parts[0];
+      $line_item = array(
+        'title' => $product->title,
+        'amount' => $amount,
+      );
+      $line_items[$shop][$offer][$product->nid]['title'] = $product->title;
+      $line_items[$shop][$offer][$product->nid]['amount'] += $amount;
+    }
+  }
 
+  return $line_items;
+}
+
+function matrix_cart_page() {
+  drupal_add_library('system', 'jquery.cookie');
+  drupal_add_js(drupal_get_path('module', 'matrix') . '/js/remodal/remodal.js');
+  drupal_add_js(drupal_get_path('module', 'matrix') . '/js/matrix_compare_page.js');
+  drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_compare_page.css');
+
+  $line_items = matrix_cookie_to_items();
+  $output = matrix_render_cart($line_items);
+  $output .= '<input type="button" id="save-order" value="print PDF">';
+  $output .= '<input type="button" id="email-order" value="email">';
+  return $output;
+}
+
+function matrix_render_cart($line_items, $format = '') {
+  $output = '';
+  (empty($format)) ? $template = 'matrix_cart' : $template = 'matrix_cart_print';
+  foreach ($line_items as $sid => $line_item) {
+    $shop = taxonomy_term_load($sid);
+    $output .= '<div class="shop-header"><h2>' . $shop->name . '</h2></div>';
+    foreach ($line_item[0] as $pid => $offered) {
+
+      $vars = array(
+        'amount' => $offered['amount'],
+        'product' => $offered['title'],
+        'pid' => $pid,
+      );
+      $output .= theme($template, $vars);
+    }
+    foreach ($line_item[1] as $pid => $offered) {
+
+      $vars = array(
+        'amount' => $offered['amount'],
+        'product' => $offered['title'],
+        'pid' => $pid,
+
+      );
+      $output .= theme($template, $vars);
+    }
+
+
+
+  }
+
+
+
+
+  return $output;
+}
+
+function matrix_save_order() {
+  global $user;
+  $line_items = matrix_cookie_to_items();
+  $output = matrix_render_cart($line_items, 'print');
+  $node = entity_create('node', array('type' => 'order'));
+  $entity = entity_metadata_wrapper('node',$node);
+
+  $entity->author = $user->uid;
+  $entity->title->set('Order');
+  $entity->body->set(array('value' => $output, 'format' => 'full_html'));
+
+  $entity->save();
+  $nid = $entity->nid->value();
+  print $nid;
 }

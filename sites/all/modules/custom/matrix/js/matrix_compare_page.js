@@ -4,7 +4,7 @@
     attach: function (context, settings) {
 
 
-
+      var modal = $('[data-remodal-id=modal]').remodal();
 
       function pushContent(s, shop) {
         s = s.substr(s, s.length-1);
@@ -69,39 +69,56 @@
 
       $('.matrix_cart_button').on("click", function() {
         var top = $(this).attr('data-name');
+        toSend = $.cookie('diszkont');
+        if (toSend !== null) {
+          $('#cart-popup').attr('data-name', top);
+          modal.open();
+        }
+        else {
+          toSend = '';
+          addToCart(top, toSend);
+        }
+      })
+
+      $('.remodal-confirm').on("click", function() {
+        toSend = $.cookie('diszkont');
+        var top = $(this).parent().attr('data-name');
+        addToCart(top, toSend);
+      })
+
+      $('.remodal-cancel').on("click", function() {
+        var toSend;
+        var top = $(this).parent().attr('data-name');
+        addToCart(top, toSend);
+      })
+
+      function addToCart(top, toSend) {
         content = '';
-        $('.starter_cell.active').each(function() {
+        $('.starter_cell.active').each(function () {
           left = $(this).attr('data-name');
           sel = ".cell[data-cell='" + left + '_' + top + "']";
           amount = $('#amount_' + left + '_val').val();
           content += $(sel).html() + '|' + amount + '&';
+          pid = $(sel).attr('data-pid');
+          toSend += amount + '|' + pid + ',';
         });
-        pushContent(content, $(this).attr('data-name'));
-      })
+        pushContent(content, top);
+        $.cookie('diszkont', toSend);
+      }
 
-      $('.cart-minus').on("click", function() {
-        v = $(this).parent().next().html();
-        if (v > 1) {
-          $(this).parent().next().html(parseInt(v) - 1);
-        }
-      })
 
-      $('.cart-plus').on("click", function() {
-        v = $(this).parent().prev().html();
-        $(this).parent().prev().html(parseInt(v) + 1);
-      })
 
-      $('.cart-delete').on("click", function() {
-        $(this).parent().parent().remove();
-      })
+
+
+
 
       $('.check').on("click", function() {
-        if ($(this).next().is(':visible')) {
-          $(this).next().hide();
+        if ($(this).siblings('.plus-minus').is(':visible')) {
+          $(this).siblings('.plus-minus').hide();
           $(this).parent().removeClass('active');
         }
         else {
-          $(this).next().show();
+          $(this).siblings('.plus-minus').show();
           $(this).parent().addClass('active');
         }
       })
@@ -115,6 +132,84 @@
         }
       })
 
+      function cartModify(method, id) {
+        cart = $.cookie('diszkont');
+        lineItems = cart.split(',');
+        reCart = '';
+        lineItems.forEach(function(i) {
+          parts = i.split('|');
+          amount = parts[0];
+          console.log(amount);
+          product = parts[1];
+          if (method == 'remove') {
+            if (product !== id) {
+              reCart += ',' + i;
+            }
+          }
+          if (method == 'plus') {
+            if (product !== id) {
+              reCart += ',' + i;
+            }
+            else {
+              newAmount = amount * 1 + 1;
+              console.log(newAmount);
+              reItem = newAmount + '|' + product;
+              reCart += ',' + reItem;
+            }
+          }
+          if (method == 'minus') {
+            if (product !== id) {
+              reCart += ',' + i;
+            }
+            else {
+              newAmount = amount * 1 - 1;
+              if (newAmount > 0) {
+                reItem = newAmount + '|' + product;
+                reCart += ',' + reItem;
+              }
+            }
+          }
+        })
+        $.cookie('diszkont', reCart);
+
+      }
+
+      $('.cart-delete').on("click", function() {
+        cartModify('remove', $(this).parent().parent().attr('data-product'));
+        $(this).parent().parent().hide();
+      })
+
+      $('.cart-plus').on("click", function() {
+        cartModify('plus', $(this).parent().parent().attr('data-product'));
+        v = $(this).parent().prev().html();
+        $(this).parent().prev().html(parseInt(v) + 1);
+      })
+
+      $('.cart-minus').on("click", function() {
+        cartModify('minus', $(this).parent().parent().attr('data-product'));
+        v = $(this).parent().next().html();
+        $(this).parent().next().html(parseInt(v)- 1);
+      })
+
+      $('#save-order').click(function() {
+        $.post('/save-order',
+          {
+            order: $.cookie('diszkont')
+          },
+          function(data) {
+            window.location.href = 'printpdf/' + data;
+          })
+      })
+
+      $('#email-order').click(function() {
+        $.post('/save-order',
+          {
+            order: $.cookie('diszkont')
+          },
+          function(data) {
+            window.location.href = 'printmail/' + data;
+          })
+      })
 
       /*$('select[name="addRow"]').change(function() {
         val = this.value;
@@ -146,6 +241,7 @@
           $('.newRow').removeClass('newRow');
         }
       })*/
+
     }
   }
 }(jQuery));
