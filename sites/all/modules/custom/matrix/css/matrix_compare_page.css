@@ -112,3 +112,16 @@ input[type=number]::-webkit-outer-spin-button {
 #main {
     width: 100% !important;
 }
+
+/*todo: change to drupal_mail */
+
+.form-item-fld-from-addr,
+.form-item-fld-from-name,
+.form-item-fld-subject,
+.form-type-item,
+.form-item-txt-message {
+  display: none;
+}
+
+
+

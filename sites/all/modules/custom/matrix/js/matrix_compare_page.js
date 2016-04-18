@@ -8,7 +8,6 @@
       $('.default-measure').attr('checked', 'checked');
       $('.matrix_val_weight').each(function() {
         cat = $(this).attr('data-category');
-        console.log(cat);
         var w = 0;
         $('.cell[data-category="' + cat + '"]').each(function() {
           if ($(this).attr('data-weight') !== "0") {
@@ -57,7 +56,6 @@
           }
           c = parseInt(Math.random() * 10000000);
         });
-        console.log(content);
         $('#summary').append(content);
         $('#header .cell').each(function() {
             $('#summary .cart-row.' + $(this).attr('data-name')).each(function() {
@@ -191,7 +189,6 @@
         lineItems.forEach(function(i) {
           parts = i.split('|');
           amount = parts[0];
-          console.log(amount);
           product = parts[1];
           if (method == 'remove') {
             if (product !== id) {
@@ -204,12 +201,11 @@
             }
             else {
               newAmount = amount * 1 + 1;
-              console.log(newAmount);
               reItem = newAmount + '|' + product;
               reCart += ',' + reItem;
             }
           }
-          if (method == 'minus') {
+          if (method == 'minus' && amount * 1 - 1 > 0) {
             if (product !== id) {
               reCart += ',' + i;
             }
@@ -241,7 +237,9 @@
         $('.cart-minus').on("click", function () {
           cartModify('minus', $(this).parent().parent().attr('data-product'));
           v = $(this).parent().next().html();
-          $(this).parent().next().html(parseInt(v) - 1);
+          if (parseInt(v) - 1 > 0) {
+            $(this).parent().next().html(parseInt(v) - 1);
+          }
         })
       }
 
@@ -254,7 +252,7 @@
           function(data) {
             window.location.href = 'printpdf/' + data;
           })
-      })
+      });
 
       $('#email-order').click(function() {
         $.post('/save-order',
@@ -264,6 +262,12 @@
           function(data) {
             window.location.href = 'printmail/' + data;
           })
+      });
+
+      $('.add-to-cart').click(function() {
+        pid = $(this).attr('data-pid');
+        alert(pid);
+        cartModify('plus', pid);
       })
 
       /*$('select[name="addRow"]').change(function() {

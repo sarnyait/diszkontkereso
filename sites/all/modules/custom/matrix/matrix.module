@@ -438,3 +438,13 @@ function matrix_save_order() {
   $nid = $entity->nid->value();
   print $nid;
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function matrix_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'print_mail_form') {
+    $form['txt_message']['#default_value'] = t('Sent from diszkontkereso.hu');
+    $form['txt_to']['addrs']['#title'] = t('Your e-mail');
+  }
+}
