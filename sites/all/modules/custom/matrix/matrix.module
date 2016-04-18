@@ -83,13 +83,15 @@ function matrix_add_tr(&$row) {
    $row = $row . '<div style="clear: both;"></div>';
 }
 
-function matrix_add_plus_minus($class = 'input') {
+function matrix_add_plus_minus($class = 'input', $left) {
   $output = '';
   $output .= '';
   $output .= '<div class="plus-minus">';
   $output .= '<input type="button" value="-" class="matrix_val_change" data-source="' . $class . '_val">';
   $output .= '<input type="number" pattern="[0-9]*" id="' . $class . '_val" class="matrix_val">';
   $output .= '<input type="button" value="+" class="matrix_val_change" data-source="' . $class . '_val">';
+  $output .= '<div class="measure-selector"><input class="default-measure" type="radio" value="pc" name="measure_' . $left . '">' . t('pieces') . '</div>';
+  $output .= '<div class="measure-selector"><input type="radio" value="kg" name="measure_' . $left . '">' . t('weight') . '</div>';
   $output .= '</div>';
   return $output;
 }
@@ -284,7 +286,7 @@ function matrix_compare_page() {
   $table = '<div id="tableBody">';
   foreach ($lefts as $left) {
     $table .= '<div class="table-row">';
-    $table .= '<div class="cell starter_cell active" data-name="' . convert($left) . '"><input type="checkbox" class="check" CHECKED><label>' . matrix_get_termname($left) . '</label>' . matrix_add_plus_minus('amount_' . convert($left)) . '</div>';
+    $table .= '<div class="cell starter_cell active" data-name="' . convert($left) . '"><input type="checkbox" class="check" CHECKED><label>' . matrix_get_termname($left) . '</label>' . matrix_add_plus_minus('amount_' . convert($left), $left) . '</div>';
     foreach ($tops as $top) {
       $pid = matrix_find_product($left, $top);
       $product = node_load($pid);

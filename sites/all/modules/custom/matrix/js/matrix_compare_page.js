@@ -5,6 +5,7 @@
 
 
       var modal = $('[data-remodal-id=modal]').remodal();
+      $('.default-measure').attr('checked', 'checked');
 
       function pushContent(s, shop) {
         s = s.substr(s, s.length-1);
