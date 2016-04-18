@@ -89,9 +89,10 @@ function matrix_add_plus_minus($class = 'input', $left) {
   $output .= '<div class="plus-minus">';
   $output .= '<input type="button" value="-" class="matrix_val_change" data-source="' . $class . '_val">';
   $output .= '<input type="number" pattern="[0-9]*" id="' . $class . '_val" class="matrix_val">';
+  $output .= '<input type="number" id="' . $class . '_val" class="matrix_val_weight invisible" data-category="' . $left . '" value="' . $weight . '">';
   $output .= '<input type="button" value="+" class="matrix_val_change" data-source="' . $class . '_val">';
-  $output .= '<div class="measure-selector"><input class="default-measure" type="radio" value="pc" name="measure_' . $left . '">' . t('pieces') . '</div>';
-  $output .= '<div class="measure-selector"><input type="radio" value="kg" name="measure_' . $left . '">' . t('weight') . '</div>';
+  $output .= '<div class="measure-selector measure-pc"><input class="default-measure" type="radio" value="pc" name="measure_' . $left . '">' . t('pieces') . '</div>';
+  $output .= '<div class="measure-selector measure-weight"><input type="radio" value="kg" name="measure_' . $left . '">' . t('weight') . '</div>';
   $output .= '</div>';
   return $output;
 }
@@ -285,23 +286,31 @@ function matrix_compare_page() {
 
   $sumPrice = array();
   $table = '<div id="tableBody">';
+  $weight = 0;
   foreach ($lefts as $left) {
     $table .= '<div class="table-row">';
     $table .= '<div class="cell starter_cell active" data-name="' . convert($left) . '"><input type="checkbox" class="check" CHECKED>' . matrix_add_plus_minus('amount_' . convert($left), $left) . '<label>' . matrix_get_termname($left) . '</label></div>';
     foreach ($tops as $top) {
       $pid = matrix_find_product($left, $top);
       $product = node_load($pid);
+      $weight = 0;
+
       if (!empty($product)) {
         //$product = node_view($product, 'diszkont');
         //$product = drupal_render($product);
         $product_title = $product->title . '(' . $product->field_ajanlott_a_heten_[LANGUAGE_NONE][0]['value'] .')';
+        if (count($product->field_suly) > 0) {
+          $wtid = $product->field_suly[LANGUAGE_NONE][0]['tid'];
+          $weight = explode(' ', taxonomy_term_load($wtid)->name);
+          $weight = $weight[0];
+        }
         $sumPrice[$top] += $product->field_ar[LANGUAGE_NONE][0]['value'];
       }
       else {
         $product_title = '-';
         $sumPrice[$top] += 0;
       }
-      $table .= '<div class="cell ' . convert($top) . '" data-cell="' . convert($left) .'_' . convert($top) . '" data-shop="' . convert($top) . '" data-pid="' . $pid . '">' . $product_title . '</div>';
+      $table .= '<div class="cell ' . convert($top) . '" data-cell="' . convert($left) .'_' . convert($top) . '" data-category="' . convert($left) . '" data-shop="' . convert($top) . '" data-pid="' . $pid . '" data-weight="' . $weight . '">' . $product_title . '</div>';
     }
 //    $table .= '<div class="deleteRow" data-name="' . convert($left) . '">X</div>';
     $table .= '</div>';

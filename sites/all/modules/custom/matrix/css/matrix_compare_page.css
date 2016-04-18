@@ -16,8 +16,9 @@
     width: auto;
 }
 
-.matrix_val {
-    width: 20px;
+.matrix_val,
+.matrix_val_weight {
+    width: 30px;
 }
 
 .aldi,

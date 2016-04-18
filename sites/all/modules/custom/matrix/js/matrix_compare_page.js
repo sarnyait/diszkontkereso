@@ -6,6 +6,35 @@
 
       var modal = $('[data-remodal-id=modal]').remodal();
       $('.default-measure').attr('checked', 'checked');
+      $('.matrix_val_weight').each(function() {
+        cat = $(this).attr('data-category');
+        console.log(cat);
+        var w = 0;
+        $('.cell[data-category="' + cat + '"]').each(function() {
+          if ($(this).attr('data-weight') !== "0") {
+            w = $(this).attr('data-weight') * 1;
+
+          }
+        })
+        if (w == 0) {
+          $(this).siblings('.measure-selector').hide();
+        }
+        else {
+          $(this).val(w);
+        }
+        $(this).attr('data-weight', w);
+      });
+
+      $('.measure-weight').click(function() {
+        $(this).siblings('.matrix_val_weight').show();
+        $(this).siblings('.matrix_val').hide();
+      });
+
+      $('.measure-pc').click(function() {
+        $(this).siblings('.matrix_val_weight').hide();
+        $(this).siblings('.matrix_val').show();
+      });
+
 
       function pushContent(s, shop) {
         s = s.substr(s, s.length-1);
@@ -58,13 +87,19 @@
 
       $('.matrix_val_change').on("click", function() {
         source = '#' + $(this).attr('data-source');
+        w = $(source).next().attr('data-weight');
         if ($(this).attr('value') == '-') {
           if ($(source).val() > 1) {
-            $(source).val($(source).val() * 1 - 1);
+            v = $(source).val() * 1 - 1;
+            $(source).val(v);
+            $(source).next().val(v * w);
           }
         }
         else {
-          $(source).val($(source).val() * 1 + 1);
+          v = $(source).val() * 1 + 1;
+          $(source).val(v);
+          $(source).next().val(v * w);
+
         }
       })
 
