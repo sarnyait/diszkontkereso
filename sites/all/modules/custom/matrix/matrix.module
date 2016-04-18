@@ -1,6 +1,4 @@
 <?php
-module_load_include('inc', 'friends', 'includes/friends.block');
-module_load_include('inc', 'friends', 'includes/friends_sandbox.page');
 
 /**
  * Implementation of hook_menu().
@@ -443,6 +441,8 @@ function matrix_save_order() {
  * Implements hook_form_alter().
  */
 function matrix_form_alter(&$form, &$form_state, $form_id) {
+  drupal_add_js(drupal_get_path('module', 'matrix') . '/js/add_list_item.js');
+
   if ($form_id == 'print_mail_form') {
     $form['txt_message']['#default_value'] = t('Sent from diszkontkereso.hu');
     $form['txt_to']['addrs']['#title'] = t('Your e-mail');

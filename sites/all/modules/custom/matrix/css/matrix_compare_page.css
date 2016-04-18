@@ -113,6 +113,10 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100% !important;
 }
 
+.add-to-cart {
+    cursor: pointer;
+}
+
 /*todo: change to drupal_mail */
 
 .form-item-fld-from-addr,

@@ -268,7 +268,7 @@
         pid = $(this).attr('data-pid');
         alert(pid);
         cartModify('plus', pid);
-      })
+      });
 
       /*$('select[name="addRow"]').change(function() {
         val = this.value;
