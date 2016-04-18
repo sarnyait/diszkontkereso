@@ -253,7 +253,7 @@ function matrix_find_product($category, $shop) {
 
 function matrix_get_termname($tid) {
   $term = taxonomy_term_load($tid);
-  return $term->name . '(' . $tid . ')';
+  return $term->name;
 }
 
 function matrix_compare_page() {
@@ -283,22 +283,25 @@ function matrix_compare_page() {
   $header .= '</div>';
   matrix_add_tr($header);
 
+  $sumPrice = array();
   $table = '<div id="tableBody">';
   foreach ($lefts as $left) {
     $table .= '<div class="table-row">';
-    $table .= '<div class="cell starter_cell active" data-name="' . convert($left) . '"><input type="checkbox" class="check" CHECKED><label>' . matrix_get_termname($left) . '</label>' . matrix_add_plus_minus('amount_' . convert($left), $left) . '</div>';
+    $table .= '<div class="cell starter_cell active" data-name="' . convert($left) . '"><input type="checkbox" class="check" CHECKED>' . matrix_add_plus_minus('amount_' . convert($left), $left) . '<label>' . matrix_get_termname($left) . '</label></div>';
     foreach ($tops as $top) {
       $pid = matrix_find_product($left, $top);
       $product = node_load($pid);
       if (!empty($product)) {
         //$product = node_view($product, 'diszkont');
         //$product = drupal_render($product);
-        $product = $product->title . '(' . $product->field_ajanlott_a_heten_[LANGUAGE_NONE][0]['value'] .')';
+        $product_title = $product->title . '(' . $product->field_ajanlott_a_heten_[LANGUAGE_NONE][0]['value'] .')';
+        $sumPrice[$top] += $product->field_ar[LANGUAGE_NONE][0]['value'];
       }
       else {
-        $product = '-';
+        $product_title = '-';
+        $sumPrice[$top] += 0;
       }
-      $table .= '<div class="cell ' . convert($top) . '" data-cell="' . convert($left) .'_' . convert($top) . '" data-shop="' . convert($top) . '" data-pid="' . $pid . '">' . $product . '</div>';
+      $table .= '<div class="cell ' . convert($top) . '" data-cell="' . convert($left) .'_' . convert($top) . '" data-shop="' . convert($top) . '" data-pid="' . $pid . '">' . $product_title . '</div>';
     }
 //    $table .= '<div class="deleteRow" data-name="' . convert($left) . '">X</div>';
     $table .= '</div>';
@@ -318,6 +321,12 @@ function matrix_compare_page() {
   $table .= '</select>';
 
   matrix_add_tr($table);*/
+
+  $table .= '<div class="cell" id="corner">' . t('Summary') . '</div>';
+  foreach ($tops as $top) {
+    $table .= '<div class="cell ' . convert($top) . '" data-shop="' . convert($top) . '">' . $sumPrice[$top] . ' Ft</div>';
+  }
+  matrix_add_tr($table);
 
   $table .= '<div class="cell" id="corner">&nbsp</div>';
   foreach ($tops as $top) {

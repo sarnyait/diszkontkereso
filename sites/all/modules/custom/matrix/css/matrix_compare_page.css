@@ -4,8 +4,12 @@
 
 .cell {
     float: left;
-    width: 120px;
+    width: 100px;
     text-align: center;
+}
+
+.check {
+    float: left;
 }
 
 .no-width {
@@ -85,4 +89,25 @@ input[type=number]::-webkit-outer-spin-button {
 .cart-row {
     border: 1px solid #ccc;
     padding: 10px;
+}
+
+.starter_cell {
+    width: 200px;
+}
+
+.starter_cell .plus-minus {
+    float: left;
+}
+
+.starter_cell label {
+    width: 100px;
+    float:left;
+}
+
+#corner {
+    width: 200px;
+}
+
+#main {
+    width: 100% !important;
 }

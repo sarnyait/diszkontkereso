@@ -80,23 +80,25 @@
           addToCart(top, toSend);
           window.location.href = 'matrix_cart';
         }
-      })
+      });
+
+      $('.remodal-none').on("click", function() {
+        window.location.href = 'matrix_cart';
+      });
 
       $('.remodal-confirm').on("click", function() {
         toSend = $.cookie('diszkont');
         var top = $(this).parent().attr('data-name');
         addToCart(top, toSend);
         window.location.href = 'matrix_cart';
-
-      })
+      });
 
       $('.remodal-cancel').on("click", function() {
         var toSend;
         var top = $(this).parent().attr('data-name');
         addToCart(top, toSend);
         window.location.href = 'matrix_cart';
-
-      })
+      });
 
       function addToCart(top, toSend) {
         content = '';
@@ -119,12 +121,12 @@
 
 
       $('.check').on("click", function() {
-        if ($(this).siblings('.plus-minus').is(':visible')) {
-          $(this).siblings('.plus-minus').hide();
+        if ($(this).siblings('.plus-minus').css('visibility') == 'visible') {
+          $(this).siblings('.plus-minus').css('visibility','hidden');
           $(this).parent().removeClass('active');
         }
         else {
-          $(this).siblings('.plus-minus').show();
+          $(this).siblings('.plus-minus').css('visibility','visible');
           $(this).parent().addClass('active');
         }
       })
