@@ -13,7 +13,7 @@ Drupal.behaviors.MefibsBEFForm = {
         if (!$(this).find('select').length) {
           return;
         }
-        var selected = $(this).find('select').val().toLowerCase().replace(/_/g, '-').replace(/ /g, '-');
+        var selected = $(this).find('select').val();
         if (typeof selected == 'undefined') {
           return;
         }
