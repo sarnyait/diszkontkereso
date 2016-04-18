@@ -78,6 +78,7 @@
         else {
           toSend = '';
           addToCart(top, toSend);
+          window.location.href = 'matrix_cart';
         }
       })
 
@@ -85,12 +86,16 @@
         toSend = $.cookie('diszkont');
         var top = $(this).parent().attr('data-name');
         addToCart(top, toSend);
+        window.location.href = 'matrix_cart';
+
       })
 
       $('.remodal-cancel').on("click", function() {
         var toSend;
         var top = $(this).parent().attr('data-name');
         addToCart(top, toSend);
+        window.location.href = 'matrix_cart';
+
       })
 
       function addToCart(top, toSend) {

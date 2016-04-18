@@ -330,7 +330,7 @@ function matrix_compare_page() {
   );
 
 
-  return theme('matrix_compare_page', $vars) . theme('matrix_cart', array());
+  return theme('matrix_compare_page', $vars);
 }
 
 function matrix_cookie_to_items() {
