@@ -23,7 +23,7 @@
           $(this).val(w);
         }
         $(this).attr('data-weight', w);
-      });
+      }).hide();
 
       $('.measure-weight').click(function() {
         $(this).siblings('.matrix_val_weight').show();
@@ -85,55 +85,61 @@
       $('.matrix_val').val('1');
 
 
-      $('.matrix_val_change').on("click", function() {
-        source = '#' + $(this).attr('data-source');
-        w = $(source).next().attr('data-weight');
-        if ($(this).attr('value') == '-') {
-          if ($(source).val() > 1) {
-            v = $(source).val() * 1 - 1;
+      if ($('.matrix_val_change').length) {
+        $('.matrix_val_change').on("click", function () {
+          source = '#' + $(this).attr('data-source');
+          w = $(source).next().attr('data-weight');
+          if ($(this).attr('value') == '-') {
+            if ($(source).val() > 1) {
+              v = $(source).val() * 1 - 1;
+              $(source).val(v);
+              $(source).next().val(v * w);
+            }
+          }
+          else {
+            v = $(source).val() * 1 + 1;
             $(source).val(v);
             $(source).next().val(v * w);
+
           }
-        }
-        else {
-          v = $(source).val() * 1 + 1;
-          $(source).val(v);
-          $(source).next().val(v * w);
+        })
+      }
 
-        }
-      })
+      if ($('.matrix_cart_button').length) {
+        $('.matrix_cart_button').on("click", function () {
+          var top = $(this).attr('data-name');
+          toSend = $.cookie('diszkont');
+          if (toSend !== null) {
+            $('#cart-popup').attr('data-name', top);
+            modal.open();
+          }
+          else {
+            toSend = '';
+            addToCart(top, toSend);
+            window.location.href = 'matrix_cart';
+          }
+        });
+      }
 
-      $('.matrix_cart_button').on("click", function() {
-        var top = $(this).attr('data-name');
-        toSend = $.cookie('diszkont');
-        if (toSend !== null) {
-          $('#cart-popup').attr('data-name', top);
-          modal.open();
-        }
-        else {
-          toSend = '';
+      if ($('.remodal-none').length) {
+        $('.remodal-none').on("click", function () {
+          window.location.href = 'matrix_cart';
+        });
+
+        $('.remodal-confirm').on("click", function () {
+          toSend = $.cookie('diszkont');
+          var top = $(this).parent().attr('data-name');
           addToCart(top, toSend);
           window.location.href = 'matrix_cart';
-        }
-      });
+        });
 
-      $('.remodal-none').on("click", function() {
-        window.location.href = 'matrix_cart';
-      });
-
-      $('.remodal-confirm').on("click", function() {
-        toSend = $.cookie('diszkont');
-        var top = $(this).parent().attr('data-name');
-        addToCart(top, toSend);
-        window.location.href = 'matrix_cart';
-      });
-
-      $('.remodal-cancel').on("click", function() {
-        var toSend;
-        var top = $(this).parent().attr('data-name');
-        addToCart(top, toSend);
-        window.location.href = 'matrix_cart';
-      });
+        $('.remodal-cancel').on("click", function () {
+          var toSend;
+          var top = $(this).parent().attr('data-name');
+          addToCart(top, toSend);
+          window.location.href = 'matrix_cart';
+        });
+      }
 
       function addToCart(top, toSend) {
         content = '';
@@ -154,26 +160,29 @@
 
 
 
+      if ($('.check').length) {
+        $('.check').on("click", function () {
+          if ($(this).siblings('.plus-minus').css('visibility') == 'visible') {
+            $(this).siblings('.plus-minus').css('visibility', 'hidden');
+            $(this).parent().removeClass('active');
+          }
+          else {
+            $(this).siblings('.plus-minus').css('visibility', 'visible');
+            $(this).parent().addClass('active');
+          }
+        })
+      }
 
-      $('.check').on("click", function() {
-        if ($(this).siblings('.plus-minus').css('visibility') == 'visible') {
-          $(this).siblings('.plus-minus').css('visibility','hidden');
-          $(this).parent().removeClass('active');
-        }
-        else {
-          $(this).siblings('.plus-minus').css('visibility','visible');
-          $(this).parent().addClass('active');
-        }
-      })
-
-      $('.deleteRow').on("click", function() {
-        if ($('.table-row').length > 1) {
-          name = $(this).attr('data-name');
-          humanName = $('.starter_cell[data-name="' + name + '"] label').html();
-          $(this).parent().remove();
-          $('select[name="addRow"]').append('<option value="' + name + '">' + humanName  + '</option>');
-        }
-      })
+      if ($('.deleteRow').length) {
+        $('.deleteRow').on("click", function () {
+          if ($('.table-row').length > 1) {
+            name = $(this).attr('data-name');
+            humanName = $('.starter_cell[data-name="' + name + '"] label').html();
+            $(this).parent().remove();
+            $('select[name="addRow"]').append('<option value="' + name + '">' + humanName + '</option>');
+          }
+        })
+      }
 
       function cartModify(method, id) {
         cart = $.cookie('diszkont');
@@ -217,24 +226,27 @@
 
       }
 
-      $('.cart-delete').on("click", function() {
-        cartModify('remove', $(this).parent().parent().attr('data-product'));
-        $(this).parent().parent().hide();
-      })
+      if ($('.cart-delete').length) {
+        $('.cart-delete').on("click", function () {
+          cartModify('remove', $(this).parent().parent().attr('data-product'));
+          $(this).parent().parent().hide();
+        })
 
-      $('.cart-plus').on("click", function() {
-        cartModify('plus', $(this).parent().parent().attr('data-product'));
-        v = $(this).parent().prev().html();
-        $(this).parent().prev().html(parseInt(v) + 1);
-      })
+        $('.cart-plus').on("click", function () {
+          cartModify('plus', $(this).parent().parent().attr('data-product'));
+          v = $(this).parent().prev().html();
+          $(this).parent().prev().html(parseInt(v) + 1);
+        })
 
-      $('.cart-minus').on("click", function() {
-        cartModify('minus', $(this).parent().parent().attr('data-product'));
-        v = $(this).parent().next().html();
-        $(this).parent().next().html(parseInt(v)- 1);
-      })
+        $('.cart-minus').on("click", function () {
+          cartModify('minus', $(this).parent().parent().attr('data-product'));
+          v = $(this).parent().next().html();
+          $(this).parent().next().html(parseInt(v) - 1);
+        })
+      }
 
       $('#save-order').click(function() {
+        alert('hey!');
         $.post('/save-order',
           {
             order: $.cookie('diszkont')

@@ -89,7 +89,7 @@ function matrix_add_plus_minus($class = 'input', $left) {
   $output .= '<div class="plus-minus">';
   $output .= '<input type="button" value="-" class="matrix_val_change" data-source="' . $class . '_val">';
   $output .= '<input type="number" pattern="[0-9]*" id="' . $class . '_val" class="matrix_val">';
-  $output .= '<input type="number" id="' . $class . '_val" class="matrix_val_weight invisible" data-category="' . $left . '" value="' . $weight . '">';
+  $output .= '<input type="number" id="' . $class . '_val" class="matrix_val_weight" data-category="' . $left . '" value="' . $weight . '">';
   $output .= '<input type="button" value="+" class="matrix_val_change" data-source="' . $class . '_val">';
   $output .= '<div class="measure-selector measure-pc"><input class="default-measure" type="radio" value="pc" name="measure_' . $left . '">' . t('pieces') . '</div>';
   $output .= '<div class="measure-selector measure-weight"><input type="radio" value="kg" name="measure_' . $left . '">' . t('weight') . '</div>';
