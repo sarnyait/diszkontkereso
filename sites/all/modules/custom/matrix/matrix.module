@@ -38,7 +38,7 @@ function matrix_block_view($delta = '') {
 
   switch ($delta) {
     case 'matrix':
-      $block['subject'] = t('Compare products');
+      $block['subject'] = t('Shopping list');
       $block['content'] = matrix_cart_page();
       break;
   }
