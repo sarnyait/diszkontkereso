@@ -1,0 +1,11 @@
+name = matrix
+core = 7.x
+package = Features
+dependencies[] = diszkont
+dependencies[] = features
+dependencies[] = matrix
+dependencies[] = node
+dependencies[] = text
+features[features_api][] = api:2
+features[field_instance][] = node-order-body
+features[node][] = order

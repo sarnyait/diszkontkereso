@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the matrix feature.
+ */
+
+include_once 'matrix_feature.features.inc';
