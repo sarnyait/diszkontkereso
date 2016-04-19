@@ -104,7 +104,7 @@ function matrix_add_plus_minus($class = 'input', $left) {
 
 function matrix_add_bottom_button($class = 'input') {
   $output = '';
-  $output .= '<input type="button" value="this" class="' . $class . '_cart matrix_cart_button" data-name="' . $class . '">';
+  $output .= '<input type="button" value="' . t('Add to my list') . '" class="' . $class . '_cart matrix_cart_button" data-name="' . $class . '">';
   return $output;
 }
 
@@ -231,13 +231,13 @@ function matrix_find_product($category, $shop) {
   $query = db_select('node', 'n');
   $query->leftJoin('field_data_field_aruhaz', 'a', 'n.nid = a.entity_id');
   $query->leftJoin('field_data_field_kategoria', 'k', 'n.nid = k.entity_id');
-  //$query->leftJoin('field_data_field_ajanlott_a_heten_', 'aj', 'n.nid = aj.entity_id');
+  $query->leftJoin('field_data_field_ajanlott_a_heten_', 'aj', 'n.nid = aj.entity_id');
   $query->fields('n', array('type', 'title', 'nid'))
     ->fields('a', array('field_aruhaz_tid', 'entity_id'))
-   // ->fields('aj', array('field_ajanlott_a_heten__value', 'entity_id'))
+    ->fields('aj', array('field_ajanlott_a_heten__value', 'entity_id'))
     ->condition('n.type', 'products_display')
     ->condition('a.field_aruhaz_tid', $shop)
-    //->condition('aj.field_ajanlott_a_heten__value', 1)
+    ->condition('aj.field_ajanlott_a_heten__value', 1)
     ->condition('k.field_kategoria_tid', $category);
   $result = $query->execute();
   foreach ($result as $row) {
@@ -279,6 +279,24 @@ function matrix_compare_page() {
   $tops = matrix_tax2flat_array($terms2);
   //$tops = array('Spar', 'Tesco', 'Lidl', 'CBA');
 
+  $sumPrice = array();
+  foreach ($lefts as $left) {
+    foreach ($tops as $top) {
+      $pid = matrix_find_product($left, $top);
+      $product = node_load($pid);
+      $sumPrice[$top] += $product->field_ar[LANGUAGE_NONE][0]['value'];
+    }
+  }
+  asort($sumPrice);
+  foreach ($sumPrice as $key => $value) {
+    $toplist[] = $key;
+  }
+  $terms2 = taxonomy_term_load_multiple($toplist);
+  $tops = matrix_tax2flat_array($terms2);
+
+
+
+
 
   $header = '<div class="cell" id="corner">&nbsp</div>';
   $header .= '<div id="header">';
@@ -293,10 +311,15 @@ function matrix_compare_page() {
   $sumPrice = array();
   $table = '<div id="tableBody">';
   $weight = 0;
+
+
+  $sumPrice = array();
   foreach ($lefts as $left) {
     $table .= '<div class="table-row">';
     $table .= '<div class="cell starter_cell active" data-name="' . convert($left) . '"><input type="checkbox" class="check" CHECKED>' . matrix_add_plus_minus('amount_' . convert($left), $left) . '<label>' . matrix_get_termname($left) . '</label></div>';
+    $i = 0;
     foreach ($tops as $top) {
+      $i++;
       $pid = matrix_find_product($left, $top);
       $product = node_load($pid);
       $weight = 0;
@@ -304,7 +327,7 @@ function matrix_compare_page() {
       if (!empty($product)) {
         //$product = node_view($product, 'diszkont');
         //$product = drupal_render($product);
-        $product_title = $product->title . '(' . $product->field_ajanlott_a_heten_[LANGUAGE_NONE][0]['value'] .')';
+        $product_title = $product->title;
         if (count($product->field_suly) > 0) {
           $wtid = $product->field_suly[LANGUAGE_NONE][0]['tid'];
           $weight = explode(' ', taxonomy_term_load($wtid)->name);
@@ -316,7 +339,8 @@ function matrix_compare_page() {
         $product_title = '-';
         $sumPrice[$top] += 0;
       }
-      $table .= '<div class="cell ' . convert($top) . '" data-cell="' . convert($left) .'_' . convert($top) . '" data-category="' . convert($left) . '" data-shop="' . convert($top) . '" data-pid="' . $pid . '" data-weight="' . $weight . '">' . $product_title . '</div>';
+      $best = ($i == 1) ? 'best' : '';
+      $table .= '<div class="cell ' . $best. ' ' . convert($top) . '" data-cell="' . convert($left) .'_' . convert($top) . '" data-category="' . convert($left) . '" data-shop="' . convert($top) . '" data-pid="' . $pid . '" data-weight="' . $weight . '">' . $product_title . '</div>';
     }
 //    $table .= '<div class="deleteRow" data-name="' . convert($left) . '">X</div>';
     $table .= '</div>';
