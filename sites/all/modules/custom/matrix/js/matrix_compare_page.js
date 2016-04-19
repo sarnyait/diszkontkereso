@@ -151,6 +151,7 @@
         });
         pushContent(content, top);
         $.cookie('diszkont', toSend);
+        console.log($.cookie('diszkont'));
       }
 
 

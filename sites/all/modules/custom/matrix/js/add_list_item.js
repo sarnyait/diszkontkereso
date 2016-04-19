@@ -11,8 +11,9 @@
           $.cookie('diszkont', '1|' + pid);
         }
         else {
-          $.cookie('diszkont', cart + ',1|' + pid);
+          $.cookie('diszkont', cart + '1|' + pid + ',');
         }
+        console.log($.cookie('diszkont'));
       }).css('cursor', 'pointer');
     }
   }
