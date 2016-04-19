@@ -13,31 +13,33 @@
 
 
 (function($){
+
+
 	Drupal.behaviors.viewsInfiniteScroll = {
 			attach: function (context, settings) {
 			  $(function(){
 				if (this.processed) return;
 				this.processed=true;
-				if ($('.view-content').length==0) return;
-				var $container = $('.view-content');
+				if ($('.view-osszes-akcio div.view-content').length==0) return;
+				var $container = $('.view-osszes-akcio div.view-content');
 
 				// setup masonry
 			  	$container.imagesLoaded(function($){
 					$container.masonry({
 				  		itemSelector: 'div.masonry-item',
-				  		columnWidth: $(document).width() > 800 ? 220 : 100,
-				  		gutterWidth: $(document).width() > 800 ? 20 : 0,
+				  		columnWidth: $(document).width() > 800 ? 180 : 10,
+				  		gutterWidth: $(document).width() > 800 ? 200 : 0,
 					});
 			  		}(jQuery));
 
 				$container.imagesLoaded( function(){
 				  $container.infinitescroll({
-					navSelector  : 'ul.pager',    // selector for the paged navigation
-					nextSelector : '.pager-next a',  // selector for the NEXT link (to page 2)
+					navSelector  : 'ul.pagination',    // selector for the paged navigation
+					nextSelector : 'ul.pagination li.next a',  // selector for the NEXT link (to page 2)
 					itemSelector : 'div.masonry-item',     // selector for all items you'll retrieve
 					animate      : false,
 					msgText  : Drupal.t("Következő termékek"),
-					img: '/sites/all/themes/fusion_prosper/images/loading.gif',
+					img: '/sites/all/themes/diszkont/images/loading.gif',
 					donetext:Drupal.t('Vége'),
 
 					state: {

@@ -151,7 +151,6 @@
         });
         pushContent(content, top);
         $.cookie('diszkont', toSend);
-        console.log($.cookie('diszkont'));
       }
 
 
@@ -265,11 +264,7 @@
           })
       });
 
-      $('.add-to-cart').click(function() {
-        pid = $(this).attr('data-pid');
-        alert(pid);
-        cartModify('plus', pid);
-      });
+
 
       /*$('select[name="addRow"]').change(function() {
         val = this.value;

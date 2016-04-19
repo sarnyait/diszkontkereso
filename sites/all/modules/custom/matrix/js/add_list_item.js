@@ -1,6 +1,6 @@
 (function ($) {
 
-  Drupal.behaviors.matrixBase = {
+  Drupal.behaviors.matrixBasex = {
     attach: function (context, settings) {
 
 
@@ -8,12 +8,21 @@
         pid = $(this).attr('data-pid');
         cart = $.cookie('diszkont');
         if (cart == null) {
-          $.cookie('diszkont', '1|' + pid);
+          $.cookie('diszkont', '1|' + pid + ',');
         }
         else {
           $.cookie('diszkont', cart + '1|' + pid + ',');
         }
-        console.log($.cookie('diszkont'));
+
+        $.post('/matrix_cart_ajax',
+          {
+            order: $.cookie('diszkont')
+          },
+          function(data) {
+            $('.pane-matrix-matrix').html(data);
+          })
+
+
       }).css('cursor', 'pointer');
     }
   }

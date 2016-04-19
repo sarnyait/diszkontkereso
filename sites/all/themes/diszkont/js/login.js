@@ -1,7 +1,7 @@
 var $ = jQuery.noConflict();
      (function($){
-            
-  
+           
+	 
      /* $("a#opener").click(function(event){
          event.preventDefault();
          $(".views-exposed-form").toggle(1000);

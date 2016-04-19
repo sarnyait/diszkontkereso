@@ -3,11 +3,11 @@ var $ = jQuery.noConflict();
 
 function sticky_relocate() {
 	var window_top = $(window).scrollTop();
-	var div_top = $('form#views-exposed-form-szures-frontpage').offset().top;
+	var div_top = $('.container-fluid').offset().top;
 	if (window_top > div_top) {
-		$('div.views-exposed-form').addClass('stick');
+		$('.panel-col-first').addClass('stick');
 	} else {
-		$('div.views-exposed-form').removeClass('stick');
+		$('.panel-col-first').removeClass('stick');
 	}
 }
 

@@ -4,7 +4,7 @@ var $ = jQuery.noConflict();
               $('body#pid-koszonjuk input#mc-embedded-subscribe.button').click(function(){
                         window.parent.location.href = 'http://diszkontkereso.hu';
               });
-    }); */
+    }); 
 	$(document).bind('cbox_complete', function() {
 	     $("#cboxClose").unbind();  
          $('#cboxClose').click(function(){
@@ -19,6 +19,6 @@ var $ = jQuery.noConflict();
      $(document).bind('cbox_open', function() {
                $('html').css({ overflow: 'hidden' });
           }).bind('cbox_closed', function() {
-               $('html').css({ overflow: '' });
+               $('html').css({ overflow: '' }); */
           });
 })(jQuery);

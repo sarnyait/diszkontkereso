@@ -8,15 +8,22 @@
 function matrix_menu() {
   $items = array();
   $items['matrix'] = array(
-    'title' => 'Compare tool',
+    'title' => '',
     'page callback' => 'matrix_compare_page',
     'access arguments' => array('access content'),
   );
   $items['matrix_cart'] = array(
-    'title' => 'Matrix cart',
+    'title' => '',
     'page callback' => 'matrix_cart_page',
     'access arguments' => array('access content'),
   );
+
+  $items['matrix_cart_ajax'] = array(
+    'title' => '',
+    'page callback' => 'matrix_cart_page_ajax',
+    'access arguments' => array('access content'),
+  );
+
   $items['save-order'] = array(
     'page callback' => 'matrix_save_order',
     'access arguments' => array('access content'),
@@ -268,6 +275,7 @@ function matrix_compare_page() {
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('aruhaz');
   $terms2 = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
+  $terms2 = taxonomy_term_load_multiple(array(519, 520, 2052, 2049, 524, 2050));
   $tops = matrix_tax2flat_array($terms2);
   //$tops = array('Spar', 'Tesco', 'Lidl', 'CBA');
 
@@ -383,6 +391,10 @@ function matrix_cart_page() {
   $output .= '<input type="button" id="save-order" value="print PDF">';
   $output .= '<input type="button" id="email-order" value="email">';
   return $output;
+}
+
+function matrix_cart_page_ajax() {
+  print matrix_cart_page();
 }
 
 function matrix_render_cart($line_items, $format = '') {
