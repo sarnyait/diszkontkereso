@@ -19,7 +19,7 @@
             order: $.cookie('diszkont')
           },
           function(data) {
-            $('.pane-matrix-matrix').html(data);
+            $('.pane-matrix-matrix').html(data).effect('shake', 'up');
           })
 
 
