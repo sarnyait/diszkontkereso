@@ -45,7 +45,7 @@ function matrix_block_view($delta = '') {
   switch ($delta) {
     case 'matrix':
       $block['subject'] = t('Shopping list');
-      $block['content'] = matrix_cart_page();
+      $block['content'] = matrix_cart_page() . '<input type="button" value="Ugrás a listaoldalra" onClick="self.location=\'/matrix_cart\';">';
       break;
   }
   return $block;
