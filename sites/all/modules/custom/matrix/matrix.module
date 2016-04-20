@@ -484,6 +484,8 @@ function matrix_render_cart($line_items, $format = '') {
       );
       $output .= theme($template, $vars);
     }
+    $sumOfPrice = 0;
+    $sumOfWeight = 0;
     foreach ($line_item[1] as $pid => $offered) {
       $product = node_load($pid);
       $pproduct = node_load($product->field_termek[LANGUAGE_NONE][0]['nid']);
@@ -497,11 +499,15 @@ function matrix_render_cart($line_items, $format = '') {
         'pid' => $pid,
 
       );
+      $sumOfPrice += $offered['amount'] * $price;
+      $sumOfWeight += $offered['amount'] * $weight;
       $output .= theme($template, $vars);
     }
 
     $output .= matrix_get_shop_url($sid);
     $output .= '<input type="button" class="nearest-shop" value="Legközelebbi üzlet">';
+    $output .= t('Total: ') . $sumOfWeight . ' kg - ' . $sumOfPrice . 'Ft';
+
 
     $output .= '</div>';
 
