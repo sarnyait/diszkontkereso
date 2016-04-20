@@ -395,17 +395,17 @@ function matrix_compare_page() {
   }
   matrix_add_tr($table);
 
-  $table .= '<div class="cell" id="corner">&nbsp</div>';
+  /*$table .= '<div class="cell" id="corner">&nbsp</div>';
   foreach ($tops as $top) {
-    $table .= '<div class="cell ' . convert($top) . '" data-shop="' . convert($top) . '"><input type="button" class="nearest-shop" value="Legközelebbi üzlet"></div>';
+    $table .= '<div class="cell ' . convert($top) . '" data-shop="' . convert($top) . '"></div>';
   }
-  matrix_add_tr($table);
+  matrix_add_tr($table);*/
 
-  $table .= '<div class="cell" id="corner">&nbsp</div>';
+  /*$table .= '<div class="cell" id="corner">&nbsp</div>';
   foreach ($tops as $top) {
     $table .= '<div class="cell ' . convert($top) . '" data-shop="' . convert($top) . '">' . matrix_get_shop_url($top) . '</div>';
   }
-  matrix_add_tr($table);
+  matrix_add_tr($table);*/
 
   $table .= '<div class="cell" id="corner">&nbsp</div>';
   foreach ($tops as $top) {
@@ -485,15 +485,24 @@ function matrix_render_cart($line_items, $format = '') {
       $output .= theme($template, $vars);
     }
     foreach ($line_item[1] as $pid => $offered) {
-
+      $product = node_load($pid);
+      $pproduct = node_load($product->field_termek[LANGUAGE_NONE][0]['nid']);
+      $weight = $pproduct->field_darabsuly[LANGUAGE_NONE][0]['value'];
+      $price = $product->field_ar[LANGUAGE_NONE][0]['value'];
       $vars = array(
         'amount' => $offered['amount'],
         'product' => l($offered['title'], 'node/' . $pid),
+        'weight' => $offered['amount'] * $weight,
+        'price' => $offered['amount'] * $price,
         'pid' => $pid,
 
       );
       $output .= theme($template, $vars);
     }
+
+    $output .= matrix_get_shop_url($sid);
+    $output .= '<input type="button" class="nearest-shop" value="Legközelebbi üzlet">';
+
     $output .= '</div>';
 
 
