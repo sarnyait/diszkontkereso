@@ -5,6 +5,13 @@
  */
 
 /**
+ * Implements hook_views_api().
+ */
+function matrix_feature_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
+}
+
+/**
  * Implements hook_node_info().
  */
 function matrix_feature_node_info() {

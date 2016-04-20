@@ -120,6 +120,7 @@ function matrix_tax2flat_array($terms) {
 function convert($string) {
   $string = strtolower($string);
 
+
   if ( !preg_match('/[\x80-\xff]/', $string) )
     return $string;
 
@@ -257,6 +258,11 @@ function matrix_find_product($category, $shop) {
 
 }
 
+function matrix_render_product_view($pid) {
+  $output = views_embed_view('matrix_display', 'block_1', $pid);
+  return $output;
+}
+
 function matrix_get_termname($tid) {
   $term = taxonomy_term_load($tid);
   return $term->name;
@@ -280,11 +286,13 @@ function matrix_compare_page() {
   //$tops = array('Spar', 'Tesco', 'Lidl', 'CBA');
 
   $sumPrice = array();
+  $sumWeight = array();
   foreach ($lefts as $left) {
     foreach ($tops as $top) {
       $pid = matrix_find_product($left, $top);
       $product = node_load($pid);
       $sumPrice[$top] += $product->field_ar[LANGUAGE_NONE][0]['value'];
+
     }
   }
   asort($sumPrice);
@@ -327,20 +335,27 @@ function matrix_compare_page() {
       if (!empty($product)) {
         //$product = node_view($product, 'diszkont');
         //$product = drupal_render($product);
-        $product_title = $product->title;
+        $product_title = l($product->title, '/node/' . $product->nid, array('target' => '_blank'));
+        $product_view = matrix_render_product_view($product->nid);
         if (count($product->field_suly) > 0) {
           $wtid = $product->field_suly[LANGUAGE_NONE][0]['tid'];
           $weight = explode(' ', taxonomy_term_load($wtid)->name);
           $weight = $weight[0];
         }
         $sumPrice[$top] += $product->field_ar[LANGUAGE_NONE][0]['value'];
+
+        $pproduct = node_load($product->field_termek[LANGUAGE_NONE][0]['nid']);
+        $weight = $pproduct->field_darabsuly[LANGUAGE_NONE][0]['value'];
+        $sumWeight[$top] += $weight;
       }
       else {
         $product_title = '-';
         $sumPrice[$top] += 0;
+        $sumWeight[$top] += 0;
+
       }
       $best = ($i == 1) ? 'best' : '';
-      $table .= '<div class="cell ' . $best. ' ' . convert($top) . '" data-cell="' . convert($left) .'_' . convert($top) . '" data-category="' . convert($left) . '" data-shop="' . convert($top) . '" data-pid="' . $pid . '" data-weight="' . $weight . '">' . $product_title . '</div>';
+      $table .= '<div class="cell ' . $best. ' ' . convert($top) . '" data-cell="' . convert($left) .'_' . convert($top) . '" data-category="' . convert($left) . '" data-shop="' . convert($top) . '" data-pid="' . $pid . '" data-weight="' . $weight . '">' . $product_view . '</div>';
     }
 //    $table .= '<div class="deleteRow" data-name="' . convert($left) . '">X</div>';
     $table .= '</div>';
@@ -364,6 +379,12 @@ function matrix_compare_page() {
   $table .= '<div class="cell" id="corner">' . t('Summary') . '</div>';
   foreach ($tops as $top) {
     $table .= '<div class="cell ' . convert($top) . '" data-shop="' . convert($top) . '">' . $sumPrice[$top] . ' Ft</div>';
+  }
+  matrix_add_tr($table);
+
+  $table .= '<div class="cell" id="corner">' . t('Summary') . '</div>';
+  foreach ($tops as $top) {
+    $table .= '<div class="cell ' . convert($top) . '" data-shop="' . convert($top) . '">' . $sumWeight[$top] . ' Kg</div>';
   }
   matrix_add_tr($table);
 
@@ -411,9 +432,14 @@ function matrix_cart_page() {
   drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_compare_page.css');
 
   $line_items = matrix_cookie_to_items();
-  $output = matrix_render_cart($line_items);
+  $output = '<div id="discount-cart">';
+  $output .= matrix_render_cart($line_items);
+  $output .= '</div>';
+
   $output .= '<input type="button" id="save-order" value="print PDF">';
   $output .= '<input type="button" id="email-order" value="email">';
+  $output .= '<input type="button" id="print-order" value="print">';
+  $output .= '<input type="button" id="delete-order" value="delete">';
   return $output;
 }
 
@@ -426,12 +452,13 @@ function matrix_render_cart($line_items, $format = '') {
   (empty($format)) ? $template = 'matrix_cart' : $template = 'matrix_cart_print';
   foreach ($line_items as $sid => $line_item) {
     $shop = taxonomy_term_load($sid);
+    $output .=  '<div class="shop-block">';
     $output .= '<div class="shop-header"><h2>' . $shop->name . '</h2></div>';
     foreach ($line_item[0] as $pid => $offered) {
 
       $vars = array(
         'amount' => $offered['amount'],
-        'product' => $offered['title'],
+        'product' => l($offered['title'], 'node/' . $pid),
         'pid' => $pid,
       );
       $output .= theme($template, $vars);
@@ -440,13 +467,13 @@ function matrix_render_cart($line_items, $format = '') {
 
       $vars = array(
         'amount' => $offered['amount'],
-        'product' => $offered['title'],
+        'product' => l($offered['title'], 'node/' . $pid),
         'pid' => $pid,
 
       );
       $output .= theme($template, $vars);
     }
-
+    $output .= '</div>';
 
 
   }
@@ -478,9 +505,16 @@ function matrix_save_order() {
  */
 function matrix_form_alter(&$form, &$form_state, $form_id) {
   drupal_add_js(drupal_get_path('module', 'matrix') . '/js/add_list_item.js');
+  //drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_mail.css');
 
   if ($form_id == 'print_mail_form') {
     $form['txt_message']['#default_value'] = t('Sent from diszkontkereso.hu');
     $form['txt_to']['addrs']['#title'] = t('Your e-mail');
+    $form['fld_from_addr']['#default_value'] = 'info@diszkonkereso.hu';
+    $form['fld_from_addr']['#value'] = 'info@diszkonkereso.hu';
+    $form['fld_from_name']['#value'] = 'info@diszkonkereso.hu';
+    $form['fld_subject']['#value'] = 'You can view your order on this link';
+
+
   }
 }

@@ -1,0 +1,7 @@
+.form-item-fld-from-addr,
+.form-item-fld-from-name,
+.form-item-fld-subject,
+.form-type-item,
+.form-item-txt-message {
+    display: none;
+}

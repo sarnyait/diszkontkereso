@@ -150,7 +150,7 @@
           toSend += amount + '|' + pid + ',';
         });
         pushContent(content, top);
-        $.cookie('diszkont', toSend);
+        $.cookie('diszkont', toSend, {path: '/'});
       }
 
 
@@ -218,7 +218,24 @@
             }
           }
         })
-        $.cookie('diszkont', reCart);
+        $.cookie('diszkont', reCart, {path: '/'});
+        cart = $.cookie('diszkont');
+        lineItems = cart.split(',');
+        reCart = '';
+        empty = true;
+        lineItems.forEach(function(i) {
+          parts = i.split('|');
+          amount = parts[0];
+          product = parts[1];
+          console.log(product);
+          if (product !== undefined && product !== '') {
+            empty = false;
+          }
+        });
+        if (empty) {
+          $.cookie('diszkont', null, {path: '/'});
+          console.log($.cookie('diszkont'));
+        }
 
       }
 
@@ -226,6 +243,7 @@
         $('.cart-delete').on("click", function () {
           cartModify('remove', $(this).parent().parent().attr('data-product'));
           $(this).parent().parent().hide();
+          console.log($.cookie('diszkont'));
         })
 
         $('.cart-plus').on("click", function () {
@@ -263,6 +281,21 @@
             window.location.href = 'printmail/' + data;
           })
       });
+
+      $('#print-order').click(function() {
+        $.post('/save-order',
+          {
+            order: $.cookie('diszkont')
+          },
+          function(data) {
+            window.location.href = 'print/' + data;
+          })
+      });
+
+      $('#delete-order').click(function() {
+        $.cookie('diszkont', null, {path: '/'});
+        $('#discount-cart').hide();
+      })
 
 
 
