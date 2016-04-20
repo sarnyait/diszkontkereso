@@ -475,13 +475,23 @@ function matrix_render_cart($line_items, $format = '') {
     $shop = taxonomy_term_load($sid);
     $output .=  '<div class="shop-block">';
     $output .= '<div class="shop-header"><h2>' . $shop->name . '</h2></div>';
+    $sumOfPrice = 0;
+    $sumOfWeight = 0;
     foreach ($line_item[0] as $pid => $offered) {
-
+      $product = node_load($pid);
+      $pproduct = node_load($product->field_termek[LANGUAGE_NONE][0]['nid']);
+      $weight = $pproduct->field_darabsuly[LANGUAGE_NONE][0]['value'];
+      $price = $product->field_ar[LANGUAGE_NONE][0]['value'];
       $vars = array(
         'amount' => $offered['amount'],
         'product' => l($offered['title'], 'node/' . $pid),
+        'weight' => $offered['amount'] * $weight,
+        'price' => $offered['amount'] * $price,
         'pid' => $pid,
+
       );
+      $sumOfPrice += $offered['amount'] * $price;
+      $sumOfWeight += $offered['amount'] * $weight;
       $output .= theme($template, $vars);
     }
     $sumOfPrice = 0;
