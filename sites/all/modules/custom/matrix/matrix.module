@@ -521,14 +521,21 @@ function matrix_save_order() {
   print $nid;
 }
 
+function matrix_page_alter(&$page) {
+  drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_mail.css');
+  $a2 = arg(2);
+  $a1 = arg(1);
+  if (arg(0) == 'osszes-akcio' or (arg(0) == 'node' && isset($a1) && !isset($a2))) {
+    drupal_add_js(drupal_get_path('module', 'matrix') . '/js/add_list_item.js');
+  }
+}
+
 /**
  * Implements hook_form_alter().
  */
 function matrix_form_alter(&$form, &$form_state, $form_id) {
   drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_mail.css');
-  if (arg(0) == 'osszes-akcio') {
-    drupal_add_js(drupal_get_path('module', 'matrix') . '/js/add_list_item.js');
-  }
+
   if ($form_id == 'print_mail_form') {
     $form['txt_message']['#default_value'] = t('Sent from diszkontkereso.hu');
     $form['txt_to']['addrs']['#title'] = t('Your e-mail');

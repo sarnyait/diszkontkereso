@@ -109,6 +109,7 @@ if (!empty($view)) {
     hide($content['links']);
     hide($content['field_tags']);
     print render($content);
+    //print('<div class="add-to-cart" data-pid="' . $node->nid . '">Listámra</div>');
   ?>
   <?php if (!empty($content['field_tags']) || !empty($content['links'])): ?>
   <footer>
