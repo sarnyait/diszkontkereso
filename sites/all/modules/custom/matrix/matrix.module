@@ -456,7 +456,7 @@ function matrix_cart_page() {
   $output .= '<input type="button" id="email-order" value="Elküldöm e-mailben">';
   $output .= '<input type="button" id="print-order" value="Kinyomtatom">';
   $output .= '<input type="button" id="delete-order" value="Törlöm a bevásárlólistát">';
-  $output = '<div id="discount-cart">';
+  $output .= '<div id="discount-cart">';
   $output .= matrix_render_cart($line_items);
   $output .= '</div>';
 
