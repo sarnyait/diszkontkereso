@@ -433,14 +433,16 @@ function matrix_cart_page() {
   drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_compare_page.css');
 
   $line_items = matrix_cookie_to_items();
+  $output = '';
+  $output .= '<input type="button" id="save-order" value="Letöltöm PDF formátumban">';
+  $output .= '<input type="button" id="email-order" value="Elküldöm e-mailben">';
+  $output .= '<input type="button" id="print-order" value="Kinyomtatom">';
+  $output .= '<input type="button" id="delete-order" value="Törlöm a bevásárlólistát">';
   $output = '<div id="discount-cart">';
   $output .= matrix_render_cart($line_items);
   $output .= '</div>';
 
-  $output .= '<input type="button" id="save-order" value="print PDF">';
-  $output .= '<input type="button" id="email-order" value="email">';
-  $output .= '<input type="button" id="print-order" value="print">';
-  $output .= '<input type="button" id="delete-order" value="delete">';
+
   return $output;
 }
 
