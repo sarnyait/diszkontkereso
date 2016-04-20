@@ -241,19 +241,19 @@
       }
 
       if ($('.cart-delete').length) {
-        $('.cart-delete').on("click", function () {
+        $(document).on("click", ".cart-delete", function () {
           cartModify('remove', $(this).parent().parent().attr('data-product'));
           $(this).parent().parent().hide();
           console.log($.cookie('diszkont'));
         })
 
-        $('.cart-plus').on("click", function () {
+        $(document).on("click", ".cart-plus", function () {
           cartModify('plus', $(this).parent().parent().attr('data-product'));
           v = $(this).parent().prev().html();
           $(this).parent().prev().html(parseInt(v) + 1);
         })
 
-        $('.cart-minus').on("click", function () {
+        $(document).on("click", ".cart-minus", function () {
           cartModify('minus', $(this).parent().parent().attr('data-product'));
           v = $(this).parent().next().html();
           if (parseInt(v) - 1 > 0) {
