@@ -269,6 +269,12 @@ function matrix_get_termname($tid) {
   return $term->name;
 }
 
+function matrix_get_shop_url($tid) {
+  $shop = taxonomy_term_load($tid);
+  $url = $shop->field_url[LANGUAGE_NONE][0]['value'];
+  return '<input type="button" value="Bolt webhelye" onClick="window.open(\'' . $url . '\');">';
+}
+
 function matrix_compare_page() {
   drupal_add_library('system', 'jquery.cookie');
   $colors = array('red', 'green', 'blue', 'purple', 'yellow');
@@ -386,6 +392,18 @@ function matrix_compare_page() {
   $table .= '<div class="cell" id="corner">' . t('Summary') . '</div>';
   foreach ($tops as $top) {
     $table .= '<div class="cell ' . convert($top) . '" data-shop="' . convert($top) . '">' . $sumWeight[$top] . ' Kg</div>';
+  }
+  matrix_add_tr($table);
+
+  $table .= '<div class="cell" id="corner">&nbsp</div>';
+  foreach ($tops as $top) {
+    $table .= '<div class="cell ' . convert($top) . '" data-shop="' . convert($top) . '"><input type="button" class="nearest-shop" value="Legközelebbi üzlet"></div>';
+  }
+  matrix_add_tr($table);
+
+  $table .= '<div class="cell" id="corner">&nbsp</div>';
+  foreach ($tops as $top) {
+    $table .= '<div class="cell ' . convert($top) . '" data-shop="' . convert($top) . '">' . matrix_get_shop_url($top) . '</div>';
   }
   matrix_add_tr($table);
 
