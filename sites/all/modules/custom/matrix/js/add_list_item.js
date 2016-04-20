@@ -24,7 +24,7 @@
             })
 
 
-        }).css('cursor', 'pointer');*/
+        }).css('cursor', 'pointer');
       }
 
   }
