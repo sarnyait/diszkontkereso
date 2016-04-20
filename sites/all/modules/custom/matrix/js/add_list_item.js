@@ -5,7 +5,7 @@
 
 
 
-       /* $(document).on("click", ".add-to-cart", function () {
+       $(document).on("click", ".add-to-cart", function () {
           pid = $(this).attr('data-pid');
           cart = $.cookie('diszkont');
           if (cart == null) {
@@ -25,6 +25,7 @@
 
 
         }).css('cursor', 'pointer');*/
-    }
+      }
+
   }
 }(jQuery));
