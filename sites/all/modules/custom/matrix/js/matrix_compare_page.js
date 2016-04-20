@@ -234,6 +234,7 @@
         });
         if (empty) {
           $.cookie('diszkont', null, {path: '/'});
+          $('.shop-header').hide();
           console.log($.cookie('diszkont'));
         }
 

@@ -8,10 +8,11 @@
 function matrix_menu() {
   $items = array();
   $items['matrix'] = array(
-    'title' => '',
+    'title' => 'Legjobb bevásárlás ezen a héten',
     'page callback' => 'matrix_compare_page',
     'access arguments' => array('access content'),
   );
+
   $items['matrix_cart'] = array(
     'title' => '',
     'page callback' => 'matrix_cart_page',
@@ -43,6 +44,7 @@ function matrix_block_view($delta = '') {
 
   switch ($delta) {
     case 'matrix':
+      drupal_add_js(drupal_get_path('module', 'matrix') . '/js/add_list_item.js');
       $block['subject'] = t('Shopping list');
       $block['content'] = matrix_cart_page();
       break;
@@ -504,8 +506,7 @@ function matrix_save_order() {
  * Implements hook_form_alter().
  */
 function matrix_form_alter(&$form, &$form_state, $form_id) {
-  drupal_add_js(drupal_get_path('module', 'matrix') . '/js/add_list_item.js');
-  //drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_mail.css');
+  drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_mail.css');
 
   if ($form_id == 'print_mail_form') {
     $form['txt_message']['#default_value'] = t('Sent from diszkontkereso.hu');
