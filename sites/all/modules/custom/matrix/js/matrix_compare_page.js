@@ -107,6 +107,7 @@
 
       if ($('.matrix_cart_button').length) {
         $('.matrix_cart_button').on("click", function () {
+          console.log($.cookie('diszkont'));
           var top = $(this).attr('data-name');
           toSend = $.cookie('diszkont');
           if (toSend !== null) {
@@ -149,7 +150,7 @@
           amount = $('#amount_' + left + '_val').val();
           content += $(sel).html() + '|' + amount + '&';
           pid = $(sel).attr('data-pid');
-          toSend += amount + '|' + pid + ',';
+          toSend += ',' + amount + '|' + pid;
         });
         pushContent(content, top);
         $.cookie('diszkont', toSend, {path: '/'});
@@ -249,6 +250,7 @@
           cartModify('remove', $(this).parent().parent().attr('data-product'), sid);
           $(this).parent().parent().parent().remove();
           updateShopSums(sid);
+          console.log($.cookie('diszkont'));
         })
 
         $(document).on("click", ".cart-plus", function () {
@@ -270,6 +272,12 @@
 
         })
       }
+
+      $('.delete-shop').click(function() {
+        shop = $(this).attr('data-shop');
+        $('.shop-block-' + shop).remove();
+      }).css('cursor', 'pointer');
+
 
       function updateProductSums(pid, method) {
         weight = $('.amount[data-product="'+pid+'"]').attr('data-weight') * 1;
