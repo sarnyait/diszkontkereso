@@ -65,7 +65,6 @@ case 'views_exposed_form':
       drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/infinite-ruler.js', array('weight' => -14) );
 	  drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/ajaxafter.js', array('weight' => -12) );
       drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/pager.js', array('scope' => 'header'));
-      drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/taxonomy.js', array('scope' => 'header'));
       
     if(drupal_is_front_page()) {
             

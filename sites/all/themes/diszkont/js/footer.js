@@ -41,7 +41,7 @@ var $ = jQuery.noConflict();
 	  $("input#edit-mergevars-email").attr("placeholder", "Email címem");
 
 	  
-	  $("#nodesinblock-153 .field-name-field-szazalek").each(function() {
+	  $(".field-name-field-szazalek").each(function() {
 	    $(this).text($(this).text().replace(/^[0]/, "-"));
 	  });
 	  
@@ -55,8 +55,8 @@ var $ = jQuery.noConflict();
 	  
 	  
 	  if (jQuery(window).width() > 800) {
-		  jQuery( "div.form-item.form-type-select.form-item-sort-bef-combine-szuresek" ).insertAfter( jQuery( ".pane-search-form" ) );
-		  jQuery( "#szuresek" ).insertAfter( jQuery( ".pane-search-form" ) );
+		  // jQuery( "div.form-item.form-type-select.form-item-sort-bef-combine-szuresek" ).insertAfter( jQuery( ".pane-search-form" ) );
+		  // jQuery( "#szuresek" ).insertAfter( jQuery( ".pane-search-form" ) );
 	  }
 	  
 	  // $( "#edit-sort-bef-combine-szuresek-wrapper" ).appendTo( ".view-header" );

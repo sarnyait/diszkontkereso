@@ -198,7 +198,9 @@ body#pid-matrix .page-header {
 }
 
 ul#ntm-categ-list.ntm-categ-list li.empty a {
-font-weight:100;
+font-weight: lighter;
+    font-family: "Lato-Light";
+    font-variant: small-caps;
 }
 
 .nearest-shop, input[value="Bolt webhelye"] {
@@ -270,10 +272,15 @@ border: solid 1px #343434;
 }
 
 input.cart-delete {
-color: #ec4c43;
-border-radius: 4px;
-background-color: #ffffff;
-border: solid 1px #343434;
+ border:0;
+ background: transparent;
+ border-radius:5px;
+}
+
+input.cart-delete:after {
+content:"x";
+color: #ec4c43 !important;
+display:block;
 }
 
 
@@ -283,24 +290,63 @@ div.cell.best {
 }
 
 div.amount {
-  width: 25px;
+   width: 9px;
+  height: 17px;
+  font-family: "Lato-Regular";
+  font-size: 14px;
+  color: #343434;
 }
 
 div.content.cell {
-  font-family: Lato-Light;
+  font-family: "Lato-Light";
   font-size: 12px;
   color: #343434;
 }
 
 div.content.cell a {
- color: #343434;
+  text-decoration: none;
+   width: 131px;
+  height: 30px;
+  font-family: "Lato-Light";
+  font-size: 12px;
+  color: #343434;
+}
+
+.amount.cell, .markup.cell, .weight.cell {
+text-align:left;
+ width: 39px;
+  height: 15px;
+  font-family: "Lato-Regular";
+  font-size: 12px;
+  color: #535353;
 }
 
 
 .field-name-acime {
-  font-family: 'Lora';
+  font-family: 'Lora-Bold';
   font-weight: 700;
+   width: 300px;
+  height: 75px;
+  font-size: 20px;
+  letter-spacing: 0.8px;
+  color: #535353;
 }
+
+.field-name-acime h1 {
+ font-size: 20px;
+ margin:0;
+}
+
+body.page-node .field-name-field-akciovege {
+  width: 196px;
+  height: 24px;
+  font-family: Lato-Regular;
+  font-size: 20px;
+  line-height: 0.6;
+  color: #ec4c43;
+  float:right;
+  margin-top:10px
+  }
 
 .col-sm-12 {
  background: white; 
@@ -326,6 +372,7 @@ div.content.cell a {
 
 .exposed_filter_data {
   border-bottom: 1px black dotted;
+  margin: 0 10px;
 }
 
 .page-header h1 {
@@ -335,6 +382,14 @@ div.content.cell a {
   color: #343434;
   text-align: center;
   text-transform: uppercase;
+}
+
+body.page-taxonomy.page-taxonomy-term.page-taxonomy-term- h1.page-header {
+  width: 182px;
+  height: 17px;
+  font-family: "Lato-Regular";
+  font-size: 14px;
+  color: #535353;
 }
 
 .add-to-cart, .matrix_cart_button {
@@ -348,6 +403,22 @@ div.content.cell a {
   text-align: center;
   background: white;
 }
+
+body.page-node .add-to-cart {
+  width: 180px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: #ec4c43;
+  font-family: Lato-Bold;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-transform: uppercase;
+  border:0;
+  padding:12px;
+  float:right;
+  clear:both;
+}  
 
 .views-field-nid {
   clear:both;
@@ -437,7 +508,7 @@ padding-top:25px;
 	text-transform: uppercase;
 }
 
-body#pid-osszes-akcio .panel-col-first .pane-title, .panel-2col-bricks .pane-title{
+body#pid-osszes-akcio .panel-col-first .pane-title, .panel-2col-bricks .pane-title, body.page-taxonomy-term- .panel-col-first .pane-title{
       font-weight: bold;
     font-size: 12px;
     padding: 10px 10px 10px 0px;
@@ -450,6 +521,39 @@ body#pid-osszes-akcio .panel-col-first .pane-title, .panel-2col-bricks .pane-tit
     font-family: "Lato-Bold";
     letter-spacing: 1.6px;
     color: #343434;
+}
+
+.taxonomy-description {
+  width: 182px;
+  height: 17px;
+  font-family: "Lato";
+  font-size: 14px;
+  color: #535353;
+  padding-left:10px;
+  text-transform: uppercase;
+}
+
+#taxonomyname {
+  width: 182px;
+  height: 17px;
+  font-family: "Lato";
+  font-size: 14px;
+  color: #535353;
+  padding-left:10px;
+  float:left;
+   text-transform: uppercase;
+}
+
+.exposed_filter_data {
+  font-family: "Lato";
+  font-size: 14px;
+  color: #535353;
+  padding-left:10px;
+   text-transform: uppercase;
+}
+
+#taxonomyname:after {
+content:":"
 }
 
 ul#ntm-categ-list.ntm-categ-list, ul.ntm-subcat-list  {
@@ -498,7 +602,7 @@ iframe {
 }
 
 body.page-node #block-system-main {
-  width: 70%;
+  width: 100%;
   background: white;
   margin: 0 auto;
   padding: 10px;
@@ -511,12 +615,8 @@ body.page-node #block-system-main {
 .exposed_filter_data .content .filter .value {
   background: none;
   display: block;
-  font-size: 24px;
   color: rgb(83, 83, 83);
   text-transform: uppercase;
-  padding: 15px 0 2px 5px;
-  height: auto;
-  width: auto;
   text-align: left;
 }
 
@@ -1437,6 +1537,7 @@ body.page-node div.field.field-name-field-termekfoto img {
 
 body.page-node .field-name-body {
   padding: 30px 0 0 0;
+  clear:both;
 }
 
 body.page-node .field-items {
@@ -1477,10 +1578,15 @@ body.page-node span.date-display-remaining {
 
 body.page-node div.field.field-name-field-szazalek {
   color: rgb(236, 76, 67);
-  font-size: 36px;
   text-align: right;
-  margin-top: -60px;
-  margin-right: 40px;
+  clear:both;
+  float:right;
+   width: 82px;
+  height: 36px;
+  font-family: "Lato-Bold";
+  font-size: 30px;
+  letter-spacing: 1.3px;
+  color: #ec4c43;
 }
 
 #colorbox div.field.field-name-field-szazalek {
@@ -1495,10 +1601,16 @@ body.page-node div.field.field-name-field-szazalek {
 
 
 body.page-node  div.field.field-name-field-olcsobban {
-  font-size:16px;
-  color: rgb(52,52,52);
   text-align: right;
-  margin-top: -40px;
+  clear:both;
+  width: 54px;
+  height: 17px;
+  font-family: "Lato-Regular";
+  font-size: 14px;
+  letter-spacing: 1.2px;
+  color: #343434;
+  float:right;
+  margin-bottom:25px;
 }
 
 #colorbox div.field.field-name-field-olcsobban {
@@ -1515,7 +1627,8 @@ body.page-node  div.field.field-name-field-olcsobban {
 body.page-node .field-name-field-akciosar {
   font-size:20px;
   color: rgb(52,52,52);
-  margin-top: -40px;
+  margin-top: 0px;
+  float:left;
 }
 
 /* #colorbox div#block-views-similar-block {
@@ -1541,14 +1654,15 @@ div.field.field-name-field-egysegar {
 
 body.page-node div.field.field-name-field-ar {
   text-decoration: line-through;
-  font-size: 16px;
   color: rgb(52,52,52);
-}
-
-#colorbox div.field.field-name-field-ar {
-  text-decoration: line-through;
-  font-size: 16px;
-  color: rgb(52,52,52);
+   width: 61px;
+  height: 17px;
+  font-family: "Lato-Regular";
+  font-size: 14px;
+  letter-spacing: 1.2px;
+  color: #343434;
+  float:left;
+  clear:both;
 }
 
 div.region.region-header {
@@ -1905,11 +2019,8 @@ label[for="edit-sort-bef-combine-szuresek"] {
   display: none;
 }
 
-select#edit-sort-bef-combine-szuresek {
-  float: right;
-  margin-top: 18px;
-  margin-right: 2%;
-  padding:3px;
+select#edit-sort-bef-combine-szuresek, select#edit-mefibs-form-rendezes-sort-by {
+    padding:3px;
     -webkit-border-radius:4px;
     -moz-border-radius:4px;
     border-radius:4px;
@@ -1924,7 +2035,7 @@ select#edit-sort-bef-combine-szuresek {
     cursor:pointer;
   position:relative;
   z-index: 10;
-  right: 150px;
+  right: 15px;
 }
 
 body.jquery-once-1-processed select#edit-sort-bef-combine-szuresek {
@@ -2009,11 +2120,8 @@ a#racsos {
 
 #szuresek{
 float:right;
-margin-top: 3%;
+margin-top: -2%;
 margin-right: 3%;
-position: relative;
-z-index: 5;
-top: -35px;
 }
 
 body.jquery-once-1-processed #szuresek {
@@ -2134,8 +2242,8 @@ background-color: white;
 font-family: "Lato";	
 /* width: 220px;
 max-width: 220px; */
-max-height: 310px;
-min-height: 310px;
+max-height: 350px;
+min-height: 350px;
 width:220px;
 }
 
@@ -2382,6 +2490,17 @@ button#edit-mefibs-form-rendezes-submit-szures.ctools-use-ajax.ctools-auto-submi
     background: white;
 }
 
+.pane-matrix-matrix.stick {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 11%;
+    max-width: 11%;
+    overflow-y: auto;
+    background: white;
+    padding:5px;
+}
+
 body.front .views-field-field-termekhiv {
   width: 205px;
   max-width: 205px;
@@ -2625,7 +2744,6 @@ div#header-group {
 .panel-3col .panel-col-last a {
 display: block !important;
 text-indent: -9999px !important;
-background: url(/sites/all/themes/fusion_prosper/images/mycart.png) no-repeat !important;
 width: 70px !important;
 height: 70px !important;
 cursor: pointer !important;
