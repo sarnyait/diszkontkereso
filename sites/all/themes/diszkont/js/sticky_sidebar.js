@@ -3,11 +3,11 @@ var $ = jQuery.noConflict();
 
 function sticky_relocate() {
 	var window_top = $(window).scrollTop();
-	var div_top = $('.container-fluid').offset().top;
+	var div_top = $('.view-id-osszes_akcio').offset().top;
 	if (window_top > div_top) {
-		$('.panel-col-first').addClass('stick');
+		$('.pane-nice-taxonomy-menu-ntm-1').addClass('stick');
 	} else {
-		$('.panel-col-first').removeClass('stick');
+		$('.pane-nice-taxonomy-menu-ntm-1').removeClass('stick');
 	}
 }
 

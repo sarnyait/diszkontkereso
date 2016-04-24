@@ -179,16 +179,123 @@ body {
   overflow-y: scroll;
   background-image: url('../images/food.png');
   background-position-x: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat-x;
 }
 
 #infscr-loading {
 display:none !important;
 }
 
+body#pid-matrix .page-header {
+ width: 300px;
+  height: 17px;
+  font-family: 'Lato-Bold';
+  font-weight:700;
+  font-size: 14px;
+  letter-spacing: 1.6px;
+  color: #343434;
+  margin: 15px auto;
+}
+
+ul#ntm-categ-list.ntm-categ-list li.empty a {
+font-weight:100;
+}
+
+.nearest-shop, input[value="Bolt webhelye"] {
+width: 60px;
+height: 20px;
+border-radius: 4px;
+border: solid 1px #343434;
+font-family: 'Lato-Regular';
+font-size: 10px;
+color: #343434;
+text-align: center;
+background: white;
+}
+
+body#pid-matrix  div.views-field.views-field-field-ar {
+    float: none;
+    margin-top: 0px;
+    margin-left: 0px;
+    max-width: 100px !important;
+}
+
+body#pid-matrix div.views-field.views-field-field-akciosar {
+float:none;
+}
+
+div.plus-minus {
+width: auto;
+height: 30px;
+border-radius: 60px;
+border: solid 1px #343434;
+margin: 10px auto;
+}
+
+
+div.measure-selector.measure-pc {
+  float: none;
+}
+
+div.measure-selector.measure-weight {
+  float: none;
+}
+
+input.matrix_val_change, input.cart-minus, input.cart-plus {
+  border: 0;
+  background: transparent;
+}
+
 div.main-container.container-fluid {
   background: transparent;
 }
+
+div.table-row:nth-of-type(2) {
+ background-color: #f9f9f9;
+}
+
+.matrix_val {
+width: 30px;
+height: auto;
+font-size: 14px;
+border: 0;
+}
+
+input.check {
+width: 20px;
+height: 20px;
+border-radius: 4px;
+background-color: #ffffff;
+border: solid 1px #343434;
+}
+
+input.cart-delete {
+color: #ec4c43;
+border-radius: 4px;
+background-color: #ffffff;
+border: solid 1px #343434;
+}
+
+
+div.cell.best {
+  background-color: rgba(250, 221, 153, 0.05);
+  font-weight: 700;
+}
+
+div.amount {
+  width: 25px;
+}
+
+div.content.cell {
+  font-family: Lato-Light;
+  font-size: 12px;
+  color: #343434;
+}
+
+div.content.cell a {
+ color: #343434;
+}
+
 
 .field-name-acime {
   font-family: 'Lora';
@@ -199,12 +306,30 @@ div.main-container.container-fluid {
  background: white; 
 }
 
+#block-matrix-matrix #save-order, #block-matrix-matrix #print-order, #block-matrix-matrix #email-order, .pane-matrix-matrix #save-order, .pane-matrix-matrix #print-order, .pane-matrix-matrix #email-order {
+  display: none;
+}
+
+#save-order, #email-order, #print-order, #delete-order {
+    background: rgb(236,76,67) !important;
+    color: white !important;
+    text-transform: uppercase !important;
+    border: 0px !important;
+    margin-top: 15px !important;
+    width: 180px !important;
+    height: 40px !important;
+    text-indent: 0 !important;
+    float: none !important;
+    border-radius: 4px;
+    margin-right: 25px;
+}
+
 .exposed_filter_data {
   border-bottom: 1px black dotted;
 }
 
 .page-header h1 {
-  font-family: Lato-Bold;
+  font-family: 'Lato-Bold';
   font-size: 14px;
   letter-spacing: 1.6px;
   color: #343434;
@@ -212,40 +337,51 @@ div.main-container.container-fluid {
   text-transform: uppercase;
 }
 
-.add-to-cart {
+.add-to-cart, .matrix_cart_button {
  width: 60px;
   height: 20px;
   border-radius: 4px;
   border: solid 1px #343434;
-  font-family: Lato-Regular;
+  font-family: 'Lato-Regular';
   font-size: 10px;
   color: #343434; 
   text-align: center;
+  background: white;
 }
 
 .views-field-nid {
   clear:both;
   float: right;
+  margin-top: 10px;
 }
 
 .cell {
-  font-family: Lato-Regular;
+  font-family: 'Lato-Regular';
 	font-size: 14px;
+	padding: 3px;
 }	
+
+#header .cell {
+  font-family: 'Lato-Bold';
+  font-size: 14px;
+  color: #535353;
+  text-transform: uppercase;
+}
 
 .table-row {
   border: solid 1px #979797;
+  min-height: 280px;
 }
 
 #summary {
-font-family: Lato-Light;
+font-family: 'Lato-Light';
 font-size: 12px;
 }
 
 .shop-header h2 {
 width: 58px;
 height: 15px;
-font-family: Lato-Bold;
+font-family: 'Lato-Bold';
 font-size: 12px;
 color: #262735;
 -webkit-text-stroke: 1px #979797;
@@ -253,6 +389,14 @@ color: #262735;
 
 body#pid-osszes-akcio h1 {
   display: none;
+}
+
+aside.col-sm-3 {
+  background-color: #EEEEEE;
+}
+
+section#block-matrix-matrix {
+  background: white;
 }
 
 body.not-front .col-sm-12 {
@@ -284,7 +428,7 @@ padding-top:25px;
   width: 60% !important;
 
 } 
-.pane-matrix-matrix h2 {
+.pane-matrix-matrix h2, h2.block-title {
   height: 15px;
 	font-family: 'Lato-Bold';
 	font-size: 12px;
@@ -294,15 +438,18 @@ padding-top:25px;
 }
 
 body#pid-osszes-akcio .panel-col-first .pane-title, .panel-2col-bricks .pane-title{
-  font-weight: bold;
-  font-size: 16px;
-  padding: 10px 10px 10px 0px;
-  display: block !important;
-  margin-bottom: 5px;
-  max-width: 100%;
-  margin-left: 20px;
-  margin-top: 0px;
-  text-transform: uppercase;
+      font-weight: bold;
+    font-size: 12px;
+    padding: 10px 10px 10px 0px;
+    display: block !important;
+    margin-bottom: 5px;
+    max-width: 100%;
+    margin-left: 20px;
+    margin-top: 0px;
+    text-transform: uppercase;
+    font-family: "Lato-Bold";
+    letter-spacing: 1.6px;
+    color: #343434;
 }
 
 ul#ntm-categ-list.ntm-categ-list, ul.ntm-subcat-list  {
@@ -311,16 +458,13 @@ ul#ntm-categ-list.ntm-categ-list, ul.ntm-subcat-list  {
 }
 
 
-
 ul#ntm-categ-list.ntm-categ-list li a{
    margin-top: 0;
    margin-bottom: 0;
    color: rgb(52, 52, 52);
    font-weight: 400;
    font-size: 12px; 
-   font-family: "Lato", sans-serif !important;
-   line-height: 1.2;
-
+   font-family: "Lato-Regular";
 }
 
 ul#ntm-categ-list.ntm-categ-list li a {
@@ -328,9 +472,14 @@ text-decoration: none;
 color: rgb(52, 52, 52) !important;
 }
 
+ul#ntm-categ-list.ntm-categ-list li a.active {
+font-weight:700;
+}
+
 div.views-field-field-logo {
 text-align: left;
 width: 60px;
+height: 20px;
 }
 
 .views-field-field-egysegar {
@@ -576,15 +725,15 @@ body#pid-koszonjuk #footer-wrapper {
   background-color: rgb(238,238,238);
 }
 
-body#pid-koszonjuk #footer-wrapper:hover #block-widgets-s-socialmedia-share-default {
+/* body#pid-koszonjuk #footer-wrapper:hover #block-widgets-s-socialmedia-share-default {
   height: 169px;
   max-height: 169px;
-}
+} 
 
 body#pid-koszonjuk #footer-wrapper:hover div#widgets-element-socialmedia_share-default.widgets.widgets-set.widgets-set-horizontal.widgets-style-horizontal {
   height: 169px;
   max-height: 169px;
-}
+} */
 
 body#pid-koszonjuk h1.title.gutter
 
@@ -1212,9 +1361,19 @@ body.front .block-title {
 
 
 label#label_handle_edit-field-szazalek-value-selective {
-  margin-left: -30px;
-  margin-bottom: 10px;
-  display: block !important;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 10px 10px 10px 0px;
+    display: block !important;
+    margin-bottom: 5px;
+    max-width: 100%;
+    margin-left: -12px;
+    width:180px;
+    margin-top: 0px;
+    text-transform: uppercase;
+    font-family: "Lato-Bold";
+    letter-spacing: 1.6px;
+    color: #343434;
 }
 
 #cboxContent {
@@ -1269,26 +1428,11 @@ body.page-node #content-region {
 
 body.page-node div.field.field-name-field-termekfoto {
   float: left;
-  margin-right:100px;
-}
-
-#colorbox div.field.field-name-field-termekfoto {
-  float: left;
-  margin-right:100px;
 }
 
 body.page-node div.field.field-name-field-termekfoto img {
-  max-width: 300px;
+  max-width: 200px;
   height: auto;
-}
-
-#colorbox div.field.field-name-field-termekfoto img {
-  max-width: 300px;
-  height: auto;
-}
-
-#colorbox .field-name-body {
-  padding: 30px 0 0 0;
 }
 
 body.page-node .field-name-body {
@@ -1410,7 +1554,7 @@ body.page-node div.field.field-name-field-ar {
 div.region.region-header {
   background: #fade99;
   padding: 15px;
-  width: 75%;
+  width: 98%;
   margin: 0 auto
 }
 
@@ -1460,11 +1604,17 @@ clear: both;
 }
 
 .views-exposed-form label {
-    font-weight: bold;
-    font-size: 16px;
+         font-weight: bold;
+    font-size: 12px;
     padding: 10px 10px 10px 0px;
-    display: block !important;
+    margin-bottom: 5px;
+    max-width: 100%;
+    margin-top: 0px;
     text-transform: uppercase;
+    font-family: "Lato-Bold";
+    letter-spacing: 1.6px;
+    color: #343434;
+    display: block !important;
 }
 
 body#pid-cart div#header-group-wrapper, body#pid-toboggan-denied div#header-group-wrapper, body#pid-koszonjuk div#header-group-wrapper{
@@ -1512,6 +1662,7 @@ float: none;
 margin: 0 5% 0 5%;
 text-transform: uppercase;
 line-height: 100%;
+width: 16%;
 }
 
 ul.menu li a:hover, ul.menu li:hover {
@@ -1537,7 +1688,7 @@ height:0px;
 margin:0;
 }
 
-.footer:hover #block-widgets-s-socialmedia-share-default {
+/* .footer:hover #block-widgets-s-socialmedia-share-default {
   height: 60px;
   max-height: 60px;
 }
@@ -1545,7 +1696,7 @@ margin:0;
 .footer:hover div#widgets-element-socialmedia_share-default.widgets.widgets-set.widgets-set-horizontal.widgets-style-horizontal {
   height: 60px;
   max-height: 60px;
-}
+} */
 
 div.widgets-element-horizontal {
  width: 28%;
@@ -1563,7 +1714,7 @@ div#header-group, .navbar.container-fluid {
 
 
 #main-container, .row {
-width: 75%;
+width: 98%;
 margin: 0 auto;
 padding: 0;  
 min-height: 1200px;
@@ -1623,7 +1774,7 @@ background-color:#EEEEEE;
   position: fixed;
   background: rgb(248, 218, 145);
   bottom: 0;
-  height: 60px;
+  height: 30px;
   z-index: 1;
   text-align: center;
   margin: 0;
@@ -1631,9 +1782,9 @@ background-color:#EEEEEE;
   width: 100%;
 }
 
-.footer:hover {
+/* .footer:hover {
 height: 120px;
-}
+} */
 
 
 #optin, #block-mailchimp-signup-k-vesse-emailben-is-az-akci-kat {
@@ -1652,7 +1803,8 @@ section#block-mailchimp-signup-k-vesse-emailben-is-az-akci-kat h2.block-title {
   margin-right: 27px;
   background: none;
   text-align: center;
-  font-size: 16px;
+  font-size: 12px;
+  font-family: "Lato-Regular";
   color: black;
   height: auto;
   margin-top: 10px;
@@ -1669,7 +1821,7 @@ form#mailchimp-signup-subscribe-block-k-vesse-emailben-is-az-akci-kat-form.mailc
 
 input#edit-mergevars-email {
 padding: 10px !important;
-width: 45% !important;
+width: 40% !important;
 border: 0px !important;
 border-radius: 5px;
 font-size: 14px;
@@ -1694,7 +1846,7 @@ form.mailchimp-signup-subscribe-form .form-actions button.form-submit {
   float: right !important;
   margin-top: -40px !important; 
   border-radius: 4px;
-  margin-right: calc(15% - 25px);
+  margin-right: calc(15% - -30px);
 }
 
 #header-top-wrapper, .header-group-wrapper, .main-menu-wrapper {
@@ -1785,8 +1937,8 @@ select#edit-sort-bef-combine-szuresek:focus, select#edit-sort-bef-combine-szures
 
 .views-exposed-form a:link, a:visited {
   color: rgb(52,52,52);
-  font-weight: 400;
-  font-size: 160%;
+  font-family:"Lato-Regular";
+  font-size: 12px;
 }
 
 .views-exposed-form a.active{
@@ -1889,7 +2041,7 @@ h2#nezet {
     text-transform: uppercase !important;
     border: 0px !important;
     /* margin-top: -2px !important; */
-    width: 140px !important;
+    width: 180px !important;
     height: 40px !important;
     text-indent: 0 !important;
     float: none !important;
@@ -1898,7 +2050,7 @@ h2#nezet {
 }
 
 .form-search .btn-primary::after {
-  content: 'Keresés';
+  content: 'Keress';
 }
 
 .form-search .btn-primary span {
@@ -1919,23 +2071,33 @@ h2#nezet {
   font-family: "Lato";
 }
 
+.glyphicon-search {
+  font-size: 0px;
+}
+
+body#pid-matrix div.input-group, body#pid-matrix-cart div.input-group {
+  width:45%;
+  margin: 25px auto 0;
+}
+
+
 .panel-3col {
 padding-bottom: 80px;
 }
 
 .panel-3col .panel-col {
-  width: 64%;
+  width: 75%;
   border-radius: 4px;
 }
 
 .panel-3col .panel-col-first {
 background: white;
-width: 18%;
+width: 13%;
 border-radius: 4px;
 }
 
 .panel-3col .panel-col-last {
-width: 18%;
+width: 12%;
 background: white;
 border-radius: 4px;
 } 
@@ -1972,8 +2134,22 @@ background-color: white;
 font-family: "Lato";	
 /* width: 220px;
 max-width: 220px; */
-max-height: 420px;
-min-height: 420px;
+max-height: 310px;
+min-height: 310px;
+width:220px;
+}
+
+body#pid-matrix div.masonry-item {
+margin: 0px auto;
+padding: 0px;
+background-color: white;
+font-family: "Lato";	
+width: 100%;
+height: auto;
+max-height: 0;
+min-height: 0;
+border-left: 1px solid black;
+border-right: 1px solid black;
 }
 
 div.lista-item {
@@ -2051,16 +2227,16 @@ div.lista-item input.form-submit {
 }
 
 span.field-content.szazalek {
- font-size: 30px; 
+ font-size: 24px; 
 }
 
 span.field-content.ar {
- font-size: 12px; 
+ font-size: 10px; 
  text-decoration: line-through;
 }
 
 span.field-content.akciosar {
- font-size: 24px; 
+ font-size: 20px; 
 }
 
 div.views-field.views-field-field-akciosar {
@@ -2083,7 +2259,7 @@ body#pid-osszes-akcio div.views-field.views-field-field-ar {
 }
 
 div.views-field.views-field-field-olcsobban {
-font-size: 12px;
+font-size: 10px;
 margin-top: -15px;
 float: right;
 }
@@ -2098,13 +2274,25 @@ div.views-field.views-field-field-szazalek {
   margin-right: 2px;
 }
 
-h4.termeknev, h4.termeknev a  {
+h4.termeknev, h4.termeknev a, h4.termeknev a h4  {
   color: #414141;
   font-family: 'Lora';
   font-weight: 700;
   font-size: 14px;
   max-width: 175px;
-  margin-top: 40px;
+  margin-top: 2px;
+}
+
+body.page-taxonomy h4.termeknev a h4   {
+margin-bottom:40px;
+}
+
+body#pid-matrix h4.termeknev   {
+min-height:80px;
+}
+
+body#pid-matrix span.field-content.akciosar {
+    font-size: 16px;
 }
 
 div.views-field.views-field-totalcount {
@@ -2184,33 +2372,14 @@ button#edit-mefibs-form-rendezes-submit-szures.ctools-use-ajax.ctools-auto-submi
   display: none;
 }
 
-div.views-exposed-form.stick {
+.pane-nice-taxonomy-menu-ntm-1.stick {
     position: fixed;
     top: 0;
     z-index: 1;
-    max-width: 200px;
-    width: 200px;
+    width: 12%;
+    max-width: 12%;
     overflow-y: auto;
-}
-
-div.form-item.form-type-textfield.form-item-quantity {
-  display: none;
-}
-
-#colorbox div.form-item.form-type-textfield.form-item-quantity {
-  display: block;
-  position: relative;
-  margin: 0 auto;
-  width: 13%;
-  /* top: -210px;
-  left: 50%; */
-}
-
-body.page-node div.form-item.form-type-textfield.form-item-quantity {
-  display: block;
-  position: relative;
-  margin: 0 auto;
-  width: 13%;
+    background: white;
 }
 
 body.front .views-field-field-termekhiv {
@@ -2301,7 +2470,7 @@ a#handle_edit-field-szazalek-value-selective {
 } */
 
 div.ui-corner-all {
-  width: auto;
+  width: 75%;
   background: rgb(254, 206, 91);
   height: 2px;
   padding: 2px;
