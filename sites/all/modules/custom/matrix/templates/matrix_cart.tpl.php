@@ -1,4 +1,4 @@
-<div id="summary" class="item item-from-<?php print $shop; ?>">
+<div id="summary" class="item item-from-<?php print $shop; ?>" data-pid="<?php print $pid; ?>">
   <div class="cart-row" data-row="row-x" data-product="<?php print $pid; ?>">
 
     <div class="content cell"><?php print $product; ?></div>

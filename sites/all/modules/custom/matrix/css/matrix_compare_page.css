@@ -142,5 +142,8 @@ input[type=number]::-webkit-outer-spin-button {
     float: left;
 }
 
-
+.shop-header, .delete-shop {
+    float: left;
+    font-size: 2em;
+}
 
