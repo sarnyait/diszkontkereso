@@ -5,8 +5,8 @@
 
 
       var modal = $('[data-remodal-id=modal]').remodal();
-      $('.default-measure').attr('checked', 'checked');
-      $('.matrix_val_weight').each(function() {
+      //$('.default-measure').attr('checked', 'checked');
+      /*$('.matrix_val_weight').each(function() {
         cat = $(this).attr('data-category');
         var w = 0;
         $('.cell[data-category="' + cat + '"]').each(function() {
@@ -32,7 +32,7 @@
       $('.measure-pc').click(function() {
         $(this).siblings('.matrix_val_weight').hide();
         $(this).siblings('.matrix_val').show();
-      });
+      });*/
 
 
       function pushContent(s, shop) {
@@ -88,18 +88,20 @@
           source = '#' + $(this).attr('data-source');
           w = $(source).next().attr('data-weight');
           if ($(this).attr('value') == '-') {
-            if ($(source).val() > 1) {
+            if ($(source).val() > 0) {
               v = $(source).val() * 1 - 1;
               $(source).val(v);
-              $(source).next().val(v * w);
+              //$(source).next().val(v * w); //weight
             }
           }
           else {
             v = $(source).val() * 1 + 1;
             $(source).val(v);
-            $(source).next().val(v * w);
+            //$(source).next().val(v * w); // weight
 
           }
+          updateSumValues();
+
         })
       }
 
@@ -132,7 +134,7 @@
         });
 
         $('.remodal-cancel').on("click", function () {
-          var toSend;
+          var toSend = '';
           var top = $(this).parent().attr('data-name');
           addToCart(top, toSend);
           window.location.href = 'matrix_cart';
@@ -168,6 +170,8 @@
             $(this).siblings('.plus-minus').css('visibility', 'visible');
             $(this).parent().addClass('active');
           }
+          updateSumValues();
+
         })
       }
 
@@ -182,84 +186,117 @@
         })
       }
 
-      function cartModify(method, id) {
+      function cartModify(method, id, sid) {
         cart = $.cookie('diszkont');
-        lineItems = cart.split(',');
-        reCart = '';
-        lineItems.forEach(function(i) {
-          parts = i.split('|');
-          amount = parts[0];
-          product = parts[1];
-          if (method == 'remove') {
-            if (product !== id) {
-              reCart += ',' + i;
-            }
-          }
-          if (method == 'plus') {
-            if (product !== id) {
-              reCart += ',' + i;
-            }
-            else {
-              newAmount = amount * 1 + 1;
-              reItem = newAmount + '|' + product;
-              reCart += ',' + reItem;
-            }
-          }
-          if (method == 'minus' && amount * 1 - 1 > 0) {
-            if (product !== id) {
-              reCart += ',' + i;
-            }
-            else {
-              newAmount = amount * 1 - 1;
-              if (newAmount > 0) {
-                reItem = newAmount + '|' + product;
-                reCart += ',' + reItem;
+        if (cart !== null) {
+          lineItems = cart.split(',');
+          reCart = '';
+          sid = sid | 0;
+          console.log(cart);
+          lineItems.forEach(function (i) {
+            parts = i.split('|');
+            amount = parts[0];
+            product = parts[1];
+            if (i.length > 0) {
+              if (method == 'remove') {
+                if (product !== id) {
+                  reCart += ',' + i;
+                }
+              }
+              if (method == 'plus') {
+                if (product !== id) {
+                  reCart += ',' + i;
+                }
+                else {
+                  newAmount = amount * 1 + 1;
+                  reItem = newAmount + '|' + product;
+                  reCart += ',' + reItem;
+                }
+              }
+              if (method == 'minus') {
+                if (product !== id) {
+                  reCart += ',' + i;
+                }
+                else {
+                  newAmount = amount * 1 - 1;
+                  if (newAmount > 0) {
+                    reItem = newAmount + '|' + product;
+                    reCart += ',' + reItem;
+                  }
+                }
               }
             }
+          })
+          $.cookie('diszkont', reCart, {path: '/'});
+          console.log('SID' + sid);
+          console.log($('.item-from-' + sid).length);
+          if (sid > 0 && $('.item-from-' + sid).length == 1) {
+            $('.shop-header-' + sid).hide();
+            $('.shop-block-' + sid).hide();
+
           }
-        })
-        $.cookie('diszkont', reCart, {path: '/'});
-        cart = $.cookie('diszkont');
-        lineItems = cart.split(',');
-        reCart = '';
-        empty = true;
-        lineItems.forEach(function(i) {
-          parts = i.split('|');
-          amount = parts[0];
-          product = parts[1];
-          console.log(product);
-          if (product !== undefined && product !== '') {
-            empty = false;
+          if ($('.item').length == 1) {
+            $.cookie('diszkont', null, {path: '/'});
+
           }
-        });
-        if (empty) {
-          $.cookie('diszkont', null, {path: '/'});
-          $('.shop-header').hide();
-          console.log($.cookie('diszkont'));
         }
 
       }
 
       if ($('.cart-delete').length) {
         $(document).on("click", ".cart-delete", function () {
-          cartModify('remove', $(this).parent().parent().attr('data-product'));
-          $(this).parent().parent().hide();
-          console.log($.cookie('diszkont'));
+          sid = $(this).attr('data-shop');
+          cartModify('remove', $(this).parent().parent().attr('data-product'), sid);
+          $(this).parent().parent().parent().remove();
+          updateShopSums(sid);
         })
 
         $(document).on("click", ".cart-plus", function () {
           cartModify('plus', $(this).parent().parent().attr('data-product'));
-          v = $(this).parent().prev().html();
-          $(this).parent().prev().html(parseInt(v) + 1);
+          pid = $(this).attr('data-product');
+          sid = $(this).attr('data-shop');
+
+          updateProductSums(pid, 1);
+          updateShopSums(sid);
+
         })
 
         $(document).on("click", ".cart-minus", function () {
           cartModify('minus', $(this).parent().parent().attr('data-product'));
-          v = $(this).parent().next().html();
-          if (parseInt(v) - 1 > 0) {
-            $(this).parent().next().html(parseInt(v) - 1);
-          }
+          pid = $(this).attr('data-product');
+          sid = $(this).attr('data-shop');
+          updateProductSums(pid, -1);
+          updateShopSums(sid);
+
         })
+      }
+
+      function updateProductSums(pid, method) {
+        weight = $('.amount[data-product="'+pid+'"]').attr('data-weight') * 1;
+        price = $('.amount[data-product="'+pid+'"]').attr('data-price') * 1;
+        amount = $('.amount[data-product="'+pid+'"]').html() * 1;
+        if (method == 1 || amount > 0) {
+          amount = amount + method;
+        }
+        $('.amount[data-product="'+pid+'"]').html(amount);
+        $('.price[data-product="'+pid+'"]').html(amount * price);
+        $('.weight[data-product="'+pid+'"]').html(parseInt(amount * weight * 100) / 100);
+      }
+
+      function updateShopSums(sid) {
+        var weight = 0;
+        $('.weight[data-shop="'+sid+'"]').each(function() {
+          weight += $(this).html() * 1;
+        });
+        weight = parseInt(weight * 10) / 10;
+        $('.cart-sum-weight[data-shop="'+sid+'"]').html(weight);
+
+        var price = 0;
+        $('.price[data-shop="'+sid+'"]').each(function() {
+          price += $(this).html() * 1;
+        });
+        $('.cart-sum-price[data-shop="'+sid+'"]').html(price);
+
       }
 
       $('#save-order').click(function() {
@@ -299,6 +336,51 @@
       })
 
 
+
+      function updateSumValues() {
+        $('#header .cell').each(function () {
+          var sumprice = 0;
+          var sumweight = 0;
+          var shop = $(this).attr('data-name');
+          console.log(shop);
+          $('.cell[data-shop="' + shop + '"]').each(function () {
+            category = $(this).attr('data-category');
+            console.log('CAT' + category);
+            price = $(this).attr('data-price') * 1;
+            weight = $(this).attr('data-weight') * 1;
+            console.log('PRICE' + price);
+            console.log('WEIGHT' + weight);
+            if ($('.starter_cell.active[data-name="' + category + '"] input.matrix_val').length) {
+              multiply = $('.starter_cell.active[data-name="' + category + '"] input.matrix_val').val();
+              console.log('M' + multiply);
+              sumprice += price * multiply;
+              sumweight += weight * multiply;
+            }
+
+            console.log('sumPRICE' + sumprice);
+            console.log('sumWEIGHT' + sumweight);
+
+          });
+          sumweight = parseInt(sumweight * 10) / 10;
+          $('.sum-price[data-shop="' + shop + '"]').html(sumprice + ' Ft');
+          $('.sum-weight[data-shop="' + shop + '"]').html(sumweight + ' Kg');
+        });
+      }
+
+
+
+      $(window).on("scroll", function() {
+        var scrollHeight = $(document).height();
+        var scrollPosition = $(window).height() + $(window).scrollTop();
+        $('.summary-row').css('top', scrollPosition - 300);
+        $('.summary-row').css('position', 'absolute');
+
+        if ((scrollHeight - scrollPosition) / scrollHeight < 0.01) {
+          $('.summary-row').css('position', 'relative');
+          $('.summary-row').css('top', '0');
+
+        }
+      });
 
       /*$('select[name="addRow"]').change(function() {
         val = this.value;

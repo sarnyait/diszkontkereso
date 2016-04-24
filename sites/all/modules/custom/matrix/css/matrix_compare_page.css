@@ -2,9 +2,11 @@
     display: none;
 }
 
-.cell {
+.compare-page .cell,
+.compare-page .sum-cell,
+.compare-page .button-cell {
     float: left;
-    width: 100px;
+    width: 18%;
     text-align: center;
 }
 
@@ -117,7 +119,7 @@ input[type=number]::-webkit-outer-spin-button {
     cursor: pointer;
 }
 
-/*todo: change to drupal_mail */
+/* todo: change to drupal_mail drupal_mail */
 
 .form-item-fld-from-addr,
 .form-item-fld-from-name,
@@ -125,6 +127,19 @@ input[type=number]::-webkit-outer-spin-button {
 .form-type-item,
 .form-item-txt-message {
   display: none;
+}
+
+
+
+.summary-row {
+    position: absolute;
+    background: wheat;
+    width: 100%;
+    font-size: 2em;
+}
+
+#discount-cart .cell {
+    float: left;
 }
 
 

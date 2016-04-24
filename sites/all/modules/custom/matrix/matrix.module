@@ -8,7 +8,7 @@
 function matrix_menu() {
   $items = array();
   $items['matrix'] = array(
-    'title' => 'Legjobb bevásárlás ezen a héten',
+    'title' => '',
     'page callback' => 'matrix_compare_page',
     'access arguments' => array('access content'),
   );
@@ -95,10 +95,10 @@ function matrix_add_plus_minus($class = 'input', $left) {
   $output .= '<div class="plus-minus">';
   $output .= '<input type="button" value="-" class="matrix_val_change" data-source="' . $class . '_val">';
   $output .= '<input type="number" pattern="[0-9]*" id="' . $class . '_val" class="matrix_val">';
-  $output .= '<input type="number" id="' . $class . '_val" class="matrix_val_weight" data-category="' . $left . '" value="' . $weight . '">';
+  //$output .= '<input type="number" id="' . $class . '_val" class="matrix_val_weight" data-category="' . $left . '" value="' . $weight . '">';
   $output .= '<input type="button" value="+" class="matrix_val_change" data-source="' . $class . '_val">';
-  $output .= '<div class="measure-selector measure-pc"><input class="default-measure" type="radio" value="pc" name="measure_' . $left . '">' . t('pieces') . '</div>';
-  $output .= '<div class="measure-selector measure-weight"><input type="radio" value="kg" name="measure_' . $left . '">' . t('weight') . '</div>';
+  //$output .= '<div class="measure-selector measure-pc"><input class="default-measure" type="radio" value="pc" name="measure_' . $left . '">' . t('pieces') . '</div>';
+  //$output .= '<div class="measure-selector measure-weight"><input type="radio" value="kg" name="measure_' . $left . '">' . t('weight') . '</div>';
   $output .= '</div>';
   return $output;
 }
@@ -288,7 +288,7 @@ function matrix_compare_page() {
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('aruhaz');
   $terms2 = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
-  $terms2 = taxonomy_term_load_multiple(array(519, 520, 2052, 2049, 524, 2050));
+  $terms2 = taxonomy_term_load_multiple(array(519, 520, 2052, 2049));
   $tops = matrix_tax2flat_array($terms2);
   //$tops = array('Spar', 'Tesco', 'Lidl', 'CBA');
 
@@ -349,7 +349,8 @@ function matrix_compare_page() {
           $weight = explode(' ', taxonomy_term_load($wtid)->name);
           $weight = $weight[0];
         }
-        $sumPrice[$top] += $product->field_ar[LANGUAGE_NONE][0]['value'];
+        $price = $product->field_ar[LANGUAGE_NONE][0]['value'];
+        $sumPrice[$top] += $price;
 
         $pproduct = node_load($product->field_termek[LANGUAGE_NONE][0]['nid']);
         $weight = $pproduct->field_darabsuly[LANGUAGE_NONE][0]['value'];
@@ -362,7 +363,7 @@ function matrix_compare_page() {
 
       }
       $best = ($i == 1) ? 'best' : '';
-      $table .= '<div class="cell ' . $best. ' ' . convert($top) . '" data-cell="' . convert($left) .'_' . convert($top) . '" data-category="' . convert($left) . '" data-shop="' . convert($top) . '" data-pid="' . $pid . '" data-weight="' . $weight . '">' . $product_view . '</div>';
+      $table .= '<div class="cell ' . $best. ' ' . convert($top) . '" data-cell="' . convert($left) .'_' . convert($top) . '" data-category="' . convert($left) . '" data-shop="' . convert($top) . '" data-pid="' . $pid . '" data-weight="' . $weight . '" data-price="' . $price . '">' . $product_view . '</div>';
     }
 //    $table .= '<div class="deleteRow" data-name="' . convert($left) . '">X</div>';
     $table .= '</div>';
@@ -383,17 +384,19 @@ function matrix_compare_page() {
 
   matrix_add_tr($table);*/
 
+  $table .= '<div class="summary-row">';
   $table .= '<div class="cell" id="corner">' . t('Summary') . '</div>';
   foreach ($tops as $top) {
-    $table .= '<div class="cell ' . convert($top) . '" data-shop="' . convert($top) . '">' . $sumPrice[$top] . ' Ft</div>';
+    $table .= '<div class="sum-cell sum-price ' . convert($top) . '" data-shop="' . convert($top) . '">' . $sumPrice[$top] . ' Ft</div>';
   }
   matrix_add_tr($table);
 
   $table .= '<div class="cell" id="corner">' . t('Summary') . '</div>';
   foreach ($tops as $top) {
-    $table .= '<div class="cell ' . convert($top) . '" data-shop="' . convert($top) . '">' . $sumWeight[$top] . ' Kg</div>';
+    $table .= '<div class="sum-cell sum-weight ' . convert($top) . '" data-shop="' . convert($top) . '">' . $sumWeight[$top] . ' Kg</div>';
   }
   matrix_add_tr($table);
+  $table .= '</div>';
 
   /*$table .= '<div class="cell" id="corner">&nbsp</div>';
   foreach ($tops as $top) {
@@ -409,7 +412,7 @@ function matrix_compare_page() {
 
   $table .= '<div class="cell" id="corner">&nbsp</div>';
   foreach ($tops as $top) {
-    $table .= '<div class="cell ' . convert($top) . '" data-shop="' . convert($top) . '">' . matrix_add_bottom_button(convert($top)) . '</div>';
+    $table .= '<div class="button-cell ' . convert($top) . '" data-shop="' . convert($top) . '">' . matrix_add_bottom_button(convert($top)) . '</div>';
   }
   matrix_add_tr($table);
 
@@ -473,48 +476,36 @@ function matrix_render_cart($line_items, $format = '') {
   (empty($format)) ? $template = 'matrix_cart' : $template = 'matrix_cart_print';
   foreach ($line_items as $sid => $line_item) {
     $shop = taxonomy_term_load($sid);
-    $output .=  '<div class="shop-block ' . $template . '">';
-    $output .= '<div class="shop-header"><h2>' . $shop->name . '</h2></div>';
+    $output .=  '<div class="shop-block ' . $template . ' shop-block-' . $sid . '">';
+    $output .= '<div class="shop-header shop-header-' . $sid . '" data-shop="' . $sid . '"><h2>' . $shop->name . '</h2></div>';
     $sumOfPrice = 0;
     $sumOfWeight = 0;
-    foreach ($line_item[0] as $pid => $offered) {
-      $product = node_load($pid);
-      $pproduct = node_load($product->field_termek[LANGUAGE_NONE][0]['nid']);
-      $weight = $pproduct->field_darabsuly[LANGUAGE_NONE][0]['value'];
-      $price = $product->field_ar[LANGUAGE_NONE][0]['value'];
-      $vars = array(
-        'amount' => $offered['amount'],
-        'product' => l($offered['title'], 'node/' . $pid),
-        'weight' => $offered['amount'] * $weight,
-        'price' => $offered['amount'] * $price,
-        'pid' => $pid,
-
-      );
-      $sumOfPrice += $offered['amount'] * $price;
-      $sumOfWeight += $offered['amount'] * $weight;
-      $output .= theme($template, $vars);
+    foreach ($line_item as $type) {
+      foreach ($type as $pid => $offered) {
+        $product = node_load($pid);
+        $pproduct = node_load($product->field_termek[LANGUAGE_NONE][0]['nid']);
+        $weight = $pproduct->field_darabsuly[LANGUAGE_NONE][0]['value'];
+        $price = $product->field_ar[LANGUAGE_NONE][0]['value'];
+        $vars = array(
+          'amount' => $offered['amount'],
+          'product' => l($offered['title'], 'node/' . $pid),
+          'weight' => $offered['amount'] * $weight,
+          'price' => $offered['amount'] * $price,
+          'pid' => $pid,
+          'shop' => $sid,
+          'origweight' => $weight,
+          'origprice' => $price,
+        );
+        $sumOfPrice += $offered['amount'] * $price;
+        $sumOfWeight += $offered['amount'] * $weight;
+        $output .= theme($template, $vars);
+      }
     }
-    foreach ($line_item[1] as $pid => $offered) {
-      $product = node_load($pid);
-      $pproduct = node_load($product->field_termek[LANGUAGE_NONE][0]['nid']);
-      $weight = $pproduct->field_darabsuly[LANGUAGE_NONE][0]['value'];
-      $price = $product->field_ar[LANGUAGE_NONE][0]['value'];
-      $vars = array(
-        'amount' => $offered['amount'],
-        'product' => l($offered['title'], 'node/' . $pid),
-        'weight' => $offered['amount'] * $weight,
-        'price' => $offered['amount'] * $price,
-        'pid' => $pid,
 
-      );
-      $sumOfPrice += $offered['amount'] * $price;
-      $sumOfWeight += $offered['amount'] * $weight;
-      $output .= theme($template, $vars);
-    }
 
     $output .= matrix_get_shop_url($sid);
     $output .= '<input type="button" class="nearest-shop" value="Legközelebbi üzlet">';
-    $output .= t('Total: ') . $sumOfWeight . ' kg - ' . $sumOfPrice . 'Ft';
+    $output .= t('Total: ') . '<span class="cart-sum-weight" data-shop="' . $sid . '">' . $sumOfWeight . '</span> kg - <span class="cart-sum-price" data-shop="' . $sid . '">' . $sumOfPrice . '</span>Ft';
 
 
     $output .= '</div>';
@@ -545,6 +536,9 @@ function matrix_save_order() {
 }
 
 function matrix_page_alter(&$page) {
+  if (!isset($_COOKIE['Drupal_visitor_diszkont_uid'])) {
+    user_cookie_save(array('diszkont_uid' => uniqid()));
+  }
   drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_mail.css');
   $a2 = arg(2);
   $a1 = arg(1);

@@ -4,7 +4,10 @@
   <a data-remodal-action="cancel" class="remodal-cancel" href="#">Csere</a>
   <a data-remodal-action="confirm" class="remodal-confirm" href="#">Hozzáad</a>
 </div>
+<div class="compare-page">
 <?php
   print $table;
 ?>
+</div>
+
 

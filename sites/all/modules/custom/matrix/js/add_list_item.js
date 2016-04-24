@@ -1,30 +1,33 @@
 (function ($) {
 
-  Drupal.behaviors.matrixBasex = {
+  Drupal.behaviors.matrixBaseXxx = {
     attach: function (context, settings) {
 
 
 
-       $(document).on("click", ".add-to-cart", function () {
-          pid = $(this).attr('data-pid');
-          cart = $.cookie('diszkont');
-          if (cart == null) {
-            $.cookie('diszkont', '1|' + pid + ',', {path: '/'});
-          }
-          else {
-            $.cookie('diszkont', cart + '1|' + pid + ',', {path: '/'});
-          }
-          $.post('/matrix_cart_ajax',
-            {
-              order: $.cookie('diszkont')
-            },
-            function (data) {
-              $('#discount-cart').html(data).effect('shake', 'up');
-            })
+       $('.add-to-cart', context).once(function() {
+         $(this).on('click', function () {
+           console.log('fired');
+           pid = $(this).attr('data-pid');
+           cart = $.cookie('diszkont');
+           if (cart == null) {
+             $.cookie('diszkont', '1|' + pid + ',', {path: '/'});
+           }
+           else {
+             $.cookie('diszkont', cart + '1|' + pid + ',', {path: '/'});
+           }
+           $.post('/matrix_cart_ajax',
+             {
+               order: $.cookie('diszkont')
+             },
+             function (data) {
+               $('#discount-cart').html(data).effect('shake', 'up');
+             })
 
-         console.log($.cookie('diszkont'));
+           //console.log($.cookie('diszkont'));
 
-        }).css('cursor', 'pointer');
+         }).css('cursor', 'pointer');
+       })
       }
 
   }
