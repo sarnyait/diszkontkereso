@@ -416,7 +416,9 @@ function diszkont_field_default_field_bases() {
         'data_size' => 'normal',
         'data_type' => 'int',
       ),
-      'display_format' => '$display_output = "Olcsóbban {$entity_field_item[\'value\']} forinttal";',
+      'display_format' => 'if  ($entity_field_item[\'value\']>0) {
+$display_output = "- {$entity_field_item[\'value\']} Ft";
+}',
       'recalculate' => 0,
       'store' => 1,
     ),
@@ -497,7 +499,9 @@ function diszkont_field_default_field_bases() {
       ),
       'display_format' => '$ertek = sprintf("%02d", $entity_field_item[\'value\']);
 $szazalek = "$ertek%";
-$display_output = $szazalek;',
+if  ($ertek<100) {
+$display_output = $szazalek;
+}',
       'recalculate' => 0,
       'store' => 1,
     ),
@@ -612,6 +616,27 @@ $display_output = $szazalek;',
     ),
     'translatable' => 0,
     'type' => 'image',
+  );
+
+  // Exported field_base: 'field_url'.
+  $field_bases['field_url'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_url',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
   );
 
   // Exported field_base: 'field_urmertek'.

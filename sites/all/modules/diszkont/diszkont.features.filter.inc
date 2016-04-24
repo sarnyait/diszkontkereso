@@ -16,7 +16,7 @@ function diszkont_filter_default_formats() {
     'name' => 'Display Suite code',
     'cache' => 0,
     'status' => 1,
-    'weight' => 12,
+    'weight' => -6,
     'filters' => array(
       'ds_code' => array(
         'weight' => 0,
@@ -32,7 +32,7 @@ function diszkont_filter_default_formats() {
     'name' => 'Full HTML',
     'cache' => 1,
     'status' => 1,
-    'weight' => 1,
+    'weight' => -10,
     'filters' => array(
       'filter_url' => array(
         'weight' => 0,
@@ -60,7 +60,7 @@ function diszkont_filter_default_formats() {
     'name' => 'PHP code',
     'cache' => 0,
     'status' => 1,
-    'weight' => 11,
+    'weight' => -7,
     'filters' => array(
       'php_code' => array(
         'weight' => 0,

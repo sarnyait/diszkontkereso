@@ -18,7 +18,7 @@ function matrix_feature_default_fe_block_settings() {
     'delta' => 'matrix',
     'module' => 'matrix',
     'node_types' => array(),
-    'pages' => 'matrix',
+    'pages' => 'node/*',
     'roles' => array(),
     'themes' => array(
       'bartik' => array(
@@ -34,8 +34,8 @@ function matrix_feature_default_fe_block_settings() {
         'weight' => 0,
       ),
       'diszkont' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'sidebar_second',
+        'status' => 1,
         'theme' => 'diszkont',
         'weight' => 0,
       ),
@@ -46,8 +46,8 @@ function matrix_feature_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
-    'visibility' => 0,
+    'title' => 'Bevásárlólistám',
+    'visibility' => 1,
   );
 
   return $export;

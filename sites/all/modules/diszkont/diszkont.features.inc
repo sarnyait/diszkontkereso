@@ -36,7 +36,7 @@ melyik hét?
 melyik kategória?'),
     ),
     'products' => array(
-      'name' => t('Products'),
+      'name' => t('Termékek'),
       'base' => 'node_content',
       'description' => t('A termékek (név, leírás, fotó)'),
       'has_title' => '1',

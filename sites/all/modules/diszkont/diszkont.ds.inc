@@ -33,7 +33,17 @@ function diszkont_ds_field_settings_info() {
   $ds_fieldsetting->view_mode = 'full';
   $ds_fieldsetting->settings = array(
     'acime' => array(
-      'weight' => '0',
+      'weight' => '1',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'aruhaz' => array(
+      'weight' => '2',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'listamra' => array(
+      'weight' => '8',
       'label' => 'hidden',
       'format' => 'default',
     ),
@@ -61,7 +71,7 @@ function diszkont_ds_custom_fields_info() {
   $ds_field->ui_limit = '';
   $ds_field->properties = array(
     'code' => array(
-      'value' => '<h1>[node:title] - [node:field-aruhaz] - [node:field_suly] - [node:field_urmertek] - [node:field_darab]</h1>',
+      'value' => '<h1>[node:title] - [node:field_aruhaz] - [node:field_suly][node:field_urmertek][node:field_darab]</h1>',
       'format' => 'ds_code',
     ),
     'use_token' => 1,
