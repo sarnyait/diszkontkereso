@@ -91,12 +91,15 @@
             if ($(source).val() > 0) {
               v = $(source).val() * 1 - 1;
               $(source).val(v);
-              //$(source).next().val(v * w); //weight
+              if (v == 0) {
+                $(this).parent().parent().parent().addClass('faded');
+              }
             }
           }
           else {
             v = $(source).val() * 1 + 1;
             $(source).val(v);
+            $(this).parent().parent().parent().removeClass('faded');
             //$(source).next().val(v * w); // weight
 
           }
@@ -166,10 +169,13 @@
           if ($(this).siblings('.plus-minus').css('visibility') == 'visible') {
             $(this).siblings('.plus-minus').css('visibility', 'hidden');
             $(this).parent().removeClass('active');
+            $(this).parent().parent().addClass('faded');
+
           }
           else {
             $(this).siblings('.plus-minus').css('visibility', 'visible');
             $(this).parent().addClass('active');
+            $(this).parent().parent().removeClass('faded');
           }
           updateSumValues();
 
