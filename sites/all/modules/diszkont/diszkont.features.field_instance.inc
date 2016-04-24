@@ -128,6 +128,12 @@ function diszkont_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'diszkont_views' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'search_index' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -185,6 +191,12 @@ function diszkont_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 10,
       ),
+      'diszkont_views' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'search_index' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -213,7 +225,7 @@ function diszkont_field_default_field_instances() {
           'create_new_levels' => 0,
           'create_new_terms' => 0,
           'force_deepest' => 1,
-          'node_count' => 0,
+          'node_count' => 1,
         ),
       ),
       'type' => 'taxonomy_shs',
@@ -241,6 +253,12 @@ function diszkont_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_plain',
         'weight' => 6,
+      ),
+      'diszkont_views' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'search_index' => array(
         'label' => 'hidden',
@@ -292,6 +310,12 @@ function diszkont_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 9,
+      ),
+      'diszkont_views' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'search_index' => array(
         'label' => 'hidden',
@@ -347,6 +371,12 @@ function diszkont_field_default_field_instances() {
         'type' => 'text_plain',
         'weight' => 7,
       ),
+      'diszkont_views' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'search_index' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -399,6 +429,12 @@ function diszkont_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_plain',
         'weight' => 3,
+      ),
+      'diszkont_views' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'search_index' => array(
         'label' => 'hidden',
@@ -453,6 +489,12 @@ function diszkont_field_default_field_instances() {
         'type' => 'text_plain',
         'weight' => 4,
       ),
+      'diszkont_views' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'search_index' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -505,6 +547,12 @@ function diszkont_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_plain',
         'weight' => 5,
+      ),
+      'diszkont_views' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'search_index' => array(
         'label' => 'hidden',
@@ -559,6 +607,12 @@ function diszkont_field_default_field_instances() {
         'type' => 'text_plain',
         'weight' => 8,
       ),
+      'diszkont_views' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'search_index' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -612,10 +666,16 @@ function diszkont_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => '',
+          'image_style' => 'nodepage',
         ),
         'type' => 'image',
         'weight' => 1,
+      ),
+      'diszkont_views' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'search_index' => array(
         'label' => 'hidden',
@@ -680,7 +740,7 @@ function diszkont_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 24,
+        'weight' => 25,
       ),
       'diszkont' => array(
         'label' => 'above',
@@ -692,7 +752,7 @@ function diszkont_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 20,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -735,7 +795,7 @@ function diszkont_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 25,
+        'weight' => 26,
       ),
       'diszkont' => array(
         'label' => 'above',
@@ -747,7 +807,7 @@ function diszkont_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 19,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -815,7 +875,7 @@ function diszkont_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 1,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -826,8 +886,8 @@ function diszkont_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_akciosar',
-    'label' => 'Akciós ár',
-    'required' => 0,
+    'label' => 'Akciós / eladási ár',
+    'required' => 1,
     'settings' => array(
       'max' => '',
       'min' => '',
@@ -882,15 +942,11 @@ function diszkont_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'date',
         'settings' => array(
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-          'show_remaining_days' => FALSE,
+          'interval' => 2,
+          'interval_display' => 'raw time ago',
         ),
-        'type' => 'date_default',
-        'weight' => 2,
+        'type' => 'format_interval',
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -968,7 +1024,7 @@ function diszkont_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 0,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -979,7 +1035,7 @@ function diszkont_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_ar',
-    'label' => 'Ár',
+    'label' => 'Ár (csak akció esetén kell kitölteni)',
     'required' => 0,
     'settings' => array(
       'max' => '',
@@ -1008,7 +1064,7 @@ function diszkont_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 22,
+        'weight' => 23,
       ),
       'diszkont' => array(
         'label' => 'hidden',
@@ -1020,7 +1076,7 @@ function diszkont_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 22,
+        'weight' => 26,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1060,7 +1116,7 @@ function diszkont_field_default_field_instances() {
           'trim_length' => 80,
         ),
         'type' => 'url_default',
-        'weight' => 8,
+        'weight' => 7,
       ),
       'diszkont' => array(
         'label' => 'hidden',
@@ -1074,13 +1130,9 @@ function diszkont_field_default_field_instances() {
       ),
       'full' => array(
         'label' => 'hidden',
-        'module' => 'url',
-        'settings' => array(
-          'nofollow' => FALSE,
-          'trim_length' => 80,
-        ),
-        'type' => 'url_default',
-        'weight' => 8,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 22,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1121,7 +1173,7 @@ function diszkont_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 9,
+        'weight' => 8,
       ),
       'diszkont' => array(
         'label' => 'hidden',
@@ -1132,10 +1184,9 @@ function diszkont_field_default_field_instances() {
       ),
       'full' => array(
         'label' => 'hidden',
-        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_plain',
-        'weight' => 9,
+        'type' => 'hidden',
+        'weight' => 23,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1177,7 +1228,7 @@ function diszkont_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_decimal',
-        'weight' => 6,
+        'weight' => 5,
       ),
       'diszkont' => array(
         'label' => 'above',
@@ -1193,15 +1244,9 @@ function diszkont_field_default_field_instances() {
       ),
       'full' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_decimal',
-        'weight' => 6,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 21,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1241,7 +1286,7 @@ function diszkont_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 23,
+        'weight' => 24,
       ),
       'diszkont' => array(
         'label' => 'above',
@@ -1253,7 +1298,7 @@ function diszkont_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 23,
+        'weight' => 27,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1305,7 +1350,7 @@ function diszkont_field_default_field_instances() {
         'module' => 'computed_field',
         'settings' => array(),
         'type' => 'computed_field_plain',
-        'weight' => 10,
+        'weight' => 9,
       ),
       'diszkont' => array(
         'label' => 'hidden',
@@ -1319,7 +1364,7 @@ function diszkont_field_default_field_instances() {
         'module' => 'computed_field',
         'settings' => array(),
         'type' => 'computed_field_plain',
-        'weight' => 10,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1355,7 +1400,7 @@ function diszkont_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 20,
+        'weight' => 21,
       ),
       'diszkont' => array(
         'label' => 'hidden',
@@ -1367,7 +1412,7 @@ function diszkont_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 20,
+        'weight' => 24,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1417,7 +1462,7 @@ function diszkont_field_default_field_instances() {
         'module' => 'computed_field',
         'settings' => array(),
         'type' => 'computed_field_plain',
-        'weight' => 3,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1456,7 +1501,7 @@ function diszkont_field_default_field_instances() {
           'node_reference_view_mode' => 'full',
         ),
         'type' => 'node_reference_node',
-        'weight' => 7,
+        'weight' => 6,
       ),
       'diszkont' => array(
         'label' => 'hidden',
@@ -1474,7 +1519,7 @@ function diszkont_field_default_field_instances() {
           'node_reference_view_mode' => 'full',
         ),
         'type' => 'node_reference_node',
-        'weight' => 7,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1510,7 +1555,7 @@ function diszkont_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 21,
+        'weight' => 22,
       ),
       'diszkont' => array(
         'label' => 'hidden',
@@ -1522,7 +1567,7 @@ function diszkont_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 21,
+        'weight' => 25,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1591,6 +1636,40 @@ function diszkont_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'taxonomy_term-aruhaz-field_url'.
+  $field_instances['taxonomy_term-aruhaz-field_url'] = array(
+    'bundle' => 'aruhaz',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_url',
+    'label' => 'url',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 32,
+    ),
+  );
+
   // Exported field_instance: 'taxonomy_term-elelmiszerek-field_hosszunev'.
   $field_instances['taxonomy_term-elelmiszerek-field_hosszunev'] = array(
     'bundle' => 'elelmiszerek',
@@ -1599,7 +1678,7 @@ function diszkont_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -1629,7 +1708,7 @@ function diszkont_field_default_field_instances() {
   t('Ajánlott a héten?');
   t('Ajánlott a következő héten?');
   t('Akció vége');
-  t('Akciós ár');
+  t('Akciós / eladási ár');
   t('Csomagolás');
   t('Darab');
   t('Darabsúly');
@@ -1651,7 +1730,8 @@ function diszkont_field_default_field_instances() {
   t('Termékleírás');
   t('Tápérték adatok');
   t('Tárolás');
-  t('Ár');
+  t('url');
+  t('Ár (csak akció esetén kell kitölteni)');
   t('Áruház');
   t('Összetevők');
   t('Űrmérték');
