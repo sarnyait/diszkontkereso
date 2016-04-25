@@ -51,7 +51,7 @@ function diszkont_field_default_field_instances() {
         ),
       ),
       'type' => 'taxonomy_shs',
-      'weight' => 34,
+      'weight' => 2,
     ),
   );
 
@@ -103,7 +103,44 @@ function diszkont_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 32,
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'node-heti_ajanlat-field_shop'.
+  $field_instances['node-heti_ajanlat-field_shop'] = array(
+    'bundle' => 'heti_ajanlat',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_shop',
+    'label' => 'Melyik bolt?',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 3,
     ),
   );
 
@@ -1719,6 +1756,7 @@ function diszkont_field_default_field_instances() {
   t('Kategória (display)');
   t('Külső link az áruházhoz');
   t('Logo');
+  t('Melyik bolt?');
   t('Melyik hét?');
   t('Melyik kategória?');
   t('Olcsóbban');

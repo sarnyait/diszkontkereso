@@ -445,6 +445,32 @@ $display_output = "- {$entity_field_item[\'value\']} Ft";
     'type' => 'text_long',
   );
 
+  // Exported field_base: 'field_shop'.
+  $field_bases['field_shop'] = array(
+    'active' => 1,
+    'cardinality' => 4,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_shop',
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'aruhaz',
+          'parent' => 0,
+        ),
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'taxonomy_term_reference',
+  );
+
   // Exported field_base: 'field_suly'.
   $field_bases['field_suly'] = array(
     'active' => 1,

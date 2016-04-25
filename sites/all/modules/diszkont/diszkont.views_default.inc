@@ -696,7 +696,7 @@ kedvezmeny Desc |
 ar Asc | Olcsóbb előre
 ar Desc | Drágább előre'),
     t('Mind'),
-    t('Az eredmények megjelennek bármely szűrő kiválasztása után, az Alkalmaz gombra kattintva'),
+    t('Select any filter and click on Apply to see results'),
     t('Elemek száma oldalanként'),
     t('- Mind -'),
     t('Eltolás'),
@@ -719,10 +719,12 @@ print get_exposed_filter_output();
     t('Üzletláncok'),
     t('Akció mértéke'),
     t('Page'),
+    t('more'),
     t('masonry'),
     t('Masonry'),
     t('racsos'),
     t('[field_szazalek]%'),
+    t('Az eredmények megjelennek bármely szűrő kiválasztása után, az Alkalmaz gombra kattintva'),
   );
   $export['szures'] = $view;
 
