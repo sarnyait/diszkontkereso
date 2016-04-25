@@ -186,6 +186,16 @@ body {
 display:none !important;
 }
 
+body#pid-matrix .views-field-field-termekfoto-1 {
+float:left;
+}
+
+form#views-exposed-form-osszes-akcio-osszesakcio-mefibs-form-rendezes.ctools-auto-submit-full-form.jquery-once-2-processed.ctools-auto-submit-processed {
+  position: relative;
+  top: 24px;
+  right: 200px;
+}
+
 body#pid-matrix .page-header {
  width: 300px;
   height: 17px;
@@ -216,22 +226,20 @@ background: white;
 }
 
 body#pid-matrix  div.views-field.views-field-field-ar {
-    float: none;
     margin-top: 0px;
     margin-left: 0px;
-    max-width: 100px !important;
+    float: right;
 }
 
-body#pid-matrix div.views-field.views-field-field-akciosar {
-float:none;
-}
+
 
 div.plus-minus {
-width: auto;
-height: 30px;
+width: 60px;
+height: 20px;
 border-radius: 60px;
 border: solid 1px #343434;
-margin: 10px auto;
+overflow: hidden;
+padding: 0 5px;
 }
 
 
@@ -246,6 +254,16 @@ div.measure-selector.measure-weight {
 input.matrix_val_change, input.cart-minus, input.cart-plus {
   border: 0;
   background: transparent;
+  font-size: 12px;
+  max-width: 5px;
+  max-height: 1px;
+  padding-bottom: 5px;
+  display: inline-block;
+  line-height:0.1;
+}
+
+.faded {
+  opacity: 0.5;
 }
 
 div.main-container.container-fluid {
@@ -257,7 +275,7 @@ div.table-row:nth-of-type(2) {
 }
 
 .matrix_val {
-width: 30px;
+width: 20px;
 height: auto;
 font-size: 14px;
 border: 0;
@@ -275,6 +293,7 @@ input.cart-delete {
  border:0;
  background: transparent;
  border-radius:5px;
+ color: #ec4c43 !important;
 }
 
 input.cart-delete:after {
@@ -289,6 +308,26 @@ div.cell.best {
   font-weight: 700;
 }
 
+.cart-row {
+  border: 0px;
+}
+
+.no-width {
+  margin-right: 10px;
+}
+
+div.pane-matrix-matrix div.cell.no-width:nth-child(1) {
+  clear: left;
+}
+
+div.pane-matrix-matrix  input#delete-order, section#block-matrix-matrix input#delete-order {
+  display: none;
+}
+
+#summary:nth-of-type(2) {
+  background-color: #f9f9f9;
+}
+
 div.amount {
    width: 9px;
   height: 17px;
@@ -301,6 +340,7 @@ div.content.cell {
   font-family: "Lato-Light";
   font-size: 12px;
   color: #343434;
+  width: 350px;
 }
 
 div.content.cell a {
@@ -314,11 +354,38 @@ div.content.cell a {
 
 .amount.cell, .markup.cell, .weight.cell {
 text-align:left;
- width: 39px;
+  width: auto;
   height: 15px;
   font-family: "Lato-Regular";
   font-size: 12px;
   color: #535353;
+}
+
+span.cart-sum-weight, span.cart-sum-price {
+  width: 100px;
+  height: 19px;
+  font-family: 'Lato-Bold';
+  font-size: 16px;
+  color: #343434;
+  margin-left: 40px;
+}
+
+div.weight.cell, div.price.cell {
+  width: 40px;
+  height: 17px;
+  font-family: Lato-Bold;
+  font-size: 14px;
+  color: #343434;
+  margin-left: 40px;
+}
+
+div.markup.cell {
+  width: 100px;
+  height: 17px;
+  font-family: Lato-Bold;
+  font-size: 14px;
+  color: #343434;
+  margin-left: 0px;
 }
 
 
@@ -352,22 +419,35 @@ body.page-node .field-name-field-akciovege {
  background: white; 
 }
 
+div.mc-field-group.input-group.elso, div.mc-field-group.input-group.masodik{
+  margin: 0 auto;
+}
+
 #block-matrix-matrix #save-order, #block-matrix-matrix #print-order, #block-matrix-matrix #email-order, .pane-matrix-matrix #save-order, .pane-matrix-matrix #print-order, .pane-matrix-matrix #email-order {
   display: none;
 }
 
 #save-order, #email-order, #print-order, #delete-order {
-    background: rgb(236,76,67) !important;
-    color: white !important;
-    text-transform: uppercase !important;
-    border: 0px !important;
-    margin-top: 15px !important;
-    width: 180px !important;
-    height: 40px !important;
-    text-indent: 0 !important;
-    float: none !important;
+    width: 180px;
+    height: 40px;
     border-radius: 4px;
-    margin-right: 25px;
+    border: solid 1px #343434;
+    font-family: "Lato-Bold";
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #343434;
+    margin: 0px 3%;
+    display: inline-block;
+    background: none;
+}
+
+#save-order {
+  margin-left: 5%;
+}
+
+.delete-shop {
+  float: right;
+  color: #ec4c43;
 }
 
 .exposed_filter_data {
@@ -404,6 +484,10 @@ body.page-taxonomy.page-taxonomy-term.page-taxonomy-term- h1.page-header {
   background: white;
 }
 
+input.2052_cart {
+  background-color: #ec4c43 !important;
+}
+
 body.page-node .add-to-cart {
   width: 180px;
   height: 40px;
@@ -426,22 +510,90 @@ body.page-node .add-to-cart {
   margin-top: 10px;
 }
 
-.cell {
+body#pid-matrix .summary-row {
+  font-family: "Lato-Regular";
+  font-size: 14px;
+  color: #343434;
+  background: rgba(250, 221, 153, 0.05);
+}
+
+body#pid-matrix .cell {
   font-family: 'Lato-Regular';
-	font-size: 14px;
-	padding: 3px;
+  font-size: 14px;
+  padding: 3px;
+  min-height: 120px;
+  border-right: solid 1px #979797;  
 }	
+
+body#pid-matrix #header {
+  border-top: 1px #979797 solid;
+}
+
+
+body#pid-matrix .button-cell {
+  border-bottom: 1px #979797 solid;
+  border-right: 1px #979797 solid;
+}
+
+body#pid-matrix #header .cell {
+	font-family: Lato-Bold;
+	font-size: 14px;
+	color: #535353;
+	}
+
+body#pid-matrix .cell:nth-of-type(1) {
+border-left: solid 1px #979797; 
+}
+
+body#pid-matrix h4.termeknev a, body#pid-matrix .views-field-title  {
+  display: block;
+  width: auto;
+	height: auto;
+	font-family: "Lato-Regular";
+	font-size: 12px;
+	color: #535353;
+	float: right;
+}
+
+body#pid-matrix .views-field-field-egysegar, body#pid-matrix .views-field-field-akciosar, body#pid-matrix .views-field-field-ar {
+  display: block;
+  width: auto;
+  height: auto;
+  font-family: "Lato-Regular";
+  font-size: 12px;
+  color: #535353;
+  margin: 0;
+
+}
+
+body#pid-matrix .views-field-field-akciosar {
+  float:left;
+  clear: right;
+  margin-left: 10px;
+}
+
 
 #header .cell {
   font-family: 'Lato-Bold';
   font-size: 14px;
   color: #535353;
   text-transform: uppercase;
+  min-height: 35px !important;
+  max-height: 35px;
+}
+
+#corner.cell {
+min-height: 35px !important;
+}
+
+#corner {
+width:18% !important;
 }
 
 .table-row {
   border: solid 1px #979797;
-  min-height: 280px;
+  min-height: 120px;
+  max-height: 120px;
 }
 
 #summary {
@@ -449,13 +601,64 @@ font-family: 'Lato-Light';
 font-size: 12px;
 }
 
+body#pid-matrix-cart div#discount-cart {
+  background: white;
+  padding: 20px 40px;
+  margin-top: 40px;
+}
+
+body#pid-koszonjuk input[value="Bolt webhelye"], body#pid-koszonjuk input[value="Legközelebbi üzlet"] {
+  display: none;
+}
+
+div.pane-matrix-matrix input[value="Bolt webhelye"], div.pane-matrix-matrix input[value="Legközelebbi üzlet"] {
+  display: none;
+}
+
+div.pane-matrix-matrix input[value="Ugrás a listaoldalra"] {
+  width: 180px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #ec4c43;
+  font-family: "Lato-Bold";
+  font-size: 12px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+
+body#pid-matrix-cart input[value="Bolt webhelye"], body#pid-matrix-cart input[value="Legközelebbi üzlet"] {
+  width: 100px;
+  height: 20px;
+  object-fit: contain;
+  border-radius: 4px;
+  border: solid 1px #343434;
+  margin: 0px 20px;
+  font-family: "Lato-Regular";
+  font-size: 10px;
+  color: #343434;
+}
+
+div.pane-matrix-matrix div.content.cell {
+  width: 131px;
+  height: 30px;
+  font-family: "Lato-Light";
+  font-size: 12px;
+  color: #343434;
+}
+
+div.pane-matrix-matrix .cart-row {
+  border-bottom: solid 1px #979797;
+}
+
 .shop-header h2 {
-width: 58px;
+width: auto;
 height: 15px;
 font-family: 'Lato-Bold';
 font-size: 12px;
 color: #262735;
 -webkit-text-stroke: 1px #979797;
+border-bottom: dotted 1px #262735;
 }
 
 body#pid-osszes-akcio h1 {
@@ -499,7 +702,7 @@ padding-top:25px;
   width: 60% !important;
 
 } 
-.pane-matrix-matrix h2, h2.block-title {
+.pane-matrix-matrix h2, h2.block-title  {
   height: 15px;
 	font-family: 'Lato-Bold';
 	font-size: 12px;
@@ -507,6 +710,19 @@ padding-top:25px;
 	color: #343434;
 	text-transform: uppercase;
 }
+
+body#pid-koszonjuk section#block-matrix-matrix h2  {
+  height: 15px;
+  font-family: 'Lato-Bold' !important;
+  font-size: 12px !important;
+  letter-spacing: 1.4px;
+  color: #343434;
+  text-transform: uppercase;
+  padding: 0 !important;
+  background: none !important;
+  text-align: left !important;
+}
+
 
 body#pid-osszes-akcio .panel-col-first .pane-title, .panel-2col-bricks .pane-title, body.page-taxonomy-term- .panel-col-first .pane-title{
       font-weight: bold;
@@ -765,7 +981,7 @@ body#pid-koszonjuk div.mc-field-group.input-group ul {
 
 body#pid-koszonjuk input[type="radio"] {
 float: left;
-margin: 8px -50% 0px 43%;
+margin: 8px 0px;
 }
 
 body#pid-koszonjuk div.mc-field-group.input-group strong {
@@ -783,7 +999,7 @@ body#pid-koszonjuk div.mc-field-group.input-group.masodik {
 
 body#pid-koszonjuk div.mc-field-group.input-group.masodik input[type="radio"] {
 float: left;
-margin: 8px -50% 0px 28%;
+margin: 8px 0px;
 }
 
 body#pid-koszonjuk label {
@@ -1684,18 +1900,6 @@ section#block-menu-menu-diszkont.block.block-menu{
 width: 100%;
 margin: 0 auto;
 height: 30px;
-display:-moz-box;
--moz-box-pack:center;
--moz-box-align:center;
-/* Safari and Chrome */
-display:-webkit-box;
--webkit-box-pack:center;
--webkit-box-align:center;
-/* W3C */
-display:box;
-box-pack:center;
-box-align:center;
-
 }
 
 
@@ -2395,12 +2599,8 @@ body.page-taxonomy h4.termeknev a h4   {
 margin-bottom:40px;
 }
 
-body#pid-matrix h4.termeknev   {
-min-height:80px;
-}
-
 body#pid-matrix span.field-content.akciosar {
-    font-size: 16px;
+    font-size: 12px;
 }
 
 div.views-field.views-field-totalcount {

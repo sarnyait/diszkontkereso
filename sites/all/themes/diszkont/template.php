@@ -89,8 +89,8 @@ case 'views_exposed_form':
     $find = 'koszonjuk';
     $pos = strpos($path, $find);
     if ($pos !== false) {
-    drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/signup.js', array('weight' => 1));
-    drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/signupcopy.js', array('weight' => -1));
+    // drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/signup.js', array('weight' => 1));
+    // drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/signupcopy.js', array('weight' => -1));
     }
     
   }
