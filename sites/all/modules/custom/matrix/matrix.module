@@ -295,9 +295,9 @@ function matrix_compare_page() {
   $vocabulary = taxonomy_vocabulary_machine_name_load('aruhaz');
   $terms2 = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
   $terms2 = $nodes->field_shops[LANGUAGE_NONE];
+  $terms2 = taxonomy_term_load_multiple(array(519, 520, 2052, 2049));
   $tops = matrix_tax2flat_array($terms2);
   //$tops = array('Spar', 'Tesco', 'Lidl', 'CBA');
-  dpm($tops);
 
   $sumPrice = array();
   $sumWeight = array();
@@ -343,7 +343,6 @@ function matrix_compare_page() {
     foreach ($tops as $top) {
       $i++;
       $pid = matrix_find_product($left, $top);
-      dpm($pid);
       $product = node_load($pid);
       $weight = 0;
 
