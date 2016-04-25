@@ -29,6 +29,12 @@ function matrix_menu() {
     'page callback' => 'matrix_save_order',
     'access arguments' => array('access content'),
   );
+
+  $items['fix-products'] = array(
+    'title' => '',
+    'page callback' => 'matrix_fix_products',
+    'access arguments' => array('access content'),
+  );
   return $items;
 }
 
@@ -288,9 +294,10 @@ function matrix_compare_page() {
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('aruhaz');
   $terms2 = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
-  $terms2 = taxonomy_term_load_multiple(array(519, 520, 2052, 2049));
+  $terms2 = $nodes->field_shops[LANGUAGE_NONE];
   $tops = matrix_tax2flat_array($terms2);
   //$tops = array('Spar', 'Tesco', 'Lidl', 'CBA');
+  dpm($tops);
 
   $sumPrice = array();
   $sumWeight = array();
@@ -336,6 +343,7 @@ function matrix_compare_page() {
     foreach ($tops as $top) {
       $i++;
       $pid = matrix_find_product($left, $top);
+      dpm($pid);
       $product = node_load($pid);
       $weight = 0;
 
@@ -564,4 +572,19 @@ function matrix_form_alter(&$form, &$form_state, $form_id) {
 
 
   }
+}
+
+function matrix_fix_products() {
+  $output = '';
+  $nodes = node_load_multiple(array(), array('type' => 'products_display'));
+  foreach ($nodes as $node) {
+    $price1 = $node->field_akciosar[LANGUAGE_NONE][0]['value'];
+    $price2 = $node->field_ar[LANGUAGE_NONE][0]['value'];
+    $output .= $node->nid . ' - ' . $price1 . ':' . $price2 . '<hr />';
+    if ($price1 == $price2) {
+      $node->field_ar = array();
+      node_save($node);
+    }
+  }
+  return $output;
 }

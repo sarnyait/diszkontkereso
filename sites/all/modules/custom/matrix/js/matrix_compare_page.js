@@ -394,7 +394,7 @@
       $(window).on("scroll", function() {
         var scrollHeight = $(document).height();
         var scrollPosition = $(window).height() + $(window).scrollTop();
-        $('.summary-row').css('top', scrollPosition - 300);
+        $('.summary-row').css('top', scrollPosition - 500);
         $('.summary-row').css('position', 'absolute');
 
         if ((scrollHeight - scrollPosition) / scrollHeight < 0.01) {
