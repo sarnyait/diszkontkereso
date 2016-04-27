@@ -343,7 +343,10 @@ function matrix_compare_page() {
     foreach ($tops as $top) {
       $i++;
       $pid = matrix_find_product($left, $top);
-      $product = node_load($pid);
+      $product = '';
+      if (!is_null($pid)) {
+        $product = node_load($pid);
+      }
       $weight = 0;
 
       if (!empty($product)) {
@@ -367,6 +370,7 @@ function matrix_compare_page() {
         $product_title = '-';
         $sumPrice[$top] += 0;
         $sumWeight[$top] += 0;
+        $product_view = '-';
 
       }
       $best = ($i == 1) ? 'best' : '';
