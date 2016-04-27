@@ -88,12 +88,14 @@
         $('.matrix_val_change').on("click", function () {
           source = '#' + $(this).attr('data-source');
           w = $(source).next().attr('data-weight');
+          pid = $(this).attr('data-name');
           if ($(this).attr('value') == '-') {
             if ($(source).val() > 0) {
               v = $(source).val() * 1 - 1;
               $(source).val(v);
               if (v == 0) {
                 $(this).parent().parent().parent().addClass('faded');
+                $('.check[data-name="' + pid + '"]').trigger('click');
               }
             }
           }
@@ -174,6 +176,7 @@
 
       if ($('.check').length) {
         $('.check').on("click", function () {
+          pid = $(this).attr('data-name');
           if ($(this).siblings('.plus-minus').css('visibility') == 'visible') {
             $(this).siblings('.plus-minus').css('visibility', 'hidden');
             $(this).parent().removeClass('active');
@@ -184,6 +187,7 @@
             $(this).siblings('.plus-minus').css('visibility', 'visible');
             $(this).parent().addClass('active');
             $(this).parent().parent().removeClass('faded');
+            $('.matrix_val[data-name="' + pid + '"]').val(1);
           }
           updateSumValues();
 

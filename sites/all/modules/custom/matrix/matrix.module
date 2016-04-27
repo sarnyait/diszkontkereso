@@ -99,8 +99,8 @@ function matrix_add_plus_minus($class = 'input', $left) {
   $output = '';
   $output .= '';
   $output .= '<div class="plus-minus">';
-  $output .= '<input type="button" value="-" class="matrix_val_change" data-source="' . $class . '_val">';
-  $output .= '<input type="number" pattern="[0-9]*" id="' . $class . '_val" class="matrix_val">';
+  $output .= '<input type="button" value="-" class="matrix_val_change" data-source="' . $class . '_val" data-name="' . convert($left) . '">';
+  $output .= '<input type="number" pattern="[0-9]*" id="' . $class . '_val" class="matrix_val" data-name="' . convert($left) . '">';
   //$output .= '<input type="number" id="' . $class . '_val" class="matrix_val_weight" data-category="' . $left . '" value="' . $weight . '">';
   $output .= '<input type="button" value="+" class="matrix_val_change" data-source="' . $class . '_val">';
   //$output .= '<div class="measure-selector measure-pc"><input class="default-measure" type="radio" value="pc" name="measure_' . $left . '">' . t('pieces') . '</div>';
@@ -338,7 +338,7 @@ function matrix_compare_page() {
   $sumPrice = array();
   foreach ($lefts as $left) {
     $table .= '<div class="table-row">';
-    $table .= '<div class="cell starter_cell active" data-name="' . convert($left) . '"><input type="checkbox" class="check" CHECKED>' . matrix_add_plus_minus('amount_' . convert($left), $left) . '<label>' . matrix_get_termname($left) . '</label></div>';
+    $table .= '<div class="cell starter_cell active" data-name="' . convert($left) . '"><input type="checkbox" class="check" CHECKED data-name="' . convert($left) . '">' . matrix_add_plus_minus('amount_' . convert($left), $left) . '<label>' . matrix_get_termname($left) . '</label></div>';
     $i = 0;
     foreach ($tops as $top) {
       $i++;
@@ -469,7 +469,7 @@ function matrix_cart_page() {
   $output .= '<input type="button" id="save-order" value="Letöltöm PDF formátumban">';
   $output .= '<input type="button" id="email-order" value="Elküldöm e-mailben">';
   $output .= '<input type="button" id="print-order" value="Kinyomtatom">';
-  $output .= '<input type="button" id="delete-order" value="Törlöm a bevásárlólistát">';
+  $output .= '<input type="button" id="delete-order" value="X">';
   $output .= '<div id="discount-cart">';
   $output .= matrix_render_cart($line_items);
   $output .= '</div>';
