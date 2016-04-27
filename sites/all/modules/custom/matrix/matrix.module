@@ -517,7 +517,7 @@ function matrix_render_cart($line_items, $format = '') {
 
     $output .= matrix_get_shop_url($sid);
     $output .= '<input type="button" class="nearest-shop" value="Legközelebbi üzlet">';
-    $output .= t('Total: ') . '<span class="cart-sum-weight" data-shop="' . $sid . '">' . $sumOfWeight . '</span> kg - <span class="cart-sum-price" data-shop="' . $sid . '">' . $sumOfPrice . '</span>Ft';
+    $output .= '<div class="totals-row"><label class="totals">' . t('Total: ') . '</label><span class="cart-sum-weight" data-shop="' . $sid . '">' . $sumOfWeight . ' kg</span><span class="cart-sum-price" data-shop="' . $sid . '">' . $sumOfPrice . ' Ft</span></div>';
 
 
     $output .= '</div>';
