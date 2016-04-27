@@ -376,7 +376,7 @@ function matrix_compare_page() {
         $product_title = '-';
         $sumPrice[$top] += 0;
         $sumWeight[$top] += 0;
-        $product_view = '-';
+        $product_view = '<img width="180" src="http://www.menshealth.com/sites/menshealth.com/files/styles/slideshow-desktop/public/images/slideshow2/hunger%20roar.jpg">No_content';
 
       }
       $best = ($i == 1) ? 'best' : '';
