@@ -272,7 +272,13 @@ function matrix_render_product_view($pid) {
 
 function matrix_get_termname($tid) {
   $term = taxonomy_term_load($tid);
-  return $term->name;
+  if ($term->field_hosszunev[LANGUAGE_NONE][0]['safe_value']) {
+    $termname = $term->field_hosszunev[LANGUAGE_NONE][0]['safe_value'];
+  }
+  else {
+    $termname = $term->name;
+  }
+  return $termname;
 }
 
 function matrix_get_shop_url($tid) {
