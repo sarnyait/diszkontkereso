@@ -27,8 +27,8 @@
 			  	$container.imagesLoaded(function($){
 					$container.masonry({
 				  		itemSelector: 'div.masonry-item',
-				  		columnWidth: $(document).width() > 800 ? 180 : 10,
-				  		gutterWidth: $(document).width() > 800 ? 200 : 0,
+				  		columnWidth: $(document).width() > 800 ? 220 : 220,
+				  		gutterWidth: $(document).width() > 800 ? 25 : 25,
 					});
 			  		}(jQuery));
 
@@ -38,9 +38,9 @@
 					nextSelector : 'ul.pagination li.next a',  // selector for the NEXT link (to page 2)
 					itemSelector : 'div.masonry-item',     // selector for all items you'll retrieve
 					animate      : false,
-					msgText  : Drupal.t("Következő termékek"),
+					msgText  : Drupal.t("Kovetkezo termekek"),
 					img: '/sites/all/themes/diszkont/images/loading.gif',
-					donetext:Drupal.t('Vége'),
+					donetext:Drupal.t('Vege'),
 
 					state: {
 								currPage: 0

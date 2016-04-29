@@ -182,8 +182,35 @@ body {
   background-repeat: repeat-x;
 }
 
+body.page-node section#block-matrix-matrix.block.block-matrix.contextual-links-region.clearfix {
+max-width:180px;
+overflow:hidden;
+word-wrap: break-word;
+word-break: break-all;
+}
+
+body.page-search-products ul {
+  display: none;
+}
+
+body.page-search-products dl {
+      font-size: 200%;
+}
+
+#discount-cart .cell.content {
+margin-bottom:25px;
+}
+
 #infscr-loading {
 display:none !important;
+}
+
+.region-content {
+padding-bottom:120px;
+}
+
+.form-item-mefibs-form-rendezes-sort-by {
+  margin-right: 175px;
 }
 
 body#pid-matrix .views-field-field-termekfoto-1 {
@@ -199,7 +226,7 @@ form#views-exposed-form-osszes-akcio-osszesakcio-mefibs-form-rendezes.ctools-aut
 body#pid-matrix .page-header {
  width: 300px;
   height: 17px;
-  font-family: 'Lato-Bold';
+  font-family: 'Lato Bold';
   font-weight:700;
   font-size: 14px;
   letter-spacing: 1.6px;
@@ -208,8 +235,8 @@ body#pid-matrix .page-header {
 }
 
 ul#ntm-categ-list.ntm-categ-list li.empty a {
-font-weight: lighter;
-    font-family: "Lato-Light";
+    font-weight: 300;
+    font-family: "Lato";
     font-variant: small-caps;
 }
 
@@ -218,7 +245,8 @@ width: 60px;
 height: 20px;
 border-radius: 4px;
 border: solid 1px #343434;
-font-family: 'Lato-Regular';
+font-family: 'Lato';
+font-weight: 400;
 font-size: 10px;
 color: #343434;
 text-align: center;
@@ -234,7 +262,7 @@ body#pid-matrix  div.views-field.views-field-field-ar {
 
 
 div.plus-minus {
-width: 60px;
+width: 75px;
 height: 20px;
 border-radius: 60px;
 border: solid 1px #343434;
@@ -302,10 +330,24 @@ color: #ec4c43 !important;
 display:block;
 }
 
+.cell label {
+    width: 80px;
+  height: 30px;
+  font-family: 'Lato';
+  font-weight: 400;
+  font-size: 12px;
+  color: #535353;
+}
+body#pid-osszes-akcio .cell input.cart-delete, body.page-taxonomy-term- .cell input.cart-delete,  body.page-node .cell input.cart-delete {
+    position: relative;
+    left: 110px;
+    top: -60px;
+  }
+
 
 div.cell.best {
   background-color: rgba(250, 221, 153, 0.05);
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 .cart-row {
@@ -331,23 +373,26 @@ div.pane-matrix-matrix  input#delete-order, section#block-matrix-matrix input#de
 div.amount {
    width: 9px;
   height: 17px;
-  font-family: "Lato-Regular";
+  font-family: "Lato";
+  font-weight: 400;
   font-size: 14px;
   color: #343434;
 }
 
 div.content.cell {
-  font-family: "Lato-Light";
+  font-family: "Lato";
   font-size: 12px;
   color: #343434;
   width: 350px;
+  font-weight: 300;
 }
 
 div.content.cell a {
   text-decoration: none;
    width: 131px;
   height: 30px;
-  font-family: "Lato-Light";
+  font-family: "Lato";
+  font-weight: 300;
   font-size: 12px;
   color: #343434;
 }
@@ -356,41 +401,86 @@ div.content.cell a {
 text-align:left;
   width: auto;
   height: 15px;
-  font-family: "Lato-Regular";
+  font-family: "Lato";
+  font-weight: 400;
   font-size: 12px;
   color: #535353;
 }
 
-span.cart-sum-weight, span.cart-sum-price {
+span.cart-sum-weight, span.cart-sum-price, span.measurement {
   width: 100px;
   height: 19px;
-  font-family: 'Lato-Bold';
+  font-family: 'Lato';
   font-size: 16px;
+  font-weight: 700;
   color: #343434;
   margin-left: 40px;
+}
+
+body#pid-osszes-akcio span.measurement, body.page-taxonomy-term- span.measurement,  body.page-node span.measurement{
+  margin-top: -20px;
+    margin-left: 100px;
+}
+
+body#pid-osszes-akcio span.cart-sum-weight, body#pid-osszes-akcio span.cart-sum-price, body.page-node span.cart-sum-price, body#pid-osszes-akcio span.measurement, body.page-taxonomy-term- span.cart-sum-weight, body.page-node span.cart-sum-weight, body.page-taxonomy-term- span.cart-sum-price, body.page-taxonomy-term- span.measurement, body.page-node span.measurement {
+  float:left;
+}
+
+body#pid-osszes-akcio .totals-row label, body.page-taxonomy-term- .totals-row label, body.page-node .totals-row label  {
+   width: 51px;
+  height: 15px;
+  font-family: Lato-Bold;
+  font-size: 12px;
+  color: #262735;
+  -webkit-text-stroke: 1px #979797;
+   border-bottom: dotted 1px #262735; 
 }
 
 div.weight.cell, div.price.cell {
-  width: 40px;
+  width: 75px;
   height: 17px;
-  font-family: Lato-Bold;
+  font-family: Lato;
+  font-weight: 700;
   font-size: 14px;
   color: #343434;
   margin-left: 40px;
 }
 
-div.markup.cell {
+body#pid-matrix-cart .plus-minus {
+  float:left;
+  width: 75px;
+}
+
+body#pid-matrix-cart .totals-row {
+  float: right;
+}
+
+body#pid-matrix-cart .totals {
+   width: 88px;
+  height: 17px;
+  font-family: 'Lato';
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1.6px;
+  color: #ec4c43;
+}
+
+body#pid-osszes-akcio div.markup.cell, body.page-taxonomy-term- div.markup.cell, body.page-node div.markup.cell  {
   width: 100px;
   height: 17px;
-  font-family: Lato-Bold;
+  font-family: "Lato";
+  font-weight: 700;
   font-size: 14px;
   color: #343434;
   margin-left: 0px;
+   text-align: right !important;
+    margin-top: -17px;
 }
 
 
 .field-name-acime {
-  font-family: 'Lora-Bold';
+  font-family: 'Lora';
   font-weight: 700;
    width: 300px;
   height: 75px;
@@ -407,7 +497,8 @@ div.markup.cell {
 body.page-node .field-name-field-akciovege {
   width: 196px;
   height: 24px;
-  font-family: Lato-Regular;
+  font-family: "Lato";
+  font-weight: 400;
   font-size: 20px;
   line-height: 0.6;
   color: #ec4c43;
@@ -427,17 +518,25 @@ div.mc-field-group.input-group.elso, div.mc-field-group.input-group.masodik{
   display: none;
 }
 
-#save-order, #email-order, #print-order, #delete-order {
+#save-order, #email-order, #print-order {
     width: 180px;
     height: 40px;
     border-radius: 4px;
     border: solid 1px #343434;
-    font-family: "Lato-Bold";
+    font-family: "Lato";
+	font-weight: 700;
     font-size: 12px;
     letter-spacing: 2px;
     color: #343434;
     margin: 0px 3%;
     display: inline-block;
+    background: none;
+}
+
+#delete-order {
+  float: right;
+    color: #ec4c43;
+    border: 0;
     background: none;
 }
 
@@ -456,7 +555,8 @@ div.mc-field-group.input-group.elso, div.mc-field-group.input-group.masodik{
 }
 
 .page-header h1 {
-  font-family: 'Lato-Bold';
+  font-family: 'Lato';
+  font-weight: 700;
   font-size: 14px;
   letter-spacing: 1.6px;
   color: #343434;
@@ -467,7 +567,8 @@ div.mc-field-group.input-group.elso, div.mc-field-group.input-group.masodik{
 body.page-taxonomy.page-taxonomy-term.page-taxonomy-term- h1.page-header {
   width: 182px;
   height: 17px;
-  font-family: "Lato-Regular";
+  font-family: "Lato";
+  font-weight: 400;
   font-size: 14px;
   color: #535353;
 }
@@ -477,7 +578,8 @@ body.page-taxonomy.page-taxonomy-term.page-taxonomy-term- h1.page-header {
   height: 20px;
   border-radius: 4px;
   border: solid 1px #343434;
-  font-family: 'Lato-Regular';
+  font-family: 'Lato';
+  font-weight: 400;
   font-size: 10px;
   color: #343434; 
   text-align: center;
@@ -493,7 +595,8 @@ body.page-node .add-to-cart {
   height: 40px;
   border-radius: 4px;
   background-color: #ec4c43;
-  font-family: Lato-Bold;
+  font-family: "Lato";
+  font-weight: 700;
   font-size: 12px;
   letter-spacing: 2px;
   color: #ffffff;
@@ -511,18 +614,20 @@ body.page-node .add-to-cart {
 }
 
 body#pid-matrix .summary-row {
-  font-family: "Lato-Regular";
+  font-family: "Lato";
+  font-weight: 400;
   font-size: 14px;
   color: #343434;
   background: rgba(250, 221, 153, 0.05);
 }
 
 body#pid-matrix .cell {
-  font-family: 'Lato-Regular';
+  font-family: 'Lato';
   font-size: 14px;
   padding: 3px;
   min-height: 120px;
   border-right: solid 1px #979797;  
+  width: 20% !important;
 }	
 
 body#pid-matrix #header {
@@ -536,7 +641,8 @@ body#pid-matrix .button-cell {
 }
 
 body#pid-matrix #header .cell {
-	font-family: Lato-Bold;
+	font-family: "Lato";
+	font-weight: 700;
 	font-size: 14px;
 	color: #535353;
 	}
@@ -546,40 +652,48 @@ border-left: solid 1px #979797;
 }
 
 body#pid-matrix h4.termeknev a, body#pid-matrix .views-field-title  {
-  display: block;
-  width: auto;
+    display: block;
+    width: 115px;
 	height: auto;
-	font-family: "Lato-Regular";
+	font-family: "Lato";
+	font-weight: 400;
 	font-size: 12px;
 	color: #535353;
 	float: right;
+	margin-bottom:5px;
 }
 
-body#pid-matrix .views-field-field-egysegar, body#pid-matrix .views-field-field-akciosar, body#pid-matrix .views-field-field-ar {
+body#pid-matrix .views-field-field-egysegar, body#pid-matrix .views-field-field-akciosar, body#pid-matrix .views-field-field-ar, body#pid-matrix .views-field-field-suly, body#pid-matrix .views-field-field-urmertek {
   display: block;
   width: auto;
   height: auto;
-  font-family: "Lato-Regular";
+  font-family: "Lato";
+  font-weight: 400;
   font-size: 12px;
   color: #535353;
   margin: 0;
 
 }
 
-body#pid-matrix .views-field-field-akciosar {
-  float:left;
+body#pid-matrix .views-field-field-akciosar, body#pid-matrix .views-field-field-suly, body#pid-matrix .views-field-field-urmertek {
+  float:right;
   clear: right;
-  margin-left: 10px;
+}
+
+body#pid-matrix .views-field-field-ar {
+text-decoration: line-through;
 }
 
 
 #header .cell {
-  font-family: 'Lato-Bold';
+  font-family: 'Lato';
+  font-weight: 700;
   font-size: 14px;
   color: #535353;
   text-transform: uppercase;
   min-height: 35px !important;
   max-height: 35px;
+  width:20% !important;
 }
 
 #corner.cell {
@@ -587,7 +701,7 @@ min-height: 35px !important;
 }
 
 #corner {
-width:18% !important;
+width:20% !important;
 }
 
 .table-row {
@@ -597,14 +711,48 @@ width:18% !important;
 }
 
 #summary {
-font-family: 'Lato-Light';
+font-family: 'Lato';
+font-weight: 300;
 font-size: 12px;
+}
+
+div.vissza {
+  float: right;
+  margin-right: 5%;
+  position: relative;
+  z-index: 50;
+}
+
+div.vissza a.vissza {
+  display: block;
+  width: 39px;
+  height: 17px;
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 14px;
+  color: #808080;
+  text-decoration:none;
+}
+
+button#edit-reset.btn.btn-default.form-submit {
+  display: none;
 }
 
 body#pid-matrix-cart div#discount-cart {
   background: white;
   padding: 20px 40px;
   margin-top: 40px;
+}
+
+body#pid-matrix-cart h1.page-header {
+  margin: 0 auto;
+  width: 154px;
+  height: 17px;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1.6px;
+  color: #343434;
 }
 
 body#pid-koszonjuk input[value="Bolt webhelye"], body#pid-koszonjuk input[value="Legközelebbi üzlet"] {
@@ -615,12 +763,17 @@ div.pane-matrix-matrix input[value="Bolt webhelye"], div.pane-matrix-matrix inpu
   display: none;
 }
 
-div.pane-matrix-matrix input[value="Ugrás a listaoldalra"] {
+body.page-node- input[value="Bolt webhelye"], body.page-node- input[value="Legközelebbi üzlet"] {
+  display: none;
+}
+
+body.page-node- input[value="Ugrás a listaoldalra"], div.pane-matrix-matrix input[value="Ugrás a listaoldalra"] {
   width: 180px;
   height: 40px;
   border-radius: 5px;
   background-color: #ec4c43;
-  font-family: "Lato-Bold";
+  font-family: "Lato";
+  font-weight: 700;
   font-size: 12px;
   color: #ffffff;
   text-transform: uppercase;
@@ -634,7 +787,8 @@ body#pid-matrix-cart input[value="Bolt webhelye"], body#pid-matrix-cart input[va
   border-radius: 4px;
   border: solid 1px #343434;
   margin: 0px 20px;
-  font-family: "Lato-Regular";
+  font-family: "Lato";
+  font-weight: 400;
   font-size: 10px;
   color: #343434;
 }
@@ -642,7 +796,8 @@ body#pid-matrix-cart input[value="Bolt webhelye"], body#pid-matrix-cart input[va
 div.pane-matrix-matrix div.content.cell {
   width: 131px;
   height: 30px;
-  font-family: "Lato-Light";
+  font-family: "Lato";
+  font-weight: 300;
   font-size: 12px;
   color: #343434;
 }
@@ -654,7 +809,8 @@ div.pane-matrix-matrix .cart-row {
 .shop-header h2 {
 width: auto;
 height: 15px;
-font-family: 'Lato-Bold';
+font-family: 'Lato';
+font-weight: 700;
 font-size: 12px;
 color: #262735;
 -webkit-text-stroke: 1px #979797;
@@ -704,7 +860,8 @@ padding-top:25px;
 } 
 .pane-matrix-matrix h2, h2.block-title  {
   height: 15px;
-	font-family: 'Lato-Bold';
+	font-family: 'Lato';
+	font-weight: 700;
 	font-size: 12px;
 	letter-spacing: 1.4px;
 	color: #343434;
@@ -713,7 +870,8 @@ padding-top:25px;
 
 body#pid-koszonjuk section#block-matrix-matrix h2  {
   height: 15px;
-  font-family: 'Lato-Bold' !important;
+  font-family: 'Lato' !important;
+  font-weight: 700;
   font-size: 12px !important;
   letter-spacing: 1.4px;
   color: #343434;
@@ -734,7 +892,8 @@ body#pid-osszes-akcio .panel-col-first .pane-title, .panel-2col-bricks .pane-tit
     margin-left: 20px;
     margin-top: 0px;
     text-transform: uppercase;
-    font-family: "Lato-Bold";
+    font-family: "Lato";
+	font-weight: 700;
     letter-spacing: 1.6px;
     color: #343434;
 }
@@ -743,6 +902,7 @@ body#pid-osszes-akcio .panel-col-first .pane-title, .panel-2col-bricks .pane-tit
   width: 182px;
   height: 17px;
   font-family: "Lato";
+  font-weight: 400;
   font-size: 14px;
   color: #535353;
   padding-left:10px;
@@ -753,6 +913,7 @@ body#pid-osszes-akcio .panel-col-first .pane-title, .panel-2col-bricks .pane-tit
   width: 182px;
   height: 17px;
   font-family: "Lato";
+  font-weight: 400;
   font-size: 14px;
   color: #535353;
   padding-left:10px;
@@ -762,6 +923,7 @@ body#pid-osszes-akcio .panel-col-first .pane-title, .panel-2col-bricks .pane-tit
 
 .exposed_filter_data {
   font-family: "Lato";
+  font-weight: 400;
   font-size: 14px;
   color: #535353;
   padding-left:10px;
@@ -784,7 +946,8 @@ ul#ntm-categ-list.ntm-categ-list li a{
    color: rgb(52, 52, 52);
    font-weight: 400;
    font-size: 12px; 
-   font-family: "Lato-Regular";
+   font-family: "Lato";
+   font-weight: 400;
 }
 
 ul#ntm-categ-list.ntm-categ-list li a {
@@ -840,9 +1003,6 @@ body.page-node #block-system-main {
   overflow: hidden !important;
 }
 
-
-
-
 #block-block-4 {
     margin-top: -8.7%;
     width: 33%;
@@ -850,12 +1010,9 @@ body.page-node #block-system-main {
     position: absolute;
 }
 
-
-
 .panel-col .ajax-progress-throbber {
   display: none;
 }
-
 
 p#facebookszoveg {
     color: white;
@@ -896,7 +1053,6 @@ div.termeksuly {
     z-index: 1000;
     padding: 0px!important;
     text-align: center;
-    margin: 0 15em 0 -21em !important;
 }
 
 #backtotop {
@@ -954,6 +1110,7 @@ body#pid-koszonjuk h2 {
   padding: 20px 20px 20px 20px;
   text-align: center;
   font-family: "Lato";
+  font-weight: 400;
   color: rgb(52, 52, 52);
   text-transform: uppercase;
   font-size: 16px;
@@ -964,6 +1121,7 @@ body#pid-koszonjuk h3 {
   padding: 0px 20px 20px 20px;
   text-align: center;
   font-family: "Lato";
+  font-weight: 400;
   color: rgb(52, 52, 52);
   font-weight: 600;
   font-size: 24px;
@@ -1065,6 +1223,7 @@ body.page-search .search-result {
     padding: 10px;
     background-color: white;
     font-family: "Lato";
+	font-weight: 400;
     clear: both;
     height: auto;
     width: 96%;
@@ -1097,54 +1256,11 @@ display:none;}
 
 .view-id-szures .view-content h3 {display:block; font-size:18px; color: rgb(83,83,83); text-transform: uppercase; padding: 15px 0 2px 20px; margin-left:5px;     border-bottom: dotted 1px black;}
 
-.view-content h3#borok-pezsgok {
-  background: url('../images/icons/borok.png') no-repeat left 20px;
-}
-
-.view-content h3#italok {
-  background: url('../images/icons/italok.png') no-repeat left 20px;
-}
-
-.view-content h3#hus-hal-felvagott {
-  background: url('../images/icons/hushal.png') no-repeat left 20px;
-}
-
-.view-content h3#tejtermekek-tojas-pekaru {
-  background: url('../images/icons/tejtermek.png') no-repeat left 20px;
-}
-
-.view-content h3#gabonak-gabonatermekek {
-  background: url('../images/icons/gabonafelek.png') no-repeat left 20px;
-}
-
-.view-content h3#konzervalt-tartos-elelmiszerek {
-  background: url('../images/icons/konzervek.png') no-repeat left 20px;
-}
-
-.view-content h3#zsirok-olajok-vajak {
-  background: url('../images/icons/zsirok.png') no-repeat left 20px;
-}
-
-.view-content h3#edessegek-sos-nass {
-  background: url('../images/icons/edessegek.png') no-repeat left 20px;
-}
-
-.view-content h3#so-fuszerek-es-kiegeszitok {
-  background: url('../images/icons/sofuszerek.png') no-repeat left 20px;
-}
-
-.view-content h3#zoldseg-gyumolcs {
-  background: url('../images/icons/zoldseg.png') no-repeat left 20px;
-}
-
-
 
 .option-button-wrapper {
   float: right;
   display: none;
 }
-
-
 
 
 body.not-front .view-display-id-block_similar {
@@ -1291,9 +1407,7 @@ body#pid-user-password input#edit-submit {
     float: none !important;
 }
 
-
 #pid-printmail-cart h1.title {}
-
 
 #pid-printmail-cart form {
   width: 800px;
@@ -1476,6 +1590,7 @@ body#pid-toboggan-denied label[for=edit-remember-me] {
   display: inline;
   font-size: 12px;
   font-family: "Lato";
+  font-weight: 400;
   color: rgb(155,155,155);
   padding-left: 5px;
 }
@@ -1630,6 +1745,7 @@ body#pid-user label[for=edit-remember-me] {
   display: inline;
   font-size: 12px;
   font-family: "Lato";
+  font-weight: 400;
   color: rgb(155,155,155);
   padding-left: 5px;
 }
@@ -1648,7 +1764,6 @@ body#pid-user .login-forgot {
   color: rgb(128,128,128) !important;
   font-size: 12px;
 }
-
 
 .main-menu {
 margin: 0px auto;
@@ -1687,7 +1802,7 @@ label#label_handle_edit-field-szazalek-value-selective {
     width:180px;
     margin-top: 0px;
     text-transform: uppercase;
-    font-family: "Lato-Bold";
+    font-family: "Lato Bold";
     letter-spacing: 1.6px;
     color: #343434;
 }
@@ -1701,8 +1816,6 @@ label#label_handle_edit-field-szazalek-value-selective {
 #cboxWrapper {
   overflow:hidden;
 }
-
-
 
 #cboxLoadedContent h2 a {
   text-decoration: none;
@@ -1770,7 +1883,8 @@ body.page-node  p {
 }
 
 #colorbox p {
-  font-family: "Lato";	
+  font-family: "Lato";
+ font-weight: 400;  
   font-size: 16px;
 }
 
@@ -1799,7 +1913,8 @@ body.page-node div.field.field-name-field-szazalek {
   float:right;
    width: 82px;
   height: 36px;
-  font-family: "Lato-Bold";
+  font-family: "Lato";
+  font-weight: 700;
   font-size: 30px;
   letter-spacing: 1.3px;
   color: #ec4c43;
@@ -1813,15 +1928,13 @@ body.page-node div.field.field-name-field-szazalek {
   margin-right: 40px;
 }
 
-
-
-
 body.page-node  div.field.field-name-field-olcsobban {
   text-align: right;
   clear:both;
-  width: 54px;
+  width: 100px;
   height: 17px;
-  font-family: "Lato-Regular";
+  font-family: "Lato";
+  font-weight: 400;
   font-size: 14px;
   letter-spacing: 1.2px;
   color: #343434;
@@ -1873,7 +1986,8 @@ body.page-node div.field.field-name-field-ar {
   color: rgb(52,52,52);
    width: 61px;
   height: 17px;
-  font-family: "Lato-Regular";
+  font-family: "Lato";
+  font-weight: 400;
   font-size: 14px;
   letter-spacing: 1.2px;
   color: #343434;
@@ -1885,7 +1999,8 @@ div.region.region-header {
   background: #fade99;
   padding: 15px;
   width: 98%;
-  margin: 0 auto
+  margin: 0 auto;
+  height:75px;
 }
 
 .navbar {
@@ -1897,12 +2012,18 @@ font-size: 200%;
 }
 
 section#block-menu-menu-diszkont.block.block-menu{
-width: 100%;
+width: 49%;
+max-width:49%;
 margin: 0 auto;
-height: 30px;
+height: auto;
+float:left;
 }
 
-
+#block-search-form {
+width:49%;
+max-width:49%;
+float:left;
+}
 
 div#preface-top-wrapper.preface-top-wrapper.full-width.clearfix {
   height: 0px;
@@ -1922,14 +2043,14 @@ clear: both;
 }
 
 .views-exposed-form label {
-         font-weight: bold;
+    font-weight: 700;
     font-size: 12px;
     padding: 10px 10px 10px 0px;
     margin-bottom: 5px;
     max-width: 100%;
     margin-top: 0px;
     text-transform: uppercase;
-    font-family: "Lato-Bold";
+    font-family: "Lato";
     letter-spacing: 1.6px;
     color: #343434;
     display: block !important;
@@ -1963,6 +2084,7 @@ text-transform: uppercase;
 
 .main-menu-inner ul.menu li a:link, .main-menu-inner ul.menu li a:visited {
   font-family: "Lato";
+  font-weight: 400;
   font-size: 18px;
   color: rgb(38, 39, 53);
   border: 0px;
@@ -1971,7 +2093,7 @@ text-transform: uppercase;
 ul.menu {
 text-align: center;
 width: 100%;
-margin: 0 auto;
+margin: 10px auto;
 }
 
 ul.menu li {
@@ -1980,7 +2102,7 @@ float: none;
 margin: 0 5% 0 5%;
 text-transform: uppercase;
 line-height: 100%;
-width: 16%;
+width: auto;
 }
 
 ul.menu li a:hover, ul.menu li:hover {
@@ -1990,8 +2112,6 @@ background: #fece5b;
 ul.menu li.first {
 margin: 0 5% 0 0%;
 }
-
-
 
 div#widgets-element-socialmedia_share-default.widgets.widgets-set.widgets-set-horizontal.widgets-style-horizontal {
   margin: -10px auto;
@@ -2081,6 +2201,7 @@ width:100%;
 height: 100%;
 margin: 0 auto;
 font-family: "Lato";
+font-weight: 400;
 font-style: normal;
 }
 
@@ -2122,7 +2243,8 @@ section#block-mailchimp-signup-k-vesse-emailben-is-az-akci-kat h2.block-title {
   background: none;
   text-align: center;
   font-size: 12px;
-  font-family: "Lato-Regular";
+  font-family: "Lato";
+  font-weight: 400;
   color: black;
   height: auto;
   margin-top: 10px;
@@ -2144,6 +2266,7 @@ border: 0px !important;
 border-radius: 5px;
 font-size: 14px;
 font-family: "Lato";
+font-weight: 400;
 font-style: italic;
 margin-left: 20px;
 float: left;
@@ -2252,7 +2375,8 @@ select#edit-sort-bef-combine-szuresek:focus, select#edit-sort-bef-combine-szures
 
 .views-exposed-form a:link, a:visited {
   color: rgb(52,52,52);
-  font-family:"Lato-Regular";
+  font-family:"Lato";
+  font-weight: 400;
   font-size: 12px;
 }
 
@@ -2286,7 +2410,8 @@ div#edit-field-szazalek-value-selective-wrapper {
 a#opener {
  display: none;
  font-family: "Lato";
- color: rgb(128,128,128) ;
+ font-weight: 400;
+ color: rgb(128,128,128);
  background-image: url('../images/filter.png');
  background-repeat: no-repeat;
  margin-left: 10px;
@@ -2330,6 +2455,9 @@ margin-right: 3%;
 
 body.jquery-once-1-processed #szuresek {
   top: 0px;
+  position: relative;
+    right: 0px;
+    top: -30px;
 }
 
 h2#nezet {
@@ -2381,6 +2509,7 @@ h2#nezet {
   border-radius:4px;
   font-size: 14px;
   font-family: "Lato";
+  font-weight: 400;
 }
 
 .glyphicon-search {
@@ -2388,8 +2517,9 @@ h2#nezet {
 }
 
 body#pid-matrix div.input-group, body#pid-matrix-cart div.input-group {
-  width:45%;
-  margin: 25px auto 0;
+  width:98%;
+  margin: 0 auto 0;
+  float: right:
 }
 
 
@@ -2425,7 +2555,6 @@ div.views-field.views-field-field-akciosar {
 }
 
 
-
 .field-name-field-aruhaz-hivatkozo a, div.views-field.views-field-field-aruhaz-hivatkozo a {
 display: block !important;
 text-indent: -9999px !important;
@@ -2443,7 +2572,8 @@ div.masonry-item {
 margin: 10px 0px 0px 5px;
 padding: 10px;
 background-color: white;
-font-family: "Lato";	
+font-family: "Lato";
+font-weight: 400;	
 /* width: 220px;
 max-width: 220px; */
 max-height: 350px;
@@ -2455,7 +2585,8 @@ body#pid-matrix div.masonry-item {
 margin: 0px auto;
 padding: 0px;
 background-color: white;
-font-family: "Lato";	
+font-family: "Lato";
+font-weight: 400;	
 width: 100%;
 height: auto;
 max-height: 0;
@@ -2468,7 +2599,8 @@ div.lista-item {
 margin: 10px 0px;
 padding: 10px;
 background-color: white;
-font-family: "Lato";	
+font-family: "Lato";
+font-weight: 400;	
 clear: both;  
 height: auto;
 min-height: 220px;
@@ -2690,7 +2822,7 @@ button#edit-mefibs-form-rendezes-submit-szures.ctools-use-ajax.ctools-auto-submi
     background: white;
 }
 
-.pane-matrix-matrix.stick {
+/* .pane-matrix-matrix.stick {
     position: fixed;
     top: 0;
     z-index: 1;
@@ -2700,11 +2832,8 @@ button#edit-mefibs-form-rendezes-submit-szures.ctools-use-ajax.ctools-auto-submi
     background: white;
     padding:5px;
 }
+*/
 
-body.front .views-field-field-termekhiv {
-  width: 205px;
-  max-width: 205px;
-}
 
 
 body.front form input.form-submit {
@@ -2747,21 +2876,6 @@ input#edit-reset.form-submit {
  display:block;
 } */
 
-
-div#block-dc-ajax-add-cart-ajax-shopping-cart {
-display: none;
-width: 45%;
-position: absolute;
-background: white;
-padding: 10px;
-left:48em;
-top: 27em;
-z-index: 450;
-}
-
-div.ajax-shopping-cart-wrapper h2.title {
-  display: none;
-}
 
 .postscript-bottom-wrapper {
   background: transparent;
@@ -2894,6 +3008,7 @@ ol.ui-slider-scale li:nth-of-type(1), ol.ui-slider-scale li:last-of-type {
   margin: 15px -20px 0px 0px;
   font-size: 12px;
   font-family: "Lato";
+  font-weight: 400;
   position: relative;
 }
 
@@ -2914,48 +3029,9 @@ body {
   width: 100%;
 }
 
-.main-menu-wrapper {
-  position: initial;
-  margin: 0;
-}
-
-div#header-group {
-  background-position-x: -650px;
-}
-.panel-3col .panel-col-first {
-  width: 100%;
-} 
-
-
-.panel-3col .panel-col {
-  margin: -5em auto !important;
-} 
-
-.panel-3col .panel-col-last {
-  bottom: 0px;
-  top: auto;
-  position: fixed;
-  width: 100%;
-  background: #EEEEEE;
-  z-index: 50;
-  display: block;
-}
-
-.panel-3col .panel-col-last a {
-display: block !important;
-text-indent: -9999px !important;
-width: 70px !important;
-height: 70px !important;
-cursor: pointer !important;
-padding: 0 !important;
-min-height: 1px;
-margin: 0 220%;
-}
-
 div.ui-corner-all {
   width: 75%;
 }
-
 
 div.views-field.views-field-field-termekfoto img {
   max-width: 80%;
@@ -3023,28 +3099,12 @@ input#edit-submit-1 {
   text-indent: 0;
 } */
 
-.preface-top-wrapper {
-  height: auto;
-}
 
-div.views-exposed-form {
-  width: 98%;
-  top: -1px;
-  left: 4px;
-  display: none;
-  position:relative !important;
-  z-index:999 !important;
-  overflow: visible;
-}
+
 
 div#footer-wrapper {
   height: 1px;
   display: none;
-}
-
-#main-wrapper {
-width: 100%;
-overflow: hidden;
 }
 
 
@@ -3086,42 +3146,16 @@ div.lista-item div.views-field.views-field-field-szazalek {
   text-align: center;
 }
 
-.views-field-field-ikon {
-  text-align: center;
-}
-
 div.lista-item h4.termeknev {
   float: none;
   margin-top: 0;
   width: 102%;
 }
 
-#block-menu-menu-f-men- {
-  display: none;
-}
-
-/* input#edit-keys-1.auto_submit.form-text.form-autocomplete {
-width: 100%; 
-height: 30px;
-padding: 0;
-border: 0;
-} */
 
 div.lista-item {
   width: 95%;
 }
-
-/* div#block-dc-ajax-add-cart-ajax-shopping-cart {
-  display: none;
-  width: 85%;
-  position: absolute;
-  background: white;
-  padding: 10px;
-  left: 5em;
-  top: 25em;
-  z-index: 450;
-} */
-
 
 fieldset#edit-bef-sort-options {
   display: block;
@@ -3142,59 +3176,6 @@ body#pid-cart div#block-search-api-page-teszt.block.block-search-api-page {
   display: none;
 } */
 
-div#page.page {
-    min-width: 300px; 
-}
-
-div#block-menu-menu-f-men-.block.block-menu{
-width: 92% !important;
-display:none;
-}
-
-div#block-menu-menu-bev-s-rl-lista.block.block-menu{
-width: 100% !important;
-}
-
-ul.menu {
-  width: 100%;
-}
-
-.panel-3col .panel-col {
-  margin-top: 0px !important;
-  width: 100%;
-}
-
-
-#main-menu-inner #block-search-form {
-  display: block !important;
-}
-
-#main-menu-inner #block-search-form form#search-block-form {
-display: block;
-margin: 0 auto;
-width: 100%;
-float:none;
-}
-
-#main-menu-inner #block-search-form input#edit-search-block-form--2 {
-width:47%;
-float: left !important;
-}
-
-#main-menu-inner #block-search-form  #edit-actions input#edit-submit {
-float:left !important;
-}
-
-.main-menu {
-margin: 0px auto;
-width: 100%; 
-}
-
-
-form#views-exposed-form-szures-frontpage {
-  left: 33%;
-  z-index: 0;
-}
 
 body#pid-toboggan-denied .toboggan-unified #login-message {
   width: 100%;
@@ -3214,16 +3195,6 @@ body#pid-toboggan-denied .hybridauth-widget-wrapper ul.hybridauth-widget li {
   width: 66%;
 }
 
-body.front .block-title {
-  width: 100%;
-  margin: 0;
-}
-
-
-.nodesinblock img {
-  width: 50%;
-}
-
 div.masonry-item {
   width: auto;
   margin-left: 0px;
@@ -3236,7 +3207,6 @@ width: 100%;
 max-width: 100% !important;
 }
 
-
 body.not-front .view-display-id-block_similar td.col-2, body.not-front .view-display-id-block_similar td.col-3 {
   display: none;
 } 
@@ -3246,13 +3216,11 @@ body#pid-toboggan-denied a#register-link {
   float: right;
   margin-right: 5%;
   margin-top: -15%;
-
 }
 
 body#pid-toboggan-denied  .confirm-parent, body#pid-toboggan-denied  .password-parent {
   width: 100%;
 }
-
 
 .views-field-fb-social {
     max-width: 80px !important;
@@ -3261,23 +3229,9 @@ body#pid-toboggan-denied  .confirm-parent, body#pid-toboggan-denied  .password-p
     margin: 10px 0px;
 }
 
-#main-menu-inner {
-    margin-inline-start: 0;
-}
-
-
-.main-menu-inner .block {
-  padding: 15px 0px;
-}
-
 
 select#edit-sort-bef-combine-szuresek {
   margin-top: -5%;
-}
-
-
-#block-block-4, #block-block-5 {
-    display:none;
 }
 
 div.form-item.form-type-select.form-item-sort-bef-combine-szuresek {
@@ -3287,4 +3241,3 @@ div.form-item.form-type-select.form-item-sort-bef-combine-szuresek {
 
 
 }
-

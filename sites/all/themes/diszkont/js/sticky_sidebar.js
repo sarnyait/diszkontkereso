@@ -1,6 +1,7 @@
 var $ = jQuery.noConflict();
 (function($){
 
+if (jQuery(window).width() > 800) {
 function sticky_relocate() {
 	var window_top = $(window).scrollTop();
 	var div_top = $('.view-id-osszes_akcio').offset().top;
@@ -17,4 +18,5 @@ $(function () {
 	$(window).scroll(sticky_relocate);
 	sticky_relocate();
 });
+}
 })(jQuery);

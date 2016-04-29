@@ -21,13 +21,13 @@ case 'views_exposed_form':
     $value = $value . ' (' . $count . ')';
   }
   
-  foreach ($form['field_kategoria_tid_selective']['#options'] as $tid => &$value) {
+  /* foreach ($form['field_kategoria_tid_selective']['#options'] as $tid => &$value) {
     $query = db_select('field_data_field_kategoria', 'f')
             ->condition('f.field_kategoria_tid', $tid);
     $query->addExpression('COUNT(*)');
     $count = $query->execute()->fetchField();
     $value = $value . ' (' . $count . ')';
-  }
+  } */
 
   break;
 }

@@ -67,7 +67,7 @@ function category_pages_views_default_views() {
       'filter_rewrite_values' => NULL,
     ),
     'sort' => array(
-      'bef_format' => 'bef_links',
+      'bef_format' => 'bef_toggle_links',
       'advanced' => array(
         'collapsible' => 0,
         'collapsible_label' => 'Rendezés',
@@ -228,22 +228,22 @@ ar Desc | Drágább előre',
   $handler->display->display_options['pager']['options']['tags']['last'] = 'utolsó »';
   $handler->display->display_options['style_plugin'] = 'masonry_views';
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
-  $handler->display->display_options['style_options']['masonry_column_width'] = '30';
-  $handler->display->display_options['style_options']['masonry_column_width_units'] = '%';
-  $handler->display->display_options['style_options']['masonry_gutter_width'] = '15';
+  $handler->display->display_options['style_options']['masonry_column_width'] = '220';
+  $handler->display->display_options['style_options']['masonry_gutter_width'] = '25';
   $handler->display->display_options['style_options']['masonry_resizable'] = TRUE;
   $handler->display->display_options['style_options']['masonry_animated'] = TRUE;
   $handler->display->display_options['style_options']['masonry_fit_width'] = FALSE;
   $handler->display->display_options['style_options']['masonry_rtl'] = FALSE;
   $handler->display->display_options['style_options']['masonry_images_first'] = TRUE;
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Fejléc: Általános: Szövegdoboz */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div id="szuresek"><h2 id="nezet">Más nézet: <a id="soros" href="/?mode=racsos&masonry=racsos">Sorok</a><a id="racsos" href="/?mode=masonry">Dobozok</a> </h2></div>';
+  $handler->display->display_options['header']['area']['content'] = '<div id="szuresek"><h2 id="nezet">Más nézet: <a id="soros" href="/osszes-akcio-views/?mode=racsos&masonry=racsos">Sorok</a><a id="racsos" href="/osszes-akcio-views/?mode=masonry">Dobozok</a> </h2></div>
+<div id="taxonomyname">Összes termék</div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
-  /* Fejléc: Általános: Szövegdoboz */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area_1']['id'] = 'area_1';
   $handler->display->display_options['header']['area_1']['table'] = 'views';
   $handler->display->display_options['header']['area_1']['field'] = 'area';
@@ -252,10 +252,11 @@ ar Desc | Drágább előre',
 print get_exposed_filter_output();
 ?>';
   $handler->display->display_options['header']['area_1']['format'] = 'php_code';
-  /* Kapcsolat: Tartalom: Taxonómia kifejezések tartalmon */
+  /* Relationship: Content: Taxonomy terms on node */
   $handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
   $handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
   $handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
+  $handler->display->display_options['relationships']['term_node_tid']['label'] = 'kifejezés';
   $handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
     'aruhaz' => 'aruhaz',
     'darab' => 0,
@@ -263,29 +264,30 @@ print get_exposed_filter_output();
     'suly' => 0,
     'urmertekek' => 0,
   );
-  /* Kapcsolat: Taxonómia kifejezés: Logo (field_logo:fid) */
+  /* Relationship: Taxonomy term: Logo (field_logo:fid) */
   $handler->display->display_options['relationships']['field_logo_fid']['id'] = 'field_logo_fid';
   $handler->display->display_options['relationships']['field_logo_fid']['table'] = 'field_data_field_logo';
   $handler->display->display_options['relationships']['field_logo_fid']['field'] = 'field_logo_fid';
   $handler->display->display_options['relationships']['field_logo_fid']['relationship'] = 'term_node_tid';
-  /* Kapcsolat: Tartalom: Termék (field_termek) */
+  /* Relationship: Content: Termék (field_termek) */
   $handler->display->display_options['relationships']['field_termek_nid']['id'] = 'field_termek_nid';
   $handler->display->display_options['relationships']['field_termek_nid']['table'] = 'field_data_field_termek';
   $handler->display->display_options['relationships']['field_termek_nid']['field'] = 'field_termek_nid';
   $handler->display->display_options['relationships']['field_termek_nid']['delta'] = '0';
-  /* Mező: Tartalom: Hivatkozás */
+  /* Field: Content: Link */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['label'] = '';
   $handler->display->display_options['fields']['view_node']['exclude'] = TRUE;
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
-  /* Mező: Tartalom: Útvonal */
+  /* Field: Content: Path */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = 'Útvonal';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
-  /* Mező: Taxonómia kifejezés: Logo */
+  /* Field: Taxonomy term: Logo */
   $handler->display->display_options['fields']['field_logo']['id'] = 'field_logo';
   $handler->display->display_options['fields']['field_logo']['table'] = 'field_data_field_logo';
   $handler->display->display_options['fields']['field_logo']['field'] = 'field_logo';
@@ -297,7 +299,7 @@ print get_exposed_filter_output();
     'image_style' => '',
     'image_link' => '',
   );
-  /* Mező: Tartalom: Egységár */
+  /* Field: Content: Egységár */
   $handler->display->display_options['fields']['field_egysegar']['id'] = 'field_egysegar';
   $handler->display->display_options['fields']['field_egysegar']['table'] = 'field_data_field_egysegar';
   $handler->display->display_options['fields']['field_egysegar']['field'] = 'field_egysegar';
@@ -309,7 +311,7 @@ print get_exposed_filter_output();
     'scale' => '1',
     'prefix_suffix' => 1,
   );
-  /* Mező: Tartalom: Termékfotó */
+  /* Field: Content: Termékfotó */
   $handler->display->display_options['fields']['field_termekfoto']['id'] = 'field_termekfoto';
   $handler->display->display_options['fields']['field_termekfoto']['table'] = 'field_data_field_termekfoto';
   $handler->display->display_options['fields']['field_termekfoto']['field'] = 'field_termekfoto';
@@ -323,7 +325,7 @@ print get_exposed_filter_output();
     'image_style' => 'diszkont',
     'image_link' => '',
   );
-  /* Mező: Tartalom: Cím */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -331,7 +333,7 @@ print get_exposed_filter_output();
   $handler->display->display_options['fields']['title']['element_type'] = 'h4';
   $handler->display->display_options['fields']['title']['element_class'] = 'termeknev';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Mező: Tartalom: Akciós ár */
+  /* Field: Content: Akciós / eladási ár */
   $handler->display->display_options['fields']['field_akciosar']['id'] = 'field_akciosar';
   $handler->display->display_options['fields']['field_akciosar']['table'] = 'field_data_field_akciosar';
   $handler->display->display_options['fields']['field_akciosar']['field'] = 'field_akciosar';
@@ -343,7 +345,7 @@ print get_exposed_filter_output();
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Mező: Tartalom: Százalék */
+  /* Field: Content: Százalék */
   $handler->display->display_options['fields']['field_szazalek']['id'] = 'field_szazalek';
   $handler->display->display_options['fields']['field_szazalek']['table'] = 'field_data_field_szazalek';
   $handler->display->display_options['fields']['field_szazalek']['field'] = 'field_szazalek';
@@ -352,7 +354,7 @@ print get_exposed_filter_output();
   $handler->display->display_options['fields']['field_szazalek']['element_type'] = 'span';
   $handler->display->display_options['fields']['field_szazalek']['element_class'] = 'szazalek';
   $handler->display->display_options['fields']['field_szazalek']['element_label_colon'] = FALSE;
-  /* Mező: Tartalom: Ár */
+  /* Field: Content: Ár (csak akció esetén kell kitölteni) */
   $handler->display->display_options['fields']['field_ar']['id'] = 'field_ar';
   $handler->display->display_options['fields']['field_ar']['table'] = 'field_data_field_ar';
   $handler->display->display_options['fields']['field_ar']['field'] = 'field_ar';
@@ -364,13 +366,13 @@ print get_exposed_filter_output();
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Mező: Tartalom: Olcsóbban */
+  /* Field: Content: Olcsóbban */
   $handler->display->display_options['fields']['field_olcsobban']['id'] = 'field_olcsobban';
   $handler->display->display_options['fields']['field_olcsobban']['table'] = 'field_data_field_olcsobban';
   $handler->display->display_options['fields']['field_olcsobban']['field'] = 'field_olcsobban';
   $handler->display->display_options['fields']['field_olcsobban']['label'] = '';
   $handler->display->display_options['fields']['field_olcsobban']['element_label_colon'] = FALSE;
-  /* Mező: Tartalom: Akció vége */
+  /* Field: Content: Akció vége */
   $handler->display->display_options['fields']['field_akciovege']['id'] = 'field_akciovege';
   $handler->display->display_options['fields']['field_akciovege']['table'] = 'field_data_field_akciovege';
   $handler->display->display_options['fields']['field_akciovege']['field'] = 'field_akciovege';
@@ -385,7 +387,7 @@ print get_exposed_filter_output();
     'multiple_to' => '',
     'show_remaining_days' => 1,
   );
-  /* Mező: Tartalom: Áruház */
+  /* Field: Content: Áruház */
   $handler->display->display_options['fields']['field_aruhaz']['id'] = 'field_aruhaz';
   $handler->display->display_options['fields']['field_aruhaz']['table'] = 'field_data_field_aruhaz';
   $handler->display->display_options['fields']['field_aruhaz']['field'] = 'field_aruhaz';
@@ -397,7 +399,7 @@ print get_exposed_filter_output();
   $handler->display->display_options['fields']['field_aruhaz']['group_columns'] = array(
     'tid' => 'tid',
   );
-  /* Mező: Tartalom: Külső link az áruházhoz */
+  /* Field: Content: Külső link az áruházhoz */
   $handler->display->display_options['fields']['field_aruhaz_hivatkozo']['id'] = 'field_aruhaz_hivatkozo';
   $handler->display->display_options['fields']['field_aruhaz_hivatkozo']['table'] = 'field_data_field_aruhaz_hivatkozo';
   $handler->display->display_options['fields']['field_aruhaz_hivatkozo']['field'] = 'field_aruhaz_hivatkozo';
@@ -408,11 +410,12 @@ print get_exposed_filter_output();
     'trim_length' => '80',
     'nofollow' => 0,
   );
-  /* Mező: Tartalom: Tartalom azonosító */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  /* Rendezési szempont: kedvezmeny */
+  $handler->display->display_options['fields']['nid']['label'] = 'Tartalom azonosító';
+  /* Sort criterion: kedvezmeny */
   $handler->display->display_options['sorts']['field_szazalek_value']['id'] = 'field_szazalek_value';
   $handler->display->display_options['sorts']['field_szazalek_value']['table'] = 'field_data_field_szazalek';
   $handler->display->display_options['sorts']['field_szazalek_value']['field'] = 'field_szazalek_value';
@@ -420,14 +423,13 @@ print get_exposed_filter_output();
   $handler->display->display_options['sorts']['field_szazalek_value']['order'] = 'DESC';
   $handler->display->display_options['sorts']['field_szazalek_value']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['field_szazalek_value']['expose']['label'] = 'Nagyobb kedvezmény';
-  /* Rendezési szempont: Tartalom: Akciós ár (field_akciosar) */
+  /* Sort criterion: Content: Akciós / eladási ár (field_akciosar) */
   $handler->display->display_options['sorts']['field_akciosar_value']['id'] = 'field_akciosar_value';
   $handler->display->display_options['sorts']['field_akciosar_value']['table'] = 'field_data_field_akciosar';
   $handler->display->display_options['sorts']['field_akciosar_value']['field'] = 'field_akciosar_value';
-  $handler->display->display_options['sorts']['field_akciosar_value']['order'] = 'DESC';
   $handler->display->display_options['sorts']['field_akciosar_value']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['field_akciosar_value']['expose']['label'] = 'Olcsóbb';
-  /* Szövegkörnyezeti szűrő: Tartalom: Tartalom azonosító */
+  /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -436,13 +438,13 @@ print get_exposed_filter_output();
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  /* Szűrési feltétel: Tartalom: Közzétéve */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
-  /* Szűrési feltétel: Tartalom: Típus */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -450,7 +452,7 @@ print get_exposed_filter_output();
     'products_display' => 'products_display',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Szűrési feltétel: Áruház (field_aruhaz) (selective) */
+  /* Filter criterion: Áruház (field_aruhaz) (selective) */
   $handler->display->display_options['filters']['field_aruhaz_tid_selective']['id'] = 'field_aruhaz_tid_selective';
   $handler->display->display_options['filters']['field_aruhaz_tid_selective']['table'] = 'field_data_field_aruhaz';
   $handler->display->display_options['filters']['field_aruhaz_tid_selective']['field'] = 'field_aruhaz_tid_selective';
@@ -469,7 +471,7 @@ print get_exposed_filter_output();
   );
   $handler->display->display_options['filters']['field_aruhaz_tid_selective']['selective_display_field'] = 'field_aruhaz';
   $handler->display->display_options['filters']['field_aruhaz_tid_selective']['selective_items_limit'] = '100';
-  /* Szűrési feltétel: százalék (field_szazalek) (selective) */
+  /* Filter criterion: százalék (field_szazalek) (selective) */
   $handler->display->display_options['filters']['field_szazalek_value_selective']['id'] = 'field_szazalek_value_selective';
   $handler->display->display_options['filters']['field_szazalek_value_selective']['table'] = 'field_data_field_szazalek';
   $handler->display->display_options['filters']['field_szazalek_value_selective']['field'] = 'field_szazalek_value_selective';
@@ -508,19 +510,20 @@ print get_exposed_filter_output();
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Mező: Tartalom: Hivatkozás */
+  /* Field: Content: Link */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['label'] = '';
   $handler->display->display_options['fields']['view_node']['exclude'] = TRUE;
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
-  /* Mező: Tartalom: Útvonal */
+  /* Field: Content: Path */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = 'Útvonal';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
-  /* Mező: Taxonómia kifejezés: Logo */
+  /* Field: Taxonomy term: Logo */
   $handler->display->display_options['fields']['field_logo']['id'] = 'field_logo';
   $handler->display->display_options['fields']['field_logo']['table'] = 'field_data_field_logo';
   $handler->display->display_options['fields']['field_logo']['field'] = 'field_logo';
@@ -532,19 +535,21 @@ print get_exposed_filter_output();
     'image_style' => '',
     'image_link' => '',
   );
-  /* Mező: Tartalom: Egységár */
+  /* Field: Content: Egységár */
   $handler->display->display_options['fields']['field_egysegar']['id'] = 'field_egysegar';
   $handler->display->display_options['fields']['field_egysegar']['table'] = 'field_data_field_egysegar';
   $handler->display->display_options['fields']['field_egysegar']['field'] = 'field_egysegar';
   $handler->display->display_options['fields']['field_egysegar']['label'] = '';
+  $handler->display->display_options['fields']['field_egysegar']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_egysegar']['alter']['text'] = '[field_egysegar] Ft';
   $handler->display->display_options['fields']['field_egysegar']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_egysegar']['settings'] = array(
     'thousand_separator' => ' ',
     'decimal_separator' => '.',
-    'scale' => '1',
+    'scale' => '0',
     'prefix_suffix' => 1,
   );
-  /* Mező: Tartalom: Termékfotó */
+  /* Field: Content: Termékfotó */
   $handler->display->display_options['fields']['field_termekfoto']['id'] = 'field_termekfoto';
   $handler->display->display_options['fields']['field_termekfoto']['table'] = 'field_data_field_termekfoto';
   $handler->display->display_options['fields']['field_termekfoto']['field'] = 'field_termekfoto';
@@ -558,7 +563,7 @@ print get_exposed_filter_output();
     'image_style' => 'diszkont',
     'image_link' => '',
   );
-  /* Mező: Tartalom: Cím */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -566,7 +571,7 @@ print get_exposed_filter_output();
   $handler->display->display_options['fields']['title']['element_type'] = 'h4';
   $handler->display->display_options['fields']['title']['element_class'] = 'termeknev';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Mező: Tartalom: Akciós ár */
+  /* Field: Content: Akciós / eladási ár */
   $handler->display->display_options['fields']['field_akciosar']['id'] = 'field_akciosar';
   $handler->display->display_options['fields']['field_akciosar']['table'] = 'field_data_field_akciosar';
   $handler->display->display_options['fields']['field_akciosar']['field'] = 'field_akciosar';
@@ -578,7 +583,7 @@ print get_exposed_filter_output();
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Mező: Tartalom: Százalék */
+  /* Field: Content: Százalék */
   $handler->display->display_options['fields']['field_szazalek']['id'] = 'field_szazalek';
   $handler->display->display_options['fields']['field_szazalek']['table'] = 'field_data_field_szazalek';
   $handler->display->display_options['fields']['field_szazalek']['field'] = 'field_szazalek';
@@ -589,7 +594,7 @@ print get_exposed_filter_output();
   $handler->display->display_options['fields']['field_szazalek']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_szazalek']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_szazalek']['empty_zero'] = TRUE;
-  /* Mező: Tartalom: Ár */
+  /* Field: Content: Ár (csak akció esetén kell kitölteni) */
   $handler->display->display_options['fields']['field_ar']['id'] = 'field_ar';
   $handler->display->display_options['fields']['field_ar']['table'] = 'field_data_field_ar';
   $handler->display->display_options['fields']['field_ar']['field'] = 'field_ar';
@@ -601,13 +606,15 @@ print get_exposed_filter_output();
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Mező: Tartalom: Olcsóbban */
+  /* Field: Content: Olcsóbban */
   $handler->display->display_options['fields']['field_olcsobban']['id'] = 'field_olcsobban';
   $handler->display->display_options['fields']['field_olcsobban']['table'] = 'field_data_field_olcsobban';
   $handler->display->display_options['fields']['field_olcsobban']['field'] = 'field_olcsobban';
   $handler->display->display_options['fields']['field_olcsobban']['label'] = '';
   $handler->display->display_options['fields']['field_olcsobban']['element_label_colon'] = FALSE;
-  /* Mező: Tartalom: Akció vége */
+  $handler->display->display_options['fields']['field_olcsobban']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_olcsobban']['empty_zero'] = TRUE;
+  /* Field: Content: Akció vége */
   $handler->display->display_options['fields']['field_akciovege']['id'] = 'field_akciovege';
   $handler->display->display_options['fields']['field_akciovege']['table'] = 'field_data_field_akciovege';
   $handler->display->display_options['fields']['field_akciovege']['field'] = 'field_akciovege';
@@ -622,7 +629,7 @@ print get_exposed_filter_output();
     'multiple_to' => '',
     'show_remaining_days' => 1,
   );
-  /* Mező: Tartalom: Áruház */
+  /* Field: Content: Áruház */
   $handler->display->display_options['fields']['field_aruhaz']['id'] = 'field_aruhaz';
   $handler->display->display_options['fields']['field_aruhaz']['table'] = 'field_data_field_aruhaz';
   $handler->display->display_options['fields']['field_aruhaz']['field'] = 'field_aruhaz';
@@ -634,7 +641,7 @@ print get_exposed_filter_output();
   $handler->display->display_options['fields']['field_aruhaz']['group_columns'] = array(
     'tid' => 'tid',
   );
-  /* Mező: Tartalom: Külső link az áruházhoz */
+  /* Field: Content: Külső link az áruházhoz */
   $handler->display->display_options['fields']['field_aruhaz_hivatkozo']['id'] = 'field_aruhaz_hivatkozo';
   $handler->display->display_options['fields']['field_aruhaz_hivatkozo']['table'] = 'field_data_field_aruhaz_hivatkozo';
   $handler->display->display_options['fields']['field_aruhaz_hivatkozo']['field'] = 'field_aruhaz_hivatkozo';
@@ -645,13 +652,13 @@ print get_exposed_filter_output();
     'trim_length' => '80',
     'nofollow' => 0,
   );
-  /* Mező: Tartalom: Tartalom azonosító */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['nid']['alter']['text'] = '<div class="add-to-cart" data-pid="[nid]">Listámra</div>';
+  $handler->display->display_options['fields']['nid']['alter']['text'] = '<div class="add-to-cart" data-pid="[nid]">Kosárba!</div>';
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   $handler->display->display_options['mefibs'] = array(
     'blocks' => array(
@@ -712,7 +719,7 @@ print get_exposed_filter_output();
   /* Display: masonry */
   $handler = $view->new_display('mode', 'masonry', 'masonry');
   $handler->display->display_options['displays'] = array(
-    'frontpage' => 'frontpage',
+    'osszesakcio' => 'osszesakcio',
   );
   $handler->display->display_options['mode_id'] = 'masonry';
   $handler->display->display_options['mode_name'] = 'Masonry';
@@ -729,7 +736,7 @@ print get_exposed_filter_output();
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Mező: Tartalom: Akciós ár */
+  /* Field: Content: Akciós / eladási ár */
   $handler->display->display_options['fields']['field_akci_s_r']['id'] = 'field_akciosar';
   $handler->display->display_options['fields']['field_akci_s_r']['table'] = 'field_data_field_akciosar';
   $handler->display->display_options['fields']['field_akci_s_r']['field'] = 'field_akciosar';
@@ -741,7 +748,7 @@ print get_exposed_filter_output();
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Mező: Tartalom: Százalék */
+  /* Field: Content: Százalék */
   $handler->display->display_options['fields']['field_szazalek']['id'] = 'field_szazalek';
   $handler->display->display_options['fields']['field_szazalek']['table'] = 'field_data_field_szazalek';
   $handler->display->display_options['fields']['field_szazalek']['field'] = 'field_szazalek';
@@ -751,7 +758,7 @@ print get_exposed_filter_output();
   $handler->display->display_options['fields']['field_szazalek']['element_type'] = 'span';
   $handler->display->display_options['fields']['field_szazalek']['element_class'] = 'szazalek';
   $handler->display->display_options['fields']['field_szazalek']['element_label_colon'] = FALSE;
-  /* Mező: Tartalom: Cím */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -766,7 +773,7 @@ print get_exposed_filter_output();
   $handler->display->display_options['fields']['title']['element_class'] = 'termeknev';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
-  /* Mező: Tartalom: Kategória (display) */
+  /* Field: Content: Melyik kategória? */
   $handler->display->display_options['fields']['field_kategoria']['id'] = 'field_kategoria';
   $handler->display->display_options['fields']['field_kategoria']['table'] = 'field_data_field_kategoria';
   $handler->display->display_options['fields']['field_kategoria']['field'] = 'field_kategoria';
@@ -776,7 +783,7 @@ print get_exposed_filter_output();
   $handler->display->display_options['fields']['field_kategoria']['group_columns'] = array(
     'tid' => 'tid',
   );
-  /* Mező: Tartalom: Áruház */
+  /* Field: Content: Áruház */
   $handler->display->display_options['fields']['field_aruhaz']['id'] = 'field_aruhaz';
   $handler->display->display_options['fields']['field_aruhaz']['table'] = 'field_data_field_aruhaz';
   $handler->display->display_options['fields']['field_aruhaz']['field'] = 'field_aruhaz';
@@ -784,7 +791,7 @@ print get_exposed_filter_output();
   $handler->display->display_options['fields']['field_aruhaz']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_aruhaz']['element_label_colon'] = FALSE;
   $handler->display->display_options['displays'] = array(
-    'frontpage' => 'frontpage',
+    'osszesakcio' => 'osszesakcio',
   );
   $handler->display->display_options['mode_id'] = 'racsos';
   $handler->display->display_options['mode_name'] = 'racsos';
@@ -809,12 +816,13 @@ ar Desc | Drágább előre'),
     t('‹ előző'),
     t('következő ›'),
     t('utolsó »'),
-    t('<div id="szuresek"><h2 id="nezet">Más nézet: <a id="soros" href="/?mode=racsos&masonry=racsos">Sorok</a><a id="racsos" href="/?mode=masonry">Dobozok</a> </h2></div>'),
+    t('<div id="szuresek"><h2 id="nezet">Más nézet: <a id="soros" href="/osszes-akcio-views/?mode=racsos&masonry=racsos">Sorok</a><a id="racsos" href="/osszes-akcio-views/?mode=masonry">Dobozok</a> </h2></div>
+<div id="taxonomyname">Összes termék</div>'),
     t('<?php
 print get_exposed_filter_output();
 ?>'),
     t('kifejezés'),
-    t('kép innen: field_logo'),
+    t('image from field_logo'),
     t('field_termek'),
     t('Útvonal'),
     t('[field_aruhaz] ([field_aruhaz-tid])'),
@@ -824,7 +832,8 @@ print get_exposed_filter_output();
     t('Üzletláncok'),
     t('Akció mértéke'),
     t('Page'),
-    t('<div class="add-to-cart" data-pid="[nid]">Listámra</div>'),
+    t('[field_egysegar] Ft'),
+    t('<div class="add-to-cart" data-pid="[nid]">Kosárba!</div>'),
     t('masonry'),
     t('Masonry'),
     t('racsos'),
@@ -867,16 +876,17 @@ print get_exposed_filter_output();
     'name_2' => 'name_2',
     'name' => 'name',
   );
-  /* Kapcsolat: Taxonómia kifejezés: Szülő kifejezés */
+  /* Relationship: Taxonomy term: Parent term */
   $handler->display->display_options['relationships']['parent']['id'] = 'parent';
   $handler->display->display_options['relationships']['parent']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['relationships']['parent']['field'] = 'parent';
-  /* Kapcsolat: Taxonómia kifejezés: Tartalom Kategória (display) használatával */
+  $handler->display->display_options['relationships']['parent']['label'] = 'Szülő';
+  /* Relationship: Taxonomy term: Content using Melyik kategória? */
   $handler->display->display_options['relationships']['reverse_field_kategoria_node']['id'] = 'reverse_field_kategoria_node';
   $handler->display->display_options['relationships']['reverse_field_kategoria_node']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['relationships']['reverse_field_kategoria_node']['field'] = 'reverse_field_kategoria_node';
   $handler->display->display_options['relationships']['reverse_field_kategoria_node']['required'] = TRUE;
-  /* Mező: Taxonómia kifejezés: Kifejezésazonosító */
+  /* Field: Taxonomy term: Term ID */
   $handler->display->display_options['fields']['tid']['id'] = 'tid';
   $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['tid']['field'] = 'tid';
@@ -886,7 +896,7 @@ print get_exposed_filter_output();
   $handler->display->display_options['fields']['tid']['alter']['text'] = 'taxonomy/term/[tid]';
   $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['tid']['separator'] = '';
-  /* Mező: Taxonómia kifejezés: Név */
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name_1']['id'] = 'name_1';
   $handler->display->display_options['fields']['name_1']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name_1']['field'] = 'name';
@@ -894,7 +904,7 @@ print get_exposed_filter_output();
   $handler->display->display_options['fields']['name_1']['label'] = '';
   $handler->display->display_options['fields']['name_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name_1']['element_label_colon'] = FALSE;
-  /* Mező: Taxonómia kifejezés: Név */
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name_2']['id'] = 'name_2';
   $handler->display->display_options['fields']['name_2']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name_2']['field'] = 'name';
@@ -903,7 +913,7 @@ print get_exposed_filter_output();
   $handler->display->display_options['fields']['name_2']['alter']['path'] = '[tid]';
   $handler->display->display_options['fields']['name_2']['alter']['absolute'] = TRUE;
   $handler->display->display_options['fields']['name_2']['element_label_colon'] = FALSE;
-  /* Mező: COUNT(DISTINCT Taxonómia kifejezés: Név) */
+  /* Field: COUNT(DISTINCT Taxonomy term: Name) */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -915,7 +925,7 @@ print get_exposed_filter_output();
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['separator'] = '';
-  /* Szövegkörnyezeti szűrő: Taxonómia kifejezés: Név */
+  /* Contextual filter: Taxonomy term: Name */
   $handler->display->display_options['arguments']['name']['id'] = 'name';
   $handler->display->display_options['arguments']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['arguments']['name']['field'] = 'name';
@@ -927,7 +937,7 @@ print get_exposed_filter_output();
   $handler->display->display_options['arguments']['name']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['name']['validate']['fail'] = 'summary';
   $handler->display->display_options['arguments']['name']['limit'] = '0';
-  /* Szűrési feltétel: Taxonómiaszótár: Programok által használt név */
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
@@ -947,13 +957,15 @@ print get_exposed_filter_output();
     t('Rendezés'),
     t('Növekvő'),
     t('Csökkenő'),
-    t('Szülő'),
+    t('Parent'),
     t('field_kategoria'),
     t('taxonomy/term/[tid]'),
     t('.'),
     t('([name])'),
     t('Mind'),
     t('Block'),
+    t('more'),
+    t('Szülő'),
   );
   $export['taxonomy_menu'] = $view;
 
@@ -1184,17 +1196,29 @@ ar Desc | Drágább előre',
   $handler->display->display_options['style_options']['masonry_rtl'] = FALSE;
   $handler->display->display_options['style_options']['masonry_images_first'] = TRUE;
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Viselkedés, ha nincs eredmény: Általános: Szövegdoboz */
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<?php $current = taxonomy_term_load(arg(2)); ?>
+<?php if ($current): ?>
+    <div class="taxonomy-description">
+        <?php echo $current->name; ?>
+    </div>
+<?php endif; ?>';
+  $handler->display->display_options['header']['area']['format'] = 'php_code';
+  /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = '<h3>Nincs termék a kategóriában</h3>';
   $handler->display->display_options['empty']['area']['format'] = 'full_html';
-  /* Kapcsolat: Tartalom: Taxonómia kifejezések tartalmon */
+  /* Relationship: Content: Taxonomy terms on node */
   $handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
   $handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
   $handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
+  $handler->display->display_options['relationships']['term_node_tid']['label'] = 'kifejezés';
   $handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
     'aruhaz' => 'aruhaz',
     'darab' => 0,
@@ -1202,22 +1226,22 @@ ar Desc | Drágább előre',
     'suly' => 0,
     'urmertekek' => 0,
   );
-  /* Kapcsolat: Taxonómia kifejezés: Logo (field_logo:fid) */
+  /* Relationship: Taxonomy term: Logo (field_logo:fid) */
   $handler->display->display_options['relationships']['field_logo_fid']['id'] = 'field_logo_fid';
   $handler->display->display_options['relationships']['field_logo_fid']['table'] = 'field_data_field_logo';
   $handler->display->display_options['relationships']['field_logo_fid']['field'] = 'field_logo_fid';
   $handler->display->display_options['relationships']['field_logo_fid']['relationship'] = 'term_node_tid';
-  /* Kapcsolat: Tartalom: Termék (field_termek) */
+  /* Relationship: Content: Termék (field_termek) */
   $handler->display->display_options['relationships']['field_termek_nid']['id'] = 'field_termek_nid';
   $handler->display->display_options['relationships']['field_termek_nid']['table'] = 'field_data_field_termek';
   $handler->display->display_options['relationships']['field_termek_nid']['field'] = 'field_termek_nid';
   $handler->display->display_options['relationships']['field_termek_nid']['delta'] = '0';
-  /* Kapcsolat: Tartalom: Kategória (field_category) */
+  /* Relationship: Content: Kategória (field_category) */
   $handler->display->display_options['relationships']['field_category_tid']['id'] = 'field_category_tid';
   $handler->display->display_options['relationships']['field_category_tid']['table'] = 'field_data_field_category';
   $handler->display->display_options['relationships']['field_category_tid']['field'] = 'field_category_tid';
   $handler->display->display_options['relationships']['field_category_tid']['relationship'] = 'field_termek_nid';
-  /* Mező: Taxonómia kifejezés: Logo */
+  /* Field: Taxonomy term: Logo */
   $handler->display->display_options['fields']['field_logo']['id'] = 'field_logo';
   $handler->display->display_options['fields']['field_logo']['table'] = 'field_data_field_logo';
   $handler->display->display_options['fields']['field_logo']['field'] = 'field_logo';
@@ -1229,7 +1253,7 @@ ar Desc | Drágább előre',
     'image_style' => '',
     'image_link' => '',
   );
-  /* Mező: Tartalom: Termékfotó */
+  /* Field: Content: Termékfotó */
   $handler->display->display_options['fields']['field_termekfoto']['id'] = 'field_termekfoto';
   $handler->display->display_options['fields']['field_termekfoto']['table'] = 'field_data_field_termekfoto';
   $handler->display->display_options['fields']['field_termekfoto']['field'] = 'field_termekfoto';
@@ -1241,7 +1265,7 @@ ar Desc | Drágább előre',
     'image_style' => 'diszkont',
     'image_link' => 'content',
   );
-  /* Mező: Tartalom: Cím */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -1256,7 +1280,7 @@ ar Desc | Drágább előre',
   $handler->display->display_options['fields']['title']['element_class'] = 'termeknev';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
-  /* Mező: Tartalom: Akciós ár */
+  /* Field: Content: Akciós / eladási ár */
   $handler->display->display_options['fields']['field_akciosar']['id'] = 'field_akciosar';
   $handler->display->display_options['fields']['field_akciosar']['table'] = 'field_data_field_akciosar';
   $handler->display->display_options['fields']['field_akciosar']['field'] = 'field_akciosar';
@@ -1268,7 +1292,7 @@ ar Desc | Drágább előre',
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Mező: Tartalom: Százalék */
+  /* Field: Content: Százalék */
   $handler->display->display_options['fields']['field_szazalek']['id'] = 'field_szazalek';
   $handler->display->display_options['fields']['field_szazalek']['table'] = 'field_data_field_szazalek';
   $handler->display->display_options['fields']['field_szazalek']['field'] = 'field_szazalek';
@@ -1277,7 +1301,9 @@ ar Desc | Drágább előre',
   $handler->display->display_options['fields']['field_szazalek']['element_type'] = 'span';
   $handler->display->display_options['fields']['field_szazalek']['element_class'] = 'szazalek';
   $handler->display->display_options['fields']['field_szazalek']['element_label_colon'] = FALSE;
-  /* Mező: Tartalom: Ár */
+  $handler->display->display_options['fields']['field_szazalek']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_szazalek']['empty_zero'] = TRUE;
+  /* Field: Content: Ár (csak akció esetén kell kitölteni) */
   $handler->display->display_options['fields']['field_ar']['id'] = 'field_ar';
   $handler->display->display_options['fields']['field_ar']['table'] = 'field_data_field_ar';
   $handler->display->display_options['fields']['field_ar']['field'] = 'field_ar';
@@ -1289,13 +1315,15 @@ ar Desc | Drágább előre',
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Mező: Tartalom: Olcsóbban */
+  /* Field: Content: Olcsóbban */
   $handler->display->display_options['fields']['field_olcsobban']['id'] = 'field_olcsobban';
   $handler->display->display_options['fields']['field_olcsobban']['table'] = 'field_data_field_olcsobban';
   $handler->display->display_options['fields']['field_olcsobban']['field'] = 'field_olcsobban';
   $handler->display->display_options['fields']['field_olcsobban']['label'] = '';
   $handler->display->display_options['fields']['field_olcsobban']['element_label_colon'] = FALSE;
-  /* Mező: Tartalom: Akció vége */
+  $handler->display->display_options['fields']['field_olcsobban']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_olcsobban']['empty_zero'] = TRUE;
+  /* Field: Content: Akció vége */
   $handler->display->display_options['fields']['field_akciovege']['id'] = 'field_akciovege';
   $handler->display->display_options['fields']['field_akciovege']['table'] = 'field_data_field_akciovege';
   $handler->display->display_options['fields']['field_akciovege']['field'] = 'field_akciovege';
@@ -1310,7 +1338,7 @@ ar Desc | Drágább előre',
     'multiple_to' => '',
     'show_remaining_days' => 1,
   );
-  /* Mező: Tartalom: Áruház */
+  /* Field: Content: Áruház */
   $handler->display->display_options['fields']['field_aruhaz']['id'] = 'field_aruhaz';
   $handler->display->display_options['fields']['field_aruhaz']['table'] = 'field_data_field_aruhaz';
   $handler->display->display_options['fields']['field_aruhaz']['field'] = 'field_aruhaz';
@@ -1322,7 +1350,7 @@ ar Desc | Drágább előre',
   $handler->display->display_options['fields']['field_aruhaz']['group_columns'] = array(
     'tid' => 'tid',
   );
-  /* Mező: Tartalom: Külső link az áruházhoz */
+  /* Field: Content: Külső link az áruházhoz */
   $handler->display->display_options['fields']['field_aruhaz_hivatkozo']['id'] = 'field_aruhaz_hivatkozo';
   $handler->display->display_options['fields']['field_aruhaz_hivatkozo']['table'] = 'field_data_field_aruhaz_hivatkozo';
   $handler->display->display_options['fields']['field_aruhaz_hivatkozo']['field'] = 'field_aruhaz_hivatkozo';
@@ -1334,15 +1362,15 @@ ar Desc | Drágább előre',
     'trim_length' => '80',
     'nofollow' => 0,
   );
-  /* Mező: Tartalom: Tartalom azonosító */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['nid']['alter']['text'] = '<div class="add-to-cart" data-pid="[nid]">Listámra</div>';
+  $handler->display->display_options['fields']['nid']['alter']['text'] = '<div class="add-to-cart" data-pid="[nid]">Kosárba!</div>';
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Rendezési szempont: kedvezmeny */
+  /* Sort criterion: kedvezmeny */
   $handler->display->display_options['sorts']['field_szazalek_value']['id'] = 'field_szazalek_value';
   $handler->display->display_options['sorts']['field_szazalek_value']['table'] = 'field_data_field_szazalek';
   $handler->display->display_options['sorts']['field_szazalek_value']['field'] = 'field_szazalek_value';
@@ -1350,14 +1378,14 @@ ar Desc | Drágább előre',
   $handler->display->display_options['sorts']['field_szazalek_value']['order'] = 'DESC';
   $handler->display->display_options['sorts']['field_szazalek_value']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['field_szazalek_value']['expose']['label'] = 'Nagyobb kedvezmény';
-  /* Rendezési szempont: ar */
+  /* Sort criterion: ar */
   $handler->display->display_options['sorts']['field_akci_s_r_value']['id'] = 'field_akci_s_r_value';
   $handler->display->display_options['sorts']['field_akci_s_r_value']['table'] = 'field_data_field_akciosar';
   $handler->display->display_options['sorts']['field_akci_s_r_value']['field'] = 'field_akciosar_value';
   $handler->display->display_options['sorts']['field_akci_s_r_value']['ui_name'] = 'ar';
   $handler->display->display_options['sorts']['field_akci_s_r_value']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['field_akci_s_r_value']['expose']['label'] = 'Olcsóbb';
-  /* Szövegkörnyezeti szűrő: Kategória */
+  /* Contextual filter: Kategória */
   $handler->display->display_options['arguments']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
   $handler->display->display_options['arguments']['term_node_tid_depth']['table'] = 'node';
   $handler->display->display_options['arguments']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
@@ -1383,7 +1411,7 @@ ar Desc | Drágább előre',
   $handler->display->display_options['arguments']['term_node_tid_depth']['depth'] = '3';
   $handler->display->display_options['arguments']['term_node_tid_depth']['set_breadcrumb'] = TRUE;
   $handler->display->display_options['arguments']['term_node_tid_depth']['use_taxonomy_term_path'] = TRUE;
-  /* Szövegkörnyezeti szűrő: Tartalom: Tartalom azonosító */
+  /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -1392,20 +1420,20 @@ ar Desc | Drágább előre',
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  /* Szövegkörnyezeti szűrő: Tartalom: Létezik hozzá taxonómiakifejezés-azonosító mélységmódosító */
+  /* Contextual filter: Content: Has taxonomy term ID depth modifier */
   $handler->display->display_options['arguments']['term_node_tid_depth_modifier']['id'] = 'term_node_tid_depth_modifier';
   $handler->display->display_options['arguments']['term_node_tid_depth_modifier']['table'] = 'node';
   $handler->display->display_options['arguments']['term_node_tid_depth_modifier']['field'] = 'term_node_tid_depth_modifier';
   $handler->display->display_options['arguments']['term_node_tid_depth_modifier']['exception']['title'] = 'Mind';
   $handler->display->display_options['arguments']['term_node_tid_depth_modifier']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['term_node_tid_depth_modifier']['summary']['format'] = 'default_summary';
-  /* Szűrési feltétel: Tartalom: Közzétéve */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
-  /* Szűrési feltétel: Tartalom: Típus */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1413,7 +1441,7 @@ ar Desc | Drágább előre',
     'products_display' => 'products_display',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Szűrési feltétel: Áruház (field_aruhaz) (selective) */
+  /* Filter criterion: Áruház (field_aruhaz) (selective) */
   $handler->display->display_options['filters']['field_aruhaz_tid_selective']['id'] = 'field_aruhaz_tid_selective';
   $handler->display->display_options['filters']['field_aruhaz_tid_selective']['table'] = 'field_data_field_aruhaz';
   $handler->display->display_options['filters']['field_aruhaz_tid_selective']['field'] = 'field_aruhaz_tid_selective';
@@ -1432,7 +1460,7 @@ ar Desc | Drágább előre',
   );
   $handler->display->display_options['filters']['field_aruhaz_tid_selective']['selective_display_field'] = 'field_aruhaz';
   $handler->display->display_options['filters']['field_aruhaz_tid_selective']['selective_items_limit'] = '100';
-  /* Szűrési feltétel: százalék (field_szazalek) (selective) */
+  /* Filter criterion: százalék (field_szazalek) (selective) */
   $handler->display->display_options['filters']['field_szazalek_value_selective']['id'] = 'field_szazalek_value_selective';
   $handler->display->display_options['filters']['field_szazalek_value_selective']['table'] = 'field_data_field_szazalek';
   $handler->display->display_options['filters']['field_szazalek_value_selective']['field'] = 'field_szazalek_value_selective';
@@ -1457,9 +1485,8 @@ ar Desc | Drágább előre',
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'masonry_views';
-  $handler->display->display_options['style_options']['masonry_column_width'] = '33';
-  $handler->display->display_options['style_options']['masonry_column_width_units'] = '%';
-  $handler->display->display_options['style_options']['masonry_gutter_width'] = '5';
+  $handler->display->display_options['style_options']['masonry_column_width'] = '220';
+  $handler->display->display_options['style_options']['masonry_gutter_width'] = '25';
   $handler->display->display_options['style_options']['masonry_resizable'] = TRUE;
   $handler->display->display_options['style_options']['masonry_animated'] = TRUE;
   $handler->display->display_options['style_options']['masonry_fit_width'] = FALSE;
@@ -1528,7 +1555,7 @@ ar Desc | Drágább előre',
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Mező: Tartalom: Akciós ár */
+  /* Field: Content: Akciós / eladási ár */
   $handler->display->display_options['fields']['field_akci_s_r']['id'] = 'field_akciosar';
   $handler->display->display_options['fields']['field_akci_s_r']['table'] = 'field_data_field_akciosar';
   $handler->display->display_options['fields']['field_akci_s_r']['field'] = 'field_akciosar';
@@ -1540,7 +1567,7 @@ ar Desc | Drágább előre',
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Mező: Tartalom: Százalék */
+  /* Field: Content: Százalék */
   $handler->display->display_options['fields']['field_szazalek']['id'] = 'field_szazalek';
   $handler->display->display_options['fields']['field_szazalek']['table'] = 'field_data_field_szazalek';
   $handler->display->display_options['fields']['field_szazalek']['field'] = 'field_szazalek';
@@ -1550,7 +1577,7 @@ ar Desc | Drágább előre',
   $handler->display->display_options['fields']['field_szazalek']['element_type'] = 'span';
   $handler->display->display_options['fields']['field_szazalek']['element_class'] = 'szazalek';
   $handler->display->display_options['fields']['field_szazalek']['element_label_colon'] = FALSE;
-  /* Mező: Tartalom: Cím */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -1565,7 +1592,7 @@ ar Desc | Drágább előre',
   $handler->display->display_options['fields']['title']['element_class'] = 'termeknev';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
-  /* Mező: Tartalom: Kategória (display) */
+  /* Field: Content: Melyik kategória? */
   $handler->display->display_options['fields']['field_kategoria']['id'] = 'field_kategoria';
   $handler->display->display_options['fields']['field_kategoria']['table'] = 'field_data_field_kategoria';
   $handler->display->display_options['fields']['field_kategoria']['field'] = 'field_kategoria';
@@ -1575,7 +1602,7 @@ ar Desc | Drágább előre',
   $handler->display->display_options['fields']['field_kategoria']['group_columns'] = array(
     'tid' => 'tid',
   );
-  /* Mező: Tartalom: Áruház */
+  /* Field: Content: Áruház */
   $handler->display->display_options['fields']['field_aruhaz']['id'] = 'field_aruhaz';
   $handler->display->display_options['fields']['field_aruhaz']['table'] = 'field_data_field_aruhaz';
   $handler->display->display_options['fields']['field_aruhaz']['field'] = 'field_aruhaz';
@@ -1608,14 +1635,20 @@ ar Desc | Drágább előre'),
     t('‹ előző'),
     t('következő ›'),
     t('utolsó »'),
+    t('<?php $current = taxonomy_term_load(arg(2)); ?>
+<?php if ($current): ?>
+    <div class="taxonomy-description">
+        <?php echo $current->name; ?>
+    </div>
+<?php endif; ?>'),
     t('<h3>Nincs termék a kategóriában</h3>'),
     t('kifejezés'),
-    t('kép innen: field_logo'),
+    t('image from field_logo'),
     t('field_termek'),
-    t('kifejezés ebből: field_category'),
+    t('term from field_category'),
     t('<h4>[title]</h4>'),
     t('[field_aruhaz] ([field_aruhaz-tid])'),
-    t('<div class="add-to-cart" data-pid="[nid]">Listámra</div>'),
+    t('<div class="add-to-cart" data-pid="[nid]">Kosárba!</div>'),
     t('Nagyobb kedvezmény'),
     t('Olcsóbb'),
     t('Üzletláncok'),
