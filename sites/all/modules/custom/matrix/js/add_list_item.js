@@ -14,17 +14,18 @@
              $.cookie('diszkont', '1|' + pid + ',', {path: '/'});
            }
            else {
-             $.cookie('diszkont', cart + '1|' + pid + ',', {path: '/'});
+             $.cookie('diszkont', cart + ',1|' + pid, {path: '/'});
            }
+           console.log($.cookie('diszkont'));
+
            $.post('/matrix_cart_ajax',
              {
                order: $.cookie('diszkont')
              },
              function (data) {
                $('#discount-cart').html(data).effect('shake', 'up');
-             })
+             });
 
-           //console.log($.cookie('diszkont'));
 
          }).css('cursor', 'pointer');
        })
