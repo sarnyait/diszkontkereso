@@ -773,7 +773,7 @@ print get_exposed_filter_output();
   $handler->display->display_options['fields']['title']['element_class'] = 'termeknev';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
-  /* Field: Content: Melyik kategória? */
+  /* Field: Content: Kategória (display) */
   $handler->display->display_options['fields']['field_kategoria']['id'] = 'field_kategoria';
   $handler->display->display_options['fields']['field_kategoria']['table'] = 'field_data_field_kategoria';
   $handler->display->display_options['fields']['field_kategoria']['field'] = 'field_kategoria';
@@ -881,7 +881,7 @@ print get_exposed_filter_output();
   $handler->display->display_options['relationships']['parent']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['relationships']['parent']['field'] = 'parent';
   $handler->display->display_options['relationships']['parent']['label'] = 'Szülő';
-  /* Relationship: Taxonomy term: Content using Melyik kategória? */
+  /* Relationship: Taxonomy term: Content using Kategória (display) */
   $handler->display->display_options['relationships']['reverse_field_kategoria_node']['id'] = 'reverse_field_kategoria_node';
   $handler->display->display_options['relationships']['reverse_field_kategoria_node']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['relationships']['reverse_field_kategoria_node']['field'] = 'reverse_field_kategoria_node';
@@ -957,7 +957,7 @@ print get_exposed_filter_output();
     t('Rendezés'),
     t('Növekvő'),
     t('Csökkenő'),
-    t('Parent'),
+    t('Szülő'),
     t('field_kategoria'),
     t('taxonomy/term/[tid]'),
     t('.'),
@@ -965,7 +965,6 @@ print get_exposed_filter_output();
     t('Mind'),
     t('Block'),
     t('more'),
-    t('Szülő'),
   );
   $export['taxonomy_menu'] = $view;
 
@@ -1205,6 +1204,9 @@ ar Desc | Drágább előre',
     <div class="taxonomy-description">
         <?php echo $current->name; ?>
     </div>
+<div class="vissza">
+       <a href="/osszes-akcio" class="vissza">Vissza</a>
+    </div>
 <?php endif; ?>';
   $handler->display->display_options['header']['area']['format'] = 'php_code';
   /* No results behavior: Global: Text area */
@@ -1241,6 +1243,13 @@ ar Desc | Drágább előre',
   $handler->display->display_options['relationships']['field_category_tid']['table'] = 'field_data_field_category';
   $handler->display->display_options['relationships']['field_category_tid']['field'] = 'field_category_tid';
   $handler->display->display_options['relationships']['field_category_tid']['relationship'] = 'field_termek_nid';
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
   /* Field: Taxonomy term: Logo */
   $handler->display->display_options['fields']['field_logo']['id'] = 'field_logo';
   $handler->display->display_options['fields']['field_logo']['table'] = 'field_data_field_logo';
@@ -1259,11 +1268,13 @@ ar Desc | Drágább előre',
   $handler->display->display_options['fields']['field_termekfoto']['field'] = 'field_termekfoto';
   $handler->display->display_options['fields']['field_termekfoto']['relationship'] = 'field_termek_nid';
   $handler->display->display_options['fields']['field_termekfoto']['label'] = '';
+  $handler->display->display_options['fields']['field_termekfoto']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_termekfoto']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_termekfoto']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_termekfoto']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_termekfoto']['settings'] = array(
     'image_style' => 'diszkont',
-    'image_link' => 'content',
+    'image_link' => '',
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -1592,7 +1603,7 @@ ar Desc | Drágább előre',
   $handler->display->display_options['fields']['title']['element_class'] = 'termeknev';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
-  /* Field: Content: Melyik kategória? */
+  /* Field: Content: Kategória (display) */
   $handler->display->display_options['fields']['field_kategoria']['id'] = 'field_kategoria';
   $handler->display->display_options['fields']['field_kategoria']['table'] = 'field_data_field_kategoria';
   $handler->display->display_options['fields']['field_kategoria']['field'] = 'field_kategoria';
@@ -1639,6 +1650,9 @@ ar Desc | Drágább előre'),
 <?php if ($current): ?>
     <div class="taxonomy-description">
         <?php echo $current->name; ?>
+    </div>
+<div class="vissza">
+       <a href="/osszes-akcio" class="vissza">Vissza</a>
     </div>
 <?php endif; ?>'),
     t('<h3>Nincs termék a kategóriában</h3>'),
