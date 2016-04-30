@@ -187,6 +187,26 @@ max-width:180px;
 overflow:hidden;
 word-wrap: break-word;
 word-break: break-all;
+min-height:162px;
+}
+
+body.page-matrix div.table-row:nth-of-type(1)  {
+background: #f9f9f9;
+}
+
+body.page-matrix div.table-row:nth-of-type(5)  {
+background: #f9f9f9;
+}
+
+body.page-matrix div.table-row:nth-of-type(9)  {
+background: #f9f9f9;
+}
+body.page-matrix div.table-row:nth-of-type(13)  {
+background: #f9f9f9;
+}
+
+body.page-matrix div.table-row:nth-of-type(17)  {
+background: #f9f9f9;
 }
 
 body.page-search-products ul {
@@ -538,6 +558,8 @@ div.mc-field-group.input-group.elso, div.mc-field-group.input-group.masodik{
     color: #ec4c43;
     border: 0;
     background: none;
+	font-size: 250%;
+line-height: 3;
 }
 
 #save-order {
@@ -2017,6 +2039,14 @@ max-width:49%;
 margin: 0 auto;
 height: auto;
 float:left;
+}
+
+body#pid-osszes-akcio section#block-menu-menu-diszkont.block.block-menu{
+width: 98%;
+max-width:98%;
+margin: 0 auto;
+height: auto;
+float:none;
 }
 
 #block-search-form {
