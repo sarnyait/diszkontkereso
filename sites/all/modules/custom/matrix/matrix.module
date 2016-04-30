@@ -560,7 +560,9 @@ function matrix_page_alter(&$page) {
   drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_mail.css');
   $a2 = arg(2);
   $a1 = arg(1);
-  if (arg(0) == 'osszes-akcio' or (arg(0) == 'node' && isset($a1) && !isset($a2))) {
+  if (arg(0) == 'osszes-akcio'
+    or (arg(0) == 'node' && isset($a1) && !isset($a2))
+    or (arg(0) == 'taxonomy' && arg(1) == 'term' && isset($a2))) {
     drupal_add_js(drupal_get_path('module', 'matrix') . '/js/add_list_item.js');
   }
 }
