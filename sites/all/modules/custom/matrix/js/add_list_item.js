@@ -5,8 +5,8 @@
 
 
 
-       $('.add-to-cart', context).once(function() {
-         $(this).on('click', function () {
+       //$('.add-to-cart', context).once(function() {
+         $(document).on('click', '.add-to-cart', function () {
            console.log('fired');
            pid = $(this).attr('data-pid');
            cart = $.cookie('diszkont');
@@ -28,7 +28,7 @@
 
 
          }).css('cursor', 'pointer');
-       })
+       //})
       }
 
   }
