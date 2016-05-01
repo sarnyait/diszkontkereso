@@ -415,7 +415,7 @@
       }
 
 
-      $(window).on("scroll", function() {
+      $(window).bind("scroll", function() {
         var scrollHeight = $(document).height();
         var scrollPosition = $(window).height() + $(window).scrollTop();
         $('.summary-row').css('top', scrollPosition - 360);
