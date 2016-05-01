@@ -257,7 +257,7 @@
           })
           reCart = reCart.substring(1);
           $.cookie('diszkont', reCart, {path: '/'});
-          if (sid > 0 && $('.item-from-' + sid).length == 1) {
+          if (sid > 0 && $('.item-from-' + sid).length == 0) {
             $('.shop-header-' + sid).hide();
             $('.shop-block-' + sid).hide();
           }
@@ -294,9 +294,10 @@
         })
 
         $(document).on("click", ".cart-minus", function () {
-          cartModify('minus', $(this).parent().parent().attr('data-product'));
           pid = $(this).attr('data-product');
           sid = $(this).attr('data-shop');
+          cartModify('minus', pid, sid);
+
           updateProductSums(pid, -1);
           updateShopSums(sid);
 
