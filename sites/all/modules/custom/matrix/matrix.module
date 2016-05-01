@@ -35,6 +35,12 @@ function matrix_menu() {
     'page callback' => 'matrix_fix_products',
     'access arguments' => array('access content'),
   );
+
+  $items['get-shop-name'] = array(
+    'title' => '',
+    'page callback' => 'matrix_get_shop_from_product',
+    'access arguments' => array('access content'),
+  );
   return $items;
 }
 
@@ -598,4 +604,15 @@ function matrix_fix_products() {
     }
   }
   return $output;
+}
+
+function matrix_get_shop_from_product() {
+  $list = $_POST['order'];
+  $parts = explode(',', $list);
+  $parts = explode('|', $parts[0]);
+  $nid = $parts[1];
+  $node = node_load($nid);
+  $shop = $node->field_aruhaz[LANGUAGE_NONE][0]['tid'];
+  $term = taxonomy_term_load($shop);
+  print $term->name;
 }

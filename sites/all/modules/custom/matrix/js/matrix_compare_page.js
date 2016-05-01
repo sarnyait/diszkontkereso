@@ -115,10 +115,20 @@
         $('.matrix_cart_button').on("click", function () {
           console.log($.cookie('diszkont'));
           var top = $(this).attr('data-name');
+          var shopName = $('#header .cell[data-name="' + top + '"]').html();
           toSend = $.cookie('diszkont');
           if (toSend !== null) {
             $('#cart-popup').attr('data-name', top);
-            modal.open();
+            $.post('/get-shop-name',
+              {
+                order: $.cookie('diszkont')
+              },
+              function (data) {
+                $('.modal-message').html('Már van egy kosara (' + data + ')  a bevásárlólistáján. Mit tenne?');
+                $('.remodal-none').html('Marad a meglévő (' + data + ')');
+                $('.remodal-cancel').html('Kicserélem a most választottra (' + shopName + ')');
+                modal.open();
+              });
           }
           else {
             toSend = '';
