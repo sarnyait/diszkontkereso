@@ -570,6 +570,8 @@ function matrix_page_alter(&$page) {
     or (arg(0) == 'node' && isset($a1) && !isset($a2))
     or (arg(0) == 'taxonomy' && arg(1) == 'term' && isset($a2))) {
     drupal_add_js(drupal_get_path('module', 'matrix') . '/js/add_list_item.js');
+    drupal_add_js(drupal_get_path('module', 'matrix') . '/js/matrix_compare_page.js');
+
   }
 }
 

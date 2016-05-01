@@ -267,6 +267,7 @@
           }
           if ($('.item').length == 1) {
             $.cookie('diszkont', null, {path: '/'});
+            console.log('cart-deleted');
           }
         }
 
@@ -282,9 +283,9 @@
         })
 
         $(document).on("click", ".cart-plus", function () {
-          cartModify('plus', $(this).parent().parent().attr('data-product'));
           pid = $(this).attr('data-product');
           sid = $(this).attr('data-shop');
+          cartModify('plus', pid, sid);
 
           updateProductSums(pid, 1);
           updateShopSums(sid);
