@@ -8,16 +8,14 @@
         amount = $('.amount[data-pid="' + pid + '"]').html();
         if (amount > 1) {
           $('.amount[data-pid="' + pid + '"]').html(amount*1-1);
-          console.log($.cookie('diszkont'));
         }
-      }).css('cursor', 'pointer');
+      });
 
       $(document).on('click', '.plus-minus.inlist .cart-plus', function () {
         pid = $(this).attr('data-pid');
         amount = $('.amount[data-pid="' + pid + '"]').html();
         $('.amount[data-pid="' + pid + '"]').html(amount*1+1);
-        console.log($.cookie('diszkont'));
-      }).css('cursor', 'pointer');
+      });
 
 
 

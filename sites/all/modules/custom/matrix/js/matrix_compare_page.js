@@ -117,7 +117,7 @@
           var top = $(this).attr('data-name');
           var shopName = $('#header .cell[data-name="' + top + '"]').html();
           toSend = $.cookie('diszkont');
-          if (toSend !== '') {
+          if (toSend !== null) {
             $('#cart-popup').attr('data-name', top);
             $.post('/get-shop-name',
               {
@@ -261,7 +261,11 @@
             $('.shop-header-' + sid).hide();
             $('.shop-block-' + sid).hide();
           }
-          console.log($.cookie('diszkont'));
+          if ($.cookie('diszkont') == '') {
+            $.cookie('diszkont', null, {path: '/'});
+            console.log('cart-deleted');
+
+          }
           /*if ($('.item').length == 1) {
             $.cookie('diszkont', null, {path: '/'});
             console.log('cart-deleted');
