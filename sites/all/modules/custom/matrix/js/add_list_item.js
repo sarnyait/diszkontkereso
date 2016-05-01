@@ -3,24 +3,23 @@
   Drupal.behaviors.matrixBaseXxx = {
     attach: function (context, settings) {
 
-      $('.plus-minus.inlist .cart-minus').on('click', function () {
+      $(document).on('click', '.plus-minus.inlist .cart-minus', function () {
         pid = $(this).attr('data-pid');
         amount = $('.amount[data-pid="' + pid + '"]').html();
         if (amount > 1) {
           $('.amount[data-pid="' + pid + '"]').html(amount*1-1);
           console.log($.cookie('diszkont'));
         }
-      }).css('cursor', 'pointer').css('font-size', '2em');
+      }).css('cursor', 'pointer');
 
-      $('.plus-minus.inlist .cart-plus').on('click', function () {
+      $(document).on('click', '.plus-minus.inlist .cart-plus', function () {
         pid = $(this).attr('data-pid');
         amount = $('.amount[data-pid="' + pid + '"]').html();
         $('.amount[data-pid="' + pid + '"]').html(amount*1+1);
         console.log($.cookie('diszkont'));
-      }).css('cursor', 'pointer').css('font-size', '2em');
+      }).css('cursor', 'pointer');
 
 
-      $('.cell').css('float', 'left');
 
        //$('.add-to-cart', context).once(function() {
          $(document).on('click', '.add-to-cart', function () {

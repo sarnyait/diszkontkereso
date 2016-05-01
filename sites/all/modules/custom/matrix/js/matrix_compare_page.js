@@ -117,7 +117,7 @@
           var top = $(this).attr('data-name');
           var shopName = $('#header .cell[data-name="' + top + '"]').html();
           toSend = $.cookie('diszkont');
-          if (toSend !== null) {
+          if (toSend !== '') {
             $('#cart-popup').attr('data-name', top);
             $.post('/get-shop-name',
               {
@@ -140,7 +140,7 @@
 
       if ($('.remodal-none').length) {
         $('.remodal-none').on("click", function () {
-          window.location.href = 'matrix_cart';
+          //window.location.href = 'matrix_cart';
         });
 
         $('.remodal-confirm').on("click", function () {
@@ -221,7 +221,6 @@
           lineItems = cart.split(',');
           reCart = '';
           sid = sid | 0;
-          console.log(cart);
           lineItems.forEach(function (i) {
             parts = i.split('|');
             amount = parts[0];
@@ -258,17 +257,15 @@
           })
           reCart = reCart.substring(1);
           $.cookie('diszkont', reCart, {path: '/'});
-          console.log('SID' + sid);
-          console.log($('.item-from-' + sid).length);
           if (sid > 0 && $('.item-from-' + sid).length == 1) {
             $('.shop-header-' + sid).hide();
             $('.shop-block-' + sid).hide();
-
           }
-          if ($('.item').length == 1) {
+          console.log($.cookie('diszkont'));
+          /*if ($('.item').length == 1) {
             $.cookie('diszkont', null, {path: '/'});
             console.log('cart-deleted');
-          }
+          }*/
         }
 
       }
