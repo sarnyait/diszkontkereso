@@ -255,12 +255,14 @@
           })
           reCart = reCart.substring(1);
           $.cookie('diszkont', reCart, {path: '/'});
+          console.log('SHOP LENGTH' + $('.item-from-' + sid).length);
           if (sid > 0 && $('.item-from-' + sid).length == 0) {
             $('.shop-header-' + sid).hide();
             $('.shop-block-' + sid).hide();
           }
           if ($.cookie('diszkont') == '') {
             $.cookie('diszkont', null, {path: '/'});
+            $('.shop-block').hide();
             console.log('cart-deleted');
 
           }
@@ -275,8 +277,8 @@
       if ($('.cart-delete').length) {
         $(document).on("click", ".cart-delete", function () {
           sid = $(this).attr('data-shop');
-          cartModify('remove', $(this).parent().parent().attr('data-product'), sid);
           $(this).parent().parent().parent().remove();
+          cartModify('remove', $(this).parent().parent().attr('data-product'), sid);
           updateShopSums(sid);
           console.log($.cookie('diszkont'));
         })
