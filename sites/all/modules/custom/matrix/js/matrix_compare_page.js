@@ -304,20 +304,23 @@
         })
       }
 
-      $('.delete-shop').click(function() {
-        shop = $(this).attr('data-shop');
-        $('.item-from-' + shop).each(function() {
-          pid = $(this).attr('data-pid');
-          cartModify('remove', pid, shop);
+      if ($('.delete-shop').length) {
+        $(document).on('click', '.delete-shop', function () {
+          shop = $(this).attr('data-shop');
+          $('.item-from-' + shop).each(function () {
+            pid = $(this).attr('data-pid');
+            cartModify('remove', pid, shop);
+          })
+          $('.shop-block-' + shop).hide();
+          console.log($.cookie('diszkont'));
+          console.log('NEED TO DELETE' + $.cookie('diszkont').length);
+          if ($.cookie('diszkont').length == 0) {
+            $.cookie('diszkont', null);
+            console.log('DELETED');
+          }
+          ;
         })
-        $('.shop-block-' + shop).hide();
-        console.log($.cookie('diszkont'));
-        console.log('NEED TO DELETE' + $.cookie('diszkont').length);
-        if ($.cookie('diszkont').length == 0) {
-          $.cookie('diszkont', null);
-          console.log('DELETED');
-        };
-      }).css('cursor', 'pointer');
+      }
 
 
       function updateProductSums(pid, method) {
