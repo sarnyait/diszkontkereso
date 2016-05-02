@@ -39,6 +39,7 @@
              },
              function (data) {
                $('#discount-cart').html(data).effect('shake', 'up');
+               $('#discount-cart .cart-row[data-product="' + pid + '"] .image').show().delay(1000).slideToggle();
              });
 
 

@@ -57,7 +57,7 @@ function matrix_block_view($delta = '') {
   switch ($delta) {
     case 'matrix':
       $block['subject'] = t('Shopping list');
-      $block['content'] = matrix_cart_page() . '<input type="button" value="Ugrás a listaoldalra" onClick="self.location=\'/matrix_cart\';">';
+      $block['content'] = matrix_cart_page(TRUE) . '<input type="button" value="Ugrás a listaoldalra" onClick="self.location=\'/matrix_cart\';">';
       break;
   }
   return $block;
@@ -91,6 +91,12 @@ function matrix_theme($existing, $type, $theme, $path) {
   $theme['matrix_cart_print'] = array(
     'variables' => array('vars' => NULL),
     'template' => 'matrix_cart_print',
+    'path' => $path,
+  );
+
+  $theme['matrix_cart_block'] = array(
+    'variables' => array('vars' => NULL),
+    'template' => 'matrix_cart_block',
     'path' => $path,
   );
 
@@ -332,7 +338,7 @@ function matrix_compare_page() {
 
 
 
-  $header = '<div class="cell" id="corner">&nbsp</div>';
+  $header = '<div class="cell" id="corner"><div class="checkbox">' . t('Get it') . '</div><div class="pieces">' . t('Pieces') . '</div><div class="category">' . t('Category') . '</div></div>';
   $header .= '<div id="header">';
   $c = 0;
   foreach ($tops as $top) {
@@ -470,7 +476,7 @@ function matrix_cookie_to_items() {
   return $line_items;
 }
 
-function matrix_cart_page() {
+function matrix_cart_page($block = FALSE) {
   drupal_add_library('system', 'jquery.cookie');
   drupal_add_js(drupal_get_path('module', 'matrix') . '/js/remodal/remodal.js');
   drupal_add_js(drupal_get_path('module', 'matrix') . '/js/matrix_compare_page.js');
@@ -483,7 +489,7 @@ function matrix_cart_page() {
   $output .= '<input type="button" id="print-order" value="Kinyomtatom">';
   $output .= '<input type="button" id="delete-order" value="X">';
   $output .= '<div id="discount-cart">';
-  $output .= matrix_render_cart($line_items);
+  $output .= matrix_render_cart($line_items, 'matrix_cart', $block);
   $output .= '</div>';
 
 
@@ -491,12 +497,15 @@ function matrix_cart_page() {
 }
 
 function matrix_cart_page_ajax() {
-  print matrix_cart_page();
+  print matrix_cart_page(TRUE);
 }
 
-function matrix_render_cart($line_items, $format = '') {
+function matrix_render_cart($line_items, $format = '', $block) {
   $output = '';
-  (empty($format)) ? $template = 'matrix_cart' : $template = 'matrix_cart_print';
+  $template = $format;
+  if ($block) {
+    $template = 'matrix_cart_block';
+  }
   foreach ($line_items as $sid => $line_item) {
     $shop = taxonomy_term_load($sid);
     $output .=  '<div class="shop-block ' . $template . ' shop-block-' . $sid . '">';
@@ -510,6 +519,9 @@ function matrix_render_cart($line_items, $format = '') {
         $pproduct = node_load($product->field_termek[LANGUAGE_NONE][0]['nid']);
         $weight = $pproduct->field_darabsuly[LANGUAGE_NONE][0]['value'];
         $price = $product->field_akciosar[LANGUAGE_NONE][0]['value'];
+        $img_uri = $pproduct->field_termekfoto[LANGUAGE_NONE][0]['uri'];
+        $percent = $product->field_szazalek[LANGUAGE_NONE][0]['value'];
+        ($percent < 100) ?  $percent = $percent . '%' : $percent = '';
         $vars = array(
           'amount' => $offered['amount'],
           'product' => l($offered['title'], 'node/' . $pid),
@@ -519,6 +531,8 @@ function matrix_render_cart($line_items, $format = '') {
           'shop' => $sid,
           'origweight' => $weight,
           'origprice' => $price,
+          'image' => theme('image_style', array('path' => $img_uri, 'style_name' => 'thumbnail')),
+          'percent' => $percent,
         );
         $sumOfPrice += $offered['amount'] * $price;
         $sumOfWeight += $offered['amount'] * $weight;
