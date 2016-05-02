@@ -94,7 +94,7 @@
               v = $(source).val() * 1 - 1;
               $(source).val(v);
               if (v == 0) {
-                $(this).parent().parent().parent().addClass('faded');
+                //$(this).parent().parent().parent().addClass('faded');
                 $('.check[data-name="' + pid + '"]').trigger('click');
               }
             }
@@ -102,7 +102,7 @@
           else {
             v = $(source).val() * 1 + 1;
             $(source).val(v);
-            $(this).parent().parent().parent().removeClass('faded');
+            //$(this).parent().parent().parent().removeClass('faded');
             //$(source).next().val(v * w); // weight
 
           }
@@ -187,16 +187,14 @@
       if ($('.check').length) {
         $('.check').on("click", function () {
           pid = $(this).attr('data-name');
-          if ($(this).siblings('.plus-minus').css('visibility') == 'visible') {
-            $(this).siblings('.plus-minus').css('visibility', 'hidden');
-            $(this).parent().removeClass('active');
-            $(this).parent().parent().addClass('faded');
+          if ($('.plus-minus[data-name="'+pid+'"]').css('visibility') == 'visible') {
+            $('.plus-minus[data-name="'+pid+'"]').css('visibility', 'hidden');
+            $('.starter_cell[data-name="' + pid + '"]').removeClass('active').parent().addClass('faded');
 
           }
           else {
-            $(this).siblings('.plus-minus').css('visibility', 'visible');
-            $(this).parent().addClass('active');
-            $(this).parent().parent().removeClass('faded');
+            $('.plus-minus[data-name="'+pid+'"]').css('visibility', 'visible');
+            $('.starter_cell[data-name="' + pid + '"]').addClass('active').parent().removeClass('faded');
             $('.matrix_val[data-name="' + pid + '"]').val(1);
           }
           updateSumValues();

@@ -110,7 +110,7 @@ function matrix_add_tr(&$row) {
 function matrix_add_plus_minus($class = 'input', $left) {
   $output = '';
   $output .= '';
-  $output .= '<div class="plus-minus">';
+  $output .= '<div class="plus-minus" data-name="' . $left . '">';
   $output .= '<input type="button" value="-" class="matrix_val_change" data-source="' . $class . '_val" data-name="' . convert($left) . '">';
   $output .= '<input type="number" pattern="[0-9]*" id="' . $class . '_val" class="matrix_val" data-name="' . convert($left) . '">';
   //$output .= '<input type="number" id="' . $class . '_val" class="matrix_val_weight" data-category="' . $left . '" value="' . $weight . '">';
@@ -440,8 +440,10 @@ function matrix_compare_page() {
   matrix_add_tr($table);*/
 
   $table .= '<div class="cell" id="corner">&nbsp</div>';
+  $firstclass = 'first';
   foreach ($tops as $top) {
-    $table .= '<div class="button-cell ' . convert($top) . '" data-shop="' . convert($top) . '">' . matrix_add_bottom_button(convert($top)) . '</div>';
+    $table .= '<div class="button-cell ' . convert($top) . ' ' . $firstclass . '" data-shop="' . convert($top) . '">' . matrix_add_bottom_button(convert($top)) . '</div>';
+    $firstclass = '';
   }
   matrix_add_tr($table);
 
