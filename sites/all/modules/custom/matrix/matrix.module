@@ -521,7 +521,7 @@ function matrix_render_cart($line_items, $format = '', $block) {
         $price = $product->field_akciosar[LANGUAGE_NONE][0]['value'];
         $img_uri = $pproduct->field_termekfoto[LANGUAGE_NONE][0]['uri'];
         $percent = $product->field_szazalek[LANGUAGE_NONE][0]['value'];
-        ($percent < 100) ?  $percent = $percent . '%' : $percent = '';
+        ($percent < 100 && $percent!== 0) ?  $percent = $percent . '%' : $percent = '';
         $vars = array(
           'amount' => $offered['amount'],
           'product' => l($offered['title'], 'node/' . $pid),
