@@ -182,6 +182,112 @@ body {
   background-repeat: repeat-x;
 }
 
+.cart-plus, .cart-minus {
+  cursor: pointer !important;
+}
+
+.compare-page .button-cell {
+  width: 20%;
+}
+
+.compare-page .sum-cell {
+  width: 20%;
+  border-right: 1px solid #979797;
+}
+
+body#pid-matrix-cart .content.cell:first-child {
+  width:125px;
+}
+
+body#pid-matrix #header .cell:first-child {
+  color: #ec4c43;
+}
+
+body#pid-matrix .cell::nth-of-type(1) .matrix_cart_button {
+  background: #ec4c43 !important;
+  background-color: #ec4c43 !important;
+}
+
+
+.matrix_cart_block .percent {
+  display: none;
+}
+
+.compare-page #corner .checkbox,.compare-page #corner .pieces, .compare-page #corner .category {
+  float:left;
+  border-right: 1px solid #979797;
+  width: 33.3%;
+} 
+
+.matrix_cart_block span.cart-sum-price {
+  margin-left: 100px;
+  margin-top: -20px
+}
+
+.matrix_cart_block span.measurement:last-child{
+  margin-top: -20px !important;
+  margin-left: 145px !important;
+}
+
+.matrix_cart_block span.cart-sum-price {
+  width: 51px;
+  height: 15px;
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 12px;
+  color: #343434;
+}
+
+
+body.page-node .field-name-field-kategoria {
+  width: 182px;
+  height: 17px;
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 14px;
+  color: #535353;
+  }
+
+ body.page-node .field-name-field-kategoria a {
+  border-bottom: dotted 1px #262735; 
+  } 
+
+  body.page-node  .region-content .cart-minus {   
+    clear: both;
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+    }
+
+  body.page-node .region-content .cart-plus {   
+    clear: both;
+    float: left;
+    margin-left: 40px;
+    margin-top: -10px;
+  }
+
+#discount-cart .cell input.cart-plus {
+    float: left !important;
+    margin-top: -8px;
+    margin-left: 15px;
+}
+
+
+#block-views-similar-block  .add-to-cart {
+    width: 60px;
+  height: 20px;
+  border-radius: 4px;
+  border: solid 1px #343434;
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 10px;
+  color: #343434;
+  background: none;
+  padding: 0;
+  text-transform: lowercase;
+  margin-top: -20px;
+}
+
 body.page-node section#block-matrix-matrix.block.block-matrix.contextual-links-region.clearfix {
 max-width:180px;
 overflow:hidden;
@@ -190,8 +296,13 @@ word-break: break-all;
 min-height:162px;
 }
 
+div#tableBody {
+  border-top: dotted 1px #979797; 
+}
+
 body.page-matrix div.table-row:nth-of-type(1)  {
 background: #f9f9f9;
+border-top:0;
 }
 
 body.page-matrix div.table-row:nth-of-type(5)  {
@@ -209,12 +320,22 @@ body.page-matrix div.table-row:nth-of-type(17)  {
 background: #f9f9f9;
 }
 
+body#pid-osszes-akcio ul.pagination {
+  visibility: hidden;
+  display: inline-block !important;
+}
+
 body.page-search-products ul {
   display: none;
 }
 
 body.page-search-products dl {
       font-size: 200%;
+}
+
+body#pid-osszes-akcio .form-control {
+  font-family: 'Lato';
+  font-weight:400;
 }
 
 #discount-cart .cell.content {
@@ -246,7 +367,7 @@ form#views-exposed-form-osszes-akcio-osszesakcio-mefibs-form-rendezes.ctools-aut
 body#pid-matrix .page-header {
  width: 300px;
   height: 17px;
-  font-family: 'Lato Bold';
+  font-family: 'Lato';
   font-weight:700;
   font-size: 14px;
   letter-spacing: 1.6px;
@@ -279,6 +400,10 @@ body#pid-matrix  div.views-field.views-field-field-ar {
     float: right;
 }
 
+body#pid-osszes-akcio div.plus-minus, body.page-node div.plus-minus {
+  float:left;
+  margin-top: 10px;
+}
 
 
 div.plus-minus {
@@ -329,6 +454,14 @@ font-size: 14px;
 border: 0;
 }
 
+body#pid-matrix-cart .shop-block.matrix_cart {
+  margin-bottom: 44px;
+}
+
+.shop-block.matrix_cart {
+  margin-bottom: 30px;
+}
+
 input.check {
 width: 20px;
 height: 20px;
@@ -337,12 +470,22 @@ background-color: #ffffff;
 border: solid 1px #343434;
 }
 
+body#pid-matrix-cart input.cart-delete {
+ position: relative;
+ left: 275%;
+ top: -40px
+}
+
 input.cart-delete {
  border:0;
  background: transparent;
  border-radius:5px;
  color: #ec4c43 !important;
+ border: solid 0.5px #979797;
+ margin-left: 80px;
+ border-radius: 30px;
 }
+
 
 input.cart-delete:after {
 content:"x";
@@ -360,8 +503,8 @@ display:block;
 }
 body#pid-osszes-akcio .cell input.cart-delete, body.page-taxonomy-term- .cell input.cart-delete,  body.page-node .cell input.cart-delete {
     position: relative;
-    left: 110px;
-    top: -60px;
+    left: 55px;
+    top: 20px;
   }
 
 
@@ -415,6 +558,15 @@ div.content.cell a {
   font-weight: 300;
   font-size: 12px;
   color: #343434;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 .amount.cell, .markup.cell, .weight.cell {
@@ -427,6 +579,31 @@ text-align:left;
   color: #535353;
 }
 
+body#pid-matrix-cart .amount.cell, body#pid-matrix-cart .markup.cell, body#pid-matrix-cart .weight.cell {
+text-align:left;
+  width: auto;
+  height: 15px;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 14px;
+  color: #535353;
+}
+
+body#pid-matrix-cart .percent {
+width: 46px;
+  height: 19px;
+  font-family: Lato-Regular;
+  font-size: 16px;
+  color: #ec4c43;
+  position: relative;
+  top: -90px;
+  left:58%
+}
+
+body.page-node .amount.cell {
+  width: 25px;
+}
+
 span.cart-sum-weight, span.cart-sum-price, span.measurement {
   width: 100px;
   height: 19px;
@@ -437,13 +614,22 @@ span.cart-sum-weight, span.cart-sum-price, span.measurement {
   margin-left: 40px;
 }
 
+span.cart-sum-price {
+    font-family: "Lato";
+    font-weight: 400;
+  font-size: 24px;
+  color: #ec4c43;
+}
+
 body#pid-osszes-akcio span.measurement, body.page-taxonomy-term- span.measurement,  body.page-node span.measurement{
   margin-top: -20px;
-    margin-left: 100px;
+    margin-left: 75px;
 }
 
 body#pid-osszes-akcio span.cart-sum-weight, body#pid-osszes-akcio span.cart-sum-price, body.page-node span.cart-sum-price, body#pid-osszes-akcio span.measurement, body.page-taxonomy-term- span.cart-sum-weight, body.page-node span.cart-sum-weight, body.page-taxonomy-term- span.cart-sum-price, body.page-taxonomy-term- span.measurement, body.page-node span.measurement {
   float:left;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 body#pid-osszes-akcio .totals-row label, body.page-taxonomy-term- .totals-row label, body.page-node .totals-row label  {
@@ -457,6 +643,16 @@ body#pid-osszes-akcio .totals-row label, body.page-taxonomy-term- .totals-row la
 }
 
 div.weight.cell, div.price.cell {
+  width: 75px;
+  height: 17px;
+  font-family: Lato;
+  font-weight: 400;
+  font-size: 12px;
+  color: #343434;
+  margin-left: 40px;
+}
+
+body#pid-matrix-cart div.weight.cell, body#pid-matrix-cart div.price.cell {
   width: 75px;
   height: 17px;
   font-family: Lato;
@@ -490,8 +686,8 @@ body#pid-osszes-akcio div.markup.cell, body.page-taxonomy-term- div.markup.cell,
   width: 100px;
   height: 17px;
   font-family: "Lato";
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: 400;
+  font-size: 12px;
   color: #343434;
   margin-left: 0px;
    text-align: right !important;
@@ -560,6 +756,8 @@ div.mc-field-group.input-group.elso, div.mc-field-group.input-group.masodik{
     background: none;
 	font-size: 250%;
 line-height: 3;
+ border: solid 0.5px #979797;
+ border-radius: 30px;
 }
 
 #save-order {
@@ -569,6 +767,9 @@ line-height: 3;
 .delete-shop {
   float: right;
   color: #ec4c43;
+   border: solid 0.5px #979797;
+ border-radius: 30px;
+ padding: 5px;
 }
 
 .exposed_filter_data {
@@ -608,6 +809,12 @@ body.page-taxonomy.page-taxonomy-term.page-taxonomy-term- h1.page-header {
   background: white;
 }
 
+body#pid-osszes-akcio .add-to-cart, body.page-taxonomy-term .add-to-cart {
+clear: both;
+    float: right;
+    margin-top: -20px;
+}
+
 input.2052_cart {
   background-color: #ec4c43 !important;
 }
@@ -634,6 +841,60 @@ body.page-node .add-to-cart {
   float: right;
   margin-top: 10px;
 }
+
+body.page-node .views-field-nid {
+  clear:both;
+  float: none;
+  margin-top: 10px;
+}
+
+body#pid-osszes-akcio .views-field-nid {
+  float: none;
+  margin-top: 0px;
+}
+
+body.page-taxonomy-term .views-field-nid {
+  clear:both;
+  float: none;
+  margin-top: 0px;
+}
+
+body#pid-osszes-akcio .cart-minus, body#pid-osszes-akcio .cart-plus, body#pid-osszes-akcio .amount {
+float:left;
+font-size: 12px;
+}
+
+body#pid-osszes-akcio #discount-cart .cart-minus, body#pid-osszes-akcio #discount-cart .cart-plus, body#pid-osszes-akcio #discount-cart .amount {
+float:none;
+font-size: 12px;
+}
+
+body#pid-osszes-akcio .amount {
+width: 30px;
+}  
+
+body.page-taxonomy-term .cart-minus, body.page-taxonomy-term .cart-plus, body.page-taxonomy-term .cart-minus, body#pid-osszes-akcio .cart-plus, body#pid-osszes-akcio .amount {
+float:left;
+font-size: 12px;
+}
+
+body.page-taxonomy-term .amount {
+width: 25px;
+}  
+ .amount {
+float:left;
+font-size: 12px;
+}
+
+body#pid-osszes-akcio .amount {
+width: 25px;
+} 
+
+body#pid-osszes-akcio #discount-cart .amount {
+width: 17px;
+float: left;
+}  
+
 
 body#pid-matrix .summary-row {
   font-family: "Lato";
@@ -678,11 +939,12 @@ body#pid-matrix h4.termeknev a, body#pid-matrix .views-field-title  {
     width: 115px;
 	height: auto;
 	font-family: "Lato";
-	font-weight: 400;
+	font-weight: 700;
 	font-size: 12px;
 	color: #535353;
 	float: right;
 	margin-bottom:5px;
+  text-align: right;
 }
 
 body#pid-matrix .views-field-field-egysegar, body#pid-matrix .views-field-field-akciosar, body#pid-matrix .views-field-field-ar, body#pid-matrix .views-field-field-suly, body#pid-matrix .views-field-field-urmertek {
@@ -690,11 +952,18 @@ body#pid-matrix .views-field-field-egysegar, body#pid-matrix .views-field-field-
   width: auto;
   height: auto;
   font-family: "Lato";
-  font-weight: 400;
+  font-weight: 700;
   font-size: 12px;
   color: #535353;
   margin: 0;
+}
 
+body#pid-matrix .views-field-field-akciosar {
+  font-family: 'Lato';
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #ec4c43;
 }
 
 body#pid-matrix .views-field-field-akciosar, body#pid-matrix .views-field-field-suly, body#pid-matrix .views-field-field-urmertek {
@@ -712,7 +981,6 @@ text-decoration: line-through;
   font-weight: 700;
   font-size: 14px;
   color: #535353;
-  text-transform: uppercase;
   min-height: 35px !important;
   max-height: 35px;
   width:20% !important;
@@ -802,16 +1070,28 @@ body.page-node- input[value="Ugrás a listaoldalra"], div.pane-matrix-matrix inp
 }
 
 
-body#pid-matrix-cart input[value="Bolt webhelye"], body#pid-matrix-cart input[value="Legközelebbi üzlet"] {
-  width: 100px;
-  height: 20px;
-  object-fit: contain;
+body#pid-matrix-cart input[value="Bolt webhelye"] {
+    width: 180px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #ec4c43;
+   font-family: 'Lato';
+   font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #ffffff;
+  margin-right: 20px;
+  border: 0;
+}
+body#pid-matrix-cart input[value="Legközelebbi üzlet"] {
+ width: 180px;
+  height: 40px;
   border-radius: 4px;
   border: solid 1px #343434;
-  margin: 0px 20px;
-  font-family: "Lato";
-  font-weight: 400;
-  font-size: 10px;
+  font-family: 'Lato';
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 2px;
   color: #343434;
 }
 
@@ -927,8 +1207,8 @@ body#pid-osszes-akcio .panel-col-first .pane-title, .panel-2col-bricks .pane-tit
   font-weight: 400;
   font-size: 14px;
   color: #535353;
-  padding-left:10px;
-  text-transform: uppercase;
+  margin-left:10px;
+  border-bottom: dotted 1px #262735;
 }
 
 #taxonomyname {
@@ -940,7 +1220,6 @@ body#pid-osszes-akcio .panel-col-first .pane-title, .panel-2col-bricks .pane-tit
   color: #535353;
   padding-left:10px;
   float:left;
-   text-transform: uppercase;
 }
 
 .exposed_filter_data {
@@ -1075,6 +1354,7 @@ div.termeksuly {
     z-index: 1000;
     padding: 0px!important;
     text-align: center;
+    height: 50px !important;
 }
 
 #backtotop {
@@ -2034,8 +2314,8 @@ font-size: 200%;
 }
 
 section#block-menu-menu-diszkont.block.block-menu{
-width: 49%;
-max-width:49%;
+width: 60%;
+max-width:60%;
 margin: 0 auto;
 height: auto;
 float:left;
@@ -2050,8 +2330,8 @@ float:none;
 }
 
 #block-search-form {
-width:49%;
-max-width:49%;
+width:40%;
+max-width:40%;
 float:left;
 }
 
@@ -2672,7 +2952,7 @@ div.lista-item div.views-field.views-field-field-akciosar {
 }
 
 div.lista-item div.views-field.views-field-field-szazalek {
-  float: left;
+  float: right;
   background: rgb(236, 76, 67);
   color: white;
   width: 38%;
