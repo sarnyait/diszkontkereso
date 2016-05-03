@@ -5,42 +5,11 @@
 
 
       var modal = $('[data-remodal-id=modal]').remodal();
-      console.log($.cookie('diszkont'));
-      //$('.default-measure').attr('checked', 'checked');
-      /*$('.matrix_val_weight').each(function() {
-        cat = $(this).attr('data-category');
-        var w = 0;
-        $('.cell[data-category="' + cat + '"]').each(function() {
-          if ($(this).attr('data-weight') !== "0") {
-            w = $(this).attr('data-weight') * 1;
-
-          }
-        })
-        if (w == 0) {
-          $(this).siblings('.measure-selector').hide();
-        }
-        else {
-          $(this).val(w);
-        }
-        $(this).attr('data-weight', w);
-      }).hide();
-
-      $('.measure-weight').click(function() {
-        $(this).siblings('.matrix_val_weight').show();
-        $(this).siblings('.matrix_val').hide();
-      });
-
-      $('.measure-pc').click(function() {
-        $(this).siblings('.matrix_val_weight').hide();
-        $(this).siblings('.matrix_val').show();
-      });*/
-
 
       function pushContent(s, shop) {
         s = s.substr(s, s.length-1);
         elements = s.split('&');
         content = '';
-        //c = $('#summary .cart-row').length;
         c = parseInt(Math.random() * 10000000);
         elements.forEach(function(e) {
           parts = e.split('|');
@@ -187,22 +156,23 @@
       if ($('.check').length) {
         $('.check').on("click", function () {
           pid = $(this).attr('data-name');
-          if ($('.plus-minus[data-name="'+pid+'"]').css('visibility') == 'visible') {
-            $('.plus-minus[data-name="'+pid+'"]').css('visibility', 'hidden');
-            $('.starter_cell[data-name="' + pid + '"]').removeClass('active').parent().addClass('faded');
-
+          if ($(this).closest('.starter_cell').find('.plus-minus').css('visibility') == 'visible') {
+            $(this).closest('.starter_cell').removeClass('active');
+            $(this).closest('.table-row').addClass('faded');
+            $(this).closest('.starter_cell').find('.plus-minus').css('visibility', 'hidden');
           }
           else {
-            $('.plus-minus[data-name="'+pid+'"]').css('visibility', 'visible');
-            $('.starter_cell[data-name="' + pid + '"]').addClass('active').parent().removeClass('faded');
-            $('.matrix_val[data-name="' + pid + '"]').val(1);
+            $(this).closest('.starter_cell').addClass('active');
+            $(this).closest('.table-row').removeClass('faded');
+            $(this).closest('.starter_cell').find('.plus-minus').css('visibility', 'visible');
+            $(this).closest('.starter_cell').find('.matrix_val').val(1);
           }
           updateSumValues();
 
         })
       }
 
-      if ($('.deleteRow').length) {
+      /*if ($('.deleteRow').length) {
         $('.deleteRow').on("click", function () {
           if ($('.table-row').length > 1) {
             name = $(this).attr('data-name');
@@ -211,7 +181,7 @@
             $('select[name="addRow"]').append('<option value="' + name + '">' + humanName + '</option>');
           }
         })
-      }
+      }*/
 
       function cartModify(method, id, sid) {
         cart = $.cookie('diszkont');
@@ -277,10 +247,10 @@
       if ($('.cart-delete').length) {
         $(document).on("click", ".cart-delete", function () {
           sid = $(this).attr('data-shop');
-          $(this).parent().parent().parent().remove();
-          cartModify('remove', $(this).parent().parent().attr('data-product'), sid);
+          //$(this).parent().parent().parent().remove();
+          $(this).closest('.item').remove();
+          cartModify('remove', $(this).closest('.cart-row').attr('data-product'), sid);
           updateShopSums(sid);
-          console.log($.cookie('diszkont'));
         })
 
         $(document).on("click", ".cart-plus", function () {
@@ -403,14 +373,9 @@
             console.log('WEIGHT' + weight);
             if ($('.starter_cell.active[data-name="' + category + '"] input.matrix_val').length) {
               multiply = $('.starter_cell.active[data-name="' + category + '"] input.matrix_val').val();
-              console.log('M' + multiply);
               sumprice += price * multiply;
               sumweight += weight * multiply;
             }
-
-            console.log('sumPRICE' + sumprice);
-            console.log('sumWEIGHT' + sumweight);
-
           });
           sumweight = parseInt(sumweight * 10) / 10;
           $('.sum-price[data-shop="' + shop + '"]').html(sumprice + ' Ft');
@@ -418,50 +383,17 @@
         });
       }
 
-
-      $(window).bind("scroll", function() {
+      /* SCROLL FUNCTION WILL BE SWTICHED BACK */
+      /*$(window).bind("scroll", function() {
         var scrollHeight = $(document).height();
         var scrollPosition = $(window).height() + $(window).scrollTop();
-        $('.summary-row').css('top', scrollPosition - 360);
-        $('.summary-row').css('position', 'absolute');
+        $('.summary-row').css('top', scrollPosition - 360).css('position', 'absolute');
 
         if ((scrollHeight - scrollPosition) / scrollHeight < 0.01) {
-          $('.summary-row').css('position', 'relative');
-          $('.summary-row').css('top', '0');
+          $('.summary-row').css('position', 'relative').css('top', '0');
 
         }
-      });
-
-      /*$('select[name="addRow"]').change(function() {
-        val = this.value;
-        if (val !== '0') {
-          text = $(this).find("option:selected").text();
-          $('.table-row')
-            .first()
-            .clone()
-            .show()
-            .addClass('newRow')
-            .appendTo('#tableBody');
-          $('#tableBody').append('<div style="clear:both"></div>');
-
-          $(this).find("option:selected").remove();
-          $('.newRow .starter_cell').attr('data-name', val);
-          $('.newRow .starter_cell label').html(text);
-          $('.newRow .plus-minus .matrix_val_change').attr('data-source', 'amount_' + val + '_val');
-          $('.newRow .plus-minus .matrix_val').attr('id', 'amount_' + val + '_val');
-          $('.newRow .cell').each(function () {
-            if (!$(this).hasClass('starter_cell')) {
-              shop = $(this).attr('data-shop');
-              $(this).attr('data-cell', val + '_' + shop);
-              console.log('A' + shop);
-              shopName = $('#header .cell[data-name="' + shop + '"]').html();
-              $(this).html(text + '(' + shopName + ')');
-            }
-          });
-
-          $('.newRow').removeClass('newRow');
-        }
-      })*/
+      });*/
 
     }
   }
