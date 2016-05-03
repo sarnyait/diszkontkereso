@@ -232,10 +232,12 @@ function nice_taxonomy_menu_recoursive_print_menu($taxonomy_tree, $root_element,
         if ($empty) {
           $li_class .= " empty";
         }
-        $link = '<a class="' . $class . '" href="' . $url . '">' . $element->name . '</a>';
+        $count = _nice_taxonomy_menu_term_nc($element->tid);
+        ($count == 0) ? $count = '' : $count = '(' . $count . ')';
+        $link = '<a class="' . $class . '" href="' . $url . '">' . $element->name . $count . '</a>';
       }
       else {
-        $link = '<a class="' . $class . '" href="javascript:void(0)" onclick="jQuery(\'#ntm-menu-' . $element->tid . '\').toggle(200); jQuery(\' . ntm-top-element\').removeClass(\'active-trail\'); jQuery(this).parent().parent().addClass(\'active-trail\');">' . $element->name . '</a>';
+        $link = '<a class="' . $class . '" href="javascript:void(0)" onclick="jQuery(\'#ntm-menu-' . $element->tid . '\').toggle(200); jQuery(\' . ntm-top-element\').removeClass(\'active-trail\'); jQuery(this).parent().parent().addClass(\'active-trail\');">' . $element->name . '(' . _nice_taxonomy_menu_term_nc($element->tid) . ')' . '</a>';
       }
 
       if ($has_son == 0) {
@@ -254,6 +256,35 @@ function nice_taxonomy_menu_recoursive_print_menu($taxonomy_tree, $root_element,
   }
 
   return $_body;
+}
+
+function term_get_children_ids($tid) {
+  $children = taxonomy_get_children($tid);
+  $tids=array();
+  if (!empty($children)) {
+    foreach($children as $child) {
+      $tids[] = $child->tid;
+      $tids = array_merge($tids, term_get_children_ids($child->tid));
+    }
+  }
+  return $tids;
+}
+
+function _nice_taxonomy_menu_term_nc($tid, $child_count = TRUE) {
+  $tids = array($tid);
+  if ($child_count) {
+    $tids = array_merge($tids, term_get_children_ids($tid));
+  }
+  global $language;
+  $langs = array($language->language);
+  $langs[] = 'und';
+  $query = db_select('taxonomy_index', 't');
+  $query->condition('tid', $tids, 'IN');
+  $query->join('node', 'n', 't.nid = n.nid');
+  $query->condition('n.status', 1, '=');
+  $query->condition('n.language', $langs, 'IN');
+  $count = $query->countQuery()->execute()->fetchField();
+  return  $count;
 }
 
 /**
@@ -302,7 +333,7 @@ function nice_taxonomy_menu_contents($ntm_number) {
     }
   }
   else {
-    // Se quello che si sta visualizzando non è una tassonomia ma un nodo,
+    // Se quello che si sta visualizzando non ï¿½ una tassonomia ma un nodo,
     // identifica il tid del termine di tassonomia collegato al nodo stesso.
     if (($path_elements[0] == 'node') && isset($path_elements[1]) &&
       (is_numeric($path_elements[1]))) {
@@ -376,7 +407,7 @@ function nice_taxonomy_menu_contents($ntm_number) {
         $li_class .= " active-trail";
       }
 
-      $body .= '<li class="ntm-top-element ntm-link' . $li_class . '"><div class="ntm-list-element"><span class="ntm-list-spacer">&nbsp;</span><a href="javascript:void(0)" onclick="jQuery(\'#ntm-menu-' . $base_element->tid . '\').toggle(200); jQuery(\' . ntm-top-element\').removeClass(\'active-trail\'); jQuery(this).parent().parent().addClass(\'active-trail\');" class="' . $class . '">' . $base_element->name . '</a></div></li><ul id="ntm-menu-' . $base_element->tid . '" class="ntm-categ-list ntm-subcat-list ntm-categ-list-1" style="display:' . $display . ';">' . $recoursive . '</ul>';
+      $body .= '<li class="ntm-top-element ntm-link' . $li_class . '"><div class="ntm-list-element"><span class="ntm-list-spacer">&nbsp;</span><a href="javascript:void(0)" onclick="jQuery(\'#ntm-menu-' . $base_element->tid . '\').toggle(200); jQuery(\' . ntm-top-element\').removeClass(\'active-trail\'); jQuery(this).parent().parent().addClass(\'active-trail\');" class="' . $class . '">' . $base_element->name . '(' . _nice_taxonomy_menu_term_nc($base_element->tid) . ')' . '</a></div></li><ul id="ntm-menu-' . $base_element->tid . '" class="ntm-categ-list ntm-subcat-list ntm-categ-list-1" style="display:' . $display . ';">' . $recoursive . '</ul>';
     }
     else {
       $class = "";
@@ -397,7 +428,7 @@ function nice_taxonomy_menu_contents($ntm_number) {
 
       $url = base_path() . $view_url . '/' . $base_element->tid;
 
-      $body .= '<li class="ntm-top-element ntm-link' . $li_class . '"><div class="ntm-list-element"><span class="ntm-list-spacer">&nbsp;</span><a class="' . $class . '" href="' . $url . '">' . $base_element->name . '</a></div></li>';
+      $body .= '<li class="ntm-top-element ntm-link' . $li_class . '"><div class="ntm-list-element"><span class="ntm-list-spacer">&nbsp;</span><a class="' . $class . '" href="' . $url . '">' . $base_element->name. '(' . _nice_taxonomy_menu_term_nc($base_element->tid) . ')' . '</a></div></li>';
     }
   }
 
