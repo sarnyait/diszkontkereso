@@ -282,6 +282,7 @@ function _nice_taxonomy_menu_term_nc($tid, $child_count = TRUE) {
   $query->condition('tid', $tids, 'IN');
   $query->join('node', 'n', 't.nid = n.nid');
   $query->condition('n.status', 1, '=');
+  $query->condition('n.type', 'products_display', '=');
   $query->condition('n.language', $langs, 'IN');
   $count = $query->countQuery()->execute()->fetchField();
   return  $count;
