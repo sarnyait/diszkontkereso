@@ -182,8 +182,73 @@ body {
   background-repeat: repeat-x;
 }
 
+.active-trail {
+  background-color: #fece5b;
+}
+
+a.remodal-none {
+  padding-top: 10px;
+}
+
+.remodal-cancel, .remodal-confirm, a.remodal-none {
+width: auto;
+min-height: 40px;
+height: 40px;
+border-radius: 4px;
+border: solid 1px #343434;
+font-family: 'Lato';
+font-weight: 700;
+font-size: 12px;
+letter-spacing: 2px;
+color: #343434;
+background: transparent !important;
+display: block;
+float: left;
+margin: 0 0.5%;
+}
+
+.views-exposed-widgets {
+    margin-bottom: 0;
+}
+
+.search-snippet-info {
+  display: none;
+}
+
+section#block-views-similar-block .h2.block-title {
+  margin: 0 auto;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: #262735;
+}
+
+
+body.page-node #block-system-main div.plus-minus {
+    float: left;
+    margin-top: 50px !important;
+    margin-bottom: -30px !important;
+}
+
 body#pid-matrix .cell.starter_cell {
   padding: 0;
+}
+
+form#search-block-form {
+  margin: 2px 0 -2px;
+} 
+
+body#osszes-akcio form#search-block-form {
+  margin: 0;
+}
+
+div.views-exposed-widget.views-widget-sort-by {
+  margin-bottom: -25px;
+}
+
+div.compare-page {
+  background: white;
 }
 
 .shop-header, .delete-shop {
@@ -214,7 +279,9 @@ body#pid-matrix .cell#corner div {
 }
 
 .starter_cell input.check {
-margin: 50% 45%; }
+margin: 45% auto;
+padding: 0;
+float: none; }
 
 .starter_cell label {
 margin: 45% 15%;
@@ -234,6 +301,7 @@ border: 0;
   border-right: 1px solid #979797;
   float:left;
   height: 300px;
+  min-width:75px ;
 }
 
 .compare-page #tableBody .product-name {
@@ -245,7 +313,7 @@ border: 0;
 }
 
 body.page-taxonomy-term #szuresek {
-  margin-top: -4%;
+  margin-top: -2%;
 }
 
 .compare-page .button-cell {
@@ -346,7 +414,7 @@ body.page-node .field-name-field-kategoria {
   background: none;
   padding: 0;
   text-transform: lowercase;
-  margin-top: -20px;
+  margin-top: -10px;
 }
 
 body.page-node section#block-matrix-matrix.block.block-matrix.contextual-links-region.clearfix {
@@ -417,6 +485,12 @@ padding-bottom:120px;
 
 body#pid-matrix .views-field-field-termekfoto-1 {
 float:left;
+max-width: 100px;
+min-width: 100px;
+max-height: 100px;
+min-height: 100px;
+width: 100px;
+height: auto;
 }
 
 form#views-exposed-form-osszes-akcio-osszesakcio-mefibs-form-rendezes.ctools-auto-submit-full-form.jquery-once-2-processed.ctools-auto-submit-processed {
@@ -458,10 +532,12 @@ background: white;
 body#pid-matrix  div.views-field.views-field-field-ar {
     margin-top: 0px;
     margin-left: 0px;
+    margin-right: 0px;
     float: right;
+    clear: right;
 }
 
-body#pid-osszes-akcio div.plus-minus, body.page-node div.plus-minus {
+body#pid-osszes-akcio div.plus-minus, body.page-node #block-matrix-matrix div.plus-minus {
   float:left;
   margin-top: 10px;
 }
@@ -536,6 +612,7 @@ float: right;
 width: 20px;
 height: 20px;
 border: solid 1px #979797;
+line-height: 1;
 }
 
 input.cart-delete {
@@ -546,6 +623,9 @@ input.cart-delete {
  border: solid 1px #979797;
  margin-left: 80px;
  border-radius: 30px;
+ width: 20px;
+ height: 20px;
+ line-height: 1
 }
 
 
@@ -562,10 +642,12 @@ display:block;
   font-weight: 400;
   font-size: 12px;
   color: #535353;
+  text-align: left;
+  overflow-wrap: break-word;
 }
 body#pid-osszes-akcio .cell input.cart-delete, body.page-taxonomy-term- .cell input.cart-delete,  body.page-node .cell input.cart-delete {
     position: relative;
-    left: 95px;
+    left: 47px;
     top: 20px;
   }
 
@@ -582,6 +664,12 @@ div.cell.best {
 body#pid-matrix-cart .cart-row {
 border: 10px solid #eeeeee;
 background: white;
+max-height: 90px;
+border-radius: 18px;
+}
+
+body#pid-matrix-cart .cart-row img {
+  max-height: 60px !important;
 }
 
 .no-width {
@@ -626,6 +714,28 @@ div.content.cell {
   font-weight: 300;
 }
 
+
+body.page-node div.content.cell a {
+  text-decoration: none;
+  width: 130px;
+  height: 30px;
+  font-family: "Lato";
+  font-weight: 300;
+  font-size: 12px;
+  color: #343434;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  max-width: 180px;
+  display: block;
+}
+
 div.content.cell a {
   text-decoration: none;
    width: 131px;
@@ -661,7 +771,7 @@ text-align:left;
   height: 15px;
   font-family: "Lato";
   font-weight: 400;
-  font-size: 20px;
+  font-size: 24px;
   color: #535353;
 }
 
@@ -670,7 +780,7 @@ body#pid-matrix-cart .amount.cell {
 }
 
 body#pid-matrix-cart .markup.cell:nth-of-type(1) {
-  display: none;
+  font-size:12px;
 }
 
 body#pid-matrix-cart .percent {
@@ -680,8 +790,8 @@ width: 46px;
   font-size: 16px;
   color: #ec4c43;
   float: left;
-  margin-left: -50px;
-  margin-top: 25px;
+  margin-left: -60px;
+  margin-top: 35px;
 }
 
 body.page-node .amount.cell {
@@ -740,11 +850,11 @@ div.weight.cell, div.price.cell {
 }
 
 body#pid-matrix-cart div.weight.cell, body#pid-matrix-cart div.price.cell {
-  width: 75px;
+  width: 90px;
   height: 17px;
   font-family: Lato;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 24px;
   color: #343434;
   margin-left: 40px;
 }
@@ -753,10 +863,13 @@ body#pid-matrix-cart .plus-minus {
   float:left;
   width: 75px;
   margin-left: 145px;
+  margin-top: 5px;
+  margin-right: 5px;
 }
 
 body#pid-matrix-cart .totals-row {
   float: right;
+  margin-right: 18.99%;
 }
 
 body#pid-matrix-cart .totals {
@@ -784,7 +897,7 @@ body#pid-osszes-akcio div.markup.cell, body.page-taxonomy-term- div.markup.cell,
 .field-name-acime {
   font-family: 'Lora';
   font-weight: 700;
-   width: 300px;
+  width: auto;
   height: 75px;
   font-size: 20px;
   letter-spacing: 0.8px;
@@ -794,6 +907,7 @@ body#pid-osszes-akcio div.markup.cell, body.page-taxonomy-term- div.markup.cell,
 .field-name-acime h1 {
  font-size: 20px;
  margin:0;
+ font-weight: 700;
 }
 
 body.page-node .field-name-field-akciovege {
@@ -810,6 +924,10 @@ body.page-node .field-name-field-akciovege {
 
 .col-sm-12 {
  background: white; 
+}
+
+body#pid-matrix .col-sm-12 {
+  background: #eeeeee;
 }
 
 div.mc-field-group.input-group.elso, div.mc-field-group.input-group.masodik{
@@ -840,14 +958,15 @@ div.mc-field-group.input-group.elso, div.mc-field-group.input-group.masodik{
     /* color: #ec4c43; */
     border: 0;
     background: none;
-	font-size: 250%;
-line-height: 3;
+line-height: 1;
  border: solid 1px #979797;
  border-radius: 30px;
+ width: 20px;
+ height: 20px;
 }
 
 #save-order {
-  margin-left: 5%;
+  margin-left: 25%;
 }
 
 .delete-shop {
@@ -856,6 +975,10 @@ line-height: 3;
 border: solid 1px #979797 !important;
  border-radius: 30px;
  padding: 5px;
+ width:20px;
+ height: 20px;
+ font-size: 10px;
+ line-height: 1
 }
 
 .exposed_filter_data {
@@ -959,7 +1082,7 @@ body#pid-osszes-akcio .amount {
 width: 30px;
 }  
 
-body.page-taxonomy-term .panel-col-last .cart-minus, body.page-taxonomy-term .panel-col-last .cart-plus, body.page-taxonomy-term .panel-col-last .cart-minus, body#pid-osszes-akcio .panel-col-last .cart-plus, body#pid-osszes-akcio .amount {
+body.page-taxonomy-term .panel-col-last .cart-minus, body.page-taxonomy-term .panel-col-last .cart-plus, body.page-taxonomy-term .panel-col-last .cart-minus, body#pid-osszes-akcio .panel-col-last .cart-plus, body#pid-osszes-akcio .pane-views .amount {
 float:left;
 font-size: 12px;
 margin-top: 6px;
@@ -972,11 +1095,11 @@ font-size: 12px;
 
 body.page-taxonomy-term .panel-col-last .cart-plus, body#pid-osszes-akcio .panel-col-last .cart-plus {
   margin-left: 45px !important;
-  margin-top: -8px !important;
+  margin-top: -10px !important;
 }
 
 body.page-taxonomy-term div.view-content .amount {
-width: 25px;
+width: 30px;
 margin-top: -0.5px;
 margin-left: 8px
 }  
@@ -986,7 +1109,7 @@ font-size: 12px;
 }
 
 body#pid-osszes-akcio div.view-content .amount {
-width: 25px;
+width: 30px;
 margin-top: -0.5px;
 margin-left: 8px
 } 
@@ -1014,8 +1137,8 @@ body#pid-matrix .cell {
   width: 20% !important;
 }	
 
-body#pid-matrix #header {
-
+body#pid-matrix input.matrix_val_change {
+margin-right: 7px;
 }
 
 
@@ -1045,7 +1168,7 @@ body#pid-matrix h4.termeknev a, body#pid-matrix .views-field-title  {
 	color: #535353;
 	float: right;
 	margin-bottom:5px;
-  text-align: right;
+  text-align: left;
 }
 
 body#pid-matrix .views-field-field-egysegar, body#pid-matrix .views-field-field-akciosar, body#pid-matrix .views-field-field-ar, body#pid-matrix .views-field-field-suly, body#pid-matrix .views-field-field-urmertek {
@@ -1130,8 +1253,8 @@ button#edit-reset.btn.btn-default.form-submit {
 }
 
 body#pid-matrix-cart div#discount-cart {
-  padding: 20px 40px;
-  margin-top: 40px;
+  padding: 0px 40px;
+  margin-top: 33px;
 }
 
  background: white;
@@ -1169,6 +1292,7 @@ body.page-node- input[value="Ugrás a listaoldalra"], div.pane-matrix-matrix inp
   font-size: 12px;
   color: #ffffff;
   text-transform: uppercase;
+  border: 0px;
 }
 
 
@@ -1231,6 +1355,9 @@ aside.col-sm-3 {
 
 section#block-matrix-matrix {
   background: white;
+  max-width: 180px;
+  overflow: hidden;
+  float: right;
 }
 
 body.not-front .col-sm-12 {
@@ -1249,12 +1376,21 @@ body.not-front .col-sm-12 {
   display: block;
 }
 
-.view-osszes-akcio .view-content, .view-taxonomy-page .view-content {
+ol.ui-slider-scale li:last-of-type {
+  display: none !important;
+}
+
+.view-osszes-akcio .view-content {
+padding-top:25px;
+}
+
+.view-taxonomy-page .view-content {
 padding-top:25px;
 margin-right: 45px;
 margin-top: 25px;
 border-top: dotted 1px #262735;
 }
+
 
 .panel-2col-bricks .panel-col-first, .panels-flexible-region-1-left{
   width: 20% !important;
@@ -1313,6 +1449,7 @@ body#pid-osszes-akcio .panel-col-first .pane-title, .panel-2col-bricks .pane-tit
   font-size: 14px;
   color: #535353;
   margin-left:10px;
+  padding-top: 25px;
 }
 
 #taxonomyname {
@@ -1333,6 +1470,7 @@ body#pid-osszes-akcio .panel-col-first .pane-title, .panel-2col-bricks .pane-tit
   color: #535353;
   padding-left:10px;
    text-transform: uppercase;
+   height: 20px;
 }
 
 #taxonomyname:after {
@@ -1344,6 +1482,10 @@ ul#ntm-categ-list.ntm-categ-list, ul.ntm-subcat-list  {
   list-style: none;
 }
 
+
+ul#ntm-categ-list.ntm-categ-list li {
+  margin-bottom: 5px;
+}
 
 ul#ntm-categ-list.ntm-categ-list li a{
    margin-top: 0;
@@ -1386,10 +1528,8 @@ iframe {
 }
 
 body.page-node #block-system-main {
-  width: 100%;
   background: white;
-  margin: 0 auto;
-  padding: 10px;
+  padding: 20px;
 }
 
 .exposed_filter_data .content .filter .name {
@@ -1458,7 +1598,7 @@ div.termeksuly {
     z-index: 1000;
     padding: 0px!important;
     text-align: center;
-    height: 50px !important;
+    height: 40px !important;
 }
 
 #backtotop {
@@ -1702,7 +1842,7 @@ min-height: 320px;
 #colorbox div.views-field.views-field-field-akciosar, body.page-node div.views-field.views-field-field-akciosar {
   clear: both;
   padding: 0;
-  margin: 0 20% 0 10%;
+  margin: 0;
   text-align: center;
   float: left;
   font-size: 24px;
@@ -1715,7 +1855,7 @@ min-height: 320px;
   float: right;
   font-size: 30px;
   line-height: 1.1;
-  margin: -10px 7% 0 0;
+  margin: -5px 0;
 
 }
 
@@ -1731,7 +1871,7 @@ text-align: center;
   font-weight: 900;
   font-size: 14px;
   max-width: 220px;
-  text-align: center;
+  text-align: left;
 }
 
 #colorbox .views-field-title a, body.page-node .views-field-title a {
@@ -2266,8 +2406,9 @@ body.page-node div.field.field-name-field-termekfoto {
 }
 
 body.page-node div.field.field-name-field-termekfoto img {
-  max-width: 200px;
+  max-width: 300px;
   height: auto;
+  margin: 0 15%;
 }
 
 body.page-node .field-name-body {
@@ -2403,10 +2544,10 @@ body.page-node div.field.field-name-field-ar {
 
 div.region.region-header {
   background: #fade99;
-  padding: 15px;
+  padding: 5px;
   width: 98%;
   margin: 0 auto;
-  height:75px;
+  height:40px;
 }
 
 .navbar {
@@ -2496,12 +2637,14 @@ padding: 6px;
 text-transform: uppercase;  
 }
 
-.main-menu-inner ul.menu li a:link, .main-menu-inner ul.menu li a:visited {
-  font-family: "Lato";
-  font-weight: 400;
-  font-size: 18px;
-  color: rgb(38, 39, 53);
+ul.menu li a:link, ul.menu li a:visited {
+  font-family: 'Lato';
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #343434;
   border: 0px;
+  padding: 0;
 }
 
 ul.menu {
@@ -2517,6 +2660,8 @@ margin: 0 5% 0 5%;
 text-transform: uppercase;
 line-height: 100%;
 width: auto;
+
+
 }
 
 ul.menu li a:hover, ul.menu li:hover {
@@ -2570,6 +2715,7 @@ width: 98%;
 margin: 0 auto;
 padding: 0;  
 min-height: 1200px;
+background: #eeeeee;
 }
 
 .well {
@@ -2660,12 +2806,13 @@ section#block-mailchimp-signup-k-vesse-emailben-is-az-akci-kat h2.block-title {
   font-family: "Lato";
   font-weight: 400;
   color: black;
-  height: auto;
+width: 154px;
+height: 30px;
   margin-top: 10px;
   margin-bottom: 0;
-  width: auto;
   padding: 0;
   text-transform: uppercase;
+  text-align: left;
 }
 
 form#mailchimp-signup-subscribe-block-k-vesse-emailben-is-az-akci-kat-form.mailchimp-signup-subscribe-form {
@@ -2765,9 +2912,9 @@ select#edit-sort-bef-combine-szuresek, select#edit-mefibs-form-rendezes-sort-by 
     -webkit-border-radius:4px;
     -moz-border-radius:4px;
     border-radius:4px;
-    background: #f8f8f8;
+    background: #eeeeee;
     color:#888;
-    border:none;
+    border:0px;
     outline:none;
     display: inline-block;
     -webkit-appearance:none;
@@ -2779,7 +2926,7 @@ select#edit-sort-bef-combine-szuresek, select#edit-mefibs-form-rendezes-sort-by 
   right: 15px;
   font-family: "Lato";
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 body.jquery-once-1-processed select#edit-sort-bef-combine-szuresek {
@@ -2795,6 +2942,7 @@ select#edit-sort-bef-combine-szuresek:focus, select#edit-sort-bef-combine-szures
   font-family:"Lato";
   font-weight: 400;
   font-size: 12px;
+  letter-spacing: 0.8px;
 }
 
 .views-exposed-form a.active{
@@ -2846,7 +2994,7 @@ a#soros {
  text-indent: -2000px;
  background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/2wCEAAICAgICAgMCAgMFAwMDBQYFBQUFBggGBgYGBggKCAgICAgICgoKCgoKCgoMDAwMDAwODg4ODg8PDw8PDw8PDw8BAgICBAQEBwQEBxALCQsQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEP/AABEIADgANwMBIgACEQEDEQH/xABzAAEAAwEBAQAAAAAAAAAAAAAABAcIBgMFEAAABAQFAgQFAwUAAAAAAAABAgMSAAQFEQYHEyFBIjEIGFGUU1aB0uEWVZMUIzKRwQEBAQEAAAAAAAAAAAAAAAAAAAIBEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAMAwEAAhEDEQA/ANJ50Z0Y3nsb1Ci0WoTNDp1DmVpVBCVWMmYpkzCRQxlCCBjPMAjuNgDYPUaeLmNmCRjMT1Quldlp1cGu7269r8wzFKzMHE5GaTapOgy7m2XPtfm3rHNSNOqFUW/pqbLKzaoAJmJEE5rB3GxQEbQHSlzGzBIxmJ6oXSuy06uDXd7de1+YFzGzBIxmJ6oXSuy06uDXd7de1+Yhfo3F/wCyTvt1Pth+jcX/ALJO+3U+2AmlzGzBIxmJ6oXSuy06uDXd7de1+YEzGzCTYzE9ULpXZadXBt+9uva/MQv0bi/9knfbqfbHPrIrSyp5eYIZJVMRKYpgEpiiHcBAdwGA3N4Ys28TVqqrYPxLPHmkpWXPMSs2t/cVluoAOUeVAO4A6hES9w2hFWeFJTRzNUW1dBkisOq1zLmIF283u3634hGqimcxSszBxORmk2qToMu5tlz7X5t6xLy9x5jTANXWqOCFRTm5lIUlCglrOTuBv8bCOwgG8RMxSszBxORmk2qToMu5tlz7X5t6xOy7zGxNlrV16thfSGYmURROCyQKgJLgbYB3Abh3CMSt/wAyPiE+Ib2H4h5kfEJ8Q3sPxHt5r83/AIMl7OHmvzf+DJezgPHzI+IT4hvYfiM9YjrlXxJXZ2u19QVajOqmOuYSgQX9hBoAFrdrRovzX5v/AAZL2cZ2xJX6limvT2IauJRnJ9UVVWEAhXD6FDYIC/PCkpo5mqLaugyRWHVa5lzEC7eb3b9b8Qh4UlNHM1RbV0GSKw6rXMuYgXbze7frfiEFRTOYpWZg4nIzSbVJ0GXc2y59r829YnZdZjVPLSrr1mlSMnPKTCIoiWcS1CgAiBrl3AQHb/UQcxSszBxORmk2qToMu5tlz7X5t6x9HLbMA2XVZWrBaNJVrWRFHTnSPKS4gLijwO1h27QSuTza4x+XqJ7Yfuh5tcY/L1E9sP3RK81CnyFQ/wCL8Q81CnyFQ/4vxARfNrjH5eonth+6M6Ylr0ziivT2IZtFGXWn1RVMnLk00iibgpeAjSvmoU+QqH/F+IzXiauDiWvz9eGTQkBnlTK6EsViKbuCh6f9gL78KSmjmaotq6DJFYdVrmXMQLt5vdv1vxCHhSU0czVFtXQZIrDqtcy5iBdvN7t+t+IQVEfOnJbG1IxtWKpSqPMT1Onpg8yAyxDTAojMGE7DsARCwjYB7CFt73AKhNlzmCR78MVQulZ95JcGu7X6Nr8QhBmBsucwSPfhiqF0rPvJLg13a/RtfiBsucwSPfhiqF0rPvJLg13a/RtfiEIGBsucwSPfhiqF0rPvJLg13a/RtfiBsucwiPfhiqF07PvJLg13a/RtfiEIGNceGPKvFeGa5O40xLLKUYiKGgmC5LLEFYQF5kh6rCANABC+97BYLoQipGyP/9k=');
  background-repeat: no-repeat;
- margin-left: 15px;
+ margin-left: 5px;
  margin-top: -5px;
  background-size:contain;
 }
@@ -2859,7 +3007,7 @@ a#racsos {
  text-indent: -2000px;
  background-image: url('data:image/jpeg;base64,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');
  background-repeat: no-repeat;
- margin-left: 15px;
+ margin-left: 5px;
  margin-top: -5px;
  background-size:contain;
 }
@@ -2874,12 +3022,11 @@ body.jquery-once-1-processed #szuresek {
   top: 0px;
   position: relative;
     right: 0px;
-    top: -30px;
 }
 
 h2#nezet {
   float: none;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 0.5;
 }
 
@@ -2897,6 +3044,23 @@ h2#nezet {
     color: white !important;
     text-transform: uppercase !important;
     border: 0px !important;
+    width: 60px;
+    height: 20px;
+    text-indent: 0 !important;
+    float: none !important;
+    border-radius: 4px;
+    margin-right: 0px;
+    font-family: "Lato";
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 1;
+}
+
+body#pid-osszes-akcio .form-search .btn-primary {
+    background: rgb(236,76,67) !important;
+    color: white !important;
+    text-transform: uppercase !important;
+    border: 0px !important;
     /* margin-top: -2px !important; */
     width: 180px !important;
     height: 40px !important;
@@ -2904,6 +3068,10 @@ h2#nezet {
     float: none !important;
     border-radius: 4px;
     margin-right: 25px;
+    font-family: "Lato";
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1;
 }
 
 .form-search .btn-primary::after {
@@ -2914,6 +3082,22 @@ h2#nezet {
 }
 
 .form-search input.form-control {
+  width: 50% !important;
+  height: 20px;
+  padding: 10px;
+  border: 0px;
+  text-indent: 0 !important;
+  float: right !important;
+  background: white !important;
+  margin-right: 1px;
+  margin-left: 5px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: "Lato";
+  font-weight: 400;
+}
+
+body#pid-osszes-akcio .form-search input.form-control {
   width: 96% !important;
   height: auto;
   padding: 10px;
@@ -2945,8 +3129,9 @@ padding-bottom: 80px;
 }
 
 .panel-3col .panel-col {
-  width: 75%;
+  width: 74%;
   border-radius: 4px;
+  margin-left:1%;
 }
 
 .panel-3col .panel-col-first {
@@ -3098,6 +3283,10 @@ span.field-content.ar {
 
 span.field-content.akciosar {
  font-size: 20px; 
+ font-family: "Lato";
+ font-weight: 400;
+ letter-spacing: 0.8px;
+ color: #343434;
 }
 
 div.views-field.views-field-field-akciosar {
@@ -3172,7 +3361,7 @@ div.views-field.views-field-field-termekfoto {
 div.views-field.views-field-field-termekfoto img {
   height: auto;
   max-width: 180px;
-  margin-top: 15px;
+  margin-top: 0px;
 }
 
 form#views-exposed-form-szures-frontpage {
@@ -3419,7 +3608,7 @@ display: block;
   border: 0px;
 }
 
-ol.ui-slider-scale li:nth-of-type(1), ol.ui-slider-scale li:last-of-type {
+ol.ui-slider-scale li:nth-of-type(1) {
   display: block !important;
   float: left;
   margin: 15px -20px 0px 0px;
@@ -3428,6 +3617,17 @@ ol.ui-slider-scale li:nth-of-type(1), ol.ui-slider-scale li:last-of-type {
   font-weight: 400;
   position: relative;
 }
+
+ol.ui-slider-scale li:last-of-type {
+  display: block;
+  float: left;
+  margin: 15px -20px 0px 0px;
+  font-size: 12px;
+  font-family: "Lato";
+  font-weight: 400;
+  position: relative;
+}
+
 
 ol.ui-slider-scale li:after {
   content: "%";
