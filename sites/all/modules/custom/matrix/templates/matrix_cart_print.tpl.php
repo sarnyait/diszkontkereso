@@ -1,5 +1,5 @@
 <div id="summary">
-  <div class="cart-row" data-row="row-x" data-product="<?php print $pid; ?>">
+  <div>
 
     <div class="content cell"><?php print $product; ?></div>
 

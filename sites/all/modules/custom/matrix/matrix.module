@@ -511,7 +511,10 @@ function matrix_render_cart($line_items, $format = '', $block) {
   foreach ($line_items as $sid => $line_item) {
     $shop = taxonomy_term_load($sid);
     $output .=  '<div class="shop-block ' . $template . ' shop-block-' . $sid . '">';
-    $output .= '<div class="shop-header shop-header-' . $sid . '" data-shop="' . $sid . '"><h2>' . $shop->name . '</h2></div><div class="delete-shop" data-shop="' . $sid . '">X</div>';
+    $output .= '<div class="shop-header shop-header-' . $sid . '" data-shop="' . $sid . '"><h2>' . $shop->name . '</h2></div>';
+    if ($template !== 'print') {
+      $output .= '<div class="delete-shop" data-shop="' . $sid . '">X</div>';
+    }
     $output .=  '<div style="clear:both;>"></div>';
     $sumOfPrice = 0;
     $sumOfWeight = 0;
@@ -542,11 +545,11 @@ function matrix_render_cart($line_items, $format = '', $block) {
       }
     }
 
-
-    $output .= matrix_get_shop_url($sid);
-    $output .= '<input type="button" class="nearest-shop" value="Legközelebbi üzlet">';
-    $output .= '<div class="totals-row"><label class="totals">' . t('Total: ') . '</label><span class="cart-sum-weight" data-shop="' . $sid . '">' . $sumOfWeight . '</span><span class="measurement"> kg</span><span class="cart-sum-price" data-shop="' . $sid . '">' . $sumOfPrice . ' </span><span class="measurement">Ft</span></div>';
-
+    if ($template !== 'print') {
+      $output .= matrix_get_shop_url($sid);
+      $output .= '<input type="button" class="nearest-shop" value="Még több termék innen: ' . $shop->name . '" onClick="window.open(\'/osszes-akcio?field_aruhaz_tid_selective[0]=' . $shop->tid . '\')">';
+      $output .= '<div class="totals-row"><label class="totals">' . t('Total: ') . '</label><span class="cart-sum-weight" data-shop="' . $sid . '">' . $sumOfWeight . '</span><span class="measurement"> kg</span><span class="cart-sum-price" data-shop="' . $sid . '">' . $sumOfPrice . ' </span><span class="measurement">Ft</span></div>';
+    }
 
     $output .= '</div>';
 
@@ -562,7 +565,7 @@ function matrix_render_cart($line_items, $format = '', $block) {
 function matrix_save_order() {
   global $user;
   $line_items = matrix_cookie_to_items();
-  $output = matrix_render_cart($line_items, 'print');
+  $output = matrix_render_cart($line_items, 'matrix_cart_print');
   $node = entity_create('node', array('type' => 'order'));
   $entity = entity_metadata_wrapper('node',$node);
 
