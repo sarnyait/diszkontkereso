@@ -182,13 +182,159 @@ body {
   background-repeat: repeat-x;
 }
 
-.active-trail {
-  background-color: #fece5b;
+#block-matrix-matrix #discount-cart .shop-header {
+  clear: both;
+}
+
+body.page-taxonomy-term- div.pane-matrix-matrix div.cell.no-width:nth-child(1), body#pid-osszes-akcio div.pane-matrix-matrix div.cell.no-width:nth-child(1) {
+  margin-top: -4px;
+}
+
+#block-matrix-matrix .no-width:nth-child(1) {
+  margin-top: -3px;
+}
+
+body#pid-matrix {
+border-right: 15px solid #fade99;
+border-left: 15px solid #fade99;
+}
+
+body.page-search-products div.plus-minus.inlist {
+margin-left:-220%;  
+}
+
+body.page-search-products .nearest-shop, body.page-search-products input[value="Bolt webhelye"] {
+  display: none;
+}
+
+body.page-search-products .view .amount {
+float: left;
+}
+
+body.page-search-products .views-field-field-olcsobban {
+  margin-right: -35px;
+}
+
+body.page-search-products .view .no-width {
+margin-top: 3px;
+margin-left: 3px;
+margin-right: 0;
+max-width:10px;
+float: left
+}
+
+body.page-search-products  #discount-cart .cell input.cart-plus {
+  float: left !important;
+  margin-top: -10px;
+  margin-left: 33px;
+}
+
+body.page-search-products #discount-cart div.plus-minus {
+margin-right: -10px
+}
+
+body.page-search-products .add-to-cart {
+  margin-top: -18px;
+}
+
+#tableBody div.plus-minus {
+  padding-bottom: 23px;
 }
 
 a.remodal-none {
   padding-top: 10px;
 }
+
+#discount-cart div.plus-minus {
+  float: left;
+}
+
+#discount-cart .shop-header {
+  padding-top: 30px;
+}
+
+#discount-cart div.weight.cell, #discount-cart div.price.cell {
+  margin-left: 35px;
+}
+
+#discount-cart div.price.cell {
+float: right;
+margin-top: -16px
+}
+
+#discount-cart  .delete-shop {
+  display: none;
+}
+
+#discount-cart div.markup.cell {
+float: right;
+margin-top: -17px !important;
+text-align: right !important;
+margin-left: 3px !important; 
+}
+
+#discount-cart .cart-row {
+  border-bottom: solid 1px #979797;
+  padding: 0 10px;
+}
+
+
+body#pid-matrix-cart #discount-cart .shop-header {
+  padding-top: 0px;
+}
+
+body#pid-matrix-cart  #discount-cart div.weight.cell, #discount-cart div.price.cell {
+  margin-left: 78px;
+  float: left;
+}
+
+body.page-node- #discount-cart div.price.cell {
+  margin-left: 55%;
+}
+
+
+body#pid-matrix-cart  #discount-cart div.price.cell {
+margin-top: 0px
+}
+
+body#pid-matrix-cart  #discount-cart  .delete-shop {
+  display: block;
+}
+
+#discount-cart div.markup.cell {
+float: right;
+margin-top: -17px !important;
+text-align: right !important;
+margin-left: 3px !important; 
+}
+
+body#pid-matrix-cart #discount-cart div.markup.cell {
+float: left;
+margin-top: 0px !important;
+text-align: left !important;
+margin-left: 0px !important; 
+}
+
+body.page-node- #discount-cart .cart-row {
+  border-bottom: solid 1px #979797;
+  padding: 10px 10px;
+}
+
+body#pid-matrix-cart #discount-cart .cart-row {
+  border: 10px solid #eeeeee;
+  padding: 10px;
+}
+
+body.page-search-products #discount-cart .cart-row {
+  border: 0px solid #eeeeee;
+  padding: 10px;
+}
+
+body.page-search-products .matrix_cart_block span.cart-sum-price {
+  float: left;
+}
+
+
 
 .remodal-cancel, .remodal-confirm, a.remodal-none {
 width: auto;
@@ -275,7 +421,7 @@ body#pid-matrix .cell#corner div {
 }
 
 .starter_cell .plus-minus {
- margin: 45% 15%; 
+ margin: 45% 5% 5%; 
 }
 
 .starter_cell input.check {
@@ -284,13 +430,17 @@ padding: 0;
 float: none; }
 
 .starter_cell label {
-margin: 45% 15%;
+margin: 45% 15% 0px 6px;
 }
 
 body#pid-matrix .first .matrix_cart_button {
 background-color: #ec4c43;  
 color: white;
 border: 0;
+}
+
+body#pid-matrix .summary-row {
+border: 1px solid #979797;
 }
 
 .compare-page #tableBody .get-it-checkbox,
@@ -323,6 +473,7 @@ body.page-taxonomy-term #szuresek {
 .compare-page .sum-cell {
   width: 20%;
   border-right: 1px solid #979797;
+  min-height: 36px;
 }
 
 body#pid-matrix-cart .content.cell:first-child {
@@ -349,13 +500,13 @@ body#pid-matrix .cell::nth-of-type(1) .matrix_cart_button {
 } 
 
 .matrix_cart_block span.cart-sum-price {
-  margin-left: 100px;
+  margin-left: 60%;
   margin-top: -20px
 }
 
 .matrix_cart_block span.measurement:last-child{
   margin-top: -20px !important;
-  margin-left: 145px !important;
+  margin-left: 90% !important;
 }
 
 .matrix_cart_block span.cart-sum-price {
@@ -369,36 +520,56 @@ body#pid-matrix .cell::nth-of-type(1) .matrix_cart_button {
 
 
 body.page-node .field-name-field-kategoria {
-  width: 182px;
+  width: 96%;
   height: 17px;
   font-family: "Lato";
   font-weight: 400;
   font-size: 14px;
   color: #535353;
+  position: absolute;
+  top: 2.5%;
+  z-index: 50;
+  left: 40px;
+  background-image: url('../images/dotted-line.svg');
+  background-position-y: 16px;
+  background-repeat: repeat-x;
   }
 
- body.page-node .field-name-field-kategoria a {
-  border-bottom: dotted 1px #262735; 
+ body.page-node .field-name-field-kategoria a { 
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 14px;
+  color: #535353;
+  text-decoration: none;
   } 
 
   body.page-node  .region-content .cart-minus {   
     clear: both;
     float: left;
     margin-right: 10px;
-    margin-top: 5px;
+    margin-top: -3px;
     }
 
   body.page-node .region-content .cart-plus {   
     clear: both;
     float: left;
     margin-left: 40px;
-    margin-top: -10px;
+    margin-top: -22px;
   }
 
 #discount-cart .cell input.cart-plus {
     float: left !important;
     margin-top: -8px;
     margin-left: 15px;
+    position: relative;
+    z-index: 50;
+}
+
+body.page-node #discount-cart .cell input.cart-plus {
+    float: left !important;
+    margin-top: -8px;
+    margin-left: 8px;
+    margin-right: -10px;
 }
 
 
@@ -414,7 +585,7 @@ body.page-node .field-name-field-kategoria {
   background: none;
   padding: 0;
   text-transform: lowercase;
-  margin-top: -10px;
+  margin-top: -20px;
 }
 
 body.page-node section#block-matrix-matrix.block.block-matrix.contextual-links-region.clearfix {
@@ -426,7 +597,10 @@ min-height:162px;
 }
 
 div#tableBody {
-  border-top: dotted 1px #979797; 
+   border-top: dotted 1px #979797;
+   background-image: url('../images/dotted-line.svg');
+   background-position-y: top;
+   background-repeat: repeat-x;
 }
 
 body.page-matrix div.table-row:nth-of-type(1)  {
@@ -458,6 +632,10 @@ body.page-search-products ul {
   display: none;
 }
 
+body.page-search-products ul.menu.nav {
+  display: inherit;
+}
+
 body.page-search-products dl {
       font-size: 200%;
 }
@@ -468,7 +646,34 @@ body#pid-osszes-akcio .form-control {
 }
 
 #discount-cart .cell.content {
-margin-bottom:25px;
+margin-bottom:60px;
+float: none;
+margin-top: 20px;
+}
+
+body#pid-matrix-cart #discount-cart .cell.content {
+margin-bottom:0px;
+float: left;
+margin-top: 0px;
+}
+
+body.page-node- #discount-cart .cell.content {
+margin-bottom: 30px;
+float: none;
+margin-top: -10px;
+margin-left: 0px;
+clear: right;
+min-height: 55px;
+}
+
+body.page-search-products #discount-cart .cell.content {
+margin-bottom: 30px;
+float: left;
+margin-top: -10px;
+margin-left: 0px;
+clear: right;
+min-height: 35px;
+max-width: 125px;
 }
 
 #infscr-loading {
@@ -491,6 +696,7 @@ max-height: 100px;
 min-height: 100px;
 width: 100px;
 height: auto;
+margin-left: 12px;
 }
 
 form#views-exposed-form-osszes-akcio-osszesakcio-mefibs-form-rendezes.ctools-auto-submit-full-form.jquery-once-2-processed.ctools-auto-submit-processed {
@@ -531,25 +737,34 @@ background: white;
 
 body#pid-matrix  div.views-field.views-field-field-ar {
     margin-top: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    float: right;
-    clear: right;
+    margin-left: 10px;
+    margin-right: 50px;
+    float: left;
+    clear: none;
 }
 
 body#pid-osszes-akcio div.plus-minus, body.page-node #block-matrix-matrix div.plus-minus {
   float:left;
-  margin-top: 10px;
+  margin-right: -10px;
+}
+
+body.page-node #block-matrix-matrix div.plus-minus {
+  margin-right: -10px;
 }
 
 
+body#pid-osszes-akcio #discount-cart div.plus-minus {
+  margin-top: 0px;
+}
+
 div.plus-minus {
-width: 75px;
+width: 60px;
 height: 20px;
 border-radius: 60px;
 border: solid 1px #343434;
 overflow: hidden;
 padding: 0 5px;
+background: white;
 }
 
 
@@ -565,7 +780,7 @@ input.matrix_val_change, input.cart-minus, input.cart-plus {
   border: 0;
   background: transparent;
   font-size: 12px;
-  max-width: 5px;
+  max-width: 4px;
   max-height: 1px;
   padding-bottom: 5px;
   display: inline-block;
@@ -647,8 +862,10 @@ display:block;
 }
 body#pid-osszes-akcio .cell input.cart-delete, body.page-taxonomy-term- .cell input.cart-delete,  body.page-node .cell input.cart-delete {
     position: relative;
-    left: 47px;
+    left: 15px;
     top: 20px;
+    color: #ec4c43;
+    border: 0
   }
 
 
@@ -664,7 +881,7 @@ div.cell.best {
 body#pid-matrix-cart .cart-row {
 border: 10px solid #eeeeee;
 background: white;
-max-height: 90px;
+max-height: 120px;
 border-radius: 18px;
 }
 
@@ -674,6 +891,7 @@ body#pid-matrix-cart .cart-row img {
 
 .no-width {
   margin-right: 10px;
+  font-size: 16px;
 }
 
 div.pane-matrix-matrix div.cell.no-width:nth-child(1) {
@@ -765,6 +983,10 @@ text-align:left;
   color: #535353;
 }
 
+.amount.cell {
+  width:18px !important;
+}
+
 body#pid-matrix-cart .amount.cell, body#pid-matrix-cart .markup.cell, body#pid-matrix-cart .weight.cell {
 text-align:left;
   width: auto;
@@ -815,28 +1037,30 @@ span.cart-sum-price {
   color: #ec4c43;
 }
 
-body#pid-osszes-akcio span.measurement, body.page-taxonomy-term- span.measurement,  body.page-node span.measurement{
+body#pid-osszes-akcio span.measurement, body.page-taxonomy-term- span.measurement,  body.page-node span.measurement, body.page-search-products span.measurement{
   margin-top: -20px;
     margin-left: 75px;
 }
 
-body#pid-osszes-akcio span.cart-sum-weight, body#pid-osszes-akcio span.cart-sum-price, body.page-node span.cart-sum-price, body#pid-osszes-akcio span.measurement, body.page-taxonomy-term- span.cart-sum-weight, body.page-node span.cart-sum-weight, body.page-taxonomy-term- span.cart-sum-price, body.page-taxonomy-term- span.measurement, body.page-node span.measurement {
+body#pid-osszes-akcio span.cart-sum-weight, body#pid-osszes-akcio span.cart-sum-price, body.page-node span.cart-sum-price, body#pid-osszes-akcio span.measurement, body.page-taxonomy-term- span.cart-sum-weight, body.page-node span.cart-sum-weight, body.page-taxonomy-term- span.cart-sum-price, body.page-taxonomy-term- span.measurement, body.page-node span.measurement, body.page-search-products span.cart-sum-weight, bodypage-search-products span.cart-sum-price, body.page-search-products span.measurement {
   float:left;
   font-size: 12px;
   font-weight: 400;
 }
 
-body#pid-osszes-akcio .totals-row label, body.page-taxonomy-term- .totals-row label, body.page-node .totals-row label  {
-   width: 51px;
+body#pid-osszes-akcio .totals-row label, body.page-taxonomy-term- .totals-row label, body.page-node .totals-row label, body.page-search-products .totals-row label {
+   width: 100%;
   height: 15px;
   font-family: "Lato";
   font-weight: 700;
   font-size: 12px;
   color: #262735;
   -webkit-text-stroke: 1px #979797;
-   border-bottom: dotted 1px #262735;
+   background-image: url('../images/dotted-line.svg');
+   background-position-y: 12px;
+   background-repeat: repeat-x;
    float: left;
-    margin-right: 20px; 
+   margin-top: 20px;
 }
 
 div.weight.cell, div.price.cell {
@@ -889,7 +1113,7 @@ body#pid-osszes-akcio div.markup.cell, body.page-taxonomy-term- div.markup.cell,
   font-size: 12px;
   color: #343434;
   margin-left: 0px;
-   text-align: right !important;
+   text-align: center;
     margin-top: -17px;
 }
 
@@ -951,6 +1175,7 @@ div.mc-field-group.input-group.elso, div.mc-field-group.input-group.masodik{
     margin: 0px 3%;
     display: inline-block;
     background: none;
+    text-transform: lowercase;
 }
 
 #delete-order {
@@ -982,8 +1207,11 @@ border: solid 1px #979797 !important;
 }
 
 .exposed_filter_data {
-  border-bottom: 1px black dotted;
+  background-image: url('../images/dotted-line.svg');
+  background-position-y: 18px;
+  background-repeat: repeat-x;
   margin: 0 10px;
+  border: 0px;
 }
 
 .page-header h1 {
@@ -1016,6 +1244,9 @@ body.page-taxonomy.page-taxonomy-term.page-taxonomy-term- h1.page-header {
   color: #343434; 
   text-align: center;
   background: white;
+  position: relative;
+  top: -70px;
+  left: -85px
 }
 
 body#pid-osszes-akcio .add-to-cart, body.page-taxonomy-term .add-to-cart {
@@ -1054,7 +1285,7 @@ body.page-node .add-to-cart {
 body.page-node .views-field-nid {
   clear:both;
   float: none;
-  margin-top: 10px;
+  margin-top: 50px;
 }
 
 body#pid-osszes-akcio .views-field-nid {
@@ -1065,12 +1296,17 @@ body#pid-osszes-akcio .views-field-nid {
 body.page-taxonomy-term .views-field-nid {
   clear:both;
   float: none;
-  margin-top: 0px;
+  margin-top: 10px;
 }
 
 body#pid-osszes-akcio .cart-minus, body#pid-osszes-akcio .cart-plus, body#pid-osszes-akcio .amount {
 float:left;
 font-size: 12px;
+}
+
+body#pid-osszes-akcio .view .cart-minus {
+margin-left: 5px;
+margin-right: -5px
 }
 
 body#pid-osszes-akcio #discount-cart .cart-minus, body#pid-osszes-akcio #discount-cart .cart-plus, body#pid-osszes-akcio #discount-cart .amount {
@@ -1093,9 +1329,17 @@ float:left;
 font-size: 12px;
 }
 
-body.page-taxonomy-term .panel-col-last .cart-plus, body#pid-osszes-akcio .panel-col-last .cart-plus {
-  margin-left: 45px !important;
-  margin-top: -10px !important;
+body.page-taxonomy-term .panel-col-last .cart-minus {
+  margin-top: 10px;
+}
+
+body#pid-osszes-akcio .panel-col-last .cart-plus {
+  margin-left: 4px !important;
+  margin-top: -8px !important;
+}
+
+body.page-taxonomy-term .panel-col-last .cart-plus {
+  margin-left: 30px !important;
 }
 
 body.page-taxonomy-term div.view-content .amount {
@@ -1138,13 +1382,19 @@ body#pid-matrix .cell {
 }	
 
 body#pid-matrix input.matrix_val_change {
-margin-right: 7px;
+margin-right: 2px;
+font-size: 16px;
+}
+
+body#pid-matrix input.matrix_val_change[value="+"] {
+margin-right: -2px;
+max-width: 16px;
 }
 
 
 body#pid-matrix .button-cell {
-  border-bottom: 1px #979797 solid;
-  border-right: 1px #979797 solid;
+  /* border-bottom: 1px #979797 solid;
+  border-right: 1px #979797 solid; */
 }
 
 body#pid-matrix #header .cell {
@@ -1155,20 +1405,26 @@ body#pid-matrix #header .cell {
 	}
 
 body#pid-matrix .cell:nth-of-type(1) {
-border-left: solid 1px #979797; 
+border-left: solid 0px #979797; 
 }
 
 body#pid-matrix h4.termeknev a, body#pid-matrix .views-field-title  {
     display: block;
-    width: 115px;
+    width: 100px;
 	height: auto;
 	font-family: "Lato";
 	font-weight: 700;
 	font-size: 12px;
 	color: #535353;
-	float: right;
+	float: left;
 	margin-bottom:5px;
   text-align: left;
+  min-height: 0px;
+  margin-left: 6px;
+}
+
+body#pid-matrix h4.termeknev {
+  min-height: 0;
 }
 
 body#pid-matrix .views-field-field-egysegar, body#pid-matrix .views-field-field-akciosar, body#pid-matrix .views-field-field-ar, body#pid-matrix .views-field-field-suly, body#pid-matrix .views-field-field-urmertek {
@@ -1190,9 +1446,15 @@ body#pid-matrix .views-field-field-akciosar {
   color: #ec4c43;
 }
 
+body#pid-matrix .views-field-field-akciosar span.field-content.akciosar {
+  color: #ec4c43;
+}
+
 body#pid-matrix .views-field-field-akciosar, body#pid-matrix .views-field-field-suly, body#pid-matrix .views-field-field-urmertek {
-  float:right;
-  clear: right;
+  float: left;
+  margin-right: 40px;
+  margin-left: 10px;
+  clear: none !important;
 }
 
 body#pid-matrix .views-field-field-ar {
@@ -1219,7 +1481,7 @@ width:20% !important;
 }
 
 .table-row {
-  border-top: solid 1px #979797;
+  border-top: solid 0px #979797;
   min-height: 120px;
   max-height: 120px;
 }
@@ -1270,19 +1532,33 @@ body#pid-matrix-cart h1.page-header {
   color: #343434;
 }
 
-body#pid-koszonjuk input[value="Bolt webhelye"], body#pid-koszonjuk input[value="Legközelebbi üzlet"] {
+body#pid-koszonjuk input[value="Bolt webhelye"], body#pid-koszonjuk input.nearest-shop{
   display: none;
 }
 
-div.pane-matrix-matrix input[value="Bolt webhelye"], div.pane-matrix-matrix input[value="Legközelebbi üzlet"] {
+div.pane-matrix-matrix input[value="Bolt webhelye"], div.pane-matrix-matrix input.nearest-shop {
   display: none;
 }
 
-body.page-node- input[value="Bolt webhelye"], body.page-node- input[value="Legközelebbi üzlet"] {
+body.page-node- input[value="Bolt webhelye"], body.page-node- input.nearest-shop {
   display: none;
 }
 
-body.page-node- input[value="Ugrás a listaoldalra"], div.pane-matrix-matrix input[value="Ugrás a listaoldalra"] {
+body.page-node- input[value="Ugrás a listaoldalra"], body.page-search-products input[value="Ugrás a listaoldalra"] {
+  width: 160px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #ec4c43;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 12px;
+  color: #ffffff;
+  text-transform: uppercase;
+  border: 0px;
+  margin: 40px 6% 20px
+}
+
+div.pane-matrix-matrix input[value="Ugrás a listaoldalra"]  {
   width: 180px;
   height: 40px;
   border-radius: 5px;
@@ -1293,6 +1569,7 @@ body.page-node- input[value="Ugrás a listaoldalra"], div.pane-matrix-matrix inp
   color: #ffffff;
   text-transform: uppercase;
   border: 0px;
+  margin: 40px 1% 20px -1%;
 }
 
 
@@ -1306,11 +1583,14 @@ body#pid-matrix-cart input[value="Bolt webhelye"] {
   font-size: 12px;
   letter-spacing: 2px;
   color: #ffffff;
-  margin-right: 20px;
+  margin-right: 10px;
   border: 0;
+  text-transform: uppercase;
+  text-align: left;
+  margin-left: 10px;
 }
-body#pid-matrix-cart input[value="Legközelebbi üzlet"] {
- width: 180px;
+body#pid-matrix-cart input.nearest-shop {
+ width: auto;
   height: 40px;
   border-radius: 4px;
   border: solid 1px #343434;
@@ -1319,6 +1599,8 @@ body#pid-matrix-cart input[value="Legközelebbi üzlet"] {
   font-size: 12px;
   letter-spacing: 2px;
   color: #343434;
+  text-transform: uppercase;
+  background: transparent;
 }
 
 div.pane-matrix-matrix div.content.cell {
@@ -1328,6 +1610,31 @@ div.pane-matrix-matrix div.content.cell {
   font-weight: 300;
   font-size: 12px;
   color: #343434;
+}
+
+body#pid-osszes-akcio #discount-cart div.content.cell, body.page-taxonomy-term- #discount-cart div.content.cell {
+margin-bottom: 30px !important;
+float: none !important;
+margin-top: -10px !important;
+margin-left: 0px !important;
+clear: right !important;
+min-height: 80px !important;
+max-width: 100px;
+}
+
+body#pid-osszes-akcio #discount-cart div.plus-minus, body.page-taxonomy-term- #discount-cart div.plus-minus {
+  margin-right: -10px;
+}
+
+body#pid-osszes-akcio #discount-cart div.cart-row, body.page-taxonomy-term- #discount-cart div.cart-row {
+  padding: 10px;
+}
+
+
+body#pid-osszes-akcio #discount-cart div.weight.cell, body.page-taxonomy-term- #discount-cart div.weight.cell {
+  margin-left:0px;
+  text-align: center;
+  margin-top: 4px;
 }
 
 div.pane-matrix-matrix .cart-row {
@@ -1342,7 +1649,9 @@ font-weight: 700;
 font-size: 12px;
 color: #262735;
 -webkit-text-stroke: 1px #979797;
-border-bottom: dotted 1px #262735;
+ background-image: url('../images/dotted-line.svg');
+ background-position-y: 12px;
+ background-repeat: repeat-x;
 }
 
 body#pid-osszes-akcio h1 {
@@ -1388,7 +1697,9 @@ padding-top:25px;
 padding-top:25px;
 margin-right: 45px;
 margin-top: 25px;
-border-top: dotted 1px #262735;
+background-image: url('../images/dotted-line.svg');
+background-position-y: 0px;
+background-repeat: repeat-x;
 }
 
 
@@ -1872,6 +2183,7 @@ text-align: center;
   font-size: 14px;
   max-width: 220px;
   text-align: left;
+  min-height: 75px;
 }
 
 #colorbox .views-field-title a, body.page-node .views-field-title a {
@@ -2161,7 +2473,7 @@ body#pid-user h1.title, body#pid-cart h1.title {
 }
 
 body#pid-user .toboggan-unified #login-message {
-  width: 540px;
+  width: auto;
   height: 60px;
   font-size: 12pt;
   line-height: 1.2;
@@ -2196,13 +2508,13 @@ body#pid-user .toboggan-unified #login-links a {
 
 body#pid-user .toboggan-unified.login #register-form {
   display: inline !important;
-  width: 240px;
+  width: 35%;
   margin: 30px 0 0 130px;
   float: left;
 }
 
 body#pid-user .toboggan-unified.login #login-form {
-  width: 240px;
+  width: 35%;
   margin: 30px 0 0 130px;
   float: left;
   border-right: 1px solid black;
@@ -2403,6 +2715,7 @@ body.page-node #content-region {
 
 body.page-node div.field.field-name-field-termekfoto {
   float: left;
+  width: 100%;
 }
 
 body.page-node div.field.field-name-field-termekfoto img {
@@ -2666,7 +2979,14 @@ width: auto;
 
 ul.menu li a:hover, ul.menu li:hover {
 background: #fece5b;
+
 }
+
+ul.menu li.active-trail.active {
+  background: #fece5b;
+  padding: 8px 8px;
+  margin-top: -10px
+} 
 
 ul.menu li.first {
 margin: 0 5% 0 0%;
@@ -2798,7 +3118,7 @@ section#block-mailchimp-signup-k-vesse-emailben-is-az-akci-kat {
 
 section#block-mailchimp-signup-k-vesse-emailben-is-az-akci-kat h2.block-title {
   float: left;
-  margin-left: 25px;
+  margin-left: 15%;
   margin-right: 27px;
   background: none;
   text-align: center;
@@ -2818,11 +3138,12 @@ height: 30px;
 form#mailchimp-signup-subscribe-block-k-vesse-emailben-is-az-akci-kat-form.mailchimp-signup-subscribe-form {
   margin: 0 auto;
   width: 100%;
+  text-align: center;
 }
 
 input#edit-mergevars-email {
 padding: 10px !important;
-width: 40% !important;
+width: calc(20% + 15%) !important;
 border: 0px !important;
 border-radius: 5px;
 font-size: 14px;
@@ -2833,7 +3154,7 @@ margin-left: 20px;
 float: left;
 height: 40px;
 margin-top: 0px;
-margin-right: calc(-5% + 45px);
+margin-right: 20px;
 }
 
 form.mailchimp-signup-subscribe-form .form-actions button.form-submit {
@@ -2845,10 +3166,9 @@ form.mailchimp-signup-subscribe-form .form-actions button.form-submit {
   width: 180px !important;
   height: 40px !important;
   text-indent: 0em !important;
-  float: right !important;
-  margin-top: -40px !important; 
+  margin-top: -53px !important; 
   border-radius: 4px;
-  margin-right: calc(15% - -30px);
+  margin-left: 45%;
 }
 
 #header-top-wrapper, .header-group-wrapper, .main-menu-wrapper {
@@ -3084,17 +3404,19 @@ body#pid-osszes-akcio .form-search .btn-primary {
 .form-search input.form-control {
   width: 50% !important;
   height: 20px;
-  padding: 10px;
+  padding: 2px;
   border: 0px;
   text-indent: 0 !important;
   float: right !important;
   background: white !important;
-  margin-right: 1px;
+  margin-right: 10px;
   margin-left: 5px;
-  border-radius: 4px;
+  border-radius: 4px !important;
   font-size: 14px;
   font-family: "Lato";
   font-weight: 400;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 body#pid-osszes-akcio .form-search input.form-control {
@@ -3107,7 +3429,7 @@ body#pid-osszes-akcio .form-search input.form-control {
   background: white !important;
   margin-right: 20px;
   margin-left: 5px;
-  border-radius:4px;
+  border-radius:4px !important;
   font-size: 14px;
   font-family: "Lato";
   font-weight: 400;
@@ -3294,6 +3616,32 @@ clear: both;
 float: left; 
 }
 
+body.page-taxonomy-term- div.views-field.views-field-field-olcsobban {
+font-size: 10px;
+margin-right: -45px;
+float: right;
+margin-top: 0;
+}
+
+body.page-taxonomy-term- div.views-field.views-field-field-akciosar {
+float:none;
+clear:none;
+}
+
+
+body.page-taxonomy-term- div.views-field.views-field-field-ar {
+float: left;
+max-width: 100px !important; 
+margin: 0;
+}
+
+body.page-taxonomy-term- div.views-field.views-field-field-szazalek {
+  float: right;
+  color: #EC4C43;
+  margin-right: 2px;
+  margin-top: -30px
+}
+
 
 div.views-field.views-field-field-ar {
 float: left;
@@ -3324,17 +3672,23 @@ div.views-field.views-field-field-szazalek {
   margin-right: 2px;
 }
 
-h4.termeknev, h4.termeknev a, h4.termeknev a h4  {
+h4.termeknev  {
   color: #414141;
   font-family: 'Lora';
   font-weight: 700;
   font-size: 14px;
   max-width: 175px;
   margin-top: 2px;
+  min-height: 70px;
 }
 
-body.page-taxonomy h4.termeknev a h4   {
-margin-bottom:40px;
+h4.termeknev a, h4.termeknev a h4  {
+  color: #414141;
+  font-family: 'Lora';
+  font-weight: 700;
+  font-size: 14px;
+  max-width: 175px;
+  margin-top: 2px;
 }
 
 body#pid-matrix span.field-content.akciosar {
@@ -3355,7 +3709,8 @@ div.views-field.views-field-field-termekfoto {
   max-width: 180px !important;
   overflow: hidden;
   clear: both;
-  border-bottom: 1px dotted rgb(235,235,235);
+  border-bottom: 1px solid rgb(235,235,235);
+  min-height: 130px;
 }
 
 div.views-field.views-field-field-termekfoto img {
