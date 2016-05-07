@@ -217,8 +217,8 @@ function matrix_compare_page() {
 
 
 
-  $header = '<div class="cell" id="corner"><div class="checkbox">' . t('Get it') . '</div><div class="pieces">' . t('Pieces') . '</div><div class="category">' . t('Category') . '</div></div>';
-  $header .= '<div id="header">';
+  $header = '<div id="matrix-header"><div class="cell" id="corner"><div class="checkbox">' . t('Get it') . '</div><div class="pieces">' . t('Pieces') . '</div><div class="category">' . t('Category') . '</div></div>';
+  $header .= '';
   $c = 0;
   foreach ($tops as $top) {
     $header .= '<div class="cell ' . $top . '" data-name="' . $top . '">' .  matrix_get_termname($top) . '</div>';
@@ -281,17 +281,19 @@ function matrix_compare_page() {
 
   $table .= '<div class="summary-row">';
   $table .= '<div class="cell" id="corner">' . t('Summary') . '</div>';
+  $firstclass = 'first';
   foreach ($tops as $top) {
-    $table .= '<div class="sum-cell sum-price ' . $top . '" data-shop="' . $top . '">' . $sumPrice[$top] . ' Ft</div>';
+    $table .= '<div class="sum-cell sum-price ' . $top . ' ' . $firstclass . '" data-shop="' . $top . '">' . $sumPrice[$top] . ' Ft</div>';
+    $firstclass = '';
   }
   matrix_add_tr($table);
 
-  $table .= '<div class="cell" id="corner">' . t('Summary') . '</div>';
+  /*$table .= '<div class="cell" id="corner">' . t('Summary') . '</div>';
   foreach ($tops as $top) {
     $table .= '<div class="sum-cell sum-weight ' . $top . '" data-shop="' . $top . '">' . $sumWeight[$top] . ' Kg</div>';
   }
   matrix_add_tr($table);
-  $table .= '</div>';
+  $table .= '</div>';*/
 
   $table .= '<div class="cell" id="corner">&nbsp</div>';
   $firstclass = 'first';
@@ -391,6 +393,7 @@ function matrix_render_cart($line_items, $format = '', $block) {
         $vars = array(
           'amount' => $offered['amount'],
           'product' => l($offered['title'], 'node/' . $pid),
+          'product_short' => l(substr($offered['title'], 0, 33) . '...', 'node/' . $pid),
           'weight' => $offered['amount'] * $weight,
           'price' => $offered['amount'] * $price,
           'pid' => $pid,

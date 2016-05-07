@@ -9,6 +9,13 @@
 
       rows = $('.starter_cell').length;
 
+      $('.views-field-field-ar').each(function() {
+          if ($('.field-content', this).html() == '') {
+            console.log($(this).html());
+            $(this).parent().find('.akciosar').css('color', '#535353');
+          }
+      })
+
       /*
       * Set the amount of product will be added to the cart.
       * */
@@ -333,6 +340,8 @@
 
         }
       });*/
+
+
 
     }
   }

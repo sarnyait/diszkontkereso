@@ -15,7 +15,7 @@
     <div class="cell no-width">
       <input type="button" value="x" class="cart-delete" data-shop="<?php print $shop; ?>">
     </div>
-    <div class="content cell"><?php print $product; ?></div>
+    <div class="content cell"><?php print $product_short; ?></div>
 
     <div class="price cell" data-product="<?php print $pid; ?>" data-shop="<?php print $shop; ?>"><?php print $price; ?></div>
     <div class="markup cell">Ft</div>
