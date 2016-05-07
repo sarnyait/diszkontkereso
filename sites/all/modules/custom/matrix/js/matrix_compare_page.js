@@ -172,16 +172,18 @@
                 }
                 else {
                   newAmount = amount * 1 - 1;
-                  if (newAmount > 0) {
-                    reItem = newAmount + '|' + product;
-                    reCart += ',' + reItem;
+                  if (newAmount < 0) {
+                    newAmount = 0;
                   }
+                  reItem = newAmount + '|' + product;
+                  reCart += ',' + reItem;
                 }
               }
             }
           })
           reCart = reCart.substring(1);
           $.cookie('diszkont', reCart, {path: '/'});
+          console.log($.cookie('diszkont'));
           if (sid > 0 && $('.item-from-' + sid).length == 0) {
             $('.shop-header-' + sid).hide();
             $('.shop-block-' + sid).hide();
