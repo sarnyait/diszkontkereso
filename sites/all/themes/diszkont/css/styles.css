@@ -186,6 +186,14 @@ body {
   clear: both;
 }
 
+body#pid-matrix .summary-row div:nth-child(7) {
+  display: none;
+}
+
+body#pid-matrix .compare-page div:nth-child(6) {border:0}
+
+body#pid-matrix div.sum-cell.sum-weight {display:none;}
+
 body.page-taxonomy-term- div.pane-matrix-matrix div.cell.no-width:nth-child(1), body#pid-osszes-akcio div.pane-matrix-matrix div.cell.no-width:nth-child(1) {
   margin-top: -4px;
 }
@@ -788,7 +796,7 @@ input.matrix_val_change, input.cart-minus, input.cart-plus {
 }
 
 .faded {
-  opacity: 0.5;
+  opacity: 0.25;
 }
 
 div.main-container.container-fluid {
@@ -1245,7 +1253,7 @@ body.page-taxonomy.page-taxonomy-term.page-taxonomy-term- h1.page-header {
   text-align: center;
   background: white;
   position: relative;
-  top: -70px;
+  top: -34px;
   left: -85px
 }
 
