@@ -429,13 +429,8 @@ body#pid-matrix .cell#corner div {
 }
 
 .starter_cell .plus-minus {
- margin: 45% 5% 5%; 
+ margin: 45% 20% 20%; 
 }
-
-.starter_cell input.check {
-margin: 45% auto;
-padding: 0;
-float: none; }
 
 .starter_cell label {
 margin: 45% 15% 0px 6px;
@@ -671,7 +666,7 @@ float: none;
 margin-top: -10px;
 margin-left: 0px;
 clear: right;
-min-height: 55px;
+min-height: 40px;
 }
 
 body.page-search-products #discount-cart .cell.content {
@@ -822,12 +817,45 @@ body#pid-matrix-cart .shop-block.matrix_cart {
   margin-bottom: 30px;
 }
 
-input.check {
-width: 20px;
-height: 20px;
-border-radius: 4px;
-background-color: #ffffff;
-border: solid 1px #343434;
+.compare-page #tableBody .get-it-checkbox {
+  margin: auto;
+}
+
+.starter_cell input.check {
+padding: 0;
+margin: 48% 42%;
+float: none; }
+
+input.check  {
+    opacity:0;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    z-index: 2;
+    top: 0%;
+    right: 0%
+}
+
+input.check  + label{
+    background:url('../images/unselected.svg') no-repeat;
+    height: 20px;
+    width: 20px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    top: 0;
+    left: 40%;
+    margin-top: -70%;
+}
+
+input.check:checked + label{
+    background:url('../images/selected.png') no-repeat;
+    height: 20px;
+    width: 20px;
+    display:inline-block;
+    padding: 0 0 0 0px;
 }
 
 body#pid-matrix-cart input.cart-delete {
@@ -870,7 +898,7 @@ display:block;
 }
 body#pid-osszes-akcio .cell input.cart-delete, body.page-taxonomy-term- .cell input.cart-delete,  body.page-node .cell input.cart-delete {
     position: relative;
-    left: 15px;
+    left: 98%;
     top: 20px;
     color: #ec4c43;
     border: 0
@@ -1257,7 +1285,7 @@ body.page-taxonomy.page-taxonomy-term.page-taxonomy-term- h1.page-header {
 body#pid-matrix .add-to-cart, body#pid-matrix .matrix_cart_button {
 position: relative;
 top: -34px;
-left: 185px
+left: 65%
 }
 
 body#pid-matrix div.sum-cell.sum-price.first {
@@ -1385,6 +1413,7 @@ body#pid-matrix .summary-row {
   font-size: 14px;
   color: #343434;
   background: rgba(250, 221, 153, 0.05);
+  max-height: 36px;
 }
 
 body#pid-matrix .cell {
@@ -1417,7 +1446,7 @@ body#pid-matrix #matrix-header .cell {
 	font-weight: 700;
 	font-size: 14px;
 	color: #535353;
-	min-height: 30px;
+	min-height: 36px;
 	}
 
 body#pid-matrix .cell:nth-of-type(1) {
@@ -1588,6 +1617,9 @@ div.pane-matrix-matrix input[value="Ugrás a listaoldalra"]  {
   margin: 40px 1% 20px -1%;
 }
 
+body#pid-osszes-akcio div.pane-matrix-matrix input[value="Ugrás a listaoldalra"], body.page-taxonomy-term div.pane-matrix-matrix input[value="Ugrás a listaoldalra"] {
+  margin: 40px 5% 20px 5%;
+}
 
 body#pid-matrix-cart input[value="Bolt webhelye"] {
     width: 180px;
@@ -1634,7 +1666,7 @@ float: none !important;
 margin-top: -10px !important;
 margin-left: 0px !important;
 clear: right !important;
-min-height: 80px !important;
+min-height: 40px !important;
 max-width: 100px;
 }
 

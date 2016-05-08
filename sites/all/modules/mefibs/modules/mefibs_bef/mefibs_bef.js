@@ -9,7 +9,7 @@
 Drupal.behaviors.MefibsBEFForm = {
   attach: function(context, settings) {
     $(context).each(function(index, el) {
-      $('.bef-select-as-links', el).each(function() {
+      /* $('.bef-select-as-links', el).each(function() {
         if (!$(this).find('select').length) {
           return;
         }
@@ -20,12 +20,12 @@ Drupal.behaviors.MefibsBEFForm = {
         var select_id = $(this).find('select').attr('id').toLowerCase().replace(/_/g, '-').replace(/ /g, '-');
         $(this).find('.form-item').removeClass('selected');
         $(this).find('#' + select_id + '-' + selected).addClass('selected');
-      });
-    });
+      }); */
+    }); 
 
     // Support for sliders in mefibs blocks.
-    if (settings.mefibs) {
-      if (typeof Drupal.settings.better_exposed_filters.slider_options != 'undefined') {
+   /* if (settings.mefibs) {
+       if (typeof Drupal.settings.better_exposed_filters.slider_options != 'undefined') {
         var new_sliders = [];        
         $.each(settings.mefibs.forms, function(block_id, mefibs) {
           $.each(settings.better_exposed_filters.slider_options, function(element_id, slider) {
@@ -69,8 +69,8 @@ Drupal.behaviors.MefibsBEFForm = {
           Drupal.settings.better_exposed_filters.slider_options[slider.id] = slider;
         });
         Drupal.behaviors.better_exposed_filters_slider.attach(context, Drupal.settings);
-      }
-    }
+      } 
+    } */
   }
 };
 

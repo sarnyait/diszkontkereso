@@ -235,7 +235,7 @@ function matrix_compare_page() {
   $sumPrice = array();
   foreach ($lefts as $left) {
     $table .= '<div class="table-row">';
-    $table .= '<div class="cell starter_cell active" data-name="' . $left . '"><div class="get-it-checkbox"><input type="checkbox" class="check" CHECKED data-name="' . $left . '"></div><div class="plus-minus-wrapper">' . matrix_add_plus_minus('amount_' . $left, $left) . '</div><div class="product-name"><label>' . matrix_get_termname($left) . '</label></div></div>';
+    $table .= '<div class="cell starter_cell active" data-name="' . $left . '"><div class="get-it-checkbox"><input type="checkbox" class="check" CHECKED data-name="' . $left . '"><label></label></div><div class="plus-minus-wrapper">' . matrix_add_plus_minus('amount_' . $left, $left) . '</div><div class="product-name"><label>' . matrix_get_termname($left) . '</label></div></div>';
     $i = 0;
     foreach ($tops as $top) {
       $i++;

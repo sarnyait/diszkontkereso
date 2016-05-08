@@ -1,6 +1,6 @@
 var $ = jQuery.noConflict();
 (function($){
-
+/*
 if (jQuery(window).width() > 800) {
 function sticky_relocate() {
 	var window_top = $(window).scrollTop();
@@ -18,5 +18,5 @@ $(function () {
 	$(window).scroll(sticky_relocate);
 	sticky_relocate();
 });
-}
+} */
 })(jQuery);

@@ -38,7 +38,7 @@ if (Drupal.ajax) {
   Drupal.ajax.prototype.beforeSubmit = function(form_values, element, options) {
 
     var view_name = view_display_id = view_args = '';
-    var view_display_id_key = 0;
+    var view_display_id_key = 5;
     $.each(form_values, function(key, item) {
       if (item.name == 'view_name') {
         view_name = item.value;
