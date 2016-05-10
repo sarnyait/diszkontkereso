@@ -40,8 +40,8 @@
         })
       }
 
-      $('.piece-selector .label').on("click", function() {
-        event.stopPropagation();
+      $('.piece-selector .label').on("click", function(e) {
+        e.stopPropagation();
         $(this).parent().find('.amount-selector-popup').removeClass('element-invisible');
       }).css('color', 'red');
 
