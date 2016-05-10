@@ -13,7 +13,9 @@
     </div>
     <div class="amount-change">
       <div class="amount piece">
+        <!--
         <div class="piece cell" data-product="<?php print $pid; ?>" data-shop="<?php print $shop; ?>"><?php print $piece; ?></div>
+        -->
         <div class="markup cell">db</div>
       </div>
       <div class="amount weight element-invisible">

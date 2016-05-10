@@ -283,7 +283,7 @@
         $('.amount[data-product="' + pid + '"]').html(amount);
         $('.price[data-product="' + pid + '"]').html(amount * price);
         $('.weight[data-product="' + pid + '"]').html(parseInt(amount * weight * 100) / 100);
-        $('.piece[data-product="' + pid + '"]').html(amount);
+        //$('.piece[data-product="' + pid + '"]').html(amount);
       }
 
       function updateShopSums(sid) {
@@ -362,17 +362,17 @@
       }
 
       /* SCROLL FUNCTION WILL BE SWTICHED BACK */
-      $(window).bind("scroll", function() {
+      /*$(window).bind("scroll", function() {
         var scrollHeight = $(document).height();
         var scrollPosition = $(window).height() + $(window).scrollTop();
         console.log($('#matrix-header').parent().offset().top);
-        /*$('.summary-row').css('top', scrollPosition - 360).css('position', 'absolute');
+        /!*$('.summary-row').css('top', scrollPosition - 360).css('position', 'absolute');
 
         if ((scrollHeight - scrollPosition) / scrollHeight < 0.01) {
           $('.summary-row').css('position', 'relative').css('top', '0');
 
-        }*/
-      });
+        }*!/
+      });*/
 
 
 
