@@ -11,7 +11,6 @@
 
       $('.views-field-field-ar').each(function() {
           if ($('.field-content', this).html() == '') {
-            console.log($(this).html());
             $(this).parent().find('.akciosar').css('color', '#535353');
           }
       })
@@ -41,14 +40,37 @@
         })
       }
 
+      $('.piece-selector .label').on("click", function() {
+        event.stopPropagation();
+        $(this).parent().find('.amount-selector-popup').removeClass('element-invisible');
+      }).css('color', 'red');
+
+      $('.amount-in-weight').on("click", function() {
+        $(this).parent().parent().parent().find('.weight').removeClass('element-invisible');
+        $(this).parent().parent().parent().find('.piece').addClass('element-invisible');
+        $(this).parent().addClass('element-invisible');
+      })
+
+      $('.amount-in-piece').on("click", function() {
+        $(this).parent().parent().parent().find('.weight').addClass('element-invisible');
+        $(this).parent().parent().parent().find('.piece').removeClass('element-invisible');
+        $(this).parent().addClass('element-invisible');
+      });
+
+      $('body').on("click", function() {
+        $('.amount-selector-popup').addClass('element-invisible');
+      })
+
+
       /*
       * Push the selected list from a shop to the list.
       * */
 
       if ($('.matrix_cart_button').length) {
         $('.matrix_cart_button').on("click", function () {
-          var top = $(this).attr('data-name');
-          var shopName = $('#header .cell[data-name="' + top + '"]').html();
+          var top = $(this).data('name');
+          var shopName = $('#matrix-header .cell[data-name="' + top + '"]').html();
+          console.log('TOP' + top);
           toSend = $.cookie('diszkont');
           if (toSend !== null) {
             // Popup if a cart already added before (avoid data loss)
@@ -64,6 +86,7 @@
                   window.location.href = 'matrix_cart';
                 }
                 else if (data != shopName) {
+                  console.log('SHOP NAME' + shopName);
                   $('.modal-message .modalShopName').html(data);
                   $('.remodal-none .modalShopName').html(data);
                   $('.remodal-cancel .modalNewShopName').html(shopName);
@@ -221,9 +244,17 @@
         $(document).on("click", ".cart-minus", function () {
           pid = $(this).attr('data-product');
           sid = $(this).attr('data-shop');
-          cartModify('minus', pid, sid);
-          updateProductSums(pid, -1);
-          updateShopSums(sid);
+          amount = $('#summary .amount[data-product="' + pid + '"]').html();
+          if (amount == 1) {
+            $(this).closest('.item').remove();
+            cartModify('remove', pid, sid);
+            updateShopSums(sid);
+          }
+          else {
+            cartModify('minus', pid, sid);
+            updateProductSums(pid, -1);
+            updateShopSums(sid);
+          }
         })
       }
 
@@ -252,6 +283,7 @@
         $('.amount[data-product="' + pid + '"]').html(amount);
         $('.price[data-product="' + pid + '"]').html(amount * price);
         $('.weight[data-product="' + pid + '"]').html(parseInt(amount * weight * 100) / 100);
+        $('.piece[data-product="' + pid + '"]').html(amount);
       }
 
       function updateShopSums(sid) {
@@ -309,7 +341,7 @@
 
 
       function updateSumValues() {
-        $('#header .cell').each(function () {
+        $('#matrix-header .cell').each(function () {
           var sumprice = 0;
           var sumweight = 0;
           var shop = $(this).attr('data-name');
@@ -330,16 +362,17 @@
       }
 
       /* SCROLL FUNCTION WILL BE SWTICHED BACK */
-      /*$(window).bind("scroll", function() {
+      $(window).bind("scroll", function() {
         var scrollHeight = $(document).height();
         var scrollPosition = $(window).height() + $(window).scrollTop();
-        $('.summary-row').css('top', scrollPosition - 360).css('position', 'absolute');
+        console.log($('#matrix-header').parent().offset().top);
+        /*$('.summary-row').css('top', scrollPosition - 360).css('position', 'absolute');
 
         if ((scrollHeight - scrollPosition) / scrollHeight < 0.01) {
           $('.summary-row').css('position', 'relative').css('top', '0');
 
-        }
-      });*/
+        }*/
+      });
 
 
 

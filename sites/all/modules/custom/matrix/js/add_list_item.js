@@ -20,7 +20,7 @@
 
       $('.add-to-cart', context).once('matrixBaseXxx').click(function() {
          console.log('fired');
-         pid = $(this).attr('data-pid');
+         pid = $(this).data('pid');
          cart = $.cookie('diszkont');
          amount = $('.amount[data-pid="' + pid + '"]').html();
          if (cart == null) {
