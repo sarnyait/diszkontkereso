@@ -40,21 +40,21 @@
         })
       }
 
-      $('.piece-selector .label').on("click", function(e) {
+      $('#main-wrapper', context).on("click", '.piece-selector .label', function(e) {
         e.stopPropagation();
         $(this).parent().find('.amount-selector-popup').removeClass('element-invisible');
-      }).css('color', 'red');
+      });
 
-      $('.amount-in-weight').on("click", function() {
+      $('#main-wrapper', context).on("click", '.amount-in-weight', function() {
         pid = $(this).data('product');
-        $('.plus-minus .weight[data-product="' + pid + '"]').removeClass('element-remove');
-        $('.plus-minus .amount[data-product="' + pid + '"]').addClass('element-remove');
+        $('.plus-minus .weight[data-product="' + pid + '"], .weight-unit[data-product="' + pid + '"]').removeClass('element-remove');
+        $('.plus-minus .amount[data-product="' + pid + '"], .piece-unit[data-product="' + pid + '"]').addClass('element-remove');
       })
 
-      $('.amount-in-piece').on("click", function() {
+      $('#main-wrapper', context).on("click", '.amount-in-piece', function() {
         pid = $(this).data('product');
-        $('.plus-minus .weight[data-product="' + pid + '"]').addClass('element-remove');
-        $('.plus-minus .amount[data-product="' + pid + '"]').removeClass('element-remove');
+        $('.plus-minus .weight[data-product="' + pid + '"], .weight-unit[data-product="' + pid + '"]').addClass('element-remove');
+        $('.plus-minus .amount[data-product="' + pid + '"], .piece-unit[data-product="' + pid + '"]').removeClass('element-remove');
       });
 
       $('body').on("click", function() {
@@ -234,8 +234,8 @@
         })
 
         $(document).on("click", ".cart-plus", function () {
-          pid = $(this).attr('data-product');
-          sid = $(this).attr('data-shop');
+          pid = $(this).data('product');
+          sid = $(this).data('shop');
           cartModify('plus', pid, sid);
           updateProductSums(pid, 1);
           updateShopSums(sid);
@@ -292,6 +292,7 @@
           weight += $(this).html() * 1;
         });
         weight = parseInt(weight * 10) / 10;
+        console.log('W' + weight);
         $('.cart-sum-weight[data-shop="' + sid + '"]').html(weight);
 
         var price = 0;

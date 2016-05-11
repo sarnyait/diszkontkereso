@@ -25,6 +25,12 @@ function matrix_menu() {
     'access arguments' => array('access content'),
   );
 
+  $items['matrix_inlist_counter_widget'] = array(
+    'title' => '',
+    'page callback' => 'matrix_inlist_counter_widget',
+    'access arguments' => array('access content'),
+  );
+
   $items['save-order'] = array(
     'page callback' => 'matrix_save_order',
     'access arguments' => array('access content'),
@@ -97,6 +103,12 @@ function matrix_theme($existing, $type, $theme, $path) {
   $theme['matrix_cart_block'] = array(
     'variables' => array('vars' => NULL),
     'template' => 'matrix_cart_block',
+    'path' => $path,
+  );
+
+  $theme['matrix_plus_minus'] = array(
+    'variables' => array('vars' => NULL),
+    'template' => 'matrix_plus_minus',
     'path' => $path,
   );
 
@@ -514,4 +526,25 @@ function matrix_get_shop_from_product() {
   }
 
 
+}
+
+function matrix_inlist_counter_widget() {
+  $pid = $_POST['productId'];
+  $product = node_load($pid);
+  $product = entity_metadata_wrapper('node', $product);
+  $pproduct = node_load($product->field_termek->value()->nid);
+  $pproduct = entity_metadata_wrapper('node', $pproduct);
+
+  $weight = $pproduct->field_darabsuly->value() * 100;
+  $weight = (int)$weight / 100;
+  $price = $product->field_akciosar->value();
+  $amount_selector = $product->field_weight_piece_selector->value();
+  $vars = array(
+    'pid' => $pid,
+    'origweight' => $weight,
+    'origPrice' => $price,
+    'selector' => ($amount_selector==null || $amount_selector == FALSE) ? FALSE : TRUE,
+  );
+
+  print theme('matrix_plus_minus', $vars);
 }
