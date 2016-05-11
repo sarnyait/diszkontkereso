@@ -40,18 +40,19 @@
         })
       }
 
-      $('#main-wrapper', context).on("click", '.piece-selector .label', function(e) {
+      $('.main-container', context).on("click", '.piece-selector .label', function(e) {
         e.stopPropagation();
         $(this).parent().find('.amount-selector-popup').removeClass('element-invisible');
+        console.log('hey');
       });
 
-      $('#main-wrapper', context).on("click", '.amount-in-weight', function() {
+      $('.main-container', context).on("click", '.amount-in-weight', function() {
         pid = $(this).data('product');
         $('.plus-minus .weight[data-product="' + pid + '"], .weight-unit[data-product="' + pid + '"]').removeClass('element-remove');
         $('.plus-minus .amount[data-product="' + pid + '"], .piece-unit[data-product="' + pid + '"]').addClass('element-remove');
       })
 
-      $('#main-wrapper', context).on("click", '.amount-in-piece', function() {
+      $('.main-container', context).on("click", '.amount-in-piece', function() {
         pid = $(this).data('product');
         $('.plus-minus .weight[data-product="' + pid + '"], .weight-unit[data-product="' + pid + '"]').addClass('element-remove');
         $('.plus-minus .amount[data-product="' + pid + '"], .piece-unit[data-product="' + pid + '"]').removeClass('element-remove');

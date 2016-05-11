@@ -15,9 +15,6 @@
     <?php if ($selector) { ?>
     <div class="amount-change">
       <div class="amount piece">
-        <!--
-        <div class="piece cell" data-product="<?php print $pid; ?>" data-shop="<?php print $shop; ?>"><?php print $piece; ?></div>
-        -->
         <div class="markup cell piece-unit" data-product="<?php print $pid; ?>">db</div>
         <div class="markup cell weight-unit element-remove" data-product="<?php print $pid; ?>">kg</div>
       </div>
