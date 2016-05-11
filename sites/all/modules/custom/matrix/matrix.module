@@ -395,12 +395,31 @@ function matrix_render_cart($line_items, $format = '', $block) {
     $sumOfWeight = 0;
     foreach ($line_item as $type) {
       foreach ($type as $pid => $offered) {
+
+
         $product = node_load($pid);
+        $product = entity_metadata_wrapper('node', $product);
+        $pproduct = node_load($product->field_termek->value()->nid);
+        $pproduct = entity_metadata_wrapper('node', $pproduct);
+
+        $weight = $pproduct->field_darabsuly->value() * 100;
+        $weight = (int)$weight / 100;
+        $price = $product->field_akciosar->value();
+        $amount_selector = $product->field_weight_piece_selector->value();
+        $percent = $product->field_szazalek->value();
+        $img_uri = $pproduct->field_termekfoto->file->value()->uri;
+
+
+
+
+
+
+/*        $product = node_load($pid);
         $pproduct = node_load($product->field_termek[LANGUAGE_NONE][0]['nid']);
         $weight = $pproduct->field_darabsuly[LANGUAGE_NONE][0]['value'];
         $price = $product->field_akciosar[LANGUAGE_NONE][0]['value'];
         $img_uri = $pproduct->field_termekfoto[LANGUAGE_NONE][0]['uri'];
-        $percent = $product->field_szazalek[LANGUAGE_NONE][0]['value'];
+        $percent = $product->field_szazalek[LANGUAGE_NONE][0]['value'];*/
         ($percent < 100 && $percent!== 0) ?  $percent = $percent . '%' : $percent = '';
         $vars = array(
           'amount' => $offered['amount'],
@@ -415,6 +434,7 @@ function matrix_render_cart($line_items, $format = '', $block) {
           'origprice' => $price,
           'image' => theme('image_style', array('path' => $img_uri, 'style_name' => 'thumbnail')),
           'percent' => $percent,
+          'selector' => ($amount_selector==null || $amount_selector == FALSE) ? FALSE : TRUE,
         );
         $sumOfPrice += $offered['amount'] * $price;
         $sumOfWeight += $offered['amount'] * $weight;
