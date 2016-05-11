@@ -46,15 +46,15 @@
       }).css('color', 'red');
 
       $('.amount-in-weight').on("click", function() {
-        $(this).parent().parent().parent().find('.weight').removeClass('element-invisible');
-        $(this).parent().parent().parent().find('.piece').addClass('element-invisible');
-        $(this).parent().addClass('element-invisible');
+        pid = $(this).data('product');
+        $('.plus-minus .weight[data-product="' + pid + '"]').removeClass('element-remove');
+        $('.plus-minus .amount[data-product="' + pid + '"]').addClass('element-remove');
       })
 
       $('.amount-in-piece').on("click", function() {
-        $(this).parent().parent().parent().find('.weight').addClass('element-invisible');
-        $(this).parent().parent().parent().find('.piece').removeClass('element-invisible');
-        $(this).parent().addClass('element-invisible');
+        pid = $(this).data('product');
+        $('.plus-minus .weight[data-product="' + pid + '"]').addClass('element-remove');
+        $('.plus-minus .amount[data-product="' + pid + '"]').removeClass('element-remove');
       });
 
       $('body').on("click", function() {
