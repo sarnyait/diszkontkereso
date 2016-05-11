@@ -530,6 +530,9 @@ function matrix_get_shop_from_product() {
 
 function matrix_inlist_counter_widget() {
   $pid = $_POST['productId'];
+  if (isset($_GET['pid'])) {
+    $pid = $_GET['pid'];
+  }
   $product = node_load($pid);
   $product = entity_metadata_wrapper('node', $product);
   $pproduct = node_load($product->field_termek->value()->nid);

@@ -4,7 +4,7 @@
     attach: function (context, settings) {
 
 
-      $('.inlist-counter-widget').each(function() {
+      $('.inlist-counter-widget', context).each(function() {
         var pid = $(this).data('product');
         var e = $(this);
           $.post('/matrix_inlist_counter_widget',
@@ -12,7 +12,7 @@
               productId: pid,
             },
             function(data) {
-              console.log('DATA' + pid);
+              console.log('DATA' + pid + ':' + data);
               e.html(data);
             })
       })
