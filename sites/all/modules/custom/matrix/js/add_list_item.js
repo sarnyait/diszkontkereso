@@ -3,7 +3,7 @@
   Drupal.behaviors.matrixBaseXxx = {
     attach: function (context, settings) {
 
-      $('.inlist-counter-widget').each(function () {
+      /*$('.inlist-counter-widget').each(function () {
         var pid = $(this).data('product');
         var e = $(this);
         $.post('/matrix_inlist_counter_widget',
@@ -13,7 +13,7 @@
           function (data) {
             e.html(data);
           })
-      });
+      });*/
 
       $('.inlist-counter-widget', context).on('click', '.add-to-cart', function() {
          console.log('fired');
