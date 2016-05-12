@@ -172,15 +172,15 @@
       function cartModify(method, id, sid) {
         id = parseInt(id);
         cart = $.cookie('diszkont');
-
+console.log(cart);
         if (cart !== null) {
           lineItems = cart.split(',');
           sid = sid | 0;
+          reCart = [];
           lineItems.forEach(function (i) {
             parts = i.split('|');
             amount = parts[0];
             product = parseInt(parts[1]);
-            reCart = [];
             if (i.length > 0) {
               if (product == id) {
                 switch (method) {
@@ -199,6 +199,8 @@
             }
           })
           reCart = reCart.join(',');
+          console.log(reCart);
+
           $.cookie('diszkont', reCart, {path: '/'});
           if (sid > 0 && $('.item-from-' + sid).length == 0) {
             $('.shop-header-' + sid).hide();
