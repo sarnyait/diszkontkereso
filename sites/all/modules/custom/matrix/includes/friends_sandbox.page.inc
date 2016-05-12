@@ -16,7 +16,6 @@ function friends_sandbox_page() {
   drupal_add_js(drupal_get_path('module', 'friends') . '/js/friends-script.js');
   //drupal_add_js(drupal_get_path('module', 'friends') . '/js/flipclock.js');
 
-  $output = 'Hey!';
 
   drupal_add_js(array('currentUser' => $user->uid), 'setting');
 

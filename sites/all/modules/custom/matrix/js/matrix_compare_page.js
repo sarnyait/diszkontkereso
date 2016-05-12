@@ -128,22 +128,20 @@
       }
 
       function addToCart(top, toSend) {
-        content = '';
+        console.log('BEFORE' + toSend);
+        data = toSend.split(',');
         $('.starter_cell.active').each(function () {
           left = $(this).attr('data-name');
           sel = ".cell[data-cell='" + left + '_' + top + "']";
           amount = $('#amount_' + left + '_val').val();
-          content += $(sel).html() + '|' + amount + '&';
           pid = $(sel).attr('data-pid');
           if (pid.length > 0 && amount.length > 0) {
-            if (toSend.length == 0) {
-              toSend += amount + '|' + pid;
-            }
-            else {
-              toSend += ',' + amount + '|' + pid;
-            }
+            data.push(amount + '|' + pid);
           }
         });
+        toSend = data.join(',');
+        console.log('AFTER' + toSend);
+
         $.cookie('diszkont', toSend, {path: '/'});
       }
 
@@ -172,49 +170,36 @@
       }
 
       function cartModify(method, id, sid) {
+        id = parseInt(id);
         cart = $.cookie('diszkont');
+
         if (cart !== null) {
           lineItems = cart.split(',');
-          reCart = '';
           sid = sid | 0;
           lineItems.forEach(function (i) {
             parts = i.split('|');
             amount = parts[0];
-            product = parts[1];
+            product = parseInt(parts[1]);
+            reCart = [];
             if (i.length > 0) {
-              if (method == 'remove') {
-                if (product !== id) {
-                  reCart += ',' + i;
+              if (product == id) {
+                switch (method) {
+                  case 'plus': s = 1;
+                    break;
+                  case 'minus': (amount > 1) ? s = -1 : s = 0;
+                    break;
                 }
+                newAmount = parseInt(amount) + s;
+                reItem = newAmount + '|' + product;
+                reCart.push(reItem);
               }
-              if (method == 'plus') {
-                if (product !== id) {
-                  reCart += ',' + i;
-                }
-                else {
-                  newAmount = amount * 1 + 1;
-                  reItem = newAmount + '|' + product;
-                  reCart += ',' + reItem;
-                }
-              }
-              if (method == 'minus') {
-                if (product !== id) {
-                  reCart += ',' + i;
-                }
-                else {
-                  newAmount = amount * 1 - 1;
-                  if (newAmount < 0) {
-                    newAmount = 0;
-                  }
-                  reItem = newAmount + '|' + product;
-                  reCart += ',' + reItem;
-                }
+              else {
+                reCart.push(i);
               }
             }
           })
-          reCart = reCart.substring(1);
+          reCart = reCart.join(',');
           $.cookie('diszkont', reCart, {path: '/'});
-          console.log($.cookie('diszkont'));
           if (sid > 0 && $('.item-from-' + sid).length == 0) {
             $('.shop-header-' + sid).hide();
             $('.shop-block-' + sid).hide();

@@ -548,8 +548,9 @@ function matrix_get_shop_from_product() {
 
 }
 
-function matrix_inlist_counter_widget() {
-  $pid = $_POST['productId'];
+function matrix_inlist_counter_widget($pid = null) {
+
+  $pid = (is_null($pid)) ? $_POST['productId'] : $pid;
   if (isset($_GET['pid'])) {
     $pid = $_GET['pid'];
   }

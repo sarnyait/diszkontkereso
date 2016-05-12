@@ -3,18 +3,17 @@
   Drupal.behaviors.matrixBaseXxx = {
     attach: function (context, settings) {
 
-
-      $('.inlist-counter-widget').each(function() {
+      $('.inlist-counter-widget').each(function () {
         var pid = $(this).data('product');
         var e = $(this);
-          $.post('/matrix_inlist_counter_widget',
-            {
-              productId: pid,
-            },
-            function(data) {
-              e.html(data);
-            })
-      })
+        $.post('/matrix_inlist_counter_widget',
+          {
+            productId: pid,
+          },
+          function (data) {
+            e.html(data);
+          })
+      });
 
       $('.inlist-counter-widget', context).on('click', '.add-to-cart', function() {
          console.log('fired');
@@ -69,7 +68,7 @@
         amount = parseInt($('.inline-amount[data-product="' + pid + '"]').html()) + 1;
         weight = $('.inline-amount[data-product="' + pid + '"]').data('weight');
         $('.inline-amount[data-product="' + pid + '"]').html(amount);
-        $('.inline-weight[data-product="' + pid + '"]').html(amount * weight);
+        $('.inline-weight[data-product="' + pid + '"]').html(parseInt(amount * weight * 100) / 100);
 
       })
 
@@ -80,7 +79,7 @@
           amount = parseInt($('.inline-amount[data-product="' + pid + '"]').html()) - 1;
           weight = $('.inline-amount[data-product="' + pid + '"]').data('weight');
           $('.inline-amount[data-product="' + pid + '"]').html(amount);
-          $('.inline-weight[data-product="' + pid + '"]').html(amount * weight);
+          $('.inline-weight[data-product="' + pid + '"]').html(parseInt(amount * weight * 100) / 100);
         }
       })
 
