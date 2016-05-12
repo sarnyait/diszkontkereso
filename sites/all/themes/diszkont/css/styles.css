@@ -1,4 +1,3 @@
-
 /****************************/
 /* LOCAL CSS                */
 /****************************/
@@ -182,55 +181,225 @@ body {
   background-repeat: repeat-x;
 }
 
+body.page-node #block-views-similar-block .add-to-cart {
+margin-right: 0;
+margin-top: 0;
+}
+
+body.page-node #block-views-similar-block .amount {
+margin-top: -21px;
+margin-left: 18px;
+}
+
+body.page-node #block-views-similar-block .cart-plus {
+margin-top: -17px;
+margin-left: 34px;
+}
+
+body#pid-matrix-cart .no-width input.cart-plus {
+vertical-align: super;
+}
+
+body.page-node #discount-cart div.weight.cell {
+margin-left: 15px;
+margin-top: -20px;
+}
+
+
+body#pid-osszes-akcio div.amount-selector-popup {
+  margin-left: -35px;
+  margin-top: -5px;
+}
+body.page-node .inlist-counter-widget {
+  float: left;
+  clear: right;
+  margin-top: 25px;
+}
+
+body.page-node #discount-cart div.cart-row div.price.cell + div.markup.cell {
+margin-left:95px;
+}
+
+body.page-node .plus-minus {
+  float: left;
+}
+
+body.page-node .amount-change {
+margin-top: -20px;
+margin-left: 40px }
+
+body.page-node div.amount-selector-popup {
+  margin-left:-35px;
+}
+body.page-node input.cart-inline-plus {
+margin-top: -48px;
+margin-left: 25px
+}
+
+div.amount-change {
+  float:right;
+  margin-top: -40px;
+}
+
+div.amount-piece {
+  float:left
+}
+
+.view input.cart-inline-minus {
+margin-top: -5px
+}
+
+.view input.cart-inline-plus {
+  margin-top: -48px;
+  margin-left: 28px;
+}
+
+.matrix_cart_block input.cart-minus {
+  vertical-align: middle;
+}
+
+.matrix_cart_block .cart-plus {
+  vertical-align: middle;
+  margin-top: -53px;
+  margin-left: 30px
+}
+
+body.page-node .matrix_cart_block .cart-plus {
+  vertical-align: middle;
+  margin-top: -46px;
+  margin-left: 30px
+}
+
+.matrix_cart_block .amount-change {
+  margin-left:-40px;
+  margin-top: 0px;
+  float: left;
+}
+
+
+div.inline-amount.cell, div.inline-weight.cell {
+  margin-top: -20px;
+  margin-left: 15px;
+  font-size: 12px;
+  font-family: "Lato";
+  font-weight: 400;
+}
+
+body.page-node #block-views-similar-block  .inlist-counter-widget {
+float:none;
+clear:none;
+}
+
+div.markup.cell.inline-piece-unit, div.markup.cell.inline-weight-unit {
+  margin-left: -70px;
+  padding-top: 22px;
+}
+
+div.markup.cell.inline-piece-selector {
+  float:right;
+  padding-right: 110px;
+}
+
+body#pid-osszes-akcio .piece-selector, body.page-taxonomy-term- .piece-selector{
+margin-left: 60px !important;
+text-align: center: !important
+}
+
+
+body#pid-matrix-cart input.cart-minus {
+vertical-align: super;
+}
+
 div.amount-selector-popup {
 width: 121px;
 height: 70px;
 border-radius: 4px;
 background: transparent url('../images/sulydb.svg') -9px 0px no-repeat;
 background-position: top center;
+position: relative;
+z-index: 50;
 }
 
-div.amount-in-weight , div.amount-in-piece {
+div.amount-in-weight , div.amount-in-piece, div.amount-in-weight-inline, div.amount-in-piece-inline, body#pid-matrix-cart div.amount.piece .markup.cell  {
  font-size: 12px !important;
  color: #535353;
  font-family: "Lato";
  font-weight: 400; 
- margin: 0px;
+ margin: 9px 0px;
  cursor: pointer;
+}
+
+div.amount-in-weight:hover, div.amount-in-weight-inline:hover  {
+ background:url('../images/selected-pipa.svg') 10px 25px no-repeat;
+}
+
+div.amount-in-piece:hover, div.amount-in-piece-inline:hover  {
+ background:url('../images/selected-pipa.svg') 10px 5px no-repeat;
 }
 
 div.amount-in-weight {
   padding: 20px 50px 9px 25px;
 }
 
+div.amount-in-weight-inline {
+  padding: 20px 50px 0px 25px;
+}
 
-div.amount-in-piece {
+
+div.amount-in-piece, div.amount-in-piece-inline {
   padding: 0px 5px 8px 25px;
 }
 
 
 .amount.weight .markup.cell {
 font-size: 12px !important;
-float: left !important;
-margin-top: 0px !important;
-text-align: left !important;
-margin-left: 0px !important;
+font-family:"Lato";
+font-weight: 400;
 }
 
-div.amount-change {
+body#pid-matrix-cart div.amount-change {
   margin: 10px 50px 0px 5px !important;
   float: left;
 }
 
+.piece-selector {
+width:35px !important;
+}
 
-.piece-selector span.label{
-margin: top right bottom left;
+body#pid-matrix-cart .piece-selector span.label{
   display: block;
   background:url('../images/sulyvalto.png') no-repeat;
   text-indent: -9999px;
   width:30px;
   height: auto;
-  margin-left: 5px;
+  margin-left: 20px;
+  margin-top: -25px;
+  cursor:pointer;
+}
+
+.inline-piece-selector span.label{
+  display: block;
+  background:url('../images/sulyvalto.png') no-repeat;
+  text-indent: -9999px;
+  width:30px;
+  height: 20px;
+  margin-left: 5px; 
+  cursor:pointer;
+}
+
+#discount-cart div.markup.cell.piece-selector {
+margin-left: 60px;
+margin-top: -25px
+}
+
+.piece-selector span.label{
+  display: block;
+  background:url('../images/sulyvalto.png') no-repeat;
+  text-indent: -9999px;
+  width:30px;
+  height: 20px;
+  margin-left: 5px; 
+  cursor:pointer;
 }
 
 #block-matrix-matrix #discount-cart .shop-header {
@@ -286,9 +455,6 @@ body#pid-matrix .compare-page div:nth-child(6) {border:0}
 
 body#pid-matrix div.sum-cell.sum-weight {display:none;}
 
-body.page-taxonomy-term- div.pane-matrix-matrix div.cell.no-width:nth-child(1), body#pid-osszes-akcio div.pane-matrix-matrix div.cell.no-width:nth-child(1) {
-  margin-top: -4px;
-}
 
 #block-matrix-matrix .no-width:nth-child(1) {
   margin-top: -3px;
@@ -323,15 +489,6 @@ max-width:10px;
 float: left
 }
 
-body.page-search-products  #discount-cart .cell input.cart-plus {
-  float: left !important;
-  margin-top: -10px;
-  margin-left: 33px;
-}
-
-body.page-search-products #discount-cart div.plus-minus {
-margin-right: -10px
-}
 
 body.page-search-products .add-to-cart {
   margin-top: -18px;
@@ -353,9 +510,15 @@ a.remodal-none {
   padding-top: 30px;
 }
 
-#discount-cart div.weight.cell, #discount-cart div.price.cell {
-  margin-left: 35px;
+#discount-cart div.weight.cell {
+  margin-left: 20px;
+  margin-top:-23px;
 }
+
+#discount-cart div.price.cell {
+  padding-top: 23px;
+}
+
 
 #discount-cart div.price.cell {
 float: right;
@@ -364,13 +527,6 @@ margin-top: -16px
 
 #discount-cart  .delete-shop {
   display: none;
-}
-
-#discount-cart div.markup.cell {
-float: right;
-margin-top: -17px !important;
-text-align: right !important;
-margin-left: 3px !important; 
 }
 
 #discount-cart .cart-row {
@@ -384,17 +540,13 @@ body#pid-matrix-cart #discount-cart .shop-header {
 }
 
 body#pid-matrix-cart  #discount-cart div.weight.cell, #discount-cart div.price.cell {
-  margin-left: 78px;
+  margin-left: 80px;
   float: left;
-}
-
-body.page-node- #discount-cart div.price.cell {
-  margin-left: 55%;
 }
 
 
 body#pid-matrix-cart  #discount-cart div.price.cell {
-margin-top: 0px
+margin-top: -22px
 }
 
 body#pid-matrix-cart  #discount-cart  .delete-shop {
@@ -402,16 +554,9 @@ body#pid-matrix-cart  #discount-cart  .delete-shop {
   margin-top: -40px;
 }
 
-#discount-cart div.markup.cell {
-float: right;
-margin-top: -17px !important;
-text-align: right !important;
-margin-left: 3px !important; 
-}
-
 body#pid-matrix-cart #discount-cart div.markup.cell {
 float: left;
-margin-top: 0px !important;
+margin-top: 3px !important;
 text-align: left !important;
 margin-left: 0px !important; 
 }
@@ -477,12 +622,6 @@ section#block-views-similar-block .h2.block-title {
   color: #262735;
 }
 
-
-body.page-node #block-system-main div.plus-minus {
-    float: left;
-    margin-top: 50px !important;
-    margin-bottom: -30px !important;
-}
 
 body#pid-matrix .cell.starter_cell {
   padding: 0;
@@ -561,7 +700,7 @@ border-top: 2px dotted #979797;
   border: none;
 }
 
-.cart-plus, .cart-minus {
+.cart-plus, .cart-minus, .cart-inline-minus, .cart-inline-plus {
   cursor: pointer !important;
 }
 
@@ -618,7 +757,7 @@ body#pid-matrix .cell::nth-of-type(1) .matrix_cart_button {
 
 .matrix_cart_block span.measurement:last-child{
   margin-top: -20px !important;
-  margin-left: 90% !important;
+  margin-left: 84% !important;
 }
 
 .matrix_cart_block span.cart-sum-price {
@@ -655,34 +794,6 @@ body.page-node .field-name-field-kategoria {
   text-decoration: none;
   } 
 
-  body.page-node  .region-content .cart-minus {   
-    clear: both;
-    float: left;
-    margin-right: 10px;
-    margin-top: -3px;
-    }
-
-  body.page-node .region-content .cart-plus {   
-    clear: both;
-    float: left;
-    margin-left: 40px;
-    margin-top: -22px;
-  }
-
-#discount-cart .cell input.cart-plus {
-    float: left !important;
-    margin-top: -8px;
-    margin-left: 15px;
-    position: relative;
-    z-index: 50;
-}
-
-body.page-node #discount-cart .cell input.cart-plus {
-    float: left !important;
-    margin-top: -8px;
-    margin-left: 8px;
-    margin-right: -10px;
-}
 
 
 #block-views-similar-block  .add-to-cart {
@@ -759,9 +870,8 @@ body#pid-osszes-akcio .form-control {
 }
 
 #discount-cart .cell.content {
-margin-bottom:60px;
-float: none;
-margin-top: 20px;
+float: left;
+margin-top: -5px;
 }
 
 body#pid-matrix-cart #discount-cart .cell.content {
@@ -773,10 +883,10 @@ margin-top: 0px;
 body.page-node- #discount-cart .cell.content {
 margin-bottom: 30px;
 float: none;
-margin-top: -10px;
+margin-top: 0px;
 margin-left: 0px;
-clear: right;
-min-height: 40px;
+clear: both;
+max-height: 1px;
 }
 
 body.page-search-products #discount-cart .cell.content {
@@ -864,19 +974,6 @@ body#pid-matrix  div.views-field.views-field-field-ar {
     clear: none;
 }
 
-body#pid-osszes-akcio div.plus-minus, body.page-node #block-matrix-matrix div.plus-minus {
-  float:left;
-  margin-right: -10px;
-}
-
-body.page-node #block-matrix-matrix div.plus-minus {
-  margin-right: -10px;
-}
-
-
-body#pid-osszes-akcio #discount-cart div.plus-minus {
-  margin-top: 0px;
-}
 
 div.plus-minus {
 width: 60px;
@@ -897,7 +994,7 @@ div.measure-selector.measure-weight {
   float: none;
 }
 
-input.matrix_val_change, input.cart-minus, input.cart-plus {
+input.matrix_val_change, input.cart-minus, input.cart-plus, input.cart-inline-minus, input.cart-inline-plus {
   border: 0;
   background: transparent;
   font-size: 12px;
@@ -906,6 +1003,7 @@ input.matrix_val_change, input.cart-minus, input.cart-plus {
   padding-bottom: 5px;
   display: inline-block;
   line-height:0.1;
+  vertical-align: middle;
 }
 
 .faded {
@@ -1024,8 +1122,9 @@ body#pid-osszes-akcio .cell input.cart-delete, body.page-taxonomy-term- .cell in
     border: 0;
     float: right;
     clear: both;
-    margin-top: -35px;
-    margin-right: -124px;
+    margin-top: 10px;
+    margin-right: -144px;
+    width: 90px
 }
 
 
@@ -1070,7 +1169,7 @@ div.pane-matrix-matrix  input#delete-order, section#block-matrix-matrix input#de
   background-color: #f9f9f9;
 }
 
-div.amount {
+div.amount, div.inline-amount {
    width: 9px;
   height: 17px;
   font-family: "Lato";
@@ -1137,7 +1236,7 @@ div.content.cell a {
   hyphens: auto;
 }
 
-.amount.cell, .markup.cell, .weight.cell {
+.inline-amount.cell, .amount.cell, .markup.cell, .weight.cell {
 text-align:left;
   width: auto;
   height: 15px;
@@ -1147,7 +1246,7 @@ text-align:left;
   color: #535353;
 }
 
-.amount.cell {
+.inline-amount.cell, .amount.cell {
   width:18px !important;
 }
 
@@ -1166,6 +1265,15 @@ body#pid-matrix-cart .amount.cell {
   font-size: 14px;
 }
 
+body#pid-matrix-cart .weight.cell {
+ font-size: 12px !important;
+  margin-left: 0px !important;
+  width: 18px !important;
+  max-width: 40px !important;
+  margin-top: -3px !important;
+  padding-top: 3px !important;
+}
+
 body#pid-matrix-cart .markup.cell:nth-of-type(1) {
   font-size:12px;
 }
@@ -1181,7 +1289,7 @@ width: 46px;
   margin-top: 35px;
 }
 
-body.page-node .amount.cell {
+body.page-node .amount.cell, body.page-node .inline-amount.cell,  {
   width: 25px;
 }
 
@@ -1204,7 +1312,7 @@ span.cart-sum-price {
 
 body#pid-osszes-akcio span.measurement, body.page-taxonomy-term- span.measurement,  body.page-node span.measurement, body.page-search-products span.measurement{
   margin-top: -20px;
-    margin-left: 75px;
+    margin-left: 65px;
 }
 
 body#pid-osszes-akcio span.cart-sum-weight, body#pid-osszes-akcio span.cart-sum-price, body.page-node span.cart-sum-price, body#pid-osszes-akcio span.measurement, body.page-taxonomy-term- span.cart-sum-weight, body.page-node span.cart-sum-weight, body.page-taxonomy-term- span.cart-sum-price, body.page-taxonomy-term- span.measurement, body.page-node span.measurement, body.page-search-products span.cart-sum-weight, bodypage-search-products span.cart-sum-price, body.page-search-products span.measurement {
@@ -1284,9 +1392,17 @@ body#pid-osszes-akcio div.markup.cell, body.page-taxonomy-term- div.markup.cell,
   font-weight: 400;
   font-size: 12px;
   color: #343434;
-  margin-left: 0px;
-   text-align: center;
-    margin-top: -17px;
+  text-align: center;
+}
+
+body#pid-osszes-akcio div.cart-row .markup.cell, body.page-taxonomy-term- div.cart-row div.markup.cell {
+text-align: right;
+margin-left: 25px;
+}
+
+body#pid-osszes-akcio .piece-unit, body#pid-osszes-akcio .weight-unit, body.page-taxonomy-term- .piece-unit, body.page-taxonomy-term- .weight-unit  {
+margin-left:0 !important;
+text-align:center !important;
 }
 
 
@@ -1452,7 +1568,9 @@ body.page-node .add-to-cart {
   border:0;
   padding:12px;
   float:right;
-  clear:both;
+  clear: right;
+  margin-right: -210px;
+  margin-top: -25px
 }  
 
 .views-field-nid {
@@ -1478,69 +1596,23 @@ body.page-taxonomy-term .views-field-nid {
   margin-top: 10px;
 }
 
-body#pid-osszes-akcio .cart-minus, body#pid-osszes-akcio .cart-plus, body#pid-osszes-akcio .amount {
-float:left;
+body#pid-osszes-akcio .cart-minus, body#pid-osszes-akcio .cart-plus, body#pid-osszes-akcio .inline-amount, body#pid-osszes-akcio .cart-inline-minus, body#pid-osszes-akcio .cart-inline-plus {
 font-size: 12px;
+font-family: "Lato";
+font-weight: 400;
 }
 
-body#pid-osszes-akcio .view .cart-minus {
-margin-left: 5px;
-margin-right: -5px
-}
 
-body#pid-osszes-akcio #discount-cart .cart-minus, body#pid-osszes-akcio #discount-cart .cart-plus, body#pid-osszes-akcio #discount-cart .amount {
+body#pid-osszes-akcio #discount-cart .cart-minus, body#pid-osszes-akcio #discount-cart .cart-plus, body#pid-osszes-akcio #discount-cart .inline-amount, body#pid-osszes-akcio #discount-cart .cart-inline-minus, body#pid-osszes-akcio #discount-cart .cart-inline-plus {
 float:none;
 font-size: 12px;
 }
+ 
 
-body#pid-osszes-akcio .amount {
-width: 30px;
-}  
-
-body.page-taxonomy-term .panel-col-last .cart-minus, body.page-taxonomy-term .panel-col-last .cart-plus, body.page-taxonomy-term .panel-col-last .cart-minus, body#pid-osszes-akcio .panel-col-last .cart-plus, body#pid-osszes-akcio .pane-views .amount {
+.inline-amount {
 float:left;
 font-size: 12px;
-margin-top: 6px;
-}
-
-body.page-taxonomy-term .cart-minus, body.page-taxonomy-term .cart-plus, body.page-taxonomy-term .cart-minus, body#pid-osszes-akcio .cart-plus, body#pid-osszes-akcio .amount {
-float:left;
-font-size: 12px;
-}
-
-body.page-taxonomy-term .panel-col-last .cart-minus {
-  margin-top: 10px;
-}
-
-body#pid-osszes-akcio .panel-col-last .cart-plus {
-  margin-left: 4px !important;
-  margin-top: -8px !important;
-}
-
-body.page-taxonomy-term .panel-col-last .cart-plus {
-  margin-left: 30px !important;
-}
-
-body.page-taxonomy-term div.view-content .amount {
-width: 30px;
-margin-top: -0.5px;
-margin-left: 8px
-}  
- .amount {
-float:left;
-font-size: 12px;
-}
-
-body#pid-osszes-akcio div.view-content .amount {
-width: 30px;
-margin-top: -0.5px;
-margin-left: 8px
 } 
-
-body#pid-osszes-akcio #discount-cart .amount {
-width: 17px;
-float: left;
-}  
 
 
 body#pid-matrix .summary-row {
@@ -1569,6 +1641,7 @@ font-size: 16px;
 body#pid-matrix input.matrix_val_change[value="+"] {
 margin-right: -2px;
 max-width: 16px;
+vertical-align: inherit;
 }
 
 
@@ -1796,31 +1869,12 @@ div.pane-matrix-matrix div.content.cell {
   font-weight: 300;
   font-size: 12px;
   color: #343434;
+  margin-top: 30px;
 }
 
-body#pid-osszes-akcio #discount-cart div.content.cell, body.page-taxonomy-term- #discount-cart div.content.cell {
-margin-bottom: 10px !important;
-float: none !important;
-margin-top: 35px !important;
-margin-left: 0px !important;
-clear: right !important;
-min-height: 40px !important;
-max-width: 100px;
-}
-
-body#pid-osszes-akcio #discount-cart div.plus-minus, body.page-taxonomy-term- #discount-cart div.plus-minus {
-  margin-right: -10px;
-}
 
 body#pid-osszes-akcio #discount-cart div.cart-row, body.page-taxonomy-term- #discount-cart div.cart-row {
   padding: 10px;
-}
-
-
-body#pid-osszes-akcio #discount-cart div.weight.cell, body.page-taxonomy-term- #discount-cart div.weight.cell {
-  margin-left:0px;
-  text-align: center;
-  margin-top: 4px;
 }
 
 div.pane-matrix-matrix .cart-row {
@@ -3570,7 +3624,7 @@ body#pid-osszes-akcio .form-search .btn-primary {
 }
 
 .form-search input.form-control {
-  width: 50% !important;
+  width: 90% !important;
   height: 20px;
   padding: 2px;
   border: 0px;
