@@ -20,8 +20,8 @@
 			  $(function(){
 				if (this.processed) return;
 				this.processed=true;
-				if ($('.view-osszes-akcio div.view-content').length==0) return;
-				var $container = $('.view-osszes-akcio div.view-content');
+				if ($('div.view-content').length==0) return;
+				var $container = $('div.view-content');
 
 				// setup masonry
 			  	$container.imagesLoaded(function($){

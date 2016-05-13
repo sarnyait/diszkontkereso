@@ -1,16 +1,14 @@
 var $ = jQuery.noConflict();
 (function($){
-/*
+
 if (jQuery(window).width() > 800) {
 function sticky_relocate() {
 	var window_top = $(window).scrollTop();
-	var div_top = $('.view-id-osszes_akcio').offset().top;
+	var div_top = $('#tableBody').offset().top;
 	if (window_top > div_top) {
-		$('.pane-nice-taxonomy-menu-ntm-1').addClass('stick');
-		$('.pane-matrix-matrix').addClass('stick');
+		$('#matrix-header').addClass('stick');
 	} else {
-		$('.pane-nice-taxonomy-menu-ntm-1').removeClass('stick');
-		$('.pane-matrix-matrix').removeClass('stick');
+		$('#matrix-header').removeClass('stick');
 	}
 }
 
@@ -18,5 +16,5 @@ $(function () {
 	$(window).scroll(sticky_relocate);
 	sticky_relocate();
 });
-} */
+} 
 })(jQuery);

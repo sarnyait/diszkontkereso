@@ -57,25 +57,30 @@ case 'views_exposed_form':
 
 
   function diszkont_preprocess_page(&$vars) {
-  
-    drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/slider-min.js', array('scope' => 'header', 'weight' => 20));
     drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/login.js', array('scope' => 'footer'));
     drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/footer.js', array('scope' => 'footer'));
       drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/common.js', array('weight' => -13) );
-      drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/infinite-ruler.js', array('weight' => -14) );
 	  drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/ajaxafter.js', array('weight' => -12) );
-      drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/pager.js', array('scope' => 'header'));
       
     if(drupal_is_front_page()) {
-            
+       drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/sticky_sidebar.js');     
           }  
     
     $path = $_SERVER['REQUEST_URI'];
     $find = 'osszes-akcio';
     $pos = strpos($path, $find);
     if ($pos !== false) {
-    drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/sticky_sidebar.js');
+    drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/slider-min.js', array('scope' => 'header', 'weight' => 20));
+    drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/pager.js', array('scope' => 'header'));
+    drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/infinite-ruler.js', array('weight' => -14) );
     }
+    
+    if (arg(0) ==  "taxonomy" && arg(1) == "term" && is_numeric(arg(2)) && arg(3) == "") {
+    drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/slider-min.js', array('scope' => 'header', 'weight' => 20));
+    drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/pager.js', array('scope' => 'header'));
+    drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/infinite-ruler.js', array('weight' => -14) );
+    }
+    
     
     $path = $_SERVER['REQUEST_URI'];
     $find = '?mode=racsos&masonry=racsos';

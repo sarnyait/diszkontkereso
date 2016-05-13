@@ -1,4 +1,4 @@
-/****************************/
+  /****************************/
 /* LOCAL CSS                */
 /****************************/
 
@@ -181,9 +181,26 @@ body {
   background-repeat: repeat-x;
 }
 
+div.lista-item .cart-minus {
+width: 12px;
+float: left;
+}
+div.lista-item .amount.cell {
+float: left;
+}
+
+div.lista-item. .cart-plus {
+float:left;
+}
+
+body#pid-matrix-cart .plus-minus + .price.cell {
+    padding-left: 88px;
+    margin-right: 90px;
+}	
+
 body.page-node #block-views-similar-block .add-to-cart {
 margin-right: 0;
-margin-top: 0;
+margin-top: 1.5px;
 }
 
 body.page-node #block-views-similar-block .amount {
@@ -214,10 +231,15 @@ body.page-node .inlist-counter-widget {
   float: left;
   clear: right;
   margin-top: 25px;
+  width:100%;
 }
 
 body.page-node #discount-cart div.cart-row div.price.cell + div.markup.cell {
 margin-left:95px;
+}
+
+div.price.cell + div.markup.cell {
+margin-left:75px;
 }
 
 body.page-node .plus-minus {
@@ -239,6 +261,10 @@ margin-left: 25px
 div.amount-change {
   float:right;
   margin-top: -40px;
+}
+
+body.page-node div.amount-change {
+  float:left;
 }
 
 div.amount-piece {
@@ -389,7 +415,9 @@ body#pid-matrix-cart .piece-selector span.label{
 
 #discount-cart div.markup.cell.piece-selector {
 margin-left: 60px;
-margin-top: -25px
+margin-top: -25px;
+position: relative;
+z-index: 500;
 }
 
 .piece-selector span.label{
@@ -551,7 +579,7 @@ margin-top: -22px
 
 body#pid-matrix-cart  #discount-cart  .delete-shop {
   display: block;
-  margin-top: -40px;
+  margin-top: -25px;
 }
 
 body#pid-matrix-cart #discount-cart div.markup.cell {
@@ -1076,13 +1104,18 @@ input.check:checked + label{
 
 body#pid-matrix-cart input.cart-delete {
 float: right;
-width: 20px;
-height: 20px;
-border: solid 1px #979797;
+width: 22px;
+height: 22px;
 line-height: .5;
 margin-top: 10%;
 margin-right: -20px;
 padding-right:15px;
+background:url('../images/closeicon.png') no-repeat;
+text-indent: -9999px;
+}
+
+body#pid-matrix-cart input.cart-delete {
+content:""
 }
 
 input.cart-delete {
@@ -1090,21 +1123,21 @@ input.cart-delete {
  background: transparent;
  border-radius:5px;
  /* color: #ec4c43 !important; */
- border: solid 1px #979797;
+ /* border: solid 1px #979797; */
  margin-left: 80px;
  border-radius: 30px;
- width: 20px;
- height: 20px;
- line-height: 1
+ width: 22px;
+ height: 22px;
+ line-height: 1;
 }
 
 
-input.cart-delete:after {
+/* input.cart-delete:after {
 content:"x";
 color: #ec4c43 !important;
 display:block;
 margin-left:-5px;
-}
+} */
 
 .cell label {
     width: 80px;
@@ -1395,14 +1428,10 @@ body#pid-osszes-akcio div.markup.cell, body.page-taxonomy-term- div.markup.cell,
   text-align: center;
 }
 
-body#pid-osszes-akcio div.cart-row .markup.cell, body.page-taxonomy-term- div.cart-row div.markup.cell {
-text-align: right;
-margin-left: 25px;
-}
-
-body#pid-osszes-akcio .piece-unit, body#pid-osszes-akcio .weight-unit, body.page-taxonomy-term- .piece-unit, body.page-taxonomy-term- .weight-unit  {
+body.page-node- .piece-unit, body.page-node- .weight-unit  {
 margin-left:0 !important;
 text-align:center !important;
+width: 70px !important;
 }
 
 
@@ -1470,12 +1499,13 @@ div.mc-field-group.input-group.elso, div.mc-field-group.input-group.masodik{
   float: right;
     /* color: #ec4c43; */
     border: 0;
-    background: none;
+    background:url('../images/closeicon.png') no-repeat;
+	text-indent: -9999px;
 line-height: 1;
- border: solid 1px #979797;
- border-radius: 30px;
- width: 20px;
- height: 20px;
+ /* border: solid 1px #979797;
+ border-radius: 30px; */
+ width: 22px;
+ height: 22px;
 }
 
 #save-order {
@@ -1484,14 +1514,16 @@ line-height: 1;
 
 .delete-shop {
   float: right;
-  /* color: #ec4c43; */
-border: solid 1px #979797 !important;
+  /* color: #ec4c43; 
+ border: solid 1px #979797 !important; */
  border-radius: 30px;
  padding: 5px;
- width:20px;
- height: 20px;
+ width:22px;
+ height: 22px;
  font-size: 10px;
- line-height: 1
+ line-height: 1;
+ background:url('../images/closeicon.png') no-repeat;
+ text-indent: -9999px;
 }
 
 .exposed_filter_data {
@@ -1550,10 +1582,6 @@ clear: both;
     margin-top: -20px;
 }
 
-input.2052_cart {
-  background-color: #ec4c43 !important;
-}
-
 body.page-node .add-to-cart {
   width: 180px;
   height: 40px;
@@ -1569,9 +1597,12 @@ body.page-node .add-to-cart {
   padding:12px;
   float:right;
   clear: right;
-  margin-right: -210px;
   margin-top: -25px
 }  
+
+body.page-node .inlist-counter-widget + .add-to-cart {
+ margin-right: -210px;
+ }
 
 .views-field-nid {
   clear:both;
@@ -3998,14 +4029,12 @@ button#edit-mefibs-form-rendezes-submit-szures.ctools-use-ajax.ctools-auto-submi
   display: none;
 }
 
-.pane-nice-taxonomy-menu-ntm-1.stick {
+#matrix-header.stick {
     position: fixed;
-    top: 0;
-    z-index: 1;
-    width: 12%;
-    max-width: 12%;
-    overflow-y: auto;
+    top: 40px;
+    z-index: 100;
     background: white;
+	width:91%;
 }
 
 /* .pane-matrix-matrix.stick {
