@@ -181,6 +181,22 @@ body {
   background-repeat: repeat-x;
 }
 
+body.page-node input.cart-inline-minus {
+  margin-top: -5px;
+}
+
+#block-views-similar-block .plus-minus {
+  clear: both;
+}
+
+#block-views-similar-block div.views-field.views-field-php {
+  margin-top: 35px;
+}
+
+body.page-search-products .views-field-php {
+  margin-top: 45px;
+}
+
 div.lista-item .cart-minus {
 width: 12px;
 float: left;
@@ -214,7 +230,8 @@ margin-left: 34px;
 }
 
 body#pid-matrix-cart .no-width input.cart-plus {
-vertical-align: super;
+vertical-align: middle;
+margin-top: -5px;
 }
 
 body.page-node #discount-cart div.weight.cell {
@@ -240,6 +257,7 @@ margin-left:95px;
 
 div.price.cell + div.markup.cell {
 margin-left:75px;
+margin-top: -30px;
 }
 
 body.page-node .plus-minus {
@@ -293,7 +311,9 @@ margin-top: -5px
 body.page-node .matrix_cart_block .cart-plus {
   vertical-align: middle;
   margin-top: -46px;
-  margin-left: 30px
+  margin-left: 30px;
+  position: relative;
+  z-index:50;
 }
 
 .matrix_cart_block .amount-change {
@@ -333,7 +353,8 @@ text-align: center: !important
 
 
 body#pid-matrix-cart input.cart-minus {
-vertical-align: super;
+vertical-align: middle;
+margin-top: -6px
 }
 
 div.amount-selector-popup {
@@ -517,9 +538,21 @@ max-width:10px;
 float: left
 }
 
+body.page-search-products div.inline-amount.cell, body.page-search-products div.inline-weight.cell {
+  margin-top: 0;
+  margin-left: 0;
+}
+
+body.page-search-products .view input.cart-inline-plus {
+  margin-top: -8px;
+  margin-left: 20px;
+  float: left;
+}
+
 
 body.page-search-products .add-to-cart {
   margin-top: -18px;
+  float: right;
 }
 
 #tableBody div.plus-minus {
@@ -539,18 +572,14 @@ a.remodal-none {
 }
 
 #discount-cart div.weight.cell {
-  margin-left: 20px;
-  margin-top:-23px;
-}
-
-#discount-cart div.price.cell {
-  padding-top: 23px;
+  margin-left: 12px;
+  margin-top: -11px;;
 }
 
 
 #discount-cart div.price.cell {
 float: right;
-margin-top: -16px
+margin-top: -30px
 }
 
 #discount-cart  .delete-shop {
@@ -568,8 +597,12 @@ body#pid-matrix-cart #discount-cart .shop-header {
 }
 
 body#pid-matrix-cart  #discount-cart div.weight.cell, #discount-cart div.price.cell {
-  margin-left: 80px;
+  margin-left: 85px;
   float: left;
+}
+
+body.page-node #discount-cart div.price.cell {
+  margin-left: 110px;
 }
 
 
@@ -914,7 +947,7 @@ float: none;
 margin-top: 0px;
 margin-left: 0px;
 clear: both;
-max-height: 1px;
+max-height: 15px;
 }
 
 body.page-search-products #discount-cart .cell.content {
@@ -1155,11 +1188,16 @@ body#pid-osszes-akcio .cell input.cart-delete, body.page-taxonomy-term- .cell in
     border: 0;
     float: right;
     clear: both;
-    margin-top: 10px;
-    margin-right: -144px;
+    margin-top: -25px;
+    margin-bottom: 20px;
     width: 90px
 }
 
+body.page-node .cell input.cart-delete {
+position: relative;
+z-index: 500;
+margin-left: 110px
+}
 
 div.cell.best {
   background-color: rgba(250, 221, 153, 0.20);
@@ -1231,8 +1269,8 @@ div.content.cell {
 
 body.page-node div.content.cell a {
   text-decoration: none;
-  width: 130px;
-  height: 30px;
+  width: 80px;
+  height: 39px;
   font-family: "Lato";
   font-weight: 300;
   font-size: 12px;
@@ -1634,11 +1672,23 @@ font-weight: 400;
 }
 
 
-body#pid-osszes-akcio #discount-cart .cart-minus, body#pid-osszes-akcio #discount-cart .cart-plus, body#pid-osszes-akcio #discount-cart .inline-amount, body#pid-osszes-akcio #discount-cart .cart-inline-minus, body#pid-osszes-akcio #discount-cart .cart-inline-plus {
-float:none;
+body#pid-osszes-akcio #discount-cart .cart-plus, body#pid-osszes-akcio #discount-cart .cart-inline-plus {
+float: left;
 font-size: 12px;
+margin-top: -11px;
+position: relative;
+z-index: 55
 }
  
+body#pid-osszes-akcio #discount-cart .cart-minus, body#pid-osszes-akcio #discount-cart .cart-inline-minus {
+  float: left;
+  font-size: 12px;
+  margin-top: 5px
+}
+
+body#pid-osszes-akcio #discount-cart .inline-amount {
+  float: left;
+}
 
 .inline-amount {
 float:left;
@@ -1894,8 +1944,8 @@ body#pid-matrix-cart input.nearest-shop {
 }
 
 div.pane-matrix-matrix div.content.cell {
-  width: 131px;
-  height: 30px;
+  width: 80px;
+  height: 39px;
   font-family: "Lato";
   font-weight: 300;
   font-size: 12px;
