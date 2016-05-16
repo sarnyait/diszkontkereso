@@ -175,11 +175,12 @@ function matrix_render_product_view($pid) {
 
 function matrix_get_termname($tid) {
   $term = taxonomy_term_load($tid);
-  if ($term->field_hosszunev[LANGUAGE_NONE][0]['safe_value']) {
-    $termname = $term->field_hosszunev[LANGUAGE_NONE][0]['safe_value'];
+  $term = entity_metadata_wrapper('taxonomy_term', $term);
+  if ($term->vocabulary->value() == 'elelmiszerek') {
+    $termname = $term->field_hosszunev->value()->name;
   }
   else {
-    $termname = $term->name;
+    $termname = $term->value()->name;
   }
   return $termname;
 }
@@ -336,7 +337,7 @@ function matrix_cookie_to_items() {
   $line_items = array();
   foreach ($items as $item) {
     $parts = explode('|', $item);
-    if (!empty($parts[1])) {
+    if (!empty($parts[1]) && $parts[1] !== 'undefined') {
       $product = node_load($parts[1]);
       $shop = $product->field_aruhaz[LANGUAGE_NONE][0]['tid'];
       $offer = (empty($product->field_ajanlott_a_heten_[LANGUAGE_NONE][0]['value'])) ? 0 : $product->field_ajanlott_a_heten_[LANGUAGE_NONE][0]['value'];
@@ -530,6 +531,9 @@ function matrix_get_shop_from_product() {
   $shops = array();
   foreach ($parts as $part) {
     $elements = explode('|', $part);
+    if ($elements[1] == 'undefined') {
+      continue;
+    }
     $product = node_load($elements[1]);
     $product = entity_metadata_wrapper('node', $product);
     $shop = $product->field_aruhaz->value()->tid;

@@ -22,12 +22,14 @@
         $('.matrix_val_change').on("click", function () {
           source = '#' + $(this).data('source');
           w = $(source).next().data('weight');
-          pid = $(this).data('name');
+          pid = $(this).data('category');
           if ($(this).attr('value') == '-') {
             if ($(source).val() > 0) {
               v = $(source).val() * 1 - 1;
               $(source).val(v);
               if (v == 0) {
+                console.log(pid);
+
                 $('.check[data-name="' + pid + '"]').trigger('click');
               }
             }
@@ -128,8 +130,10 @@
       }
 
       function addToCart(top, toSend) {
-        console.log('BEFORE' + toSend);
+        console.log('BEFORE:' + toSend + ':');
         data = toSend.split(',');
+        if (data[0] == '' && data.length == 1) data = [];
+        console.log(data);
         $('.starter_cell.active').each(function () {
           left = $(this).attr('data-name');
           sel = ".cell[data-cell='" + left + '_' + top + "']";
@@ -137,15 +141,34 @@
           pid = $(sel).attr('data-pid');
           if (pid.length > 0 && amount.length > 0) {
             data.push(amount + '|' + pid);
+            console.log(data);
           }
         });
         toSend = data.join(',');
         console.log('AFTER' + toSend);
-
+        //toSend = sortCart(toSend);
         $.cookie('diszkont', toSend, {path: '/'});
       }
 
-
+      function sortCart(cart) {
+        lineItems = cart.split(',');
+        reCart = [];
+        lineItems.forEach(function (i) {
+          parts = i.split('|');
+          if (reCart[parts[1]] == null) {
+            reCart[parts[1]] = parts[0];
+          }
+          else {
+            reCart[parts[1]]++;
+          }
+        })
+        newList = [];
+        for (var key in reCart) {
+          newList.push(reCart[key] + '|' + key);
+        }
+        console.log(newList.join(','));
+        return newList.join(',');
+      }
 
 
 
@@ -172,7 +195,10 @@
       function cartModify(method, id, sid) {
         id = parseInt(id);
         cart = $.cookie('diszkont');
-console.log(cart);
+        console.log(cart);
+        cart = sortCart(cart);
+        console.log(cart);
+
         if (cart !== null) {
           lineItems = cart.split(',');
           sid = sid | 0;
@@ -202,7 +228,7 @@ console.log(cart);
             }
           })
           reCart = reCart.join(',');
-          console.log(reCart);
+          //console.log(reCart);
 
           $.cookie('diszkont', reCart, {path: '/'});
           if (sid > 0 && $('.item-from-' + sid).length == 0) {

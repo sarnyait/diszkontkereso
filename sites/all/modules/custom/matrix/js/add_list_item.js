@@ -24,7 +24,9 @@
            $.cookie('diszkont', amount + '|' + pid, {path: '/'});
          }
          else {
-           $.cookie('diszkont', cart + ',' + amount + '|' + pid, {path: '/'});
+           cart = cart + ',' + amount + '|' + pid;
+           cart = sortCart(cart);
+           $.cookie('diszkont', cart, {path: '/'});
          }
          console.log($.cookie('diszkont'));
 
