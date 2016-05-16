@@ -188,10 +188,13 @@ console.log(cart);
                     break;
                   case 'minus': (amount > 1) ? s = -1 : s = 0;
                     break;
+                  case 'remove': s = -2;
                 }
-                newAmount = parseInt(amount) + s;
-                reItem = newAmount + '|' + product;
-                reCart.push(reItem);
+                if (s > -2) {
+                  newAmount = parseInt(amount) + s;
+                  reItem = newAmount + '|' + product;
+                  reCart.push(reItem);
+                }
               }
               else {
                 reCart.push(i);
