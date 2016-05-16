@@ -3,42 +3,20 @@
   Drupal.behaviors.matrixBaseXxx = {
     attach: function (context, settings) {
 
-      /*$('.inlist-counter-widget').each(function () {
-        var pid = $(this).data('product');
-        var e = $(this);
-        $.post('/matrix_inlist_counter_widget',
-          {
-            productId: pid,
-          },
-          function (data) {
-            e.html(data);
-          })
-      });*/
-
       $('.inlist-counter-widget', context).on('click', '.add-to-cart', function() {
-         console.log('fired');
-         pid = $(this).data('product');
-         cart = $.cookie('diszkont');
-         amount = $('.inline-amount[data-product="' + pid + '"]').html();
-         if (cart == null) {
-           $.cookie('diszkont', amount + '|' + pid, {path: '/'});
-         }
-         else {
-           cart = cart + ',' + amount + '|' + pid;
-           cart = sortCart(cart);
-           $.cookie('diszkont', cart, {path: '/'});
-         }
-         console.log($.cookie('diszkont'));
-
-         $.post('/matrix_cart_ajax',
-           {
-             order: $.cookie('diszkont')
-           },
-           function (data) {
-             $('#discount-cart').html(data).effect('shake', 'up');
-             $('#discount-cart .cart-row[data-product="' + pid + '"] .image').show().delay(1000).slideToggle();
-           });
-
+        pid = $(this).data('product');
+        cart = $.cookie('diszkont').split(',');
+        amount = $('.inline-amount[data-product="' + pid + '"]').html();
+        cart.push(amount + '|' + pid);
+        $.cookie('diszkont', reCart, {path: '/'});
+          $.post('/matrix_cart_ajax',
+            {
+              order: $.cookie('diszkont')
+            },
+            function (data) {
+              $('#discount-cart').html(data).effect('shake', 'up');
+              $('#discount-cart .cart-row[data-product="' + pid + '"] .image').show().delay(1000).slideToggle();
+            });
 
        }).css('cursor', 'pointer');
 
@@ -84,12 +62,6 @@
           $('.inline-weight[data-product="' + pid + '"]').html(parseInt(amount * weight * 100) / 100);
         }
       })
-
-
-
     }
-
-
-
   }
 }(jQuery));
