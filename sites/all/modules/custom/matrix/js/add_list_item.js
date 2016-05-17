@@ -5,9 +5,12 @@
 
       $('.inlist-counter-widget', context).on('click', '.add-to-cart', function() {
         pid = $(this).data('product');
+        console.log('before' + $.cookie('diszkont'));
         cart = $.cookie('diszkont').split(',');
         amount = $('.inline-amount[data-product="' + pid + '"]').html();
         cart.push(amount + '|' + pid);
+        reCart = cart.join(',');
+        console.log('after' + reCart);
         $.cookie('diszkont', reCart, {path: '/'});
           $.post('/matrix_cart_ajax',
             {

@@ -45,7 +45,6 @@
       $('.main-container', context).on("click", '.piece-selector .label', function(e) {
         e.stopPropagation();
         $(this).parent().find('.amount-selector-popup').removeClass('element-invisible');
-        console.log('hey');
       });
 
       $('.main-container', context).on("click", '.amount-in-weight', function() {
@@ -73,7 +72,6 @@
         $('.matrix_cart_button').on("click", function () {
           var top = $(this).data('name');
           var shopName = $('#matrix-header .cell[data-name="' + top + '"]').html();
-          console.log('TOP' + top);
           toSend = $.cookie('diszkont');
           if (toSend !== null) {
             // Popup if a cart already added before (avoid data loss)
@@ -130,6 +128,7 @@
       }
 
       function addToCart(top, toSend) {
+        console.log('before sort cart:' + toSend);
         data = toSend.split(',');
         if (data[0] == '' && data.length == 1) data = [];
         $('.starter_cell.active').each(function () {
@@ -142,11 +141,13 @@
           }
         });
         toSend = data.join(',');
+        console.log('after:' + toSend);
         //toSend = sortCart(toSend);
         $.cookie('diszkont', toSend, {path: '/'});
       }
 
       function sortCart(cart) {
+        console.log('before sort:' + cart);
         lineItems = cart.split(',');
         reCart = [];
         lineItems.forEach(function (i) {
@@ -162,6 +163,7 @@
         for (var key in reCart) {
           newList.push(reCart[key] + '|' + key);
         }
+        console.log('after sort cart:' + newList.join(','));
         return newList.join(',');
       }
 
@@ -191,7 +193,7 @@
         id = parseInt(id);
         cart = $.cookie('diszkont');
         cart = sortCart(cart);
-
+        console.log('before:' + cart);
         if (cart !== null) {
           lineItems = cart.split(',');
           sid = sid | 0;
@@ -221,6 +223,7 @@
             }
           })
           reCart = reCart.join(',');
+          console.log('after:' + reCart);
 
           $.cookie('diszkont', reCart, {path: '/'});
           if (sid > 0 && $('.item-from-' + sid).length == 0) {

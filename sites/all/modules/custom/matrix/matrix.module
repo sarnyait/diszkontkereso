@@ -175,12 +175,19 @@ function matrix_render_product_view($pid) {
 
 function matrix_get_termname($tid) {
   $term = taxonomy_term_load($tid);
-  $term = entity_metadata_wrapper('taxonomy_term', $term);
-  if ($term->vocabulary->value() == 'elelmiszerek') {
-    $termname = $term->field_hosszunev->value()->name;
+  //$term = entity_metadata_wrapper('taxonomy_term', $term);
+  if ($term->vocabulary_machine_name == 'elelmiszerek') {
+    if (count($term->field_hosszunev) > 0) {
+      $termname = $term->field_hosszunev[LANGUAGE_NONE][0]['value'];
+    }
+    else {
+      $termname = $term->name;
+    };
+
   }
   else {
-    $termname = $term->value()->name;
+    $termname = $term->name;
+
   }
   return $termname;
 }
