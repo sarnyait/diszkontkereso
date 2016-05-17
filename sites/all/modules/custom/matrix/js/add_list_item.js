@@ -6,7 +6,7 @@
       $('.inlist-counter-widget', context).on('click', '.add-to-cart', function() {
         pid = $(this).data('product');
         console.log('before' + $.cookie('diszkont'));
-        cart = $.cookie('diszkont').split(',');
+        cart = ($.cookie('diszkont') == null) ? new Array() : $.cookie('diszkont').split(',');
         amount = $('.inline-amount[data-product="' + pid + '"]').html();
         cart.push(amount + '|' + pid);
         reCart = cart.join(',');
