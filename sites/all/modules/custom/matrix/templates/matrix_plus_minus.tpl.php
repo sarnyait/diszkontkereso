@@ -22,4 +22,4 @@
     </div>
 </div>
 <?php } ?>
-<div class="add-to-cart matrixBaseXxx-processed" data-product="<?php print $pid; ?>" style="cursor: pointer;">Kosárba!</div>
+<div class="add-to-cart matrixBaseXxx-processed test-class" data-product="<?php print $pid; ?>" style="cursor: pointer;">Kosárba!</div>
