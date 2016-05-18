@@ -3,10 +3,11 @@
   Drupal.behaviors.matrixBase = {
     attach: function (context, settings) {
 
-
-      var modal = $('[data-remodal-id=modal]').remodal();
-      var modal2 = $('[data-remodal-id=modalSameShop]').remodal();
-
+      if ($('body').hasClass('page-matrix')) {
+        var modal = $('[data-remodal-id=modal]').remodal();
+        var modal2 = $('[data-remodal-id=modalSameShop]').remodal();
+      }
+      
       rows = $('.starter_cell').length;
 
       $('.views-field-field-ar').each(function() {
