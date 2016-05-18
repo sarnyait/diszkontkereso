@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * Implementation of hook_menu().
  *
@@ -53,6 +54,7 @@ function matrix_menu() {
 function matrix_block_info() {
   $blocks['matrix'] = array(
     'info' => t('Matrix - product compare page and cart system'),
+    'cache' => DRUPAL_NO_CACHE,
   );
   return $blocks;
 }
@@ -504,6 +506,7 @@ function matrix_page_alter(&$page) {
  */
 function matrix_form_alter(&$form, &$form_state, $form_id) {
   drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_mail.css');
+  drupal_add_library('system', 'jquery.cookie');
 
   if ($form_id == 'print_mail_form') {
     $form['txt_message']['#default_value'] = t('Sent from diszkontkereso.hu');
