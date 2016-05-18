@@ -71,7 +71,8 @@ function matrix_block_view($delta = '') {
   return $block;
 }
 
-function matrix_preprocess_matrix_compare_page(&$variables) {
+function matrix_preprocess_page(&$variables) {
+
   drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_compare_page.css');
   drupal_add_js(drupal_get_path('module', 'matrix') . '/js/matrix_compare_page.js');
   drupal_add_js(drupal_get_path('module', 'matrix') . '/js/remodal/remodal.js');
@@ -494,11 +495,12 @@ function matrix_page_alter(&$page) {
   $a1 = arg(1);
   if (arg(0) == 'osszes-akcio'
     or (arg(0) == 'node' && isset($a1) && !isset($a2))
-    or (arg(0) == 'taxonomy' && arg(1) == 'term' && isset($a2))) {
+    or (arg(0) == 'taxonomy' && arg(1) == 'term' && isset($a2))
+    or (arg(0) == 'search' && arg(1) == 'products')) {
     drupal_add_js(drupal_get_path('module', 'matrix') . '/js/matrix_compare_page.js');
     drupal_add_js(drupal_get_path('module', 'matrix') . '/js/add_list_item.js');
-
   }
+
 }
 
 /**
