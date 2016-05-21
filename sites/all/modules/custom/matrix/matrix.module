@@ -71,7 +71,7 @@ function matrix_block_view($delta = '') {
   return $block;
 }
 
-function matrix_preprocess_page(&$variables) {
+/*function matrix_preprocess_page(&$variables) {
 
   drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_compare_page.css');
   drupal_add_js(drupal_get_path('module', 'matrix') . '/js/matrix_compare_page.js');
@@ -79,7 +79,7 @@ function matrix_preprocess_page(&$variables) {
   drupal_add_css(drupal_get_path('module', 'matrix') . '/js/remodal/remodal.css');
   drupal_add_css(drupal_get_path('module', 'matrix') . '/js/remodal/remodal-default-theme.css');
 
-}
+}*/
 
 function matrix_theme($existing, $type, $theme, $path) {
   $path = drupal_get_path('module', 'matrix') . '/templates';
@@ -203,6 +203,11 @@ function matrix_get_shop_url($tid) {
 
 function matrix_compare_page() {
   drupal_add_library('system', 'jquery.cookie');
+  drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_compare_page.css');
+  drupal_add_js(drupal_get_path('module', 'matrix') . '/js/matrix_compare_page.js');
+  drupal_add_js(drupal_get_path('module', 'matrix') . '/js/remodal/remodal.js');
+  drupal_add_css(drupal_get_path('module', 'matrix') . '/js/remodal/remodal.css');
+  drupal_add_css(drupal_get_path('module', 'matrix') . '/js/remodal/remodal-default-theme.css');
   $colors = array('red', 'green', 'blue', 'purple', 'yellow');
 
   $nodes = node_load_multiple(array(), array('type' => 'heti_ajanlat'));
@@ -418,19 +423,15 @@ function matrix_render_cart($line_items, $format = '', $block) {
         $price = $product->field_akciosar->value();
         $amount_selector = $product->field_weight_piece_selector->value();
         $percent = $product->field_szazalek->value();
-        $img_uri = $pproduct->field_termekfoto->file->value()->uri;
+        $img_exist = $pproduct->field_termekfoto->value();
+        if ($img_exist) {
+          $img_uri = $pproduct->field_termekfoto->file->value()->uri;
+          $img = theme('image_style', array('path' => $img_uri, 'style_name' => 'thumbnail'));
+        }
+        else {
+          $img = '<img src="/' . drupal_get_path('module', 'matrix') . '/images/no_image.png">';
+        }
 
-
-
-
-
-
-/*        $product = node_load($pid);
-        $pproduct = node_load($product->field_termek[LANGUAGE_NONE][0]['nid']);
-        $weight = $pproduct->field_darabsuly[LANGUAGE_NONE][0]['value'];
-        $price = $product->field_akciosar[LANGUAGE_NONE][0]['value'];
-        $img_uri = $pproduct->field_termekfoto[LANGUAGE_NONE][0]['uri'];
-        $percent = $product->field_szazalek[LANGUAGE_NONE][0]['value'];*/
         ($percent < 100 && $percent!== 0) ?  $percent = $percent . '%' : $percent = '';
         $vars = array(
           'amount' => $offered['amount'],
@@ -443,7 +444,7 @@ function matrix_render_cart($line_items, $format = '', $block) {
           'shop' => $sid,
           'origweight' => $weight,
           'origprice' => $price,
-          'image' => theme('image_style', array('path' => $img_uri, 'style_name' => 'thumbnail')),
+          'image' => $img,
           'percent' => $percent,
           'selector' => ($amount_selector==null || $amount_selector == FALSE) ? FALSE : TRUE,
         );
@@ -455,7 +456,7 @@ function matrix_render_cart($line_items, $format = '', $block) {
 
     if ($template !== 'print') {
       $output .= matrix_get_shop_url($sid);
-      $output .= '<input type="button" class="nearest-shop" value="Még több termék innen: ' . $shop->name . '" onClick="window.open(\'/osszes-akcio?field_aruhaz_tid_selective[0]=' . $shop->tid . '\')">';
+      $output .= '<input type="button" class="nearest-shop" value="Még több innen: ' . $shop->name . '" onClick="window.open(\'/osszes-akcio?field_aruhaz_tid_selective[0]=' . $shop->tid . '\')">';
       $output .= '<div class="totals-row"><label class="totals">' . t('Total: ') . '</label><span class="cart-sum-weight" data-shop="' . $sid . '">' . $sumOfWeight . '</span><span class="measurement"> kg</span><span class="cart-sum-price" data-shop="' . $sid . '">' . $sumOfPrice . ' </span><span class="measurement">Ft</span></div>';
     }
 
@@ -487,10 +488,11 @@ function matrix_save_order() {
 }
 
 function matrix_page_alter(&$page) {
+  drupal_add_library('system', 'jquery.cookie');
   if (!isset($_COOKIE['Drupal_visitor_diszkont_uid'])) {
     user_cookie_save(array('diszkont_uid' => uniqid()));
   }
-  drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_mail.css');
+  /*drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_mail.css');
   $a2 = arg(2);
   $a1 = arg(1);
   if (arg(0) == 'osszes-akcio'
@@ -499,7 +501,7 @@ function matrix_page_alter(&$page) {
     or (arg(0) == 'search' && arg(1) == 'products')) {
     drupal_add_js(drupal_get_path('module', 'matrix') . '/js/matrix_compare_page.js');
     drupal_add_js(drupal_get_path('module', 'matrix') . '/js/add_list_item.js');
-  }
+  }*/
 
 }
 
@@ -508,7 +510,7 @@ function matrix_page_alter(&$page) {
  */
 function matrix_form_alter(&$form, &$form_state, $form_id) {
   drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_mail.css');
-  drupal_add_library('system', 'jquery.cookie');
+
 
   if ($form_id == 'print_mail_form') {
     $form['txt_message']['#default_value'] = t('Sent from diszkontkereso.hu');
@@ -550,6 +552,10 @@ function matrix_get_shop_from_product() {
 }
 
 function matrix_inlist_counter_widget($pid = null) {
+  drupal_add_js(drupal_get_path('module', 'matrix') . '/js/matrix_compare_page.js');
+  drupal_add_js(drupal_get_path('module', 'matrix') . '/js/add_list_item.js');
+  drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_compare_page.css');
+
 
   $pid = (is_null($pid)) ? $_POST['productId'] : $pid;
   if (isset($_GET['pid'])) {

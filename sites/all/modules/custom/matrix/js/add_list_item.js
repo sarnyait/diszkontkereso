@@ -7,7 +7,7 @@
         pid = $(this).data('product');
         console.log('before' + $.cookie('diszkont'));
         cart = ($.cookie('diszkont') == null) ? new Array() : $.cookie('diszkont').split(',');
-        amount = $('.inline-amount[data-product="' + pid + '"]').html();
+        amount = $('.inline-amount[data-product="' + pid + '"]').val();
         cart.push(amount + '|' + pid);
         reCart = cart.join(',');
         console.log('after' + reCart);
@@ -48,20 +48,20 @@
 
       $(document).on('click', '.cart-inline-plus', function() {
         pid = $(this).data('product');
-        amount = parseInt($('.inline-amount[data-product="' + pid + '"]').html()) + 1;
+        amount = parseInt($('.inline-amount[data-product="' + pid + '"]').val()) + 1;
         weight = $('.inline-amount[data-product="' + pid + '"]').data('weight');
-        $('.inline-amount[data-product="' + pid + '"]').html(amount);
+        $('.inline-amount[data-product="' + pid + '"]').val(amount);
         $('.inline-weight[data-product="' + pid + '"]').html(parseInt(amount * weight * 100) / 100);
 
       })
 
       $(document).on('click', '.cart-inline-minus', function() {
         pid = $(this).data('product');
-        amount = parseInt($('.inline-amount[data-product="' + pid + '"]').html());
+        amount = parseInt($('.inline-amount[data-product="' + pid + '"]').val());
         if (amount > 1) {
-          amount = parseInt($('.inline-amount[data-product="' + pid + '"]').html()) - 1;
+          amount = parseInt($('.inline-amount[data-product="' + pid + '"]').val()) - 1;
           weight = $('.inline-amount[data-product="' + pid + '"]').data('weight');
-          $('.inline-amount[data-product="' + pid + '"]').html(amount);
+          $('.inline-amount[data-product="' + pid + '"]').val(amount);
           $('.inline-weight[data-product="' + pid + '"]').html(parseInt(amount * weight * 100) / 100);
         }
       })

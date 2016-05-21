@@ -6,7 +6,8 @@
       <div class="cell no-width">
         <input type="button" value="-" class="cart-minus" data-product="<?php print $pid; ?>" data-shop="<?php print $shop; ?>">
       </div>
-      <div class="amount cell" data-product="<?php print $pid; ?>" data-price="<?php print $origprice; ?>" data-weight="<?php print $origweight; ?>"><?php print $amount; ?></div>
+      <!-- <div class="amount cell" data-product="<?php print $pid; ?>" data-price="<?php print $origprice; ?>" data-weight="<?php print $origweight; ?>"><?php print $amount; ?></div> -->
+      <input class="amount cell" data-shop="<?php print $shop; ?>" data-product="<?php print $pid; ?>" data-price="<?php print $origprice; ?>" data-weight="<?php print $origweight; ?>" value="<?php print $amount; ?>">
       <div class="weight cell element-remove" data-shop="<?php print $shop; ?>" data-product="<?php print $pid; ?>" data-price="<?php print $origprice; ?>" data-weight="<?php print $origweight; ?>"><?php print $weight; ?></div>
       <div class="cell no-width">
         <input type="button" value="+" class="cart-plus" data-product="<?php print $pid; ?>" data-shop="<?php print $shop; ?>">
@@ -30,7 +31,7 @@
 
     <div class="price cell" data-product="<?php print $pid; ?>" data-shop="<?php print $shop; ?>"><?php print $price; ?></div>
     <div class="markup cell">Ft</div>
-    <div class="percent"><?php print $percent;?></div>
+    <div class="percent"><?php if ($percent > 0) { print $percent; } ?></div>
 
     <div class="cell no-width">
       <input type="button" value="x" class="cart-delete" data-shop="<?php print $shop; ?>">

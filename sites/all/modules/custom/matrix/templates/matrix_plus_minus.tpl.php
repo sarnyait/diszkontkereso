@@ -2,7 +2,7 @@
   <div class="cell no-width">
     <input type="button" value="-" class="cart-inline-minus" data-product="<?php print $pid; ?>" data-shop="<?php print $shop; ?>">
   </div>
-  <div class="inline-amount cell" data-product="<?php print $pid; ?>" data-price="<?php print $origprice; ?>" data-weight="<?php print $origweight; ?>">1</div>
+  <input class="inline-amount cell" data-product="<?php print $pid; ?>" data-price="<?php print $origprice; ?>" data-weight="<?php print $origweight; ?>" value="1">
   <div class="inline-weight cell element-remove" data-shop="<?php print $shop; ?>" data-product="<?php print $pid; ?>" data-price="<?php print $origprice; ?>" data-weight="<?php print $origweight; ?>"><?php print $origweight; ?></div>
   <div class="cell no-width">
     <input type="button" value="+" class="cart-inline-plus" data-product="<?php print $pid; ?>" data-shop="<?php print $shop; ?>">
