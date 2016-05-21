@@ -36,10 +36,10 @@
 
         $container.imagesLoaded(function () {
           $container.infinitescroll({
-            navSelector: 'ul.pagination',    // selector for the paged navigation
-            nextSelector: 'ul.pagination li.next a',  // selector for the NEXT link (to page 2)
-            itemSelector: 'div.masonry-item',     // selector for all items you'll retrieve
-            animate: false,
+            navSelector: '.text-center ul.pagination',    // selector for the paged navigation
+            nextSelector: '.text-center ul.pagination li.next a',  // selector for the NEXT link (to page 2)
+            itemSelector: 'div.view-content div.masonry-item',     // selector for all items you'll retrieve
+            animate: true,
             msgText: Drupal.t("Kovetkezo termekek"),
             img: '/sites/all/themes/diszkont/images/loading.gif',
             donetext: Drupal.t('Vege'),

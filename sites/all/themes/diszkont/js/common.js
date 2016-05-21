@@ -1,7 +1,11 @@
 var $ = jQuery.noConflict();
    (function($){
 
-	/*
+   $(document).ready(function () {
+      $(".views-field-field-szazalek span:contains('0%')").hide();
+   });
+ 
+    	/*
 	 if (jQuery(window).width() > 800) {
 		   jQuery("fieldset").removeClass('collapsed');
 		   jQuery("fieldset").trigger({ type: 'collapsed', value: false }
