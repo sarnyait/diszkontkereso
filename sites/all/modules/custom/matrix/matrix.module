@@ -510,7 +510,7 @@ function matrix_page_alter(&$page) {
 
 function matrix_css_alter(&$css) {
   $a = 1;
-  unset($css['sites/all/themes/diszkont/css/styles.css']);
+  //unset($css['sites/all/themes/diszkont/css/styles.css']);
 }
 
 /**
