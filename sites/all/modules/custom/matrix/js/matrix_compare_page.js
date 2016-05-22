@@ -19,9 +19,13 @@
 
         $('.add-to-cart').each(function () {
           pid = $(this).data('product');
+          console.log('pid:' + pid);
+          console.log('productsonlist' + productsOnList);
+
           for (var i in productsOnList) {
             if (productsOnList[i] == pid) {
               $(this).closest('.views-row').addClass('product-on-list').css('background', 'orange');
+              console.log('class-added');
             }
           }
 
