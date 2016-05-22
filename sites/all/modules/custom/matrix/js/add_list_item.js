@@ -10,6 +10,7 @@
         amount = $('.inline-amount[data-product="' + pid + '"]').val();
         cart.push(amount + '|' + pid);
         reCart = cart.join(',');
+        $(this).closest('.views-row').addClass('product-on-list').css('background', 'orange');
         console.log('after' + reCart);
         $.cookie('diszkont', reCart, {path: '/'});
           $.post('/matrix_cart_ajax',
