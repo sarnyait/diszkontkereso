@@ -404,22 +404,21 @@ function matrix_render_cart($line_items, $format = '', $block) {
 
 
     $output .=  '<div class="shop-block ' . $template . ' shop-block-' . $sid . '">';
-    $output .= '<div class="shop-header shop-header-' . $sid . '" data-shop="' . $sid . '"><h2>';
+    $output .= '<div class="shop-header shop-header-' . $sid . '" data-shop="' . $sid . '">';
     if ($template !== 'matrix_cart_print') {
-      $output .= $shop->name;
+      $output .= '<h2>' . $shop->name . '</h2>';
     }
     else {
       $shopwrapper = entity_metadata_wrapper('taxonomy_term', $shop);
       $img_exist = $shopwrapper->field_logo->value();
       if ($img_exist) {
         $img_uri = $shopwrapper->field_logo->file->value()->uri;
-        $output  .= theme('image_style', array('path' => $img_uri, 'style_name' => 'thumbnail'));
+        $output .= theme('image_style', array('path' => $img_uri, 'style_name' => 'thumbnail')) . '###product-count###';
       }
       else {
-        $output .= $shop->name;
+        $output .= $shop->name . '###product-count###';
       }
     }
-    $output .= '</h2>';
     $output .= '</div>';
 
 
@@ -429,9 +428,12 @@ function matrix_render_cart($line_items, $format = '', $block) {
     $output .=  '<div style="clear:both;>"></div>';
     $sumOfPrice = 0;
     $sumOfWeight = 0;
-    foreach ($line_item as $type) {
-      foreach ($type as $pid => $offered) {
+    $product_count = 0;
 
+    foreach ($line_item as $type) {
+
+      foreach ($type as $pid => $offered) {
+        $product_count++;
 
         $product = node_load($pid);
         $product = entity_metadata_wrapper('node', $product);
@@ -470,8 +472,10 @@ function matrix_render_cart($line_items, $format = '', $block) {
         );
         $sumOfPrice += $offered['amount'] * $price;
         $sumOfWeight += $offered['amount'] * $weight;
+        //$output = str_replace();
         $output .= theme($template, $vars);
       }
+      $output = str_replace('###product-count###', ' (' . $product_count . ' ' . t('product') . ')', $output);
     }
 
     if ($template !== 'matrix_cart_print') {
