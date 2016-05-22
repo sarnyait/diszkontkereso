@@ -2,8 +2,9 @@ var $ = jQuery.noConflict();
    (function($){
 
    $(document).ready(function () {
-      $(".views-field-field-szazalek span:contains('0%')").hide();
+      $(".views-field-field-szazalek span:contains('00%')").hide();
    });
+
  
     	/*
 	 if (jQuery(window).width() > 800) {

@@ -180,6 +180,14 @@ body {
   background-repeat: repeat-x;
 }
 
+label.printmail-label {
+  font-size: 14px;
+}
+
+body.page-node .region-content{padding-top: 35px;}
+
+body.page-taxonomy-term div.views-field.views-field-field-ar + div.views-field.views-field-field-olcsobban
+
 body.page-node div.views-field.views-field-field-akciosar, body.page-node div.views-field.views-field-field-szazalek {
   margin-top: -10px !important;
 }
@@ -592,9 +600,12 @@ margin-top: -5px
 min-width: 16px;
 }
 
+
+
 body#pid-osszes-akcio .view input.cart-inline-plus {
-margin-top:-10.5px;
+margin-top:-11px;
 font-size: 16px;
+margin-left: 30px;
 }
 
 body.page-taxonomy-term-  .view input.cart-inline-plus {
@@ -694,7 +705,7 @@ text-align: center: !important
 
 body#pid-matrix-cart input.cart-minus {
 vertical-align: middle;
-margin-top: 5px;
+margin-top: 6px;
 font-size: 16px;
 }
 
@@ -976,7 +987,7 @@ body#pid-matrix-cart #discount-cart .shop-header {
 }
 
 body#pid-matrix-cart  #discount-cart div.weight.cell, #discount-cart div.price.cell {
-  margin-left: 85px;
+  margin-left: 105px;
   float: left;
   
 }
@@ -997,7 +1008,7 @@ padding: 0 !important;
 
 body#pid-matrix-cart  #discount-cart  .delete-shop {
   display: block;
-  margin-top: -25px;
+  margin-top: -28px;
 }
 
 body#pid-matrix-cart #discount-cart div.markup.cell {
@@ -1236,7 +1247,7 @@ body#pid-matrix .cell::nth-of-type(1) .matrix_cart_button {
 
 body.page-node .field-name-field-kategoria {
   width: 94%;
-  height: 35px;
+  height: 50px;
   font-family: "Lato";
   font-weight: 400;
   font-size: 14px;
@@ -1246,14 +1257,14 @@ body.page-node .field-name-field-kategoria {
   z-index: 50;
   left: 35px;
   background-image: url('http://jokosar.hu/sites/all/themes/diszkont/images/dotted-line.svg');
-  background-position: 0px 31px;
+  background-position: 0px 42px;
   background-repeat: repeat-x;
   }
 
  body.page-node .field-name-field-kategoria a { 
   font-family: "Lato";
   font-weight: 400;
-  font-size: 14px;
+  font-size: 15px;
   color: #535353;
   text-decoration: none;
   } 
@@ -1487,10 +1498,11 @@ div.table-row:nth-of-type(2) {
 }
 
 .matrix_val {
-width: 20px;
+width: 26px;
 height: auto;
 font-size: 14px;
 border: 0;
+margin-right: -2px;
 }
 
 body#pid-matrix-cart .shop-block.matrix_cart {
@@ -1730,14 +1742,30 @@ div.content.cell a {
   width:25px;
 }
 
+body#pid-osszes-akcio .views input.inline-amount.cell {
+  margin-left: 1px;
+  margin-top: -1px;
+}
+
 body.page-node .group-right .inline-amount.cell, body.page-node .group-right .amount.cell {
-  margin-top: 1px;
+  margin-top: -1px;
   margin-bottom: -1px;
+  margin-left: 1px;
 }
 
 body#pid-matrix-cart .inline-amount.cell, body#pid-matrix-cart .amount.cell {
-  width:18px !important;
+  width:28px !important;
+  margin-right: -6px;
 }
+
+.view-id-similar input.inline-amount.cell {
+  margin-left: -1px;
+}
+
+body.page-search-products .view input.inline-amount.cell {
+  margin-left: -1px;
+}
+
 
 #discount-cart .inline-amount.cell, #discount-cart .inline-weight.cell {
   float: left;
@@ -1745,9 +1773,10 @@ body#pid-matrix-cart .inline-amount.cell, body#pid-matrix-cart .amount.cell {
 }
 
 #discount-cart .amount.cell {
-  margin-left:-5px;
+  margin-left: -8px;
+  margin-right: 2px;
   margin-top: 0.5px;
-  margin-bottom: -2.5px;
+  margin-bottom: -3px;
   height: 18px !important;
 }
 
@@ -1777,7 +1806,7 @@ body#pid-matrix-cart .amount.cell {
 
 body#pid-matrix-cart .weight.cell {
  font-size: 12px !important;
-  margin-left: -3px !important;
+  margin-left: -2px !important;
   width: 18px !important;
   max-width: 40px !important;
   margin-top: -3px !important;
@@ -1837,13 +1866,13 @@ body#pid-osszes-akcio span.cart-sum-weight, body#pid-osszes-akcio span.cart-sum-
 
 body#pid-osszes-akcio .totals-row label, body.page-taxonomy-term- .totals-row label, body.page-node .totals-row label, body.page-search-products .totals-row label {
    width: 100%;
-  height: 20px;
+  height: 25px;
   font-family: "Lato";
   font-weight: 700;
   font-size: 12px;
   color: #262735;
    background-image: url('http://jokosar.hu/sites/all/themes/diszkont/images/dotted-line.svg');
-   background-position: 0px 17px;
+   background-position: 0px 22px;
    background-repeat: repeat-x;
    float: left;
    margin-top: 20px;
@@ -2136,7 +2165,7 @@ min-height:10px;
 body#pid-osszes-akcio #discount-cart .cart-minus, body#pid-osszes-akcio #discount-cart .cart-inline-minus {
   float: left;
   font-size: 16px;
-  margin-top: 5px
+  margin-top: 6px
 }
 
 body#pid-osszes-akcio #discount-cart .inline-amount {
@@ -2155,7 +2184,7 @@ body#pid-matrix .summary-row {
   font-size: 14px;
   color: #343434;
   max-height: 66px;
-  width: 91.6%;
+  background: transparent;
 }
 
 body#pid-matrix .cell {
@@ -2170,7 +2199,7 @@ body#pid-matrix .cell {
 body#pid-matrix input.matrix_val_change {
 margin-right: 2px;
 font-size: 16px;
-margin-top: 6px;
+margin-top: 8px;
 }
 
 body#pid-matrix input.matrix_val_change[value="+"] {
@@ -2425,13 +2454,13 @@ div.pane-matrix-matrix .cart-row {
 
 .shop-header h2 {
 width: auto;
-height: 18px;
+height: 25px;
 font-family: 'Lato';
 font-weight: 700;
 font-size: 16px;
 color: #262735;
 background-image: url('http://jokosar.hu/sites/all/themes/diszkont/images/dotted-line.svg');
-background-position: 0 16px;
+background-position: 0 22px;
 background-repeat: repeat-x;
 margin-top: 0px;
 margin-bottom: 0px;
@@ -2454,6 +2483,7 @@ aside.col-sm-3 {
 section#block-matrix-matrix {
   background: white;
   max-width: 220px;
+  min-width: 220px;
   overflow: hidden;
   float: right;
   padding:10px 0px 10px 20px;
@@ -2468,7 +2498,7 @@ margin-top: 30px;
 }
 
 body.page-node .region-sidebar-second {
-margin-top: 25px;
+margin-top: 60px;
 }
 
 body.not-front .col-sm-12 {
@@ -2518,13 +2548,20 @@ margin-top: -45px;
 
 } 
 .pane-matrix-matrix h2, h2.block-title  {
-  height: 15px;
 	font-family: 'Lato';
 	font-weight: 700;
 	font-size: 12px;
 	letter-spacing: 1.4px;
 	color: #343434;
 	text-transform: uppercase;
+}
+
+.pane-matrix-matrix h2 {
+  height: 25px;
+}
+
+h2.block-title  {
+height: 15px;
 }
 
 body#pid-koszonjuk section#block-matrix-matrix h2  {

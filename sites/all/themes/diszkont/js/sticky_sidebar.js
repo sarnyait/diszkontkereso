@@ -17,32 +17,4 @@ $(function () {
 	sticky_relocate();
 });
 }
-
-$(".summary-row").css('position', 'fixed')
-
-var windw = this;
-
-$.fn.followTo = function(pos) {
-	var $this = this,
-			$window = $(windw);
-
-	$window.scroll(function(e) {
-		if ($window.scrollTop() > pos) {
-			topPos = pos + $($this).height();
-			$this.css({
-				position: 'absolute',
-				top: topPos
-			});
-		} else {
-			$this.css({
-				position: 'fixed',
-				top: 775 //set your value
-			});
-		}
-	});
-};
-
-var height = $("body").height() - $("#skip-link").height() ;
-$('.summary-row').followTo(height);
-$('.summary-row').scrollTo($('#tableBody').offset().top);
 })(jQuery);
