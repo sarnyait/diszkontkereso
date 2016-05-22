@@ -579,3 +579,32 @@ function matrix_inlist_counter_widget($pid = null) {
 
   print theme('matrix_plus_minus', $vars);
 }
+
+/**
+ * Implements hook_views_api().
+ *
+ * Enabling using templates inside module
+ */
+/*function matrix_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'matrix'),
+    'template path' => drupal_get_path('module', 'matrix') . '/templates',
+  );
+}
+
+
+function matrix_preprocess_views_view(&$vars) {
+  $cart_list_items = explode(',', $_COOKIE['diszkont']);
+  $rows = $vars['rows'];
+  foreach ($cart_list_items as $item) {
+    $parts = explode('|', $item);
+    $selected_products[] = $parts[1];
+  }
+
+    if (in_array($vars['row']->nid, $selected_products)) {
+      $vars['classes_array'][] = 'product-on-list';
+
+    }
+
+}*/

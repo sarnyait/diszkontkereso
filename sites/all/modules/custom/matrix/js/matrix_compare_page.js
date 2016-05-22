@@ -7,6 +7,23 @@
         var modal = $('[data-remodal-id=modal]').remodal();
         var modal2 = $('[data-remodal-id=modalSameShop]').remodal();
       }
+
+      productsOnList = new Array();
+      cartItems = $.cookie('diszkont').split(',');
+      cartItems.forEach(function(i) {
+        parts = i.split('|');
+        productsOnList.push(parts[1]);
+      })
+
+      $('.add-to-cart').each(function() {
+        pid = $(this).data('product');
+        for (var i in productsOnList) {
+          if (productsOnList[i] == pid) {
+            $(this).closest('.views-row').addClass('heyy!').css('background', 'orange');
+          }
+        }
+
+      })
       
       rows = $('.starter_cell').length;
 
