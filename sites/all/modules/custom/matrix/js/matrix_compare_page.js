@@ -271,7 +271,9 @@
         $(document).on("click", ".cart-delete", function () {
           sid = $(this).attr('data-shop');
           $(this).closest('.item').remove();
-          cartModify('remove', $(this).closest('.cart-row').attr('data-product'), sid);
+          pid = $(this).closest('.cart-row').data('product');
+          $('.add-to-cart[data-product="' + pid + '"]').closest('.views-row').removeClass('product-on-list').css('background', 'none');
+          cartModify('remove', pid , sid);
           updateShopSums(sid);
         })
 
