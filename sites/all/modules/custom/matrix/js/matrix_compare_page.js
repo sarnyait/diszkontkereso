@@ -19,7 +19,7 @@
         pid = $(this).data('product');
         for (var i in productsOnList) {
           if (productsOnList[i] == pid) {
-            $(this).closest('.views-row').addClass('heyy!').css('background', 'orange');
+            $(this).closest('.views-row').addClass('product-on-list').css('background', 'orange');
           }
         }
 
