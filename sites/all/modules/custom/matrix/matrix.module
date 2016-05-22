@@ -435,7 +435,7 @@ function matrix_render_cart($line_items, $format = '', $block) {
         ($percent < 100 && $percent!== 0) ?  $percent = $percent . '%' : $percent = '';
         $vars = array(
           'amount' => $offered['amount'],
-          'product' => l($offered['title'], 'node/' . $pid),
+          'product' => ($template !== 'matrix_cart_print') ? l($offered['title'], 'node/' . $pid) : $offered['title'],
           'product_short' => (strlen($offered['title']) > 33) ? l(substr($offered['title'], 0, 33) . '...', 'node/' . $pid) : l($offered['title'], 'node/' . $pid),
           'piece' => $offered['amount'],
           'weight' => $offered['amount'] * $weight,
@@ -454,9 +454,12 @@ function matrix_render_cart($line_items, $format = '', $block) {
       }
     }
 
-    if ($template !== 'print') {
+    if ($template !== 'matrix_cart_print') {
       $output .= matrix_get_shop_url($sid);
       $output .= '<input type="button" class="nearest-shop" value="Még több innen: ' . $shop->name . '" onClick="window.open(\'/osszes-akcio?field_aruhaz_tid_selective[0]=' . $shop->tid . '\')">';
+      $output .= '<div class="totals-row"><label class="totals">' . t('Total: ') . '</label><span class="cart-sum-weight" data-shop="' . $sid . '">' . $sumOfWeight . '</span><span class="measurement"> kg</span><span class="cart-sum-price" data-shop="' . $sid . '">' . $sumOfPrice . ' </span><span class="measurement">Ft</span></div>';
+    }
+    else {
       $output .= '<div class="totals-row"><label class="totals">' . t('Total: ') . '</label><span class="cart-sum-weight" data-shop="' . $sid . '">' . $sumOfWeight . '</span><span class="measurement"> kg</span><span class="cart-sum-price" data-shop="' . $sid . '">' . $sumOfPrice . ' </span><span class="measurement">Ft</span></div>';
     }
 
@@ -505,11 +508,17 @@ function matrix_page_alter(&$page) {
 
 }
 
+function matrix_css_alter(&$css) {
+  $a = 1;
+  unset($css['sites/all/themes/diszkont/css/styles.css']);
+}
+
 /**
  * Implements hook_form_alter().
  */
 function matrix_form_alter(&$form, &$form_state, $form_id) {
   drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_mail.css');
+  drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_pdf.css');
 
 
   if ($form_id == 'print_mail_form') {

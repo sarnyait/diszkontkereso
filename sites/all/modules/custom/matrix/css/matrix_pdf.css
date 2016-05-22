@@ -1,0 +1,51 @@
+.field-item {
+    background: red;
+
+}
+
+td {
+    text-align: right;
+}
+
+td.content {
+  width: 200px !important;
+}
+
+td.amount {
+    width: 40px !important;
+}
+
+td.markup {
+    width: 40px !important;
+}
+
+td.price, td.weight {
+    width: 100px !important;
+}
+
+td.content {
+    width: 200px !important;
+}
+
+.totals-row {
+    margin-left: 216px;
+}
+
+.cart-sum-weight {
+    width: 100px;
+    text-align: right;
+    margin-left: 72px;
+}
+
+.cart-sum-price {
+    width: 100px;
+    text-align: right;
+    margin-left: 72px;
+}
+
+.measurement {
+    width: 40px;
+    text-align: right;
+    display: inline-block;
+}
+

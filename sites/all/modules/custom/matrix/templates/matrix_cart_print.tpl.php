@@ -1,19 +1,20 @@
 <div id="summary">
-  <div>
-
-    <div class="content cell"><?php print $product; ?></div>
-
-
-    <div class="amount cell"><?php print $amount; ?></div>
-
-    <div class="markup cell">db</div>
-    <div class="weight cell"><?php print $weight; ?></div>
-    <div class="markup cell">kg</div>
-
-    <div class="weight cell"><?php print $price; ?></div>
-    <div class="markup cell">Ft</div>
+  <table>
+    <tr>
+      <td class="content cell"><?php print $product; ?></td>
 
 
-    <div style="clear:both"></div>
-  </div>
+      <td class="amount cell"><?php print $amount; ?></td>
+
+      <td class="markup cell">db</td>
+      <td class="weight cell"><?php print $weight; ?></td>
+      <td class="markup cell">kg</td>
+
+      <td class="price cell"><?php print $price; ?></td>
+      <td class="markup cell">Ft</td>
+
+
+      <div style="clear:both"></div>
+    </tr>
+  </table>
 </div>

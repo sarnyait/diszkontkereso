@@ -13,16 +13,16 @@
         $(this).closest('.views-row').addClass('product-on-list').css('background', 'orange');
         console.log('after' + reCart);
         $.cookie('diszkont', reCart, {path: '/'});
-          $.post('/matrix_cart_ajax',
-            {
-              order: $.cookie('diszkont')
-            },
-            function (data) {
-              $('#discount-cart').html(data).effect('shake', 'up');
-              $('#discount-cart .cart-row[data-product="' + pid + '"] .image').show().delay(1000).slideToggle();
-            });
+        $.post('/matrix_cart_ajax',
+          {
+            order: $.cookie('diszkont')
+          },
+          function (data) {
+            $('#discount-cart').html(data).effect('shake', 'up');
+            $('#discount-cart .cart-row[data-product="' + pid + '"] .image').show().delay(1000).slideToggle();
+          });
 
-       }).css('cursor', 'pointer');
+      }).css('cursor', 'pointer');
 
 
       $('.inlist-counter-widget', context).on("click", ".inline-piece-selector .label", function(e) {
