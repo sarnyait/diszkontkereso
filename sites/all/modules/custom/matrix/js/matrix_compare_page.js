@@ -67,6 +67,10 @@
         })
 
         $('.matrix_val').keyup(function() {
+          pid = $(this).data('category');
+          if ($(this).val() == 0) {
+            $('.check[data-name="' + pid + '"]').trigger('click');
+          }
           updateSumValues();
         })
       }
@@ -308,10 +312,16 @@
           }
         })
 
-        $(document).on("keyup", "input.amount", function() {
+        $(document).on("keyup", "input.amount", function(e) {
           pid = $(this).attr('data-product');
           sid = $(this).attr('data-shop');
-          cartModify('manual', pid, sid);
+          if (e.keyCode == 192) {
+            $(this).closest('.item').remove();
+            cartModify('remove', pid, sid);
+          }
+          else {
+            cartModify('manual', pid, sid);
+          }
           updateProductSums(pid, 3);
           updateShopSums(sid);
         })
