@@ -180,6 +180,72 @@ body {
   background-repeat: repeat-x;
 }
 
+input.element-remove {
+  display: none !important;
+}
+
+body#pid-matrix .matrix_cart_button {
+  font-size: 14px;
+  width: 75px;
+  height: 25px;
+  top:-24px;
+}
+
+body.page-search #discount-cart .amount-change + .no-width input.cart-delete {
+  top: -55px;
+}
+
+body#pid-matrix-cart .amount.element-remove + .weight + .no-width {
+position: relative;
+top: -13px;
+left: 35px;
+}
+
+div.plus-minus input {
+  border:none;
+  float:left;
+  display: inline-block;
+}
+
+body.page-node .inline-amount.cell.element-remove + .inline-weight.cell + .no-width {
+ margin: 5px 0 0 8px;
+}
+
+body.page-search-products .view .inline-amount.cell.element-remove + .inline-weight.cell + .no-width {
+  position: relative;
+  left:27px;
+}
+
+body.page-search-products .view .amount-change {
+  position: relative;
+  left: 100px;
+  top:15px;
+}
+
+body.page-search-products div.markup.cell.inline-piece-selector {
+position: relative;
+left: -65px;
+}
+
+
+body.page-search-products .amount.cell.element-remove + .weight.cell {
+  margin-left: 15px;
+  margin-top: -17px;
+  margin-bottom: -5px;
+}
+
+body.page-search-products .view .amount {
+  margin-top: -15px;
+}
+
+body.page-search-products .matrix_cart_block .amount-change + div.cell.no-width {
+  top: -35px;
+}
+
+body.page-node .matrix_cart_block .amount.element-remove + .weight + div.cell.no-width {
+  top: -4px;
+  position: relative;
+}
 
 body#pid-matrix-cart span.cart-sum-weight {
 width: 40px; 
@@ -210,7 +276,7 @@ color: #ec4c43;
 }
 
 body#pid-osszes-akcio .inline-amount.cell.element-remove + div.inline-weight.cell + div.no-width input.cart-inline-plus {
-margin-top: -41px;
+margin-top: -8px;
 margin-left: 31px;
 }
 
@@ -228,19 +294,27 @@ body.page-search-products .element-remove {
 }
 
 body.page-search-products .view input.cart-inline-minus {
-margin-top: 0px;
+margin-top: 9px;
     margin-left: -5px;
 }
 
 body.page-search-products .matrix_cart_block .cart-plus {
-margin-left:25px;
+margin-left:30px;
+}
+
+body.page-search-products .matrix_cart_block .cart-minus {
+  margin-top: 8px;
 }
 
 body.page-search-products .amount {
-  margin-top: -18px;
-  margin-left: 19px;
+  margin-top: -12px !important;
+  margin-left: 19px !important;
   position: relative;
-  z-index: 50;
+  z-index: 15;
+}
+
+body.page-search-products .amount.cell {
+  margin-left: 15px !important;
 }
 
 
@@ -249,7 +323,7 @@ body.page-search-products  div.price.cell + div.markup.cell {
 }
 
 body.page-search-products .matrix_cart_block .cart-plus {
-  margin-top: -43.51px;
+  margin-top: -11.51px;
   position:relative;
   z-index:50;
   font-size: 16px;
@@ -310,7 +384,13 @@ ol.breadcrumb a {
 }
 
 body.page-node input.cart-inline-minus {
-  margin-top: -5px;
+  margin-top: 7px;
+}
+
+body.page-node .view input.cart-inline-minus {
+  margin-top: 6px;
+  margin-left: -2px;
+  margin-right: 2px
 }
 
 #block-views-similar-block .plus-minus {
@@ -363,14 +443,14 @@ margin-left: 34px;
 }
 
 body#pid-matrix-cart .no-width input.cart-plus {
-margin-top: -3.8px;
+margin-top: 4px;
 font-size: 16px;
 font-weight: 700;
 padding-left: 4px;
 color: #3d3d3d;
 min-width: 15px;
 min-height: 12px;
-margin-left: 4px;
+margin-left: 10px;
 }
 
 body#pid-matrix-cart .no-width input.cart-minus {
@@ -381,8 +461,9 @@ font-weight: 700;
 }
 
 body.page-node #discount-cart div.weight.cell {
-margin-left: 15px;
-margin-top: -20px;
+margin-left: 13.5px;
+margin-top: -15px;
+margin-bottom: 2px;
 }
 
 
@@ -428,8 +509,12 @@ margin-top: -48px;
 margin-left: 25px
 }
 
+body.page-node .view input.cart-inline-plus {
+  margin-top: -11.5px;
+}
+
 body.page-node #block-system-main input.cart-inline-plus {
-margin-top: -48px;
+margin-top: -10px;
 margin-left: 25px;
 min-width: 15px;
 min-height: 12px;
@@ -461,14 +546,14 @@ margin-top: -5px
 }
 
 .view input.cart-inline-plus {
-  margin-top: -48px;
+  margin-top: -11px;
   margin-left: 28px;
   min-height: 12px;
 min-width: 16px;
 }
 
 body#pid-osszes-akcio .view input.cart-inline-plus {
-margin-top:-50.5px;
+margin-top:-10.5px;
 font-size: 16px;
 }
 
@@ -478,14 +563,14 @@ font-size: 16px;
 
 body#pid-osszes-akcio .view input.cart-inline-minus {
 font-size: 16px;
-margin-top: -7px;
-margin-left: -5px;
+margin-top: 5px;
+margin-left: 1px;
 }
 
 body.page-taxonomy-term- .view input.cart-inline-minus {
 font-size: 16px;
-margin-top: -7px;
-margin-left: -5px;
+margin-top: 5px;
+margin-left: 0px;
 }
 
 .matrix_cart_block input.cart-minus {
@@ -494,12 +579,12 @@ margin-left: -5px;
 }
 
 body.page-taxonomy-term- .matrix_cart_block input.cart-minus {
-  margin-top: -10px;
+  margin-top: 5px;
 }    
 
 .matrix_cart_block .cart-plus {
   vertical-align: middle;
-margin-top: -52px;
+margin-top: -11px;
 margin-left: 30px;
 min-width: 15px;
 min-height: 12px;
@@ -507,7 +592,7 @@ min-height: 12px;
 
 body.page-node .matrix_cart_block .cart-plus {
 vertical-align: middle;
-margin-top: -45px;
+margin-top: -11.5px;
 margin-left: 30px;
 position: relative;
 z-index: 50;
@@ -569,7 +654,7 @@ text-align: center: !important
 
 body#pid-matrix-cart input.cart-minus {
 vertical-align: middle;
-margin-top: -6px;
+margin-top: 5px;
 font-size: 16px;
 }
 
@@ -666,7 +751,7 @@ body#pid-matrix-cart .piece-selector span.label{
 margin-left: 60px;
 margin-top: -25px;
 position: relative;
-z-index: 500;
+z-index: 10;
 }
 
 .piece-selector span.label{
@@ -771,9 +856,16 @@ body.page-search-products div.inline-amount.cell, body.page-search-products div.
     margin-left: 6px;
 }
 
+body.page-search-products .view div.inline-weight.cell {
+  margin-left: 1px;
+  margin-bottom: -30px;
+}
+
+
+
 body.page-search-products .view input.cart-inline-plus {
-    margin-top: 7px;
-    margin-left: -9px;
+    margin-top: 6.5px;
+    margin-left: -3px;
     float: left;
     min-width: 16px;
 }
@@ -808,7 +900,7 @@ a.remodal-none {
 
 body.page-taxonomy-term- #discount-cart div.weight.cell {
   margin-left: 20px;
-  margin-top: -23px;;
+  margin-top: -16px;
 }
 
 
@@ -901,7 +993,7 @@ body.page-search-products .matrix_cart_block span.cart-sum-price {
 
 
 body.page-search-products  .matrix_cart_block .amount-change {
- margin-top: -205px;
+ margin-top: 50px;
   margin-left: -10px;
 }
 
@@ -1144,7 +1236,7 @@ body.page-node .field-name-field-kategoria {
 }
 
 body.page-node section#block-matrix-matrix.block.block-matrix.contextual-links-region.clearfix {
-max-width:180px;
+max-width:220px;
 overflow:hidden;
 word-wrap: break-word;
 word-break: break-all;
@@ -1314,6 +1406,8 @@ border: solid 1px #343434;
 overflow: hidden;
 padding: 0 5px;
 background: white;
+position: relative;
+z-index: 50;
 }
 
 
@@ -1594,8 +1688,25 @@ div.content.cell a {
   width:18px !important;
 }
 
-#discount-cart .inline-amount.cell, #discount-cart .amount.cell {
+#discount-cart .inline-amount.cell, #discount-cart .inline-weight.cell {
   float: left;
+  margin-left: 5px;
+}
+
+#discount-cart .amount.cell {
+  margin-left:-5px;
+  margin-top: 0.5px;
+  margin-bottom: -2.5px;
+  height: 18px !important;
+}
+
+body#pid-matrix-cart #discount-cart .amount.cell {
+  margin-top: -2px;
+}
+
+body.page-node .matrix_cart_block input.cart-minus {
+  margin-top: 8px;
+  margin-left: -3px;
 }
 
 body#pid-matrix-cart .amount.cell, body#pid-matrix-cart .markup.cell, body#pid-matrix-cart .weight.cell {
@@ -1615,7 +1726,7 @@ body#pid-matrix-cart .amount.cell {
 
 body#pid-matrix-cart .weight.cell {
  font-size: 12px !important;
-  margin-left: 0px !important;
+  margin-left: -3px !important;
   width: 18px !important;
   max-width: 40px !important;
   margin-top: -3px !important;
@@ -1675,13 +1786,13 @@ body#pid-osszes-akcio span.cart-sum-weight, body#pid-osszes-akcio span.cart-sum-
 
 body#pid-osszes-akcio .totals-row label, body.page-taxonomy-term- .totals-row label, body.page-node .totals-row label, body.page-search-products .totals-row label {
    width: 100%;
-  height: 15px;
+  height: 20px;
   font-family: "Lato";
   font-weight: 700;
   font-size: 12px;
   color: #262735;
    background-image: url('http://jokosar.hu/sites/all/themes/diszkont/images/dotted-line.svg');
-   background-position: 0px 12px;
+   background-position: 0px 17px;
    background-repeat: repeat-x;
    float: left;
    margin-top: 20px;
@@ -1727,7 +1838,7 @@ body#pid-matrix-cart .plus-minus {
 
 body#pid-matrix-cart .totals-row {
   float: right;
-  margin-right: 14.99%;
+  margin-right: 11.99%;
 }
 
 body#pid-matrix-cart .totals {
@@ -1849,10 +1960,11 @@ line-height: 1;
 
 .exposed_filter_data {
   background-image: url('http://jokosar.hu/sites/all/themes/diszkont/images/dotted-line.svg');
-  background-position: 0px 18px;
+  background-position: 0px 30px;
   background-repeat: repeat-x;
   margin: 0 10px;
   border: 0px;
+  height: 35px !important;
 }
 
 .page-header h1 {
@@ -2007,6 +2119,7 @@ body#pid-matrix .cell {
 body#pid-matrix input.matrix_val_change {
 margin-right: 2px;
 font-size: 16px;
+margin-top: 6px;
 }
 
 body#pid-matrix input.matrix_val_change[value="+"] {
@@ -2014,6 +2127,8 @@ margin-right: -2px;
 max-width: 16px;
 vertical-align: middle;
 min-height: 13px;
+margin-top: 5px;
+margin-left: -4.5px;
 }
 
 
@@ -2330,12 +2445,15 @@ padding-top:25px;
 }
 
 .view-taxonomy-page .view-content {
-padding-top:25px;
-margin-right: 45px;
-margin-top: 25px;
+margin-top: -25px;
+}
+
+.view-taxonomy-page .view-header {
 background-image: url('http://jokosar.hu/sites/all/themes/diszkont/images/dotted-line.svg');
-background-position: 0px 0px;
+background-position: 0px 55px;
 background-repeat: repeat-x;
+height: 60px !important;
+margin-top: -45px;
 }
 
 
@@ -3878,7 +3996,7 @@ select#edit-sort-bef-combine-szuresek, select#edit-mefibs-form-rendezes-sort-by 
 }
 
 body.page-taxonomy-term- select#edit-sort-bef-combine-szuresek, body.page-taxonomy-term- select#edit-mefibs-form-rendezes-sort-by {
-    top: 35px;
+    top: -10px;
     right: 60px;
     background: url('http://jokosar.hu/sites/all/themes/diszkont/images/szures.svg') no-repeat;
     background-position: 100% 15px;
@@ -3965,8 +4083,12 @@ a#soros {
  background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/2wCEAAICAgICAgMCAgMFAwMDBQYFBQUFBggGBgYGBggKCAgICAgICgoKCgoKCgoMDAwMDAwODg4ODg8PDw8PDw8PDw8BAgICBAQEBwQEBxALCQsQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEP/AABEIADgANwMBIgACEQEDEQH/xABzAAEAAwEBAQAAAAAAAAAAAAAABAcIBgMFEAAABAQFAgQFAwUAAAAAAAABAgMSAAQFEQYHEyFBIjEIGFGUU1aB0uEWVZMUIzKRwQEBAQEAAAAAAAAAAAAAAAAAAAIBEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAMAwEAAhEDEQA/ANJ50Z0Y3nsb1Ci0WoTNDp1DmVpVBCVWMmYpkzCRQxlCCBjPMAjuNgDYPUaeLmNmCRjMT1Quldlp1cGu7269r8wzFKzMHE5GaTapOgy7m2XPtfm3rHNSNOqFUW/pqbLKzaoAJmJEE5rB3GxQEbQHSlzGzBIxmJ6oXSuy06uDXd7de1+YFzGzBIxmJ6oXSuy06uDXd7de1+Yhfo3F/wCyTvt1Pth+jcX/ALJO+3U+2AmlzGzBIxmJ6oXSuy06uDXd7de1+YEzGzCTYzE9ULpXZadXBt+9uva/MQv0bi/9knfbqfbHPrIrSyp5eYIZJVMRKYpgEpiiHcBAdwGA3N4Ys28TVqqrYPxLPHmkpWXPMSs2t/cVluoAOUeVAO4A6hES9w2hFWeFJTRzNUW1dBkisOq1zLmIF283u3634hGqimcxSszBxORmk2qToMu5tlz7X5t6xLy9x5jTANXWqOCFRTm5lIUlCglrOTuBv8bCOwgG8RMxSszBxORmk2qToMu5tlz7X5t6xOy7zGxNlrV16thfSGYmURROCyQKgJLgbYB3Abh3CMSt/wAyPiE+Ib2H4h5kfEJ8Q3sPxHt5r83/AIMl7OHmvzf+DJezgPHzI+IT4hvYfiM9YjrlXxJXZ2u19QVajOqmOuYSgQX9hBoAFrdrRovzX5v/AAZL2cZ2xJX6limvT2IauJRnJ9UVVWEAhXD6FDYIC/PCkpo5mqLaugyRWHVa5lzEC7eb3b9b8Qh4UlNHM1RbV0GSKw6rXMuYgXbze7frfiEFRTOYpWZg4nIzSbVJ0GXc2y59r829YnZdZjVPLSrr1mlSMnPKTCIoiWcS1CgAiBrl3AQHb/UQcxSszBxORmk2qToMu5tlz7X5t6x9HLbMA2XVZWrBaNJVrWRFHTnSPKS4gLijwO1h27QSuTza4x+XqJ7Yfuh5tcY/L1E9sP3RK81CnyFQ/wCL8Q81CnyFQ/4vxARfNrjH5eonth+6M6Ylr0ziivT2IZtFGXWn1RVMnLk00iibgpeAjSvmoU+QqH/F+IzXiauDiWvz9eGTQkBnlTK6EsViKbuCh6f9gL78KSmjmaotq6DJFYdVrmXMQLt5vdv1vxCHhSU0czVFtXQZIrDqtcy5iBdvN7t+t+IQVEfOnJbG1IxtWKpSqPMT1Onpg8yAyxDTAojMGE7DsARCwjYB7CFt73AKhNlzmCR78MVQulZ95JcGu7X6Nr8QhBmBsucwSPfhiqF0rPvJLg13a/RtfiBsucwSPfhiqF0rPvJLg13a/RtfiEIGBsucwSPfhiqF0rPvJLg13a/RtfiBsucwiPfhiqF07PvJLg13a/RtfiEIGNceGPKvFeGa5O40xLLKUYiKGgmC5LLEFYQF5kh6rCANABC+97BYLoQipGyP/9k=');
  background-repeat: no-repeat;
  margin-left: 5px;
- margin-top: -11px;
+ margin-top: -10px;
  background-size:contain;
+}
+
+body.page-taxonomy-term a#soros {
+margin-top: -11px;
 }
 
 a#racsos {
