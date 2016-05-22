@@ -295,7 +295,7 @@ function matrix_compare_page() {
         $product_title = '-';
         $sumPrice[$top] += 0;
         $sumWeight[$top] += 0;
-        $product_view = '<img width="180" src="http://www.menshealth.com/sites/menshealth.com/files/styles/slideshow-desktop/public/images/slideshow2/hunger%20roar.jpg">No_content';
+        $product_view = '<img width="180" src="' . drupal_get_path('module', 'matrix') . '/images/no_image.png' .'">';
 
       }
       $best = ($i == 1) ? 'best' : '';
@@ -401,8 +401,28 @@ function matrix_render_cart($line_items, $format = '', $block) {
   }
   foreach ($line_items as $sid => $line_item) {
     $shop = taxonomy_term_load($sid);
+
+
     $output .=  '<div class="shop-block ' . $template . ' shop-block-' . $sid . '">';
-    $output .= '<div class="shop-header shop-header-' . $sid . '" data-shop="' . $sid . '"><h2>' . $shop->name . '</h2></div>';
+    $output .= '<div class="shop-header shop-header-' . $sid . '" data-shop="' . $sid . '"><h2>';
+    if ($template !== 'matrix_cart_print') {
+      $output .= $shop->name;
+    }
+    else {
+      $shopwrapper = entity_metadata_wrapper('taxonomy_term', $shop);
+      $img_exist = $shopwrapper->field_logo->value();
+      if ($img_exist) {
+        $img_uri = $shopwrapper->field_logo->file->value()->uri;
+        $output  .= theme('image_style', array('path' => $img_uri, 'style_name' => 'thumbnail'));
+      }
+      else {
+        $output .= $shop->name;
+      }
+    }
+    $output .= '</h2>';
+    $output .= '</div>';
+
+
     if ($template !== 'matrix_cart_print') {
       $output .= '<div class="delete-shop" data-shop="' . $sid . '">X</div>';
     }
