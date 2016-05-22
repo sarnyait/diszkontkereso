@@ -1,5 +1,5 @@
 .field-item {
-    background: red;
+
 
 }
 
@@ -26,34 +26,24 @@ td.content {
 }
 
 
-td.markup {
+td.markup, td.measurement {
     width: 5% !important;
 }
 
-td.price, td.weight, td.amount {
+td.price, td.weight, td.amount, td.cart-sum-weight, td.cart-sum-price {
     width: 15% !important;
 }
 
 
-.totals-row {
-    margin-left: 53%;
+
+
+
+
+
+header h2 {
+    display: none;
 }
 
-.cart-sum-weight {
-    width: 100px;
-    text-align: right;
-    margin-left: 27%;
+td.totals {
+    width: 60%;
 }
-
-.cart-sum-price {
-    width: 100px;
-    text-align: right;
-    margin-left: 27%;
-}
-
-.measurement {
-    width: 40px;
-    text-align: right;
-    display: inline-block;
-}
-

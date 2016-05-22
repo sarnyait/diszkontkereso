@@ -185,7 +185,7 @@
             reCart[parts[1]] = parts[0];
           }
           else {
-            reCart[parts[1]]++;
+            reCart[parts[1]] = parseInt(reCart[parts[1]]) + parseInt(parts[0]);
           }
         })
         newList = [];
@@ -295,7 +295,7 @@
         $(document).on("click", ".cart-minus", function () {
           pid = $(this).attr('data-product');
           sid = $(this).attr('data-shop');
-          amount = $('#summary .amount[data-product="' + pid + '"]').html();
+          amount = $('#summary .amount[data-product="' + pid + '"]').val();
           if (amount == 1) {
             $(this).closest('.item').remove();
             cartModify('remove', pid, sid);
