@@ -518,7 +518,7 @@ function matrix_css_alter(&$css) {
  */
 function matrix_form_alter(&$form, &$form_state, $form_id) {
   drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_mail.css');
-  drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_pdf.css');
+  //drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_pdf.css');
 
 
   if ($form_id == 'print_mail_form') {

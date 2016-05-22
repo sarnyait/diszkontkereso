@@ -3,44 +3,52 @@
 
 }
 
+table {
+    width: 100%;
+    padding: 20px;
+}
+
 td {
     text-align: right;
 }
+tr {
+  border-bottom: 1px solid #ccc;
+  height: 40px;
+}
+
+tr:last-item {
+    border-bottom: 1px dotted #ccc;
+}
 
 td.content {
-  width: 200px !important;
+  width: 40% !important;
+    text-align: left;
 }
 
-td.amount {
-    width: 40px !important;
-}
 
 td.markup {
-    width: 40px !important;
+    width: 5% !important;
 }
 
-td.price, td.weight {
-    width: 100px !important;
+td.price, td.weight, td.amount {
+    width: 15% !important;
 }
 
-td.content {
-    width: 200px !important;
-}
 
 .totals-row {
-    margin-left: 216px;
+    margin-left: 53%;
 }
 
 .cart-sum-weight {
     width: 100px;
     text-align: right;
-    margin-left: 72px;
+    margin-left: 27%;
 }
 
 .cart-sum-price {
     width: 100px;
     text-align: right;
-    margin-left: 72px;
+    margin-left: 27%;
 }
 
 .measurement {
