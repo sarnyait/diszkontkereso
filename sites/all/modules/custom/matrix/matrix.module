@@ -403,7 +403,7 @@ function matrix_render_cart($line_items, $format = '', $block) {
     $shop = taxonomy_term_load($sid);
     $output .=  '<div class="shop-block ' . $template . ' shop-block-' . $sid . '">';
     $output .= '<div class="shop-header shop-header-' . $sid . '" data-shop="' . $sid . '"><h2>' . $shop->name . '</h2></div>';
-    if ($template !== 'print') {
+    if ($template !== 'matrix_cart_print') {
       $output .= '<div class="delete-shop" data-shop="' . $sid . '">X</div>';
     }
     $output .=  '<div style="clear:both;>"></div>';

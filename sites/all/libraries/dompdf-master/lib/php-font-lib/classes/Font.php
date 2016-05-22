@@ -6,83 +6,69 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace FontLib;
-
-use FontLib\Exception\FontNotFoundException;
-
 /**
  * Generic font file.
- *
+ * 
  * @package php-font-lib
  */
 class Font {
   static $debug = false;
-
+  
   /**
    * @param string $file The font file
-   *
-   * @return TrueType\File|null $file
+   * @return Font_TrueType|null $file
    */
   public static function load($file) {
-      if(!file_exists($file)){
-          throw new FontNotFoundException($file);
-      }
-
     $header = file_get_contents($file, false, null, null, 4);
-    $class  = null;
-
-    switch ($header) {
-      case "\x00\x01\x00\x00":
-      case "true":
-      case "typ1":
-        $class = "TrueType\\File";
-        break;
-
+    $class = null;
+    
+    switch($header) {
+      case "\x00\x01\x00\x00": 
+      case "true": 
+      case "typ1": 
+        $class = "Font_TrueType"; break;
+      
       case "OTTO":
-        $class = "OpenType\\File";
-        break;
-
+        $class = "Font_OpenType"; break;
+      
       case "wOFF":
-        $class = "WOFF\\File";
-        break;
-
+        $class = "Font_WOFF"; break;
+        
       case "ttcf":
-        $class = "TrueType\\Collection";
-        break;
-
+        $class = "Font_TrueType_Collection"; break;
+        
       // Unknown type or EOT
-      default:
+      default: 
         $magicNumber = file_get_contents($file, false, null, 34, 2);
-
+        
         if ($magicNumber === "LP") {
-          $class = "EOT\\File";
+          $class = "Font_EOT";
         }
     }
-
+    
     if ($class) {
-      $class = "FontLib\\$class";
+      /** @noinspection PhpIncludeInspection */
+      require_once dirname(__FILE__)."/$class.php";
 
-      /** @var TrueType\File $obj */
+      /** @var Font_TrueType $obj */
       $obj = new $class;
       $obj->load($file);
-
+      
       return $obj;
     }
 
     return null;
   }
-
+  
   static function d($str) {
-    if (!self::$debug) {
-      return;
-    }
+    if (!self::$debug) return;
     echo "$str\n";
   }
-
+  
   static function UTF16ToUTF8($str) {
     return mb_convert_encoding($str, "utf-8", "utf-16");
   }
-
+  
   static function UTF8ToUTF16($str) {
     return mb_convert_encoding($str, "utf-16", "utf-8");
   }
