@@ -9,21 +9,24 @@
       }
 
       productsOnList = new Array();
-      cartItems = $.cookie('diszkont').split(',');
-      cartItems.forEach(function(i) {
-        parts = i.split('|');
-        productsOnList.push(parts[1]);
-      })
+      if ($.cookie('diszkont') !== null) {
+        cartItems = $.cookie('diszkont').split(',');
+        cartItems.forEach(function (i) {
+          parts = i.split('|');
+          productsOnList.push(parts[1]);
+        })
 
-      $('.add-to-cart').each(function() {
-        pid = $(this).data('product');
-        for (var i in productsOnList) {
-          if (productsOnList[i] == pid) {
-            $(this).closest('.views-row').addClass('product-on-list').css('background', 'orange');
+
+        $('.add-to-cart').each(function () {
+          pid = $(this).data('product');
+          for (var i in productsOnList) {
+            if (productsOnList[i] == pid) {
+              $(this).closest('.views-row').addClass('product-on-list').css('background', 'orange');
+            }
           }
-        }
 
-      })
+        })
+      }
       
       rows = $('.starter_cell').length;
 
