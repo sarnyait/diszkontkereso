@@ -19,17 +19,18 @@ var IASCallbacks=function(){return this.list=[],this.fireStack=[],this.isFiring=
     attach: function (context, settings) {
       function test() {
       
-      var container = document.querySelector('.view-content');
+      var container = document.querySelector('.view-osszes-akcio .view-content');
       var msnry = new Masonry( container, {
         // options
         itemSelector: '.masonry-item',
         animate: true,
-        column: 220,
-        gutter: 25
+        columnWidth: 220,
+        gutter: 25,
+		
       });
       
       var ias = $.ias({
-        container:  ".view-content",
+        container:  ".view-osszes-akcio .view-content",
         item:       ".masonry-item",
         pagination: "ul.pagination",
         next:       "li.next a"
@@ -41,6 +42,8 @@ var IASCallbacks=function(){return this.list=[],this.fireStack=[],this.isFiring=
       
       ias.on('rendered', function(items) {
         msnry.appended(items);
+        msnry.reloadItems();
+        msnry.layout();
       });
         
       }
