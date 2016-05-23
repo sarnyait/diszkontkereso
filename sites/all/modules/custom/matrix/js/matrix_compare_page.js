@@ -203,12 +203,7 @@
 
 
       if ($('.check').length) {
-        $('.check:not(:checked)').each(function() {
-          pid = $(this).attr('data-name');
-          $(this).closest('.starter_cell').removeClass('active');
-          $(this).closest('.table-row').addClass('faded');
-          $(this).closest('.starter_cell').find('.plus-minus').css('visibility', 'hidden');
-        })
+        
 
         $('.check').on("click", function () {
           pid = $(this).attr('data-name');
