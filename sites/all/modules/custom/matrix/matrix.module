@@ -60,12 +60,13 @@ function matrix_block_info() {
 }
 
 function matrix_block_view($delta = '') {
+  drupal_add_js(drupal_get_path('module', 'matrix') . '/js/matrix_compare_page.js');
   $block = array();
 
   switch ($delta) {
     case 'matrix':
       $block['subject'] = t('Shopping list');
-      $block['content'] = matrix_cart_page(TRUE) . '<input type="button" value="Ugrás a listaoldalra" onClick="self.location=\'/matrix_cart\';">';
+      $block['content'] = matrix_cart_page(TRUE);
       break;
   }
   return $block;
@@ -374,6 +375,9 @@ function matrix_cart_page($block = FALSE) {
   drupal_add_js(drupal_get_path('module', 'matrix') . '/js/remodal/remodal.js');
   drupal_add_js(drupal_get_path('module', 'matrix') . '/js/matrix_compare_page.js');
   drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_compare_page.css');
+  if ($_POST['block'] == 1) {
+    $block = TRUE;
+  }
 
   $line_items = matrix_cookie_to_items();
   $output = '';
@@ -385,8 +389,16 @@ function matrix_cart_page($block = FALSE) {
   $output .= matrix_render_cart($line_items, 'matrix_cart', $block);
   $output .= '</div>';
 
+  if ($block) {
+    $output .= '<input type="button" value="Ugrás a listaoldalra" onClick="self.location=\'/matrix_cart\';">';
+  }
 
-  return $output;
+  if ($_POST['block'] == 1) {
+    print $output;
+  }
+  else {
+    return $output;
+  }
 }
 
 function matrix_cart_page_ajax() {
@@ -516,6 +528,10 @@ function matrix_save_order() {
 
 function matrix_page_alter(&$page) {
   drupal_add_library('system', 'jquery.cookie');
+  drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_mail.css');
+  if ($_GET['test'] == 1) {
+    drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_pdf.css');
+  }
   if (!isset($_COOKIE['Drupal_visitor_diszkont_uid'])) {
     user_cookie_save(array('diszkont_uid' => uniqid()));
   }
@@ -543,10 +559,7 @@ function matrix_css_alter(&$css) {
  * Implements hook_form_alter().
  */
 function matrix_form_alter(&$form, &$form_state, $form_id) {
-  drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_mail.css');
-  if ($_GET['test'] == 1) {
-    drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_pdf.css');
-  }
+
 
   if ($form_id == 'print_mail_form') {
     $form['txt_message']['#default_value'] = t('Sent from diszkontkereso.hu');
@@ -555,7 +568,7 @@ function matrix_form_alter(&$form, &$form_state, $form_id) {
     $form['fld_from_addr']['#value'] = 'info@diszkonkereso.hu';
     $form['fld_from_name']['#value'] = 'info@diszkonkereso.hu';
     $form['fld_subject']['#value'] = 'You can view your order on this link';
-
+    dpm($form);
 
   }
 }

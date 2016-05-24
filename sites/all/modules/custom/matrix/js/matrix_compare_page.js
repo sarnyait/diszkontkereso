@@ -34,6 +34,16 @@
       
       rows = $('.starter_cell').length;
 
+      /*if ($('#cart_block_placeholder').length) {
+        $.post('/matrix_cart',
+          {
+            block: 1,
+          },
+          function (data) {
+            $('#cart_block_placeholder').html(data  + 'ooo');
+          })
+      }
+*/
       $('.views-field-field-ar').each(function() {
           if ($('.field-content', this).html() == '') {
             $(this).parent().find('.akciosar').css('color', '#535353');
