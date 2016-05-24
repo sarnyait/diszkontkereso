@@ -387,11 +387,12 @@ function matrix_cart_page($block = FALSE) {
   $output .= '<input type="button" id="delete-order" value="X">';
   $output .= '<div id="discount-cart">';
   $output .= matrix_render_cart($line_items, 'matrix_cart', $block);
-  $output .= '</div>';
+
 
   if ($block) {
     $output .= '<input type="button" value="Ugrás a listaoldalra" onClick="self.location=\'/matrix_cart\';">';
   }
+  $output .= '</div>';
 
   if ($_POST['block'] == 1) {
     print $output;
