@@ -1,7 +1,7 @@
-.form-item-fld-from-addr,
-.form-item-fld-from-name,
-.form-item-fld-subject,
-.form-type-item,
-.form-item-txt-message {
+.page-printmail- .form-item-fld-from-addr,
+.page-printmail- .form-item-fld-from-name,
+.page-printmail- .form-item-fld-subject,
+.page-printmail- .form-type-item,
+.page-printmail- .form-item-txt-message {
     display: none;
 }
