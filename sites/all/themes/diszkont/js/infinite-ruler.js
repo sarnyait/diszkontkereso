@@ -25,8 +25,7 @@ var IASCallbacks=function(){return this.list=[],this.fireStack=[],this.isFiring=
         itemSelector: '.masonry-item',
         animate: true,
         columnWidth: 220,
-        gutter: 25,
-		
+        gutter: 25
       });
       
       var ias = $.ias({
@@ -38,14 +37,16 @@ var IASCallbacks=function(){return this.list=[],this.fireStack=[],this.isFiring=
       
       ias.on('render', function(items) {
         $(items).css({ opacity: 0 });
-      });
+      }); 
       
       ias.on('rendered', function(items) {
         msnry.appended(items);
         msnry.reloadItems();
         msnry.layout();
       });
-        
+	  
+	  ias.extension(new IASSpinnerExtension());
+      
       }
 
       test();
