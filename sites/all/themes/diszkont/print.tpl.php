@@ -74,7 +74,7 @@
   <head>
     <?php print $head; ?>
     <base href='<?php print $url ?>' />
-    <title><?php print $print_title; ?></title>
+    <title><?php print 'Jókosár.hu'; ?></title>
     <?php print $scripts; ?>
     <?php if (isset($sendtoprinter)) print $sendtoprinter; ?>
     <?php print $robots_meta; ?>

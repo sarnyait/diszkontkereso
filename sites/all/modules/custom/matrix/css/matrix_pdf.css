@@ -9,8 +9,14 @@ table {
 }
 
 td {
-    text-align: right;
+    text-align: right !important;
+    padding: 10px !important;
 }
+
+.shop-header {
+    padding: 10px !important;
+}
+
 tr {
   border-bottom: 1px solid #ccc;
   height: 40px;
@@ -42,6 +48,15 @@ td.price, td.weight, td.amount, td.cart-sum-weight, td.cart-sum-price {
 
 header h2 {
     display: none;
+}
+
+.print-logo {
+    padding: 10px;
+}
+
+.print-logo img {
+    margin: 0 auto;
+
 }
 
 td.totals {

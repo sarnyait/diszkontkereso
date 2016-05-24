@@ -403,8 +403,7 @@
             order: $.cookie('diszkont')
           },
           function(data) {
-            //window.location.href = 'print/' + data;
-            $.post('/print/' + data);
+            window.location.href = 'print/' + data;
           })
       });
 
