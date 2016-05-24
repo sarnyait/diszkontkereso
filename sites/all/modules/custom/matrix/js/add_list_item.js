@@ -3,26 +3,30 @@
   Drupal.behaviors.matrixBaseXxx = {
     attach: function (context, settings) {
 
-      $('.inlist-counter-widget', context).on('click', '.add-to-cart', function() {
-        pid = $(this).data('product');
-        console.log('before' + $.cookie('diszkont'));
-        cart = ($.cookie('diszkont') == null) ? new Array() : $.cookie('diszkont').split(',');
-        amount = $('.inline-amount[data-product="' + pid + '"]').val();
-        cart.push(amount + '|' + pid);
-        reCart = cart.join(',');
-        $(this).closest('.views-row').addClass('product-on-list').css('background', 'orange');
-        console.log('after' + reCart);
-        $.cookie('diszkont', reCart, {path: '/'});
-        $.post('/matrix_cart_ajax',
-          {
-            order: $.cookie('diszkont')
-          },
-          function (data) {
-            $('#discount-cart').html(data).effect('shake', 'up');
-            $('#discount-cart .cart-row[data-product="' + pid + '"] .image').show().delay(1000).slideToggle();
-          });
+      //$('#block-system-main', context).on('click', '.add-to-cart', function() {
+      $('.add-to-cart').once('cart', function() {
 
-      }).css('cursor', 'pointer');
+        $(this).click(function () {
+          pid = $(this).data('product');
+          console.log('before' + $.cookie('diszkont'));
+          cart = ($.cookie('diszkont') == null) ? new Array() : $.cookie('diszkont').split(',');
+          amount = $('.inline-amount[data-product="' + pid + '"]').val();
+          cart.push(amount + '|' + pid);
+          reCart = cart.join(',');
+          $(this).closest('.views-row').addClass('product-on-list').css('background', 'orange');
+          console.log('after' + reCart);
+          $.cookie('diszkont', reCart, {path: '/'});
+          $.post('/matrix_cart_ajax',
+            {
+              order: $.cookie('diszkont')
+            },
+            function (data) {
+              $('#discount-cart').html(data).effect('shake', 'up');
+              $('#discount-cart .cart-row[data-product="' + pid + '"] .image').show().delay(1000).slideToggle();
+            });
+
+        }).css('cursor', 'pointer');
+      });
 
 
       $('.inlist-counter-widget', context).on("click", ".inline-piece-selector .label", function(e) {
@@ -47,24 +51,30 @@
       })
 
 
-      $(document).on('click', '.cart-inline-plus', function() {
-        pid = $(this).data('product');
-        amount = parseInt($('.inline-amount[data-product="' + pid + '"]').val()) + 1;
-        weight = $('.inline-amount[data-product="' + pid + '"]').data('weight');
-        $('.inline-amount[data-product="' + pid + '"]').val(amount);
-        $('.inline-weight[data-product="' + pid + '"]').html(parseInt(amount * weight * 100) / 100);
-
-      })
-
-      $(document).on('click', '.cart-inline-minus', function() {
-        pid = $(this).data('product');
-        amount = parseInt($('.inline-amount[data-product="' + pid + '"]').val());
-        if (amount > 1) {
-          amount = parseInt($('.inline-amount[data-product="' + pid + '"]').val()) - 1;
+      //$(document).on('click', '.cart-inline-plus', function() {
+      $('.cart-inline-plus').once('cartplus', function() {
+        $(this).click(function () {
+          pid = $(this).data('product');
+          amount = parseInt($('.inline-amount[data-product="' + pid + '"]').val()) + 1;
           weight = $('.inline-amount[data-product="' + pid + '"]').data('weight');
           $('.inline-amount[data-product="' + pid + '"]').val(amount);
           $('.inline-weight[data-product="' + pid + '"]').html(parseInt(amount * weight * 100) / 100);
-        }
+
+        })
+      })
+
+      $('.cart-inline-minus').once('cartminus', function() {
+        $(this).click(function () {
+
+          pid = $(this).data('product');
+          amount = parseInt($('.inline-amount[data-product="' + pid + '"]').val());
+          if (amount > 1) {
+            amount = parseInt($('.inline-amount[data-product="' + pid + '"]').val()) - 1;
+            weight = $('.inline-amount[data-product="' + pid + '"]').data('weight');
+            $('.inline-amount[data-product="' + pid + '"]').val(amount);
+            $('.inline-weight[data-product="' + pid + '"]').html(parseInt(amount * weight * 100) / 100);
+          }
+        })
       })
     }
   }
