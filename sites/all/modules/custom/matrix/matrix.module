@@ -568,7 +568,6 @@ function matrix_form_alter(&$form, &$form_state, $form_id) {
     $form['fld_from_addr']['#value'] = 'info@diszkonkereso.hu';
     $form['fld_from_name']['#value'] = 'info@diszkonkereso.hu';
     $form['fld_subject']['#value'] = 'You can view your order on this link';
-    dpm($form);
 
   }
 }
