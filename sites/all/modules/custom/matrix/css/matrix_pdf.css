@@ -17,12 +17,12 @@ td {
     padding: 10px !important;
 }
 
-tr {
+tr td {
   border-bottom: 1px solid #ccc;
-  height: 40px;
+  height: 0px;
 }
 
-tr:last-item {
+tr:last-child td {
     border-bottom: 1px dotted #ccc;
 }
 
@@ -52,10 +52,14 @@ header h2 {
 
 .print-logo {
     padding: 10px;
+    text-align: center;
 }
+
+
 
 .print-logo img {
     margin: 0 auto;
+    width: 200px;
 
 }
 

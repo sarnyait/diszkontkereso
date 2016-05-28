@@ -390,7 +390,7 @@ function matrix_cart_page($block = FALSE) {
 
 
   if ($block) {
-    $output .= '<input type="button" value="Ugrás a listaoldalra" onClick="self.location=\'/matrix_cart\';">';
+    $output .= '<input type="button" value="' . t('Jump to the cart') . '" onClick="self.location=\'/matrix_cart\';">';
   }
   $output .= '</div>';
 
