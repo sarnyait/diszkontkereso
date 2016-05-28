@@ -348,12 +348,6 @@
           }
           console.log($(this).length);
 
-
-
-
-
-
-
           updateProductSums(pid, 3);
           updateShopSums(sid);
         })
