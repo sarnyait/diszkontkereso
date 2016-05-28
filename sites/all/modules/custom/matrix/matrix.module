@@ -245,8 +245,8 @@ function matrix_compare_page() {
 
 
 
-  $header .= '<h1>' . t('Weekly best cart offer with products on sale') . '</h1>';
-  $header .= '<div id="matrix-header"><div class="cell" id="corner"><div class="checkbox">' . t('Get it') . '</div><div class="pieces">' . t('Pieces') . '</div><div class="category">' . t('Category') . '</div></div>';
+  drupal_set_title(t('Weekly best cart offer with products on sale'));
+  $header = '<div id="matrix-header"><div class="cell" id="corner"><div class="checkbox">' . t('Get it') . '</div><div class="pieces">' . t('Pieces') . '</div><div class="category">' . t('Category') . '</div></div>';
   $header .= '';
   $c = 0;
   foreach ($tops as $top) {
