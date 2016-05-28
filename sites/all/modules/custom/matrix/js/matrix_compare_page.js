@@ -342,6 +342,18 @@
           else {
             cartModify('manual', pid, sid);
           }
+
+          if ($(this).val().length > 2) {
+            $(this).val($(this).val().substr(0,2));
+          }
+          console.log($(this).length);
+
+
+
+
+
+
+
           updateProductSums(pid, 3);
           updateShopSums(sid);
         })
