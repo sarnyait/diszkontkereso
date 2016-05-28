@@ -84,6 +84,9 @@
           if ($(this).val().length > 2) {
             $(this).val($(this).val().substr(0,2));
           }
+          if (parseInt($(this).val()) < 0) {
+            $(this).val(0);
+          }
           console.log($(this).length);
           updateSumValues();
         })
@@ -259,7 +262,6 @@
               if (product == id) {
                 switch (method) {
                   case 'manual': s = $('.amount[data-product="' + id + '"][data-shop="' + sid + '"]').val();
-                    console.log('S' + s);
                     break;
                   case 'plus': s = 1;
                     break;
@@ -346,10 +348,11 @@
           if ($(this).val().length > 2) {
             $(this).val($(this).val().substr(0,2));
           }
-          console.log($(this).length);
 
           updateProductSums(pid, 3);
+
           updateShopSums(sid);
+
         })
       }
 
@@ -369,16 +372,19 @@
 
 
       function updateProductSums(pid, method) {
-        weight = $('.amount[data-product="' + pid + '"]').data('weight') * 1;
-        price = $('.amount[data-product="' + pid + '"]').data('price') * 1;
-        amount = $('.amount[data-product="' + pid + '"]').val() * 1;
-        if ((method == 1 || amount > 0) && method != 3) {
-          amount = amount + method;
+        if ($('.amount[data-product="' + pid + '"]').val() != '') {
+          weight = $('.amount[data-product="' + pid + '"]').data('weight') * 1;
+          price = $('.amount[data-product="' + pid + '"]').data('price') * 1;
+          amount = $('.amount[data-product="' + pid + '"]').val() * 1;
+          console.log('M' + amount);
+          if ((method == 1 || amount > 0) && method != 3) {
+            amount = amount + method;
+          }
+          $('.amount[data-product="' + pid + '"]').val(amount);
+          $('.price[data-product="' + pid + '"]').html(amount * price);
+          $('.weight[data-product="' + pid + '"]').html(parseInt(amount * weight * 100) / 100);
+          //$('.piece[data-product="' + pid + '"]').html(amount);
         }
-        $('.amount[data-product="' + pid + '"]').val(amount);
-        $('.price[data-product="' + pid + '"]').html(amount * price);
-        $('.weight[data-product="' + pid + '"]').html(parseInt(amount * weight * 100) / 100);
-        //$('.piece[data-product="' + pid + '"]').html(amount);
       }
 
       function updateShopSums(sid) {
