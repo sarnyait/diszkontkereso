@@ -24,7 +24,7 @@
 
           for (var i in productsOnList) {
             if (productsOnList[i] == pid) {
-              $(this).closest('.views-row').addClass('product-on-list').css('background', 'orange');
+              $(this).closest('.views-row').addClass('product-on-list');
               console.log('class-added');
             }
           }
@@ -78,9 +78,13 @@
 
         $('.matrix_val').keyup(function() {
           pid = $(this).data('category');
-          if ($(this).val() == 0) {
+          if ($(this).val() === '0') {
             $('.check[data-name="' + pid + '"]').trigger('click');
           }
+          if ($(this).val().length > 2) {
+            $(this).val($(this).val().substr(0,2));
+          }
+          console.log($(this).length);
           updateSumValues();
         })
       }

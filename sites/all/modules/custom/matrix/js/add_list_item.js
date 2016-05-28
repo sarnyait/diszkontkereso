@@ -13,7 +13,7 @@
           amount = $('.inline-amount[data-product="' + pid + '"]').val();
           cart.push(amount + '|' + pid);
           reCart = cart.join(',');
-          $(this).closest('.views-row').addClass('product-on-list').css('background', 'orange');
+          $(this).closest('.views-row').addClass('product-on-list');
           console.log('after' + reCart);
           $.cookie('diszkont', reCart, {path: '/'});
           $.post('/matrix_cart_ajax',
@@ -76,6 +76,15 @@
           }
         })
       })
+      $('.inline-amount').keyup(function() {
+
+        if ($(this).val().length > 2) {
+          $(this).val($(this).val().substr(0,2));
+        }
+        console.log($(this).length);
+
+      })
+
     }
   }
 }(jQuery));
