@@ -246,7 +246,7 @@ function matrix_compare_page() {
 
 
   drupal_set_title(t('Weekly best cart offer with products on sale'));
-  $header = '<div id="matrix-header"><div class="cell" id="corner"><div class="checkbox">' . t('Get it') . '</div><div class="pieces">' . t('Pieces') . '</div><div class="category">' . t('Category') . '</div></div>';
+  $header = '<div id="matrix-header"><div class="cell" id="corner"><div class="checkbox"></div><div class="pieces">' . t('Pieces') . '</div><div class="category">' . t('Category') . '</div></div>';
   $header .= '';
   $c = 0;
   foreach ($tops as $top) {
@@ -312,7 +312,7 @@ function matrix_compare_page() {
   $table .= '<div class="cell" id="corner">' . t('Summary') . '</div>';
   $firstclass = 'first';
   foreach ($tops as $top) {
-    $table .= '<div class="sum-cell sum-price ' . $top . ' ' . $firstclass . '" data-shop="' . $top . '">' . $sumPrice[$top] . ' Ft</div>';
+    $table .= '<div class="sum-cell sum-price ' . $top . ' ' . $firstclass . '" data-shop="' . $top . '">' . number_format($sumPrice[$top], 0, '', ' ') . ' Ft</div>';
     $firstclass = '';
   }
   matrix_add_tr($table);
@@ -457,7 +457,7 @@ function matrix_render_cart($line_items, $format = '', $block) {
         $weight = (int)$weight / 100;
         $price = $product->field_akciosar->value();
         $amount_selector = $product->field_weight_piece_selector->value();
-        $percent = $product->field_szazalek->value();
+        $percent = $product->field_szazalek->value() * -1;
         $img_exist = $pproduct->field_termekfoto->value();
         if ($img_exist) {
           $img_uri = $pproduct->field_termekfoto->file->value()->uri;
@@ -474,7 +474,7 @@ function matrix_render_cart($line_items, $format = '', $block) {
           'product_short' => (strlen($offered['title']) > 33) ? l(substr($offered['title'], 0, 33) . '...', 'node/' . $pid) : l($offered['title'], 'node/' . $pid),
           'piece' => $offered['amount'],
           'weight' => $offered['amount'] * $weight,
-          'price' => $offered['amount'] * $price,
+          'price' => number_format($offered['amount'] * $price, 0, '', ' '),
           'pid' => $pid,
           'shop' => $sid,
           'origweight' => $weight,
@@ -494,10 +494,10 @@ function matrix_render_cart($line_items, $format = '', $block) {
     if ($template !== 'matrix_cart_print') {
       $output .= matrix_get_shop_url($sid);
       $output .= '<input type="button" class="nearest-shop" value="Még több innen: ' . $shop->name . '" onClick="window.open(\'/osszes-akcio?field_aruhaz_tid_selective[0]=' . $shop->tid . '\')">';
-      $output .= '<div class="totals-row"><label class="totals">' . t('Total: ') . '</label><span class="cart-sum-weight" data-shop="' . $sid . '">' . $sumOfWeight . '</span><span class="measurement"> kg</span><span class="cart-sum-price" data-shop="' . $sid . '">' . $sumOfPrice . ' </span><span class="measurement">Ft</span></div>';
+      $output .= '<div class="totals-row"><label class="totals">' . t('Total: ') . '</label><span class="cart-sum-weight" data-shop="' . $sid . '">' . $sumOfWeight . '</span><span class="measurement"> kg</span><span class="cart-sum-price" data-shop="' . $sid . '">' . number_format($sumOfPrice, 0, '', ' ') . ' </span><span class="measurement">Ft</span></div>';
     }
     else {
-      $output .= '<table><tr><td class="totals">' . t('Total: ') . '</td><td class="cart-sum-weight" data-shop="' . $sid . '">' . $sumOfWeight . '</td><td class="measurement"> kg</td><td class="cart-sum-price" data-shop="' . $sid . '">' . $sumOfPrice . ' </td><td class="measurement">Ft</td></tr></table>';
+      $output .= '<table><tr><td class="totals">' . t('Total: ') . '</td><td class="cart-sum-weight" data-shop="' . $sid . '">' . $sumOfWeight . '</td><td class="measurement"> kg</td><td class="cart-sum-price" data-shop="' . $sid . '">' . number_format($sumOfPrice, 0, '', ' ') . ' </td><td class="measurement">Ft</td></tr></table>';
     }
 
     $output .= '</div>';
