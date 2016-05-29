@@ -2,7 +2,7 @@ var $ = jQuery.noConflict();
    (function($){
 
    $(document).ready(function () {
-      $(".views-field-field-szazalek span:contains('000%')").hide();
+      $( "ol.breadcrumb" ).insertBefore( $( ".taxonomy-description" ) );
    });
 
  

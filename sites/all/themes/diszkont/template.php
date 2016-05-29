@@ -1,11 +1,21 @@
 <?php
 
+function diszkont_menu_alter(&$items) {
+  foreach ($items as $url => $item) {
+    if (strpos($url, 'search') === 0) {
+      unset($items[$url]);
+    }
+  }
+}
+
 function diszkont_form_search_block_form_alter(&$form, &$form_state, $form_id) {
     $form['search_block_form']['#size'] = 600;  // define size of the textfield
     // $form['search_block_form']['#default_value'] = t('Pl. Trappista sajt, marhahús'); // Set a default value for the textfield
     $form['actions']['submit']['#value'] = t('Keresés!'); // Change the text on the submit button
     // Alternative (HTML5) placeholder attribute instead of using the javascript
     $form['search_block_form']['#attributes']['placeholder'] = t('Pl. Trappista sajt, marhahús');
+    $form['#action'] = '/search/products/talalat';
+    $form['#submit'] = array('diszkont_search_form_submit');
 } 
 
 
@@ -46,6 +56,10 @@ case 'views_exposed_form':
 	
 }
 
+function diszkont_search_form_submit($form, &$form_state) {
+  $form_state['redirect'] = 'search/products/talalat/'.$form_state['values']['search_block_form'];  
+}
+
  function diszkont_preprocess_html(&$variables) {  
  drupal_add_library('system', 'ui');
  $variables['body_attributes_array'] = array(
@@ -79,8 +93,17 @@ case 'views_exposed_form':
     drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/slider-min.js', array('scope' => 'header', 'weight' => 20));
     drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/pager.js', array('scope' => 'header'));
     drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/infinite-ruler.js', array('weight' => -14) );
+    drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/breadcrumb.js', array('weight' => -10) );
     }
     
+    $path = $_SERVER['REQUEST_URI'];
+    $find = 'search/products';
+    $pos = strpos($path, $find);
+    if ($pos !== false) {
+    drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/slider-min.js', array('scope' => 'header', 'weight' => 20));
+    drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/pager.js', array('scope' => 'header'));
+    drupal_add_js(drupal_get_path('theme', 'diszkont') . '/js/infinite-ruler.js', array('weight' => -14) );
+    }
     
     $path = $_SERVER['REQUEST_URI'];
     $find = '?mode=racsos&masonry=racsos';

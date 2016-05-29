@@ -14,7 +14,7 @@
     <?php
       foreach ($exposed_filters as $filter => $value) {
       if ($value) {
-          print "<div class='filter'><div class='name'>" . $filter . ":</div>";
+          print "<div class='filter'><div class='name'>:" . $filter . "</div>";
 
 /*changing start*/
           $taxname=taxonomy_term_load($value);
