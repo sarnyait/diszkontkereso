@@ -4,9 +4,9 @@
     attach: function (context, settings) {
 
       //$('#block-system-main', context).on('click', '.add-to-cart', function() {
-      $('.view-osszes-akcio', context).on('click', '.add-to-cart', function() {
-        $(this).unbind();
-        $(this).click(function () {
+      $('.view-osszes-akcio', context).on('click', '.add-to-cart', function(event) {
+        //$(this).unbind();
+        //$(this).click(function () {
           pid = $(this).data('product');
           console.log('before' + $.cookie('diszkont'));
           cart = ($.cookie('diszkont') == null) ? new Array() : $.cookie('diszkont').split(',');
@@ -24,52 +24,60 @@
               $('#discount-cart').html(data).effect('shake', 'up');
               $('#discount-cart .cart-row[data-product="' + pid + '"] .image').show().delay(1000).slideToggle();
             });
+        event.preventDefault();
 
-        }).css('cursor', 'pointer');
+        //}).css('cursor', 'pointer');
       });
 
 
-      $('.view-osszes-akcio', context).on("click", ".inline-piece-selector .label", function(e) {
-        e.stopPropagation();
+      $('.view-osszes-akcio', context).on("click", ".inline-piece-selector .label", function(event) {
+        event.stopPropagation();
         $(this).parent().find('.amount-selector-popup').removeClass('element-invisible');
+        event.preventDefault();
       });
 
       $('.view-osszes-akcio', context).on("click", ".amount-in-weight-inline", function() {
         pid = $(this).data('product');
         $('.plus-minus .inline-weight[data-product="' + pid + '"], .inline-weight-unit[data-product="' + pid + '"]').removeClass('element-remove');
         $('.plus-minus .inline-amount[data-product="' + pid + '"], .inline-piece-unit[data-product="' + pid + '"]').addClass('element-remove');
+        event.preventDefault();
+
       })
 
       $('.view-osszes-akcio', context).on("click", ".amount-in-piece-inline", function() {
         pid = $(this).data('product');
         $('.plus-minus .inline-weight[data-product="' + pid + '"], .inline-weight-unit[data-product="' + pid + '"]').addClass('element-remove');
         $('.plus-minus .inline-amount[data-product="' + pid + '"], .inline-piece-unit[data-product="' + pid + '"]').removeClass('element-remove');
+        event.preventDefault();
+
       });
 
       $('body').on("click", function() {
         $('.amount-selector-popup').addClass('element-invisible');
+        event.preventDefault();
+
       })
 
 
       //$(document).on('click', '.cart-inline-plus', function() {
       $('.view-osszes-akcio', context).on('click', '.cart-inline-plus', function() {
         //$('.cart-inline-plus').once('cartplus', function() {
-        $(this).unbind();
+        //$(this).unbind();
 
-        $(this).click(function () {
+        //$(this).click(function () {
           pid = $(this).data('product');
           amount = parseInt($('.inline-amount[data-product="' + pid + '"]').val()) + 1;
           weight = $('.inline-amount[data-product="' + pid + '"]').data('weight');
           $('.inline-amount[data-product="' + pid + '"]').val(amount);
           $('.inline-weight[data-product="' + pid + '"]').html(parseInt(amount * weight * 100) / 100);
-
-        })
+        event.preventDefault();
+        //})
       })
 
       $('.view-osszes-akcio', context).on('click', '.cart-inline-minus', function() {
       //$('.cart-inline-minus').once('cartminus', function() {
-        $(this).click(function () {
-          $(this).unbind();
+       // $(this).click(function () {
+         // $(this).unbind();
 
           pid = $(this).data('product');
           amount = parseInt($('.inline-amount[data-product="' + pid + '"]').val());
@@ -79,7 +87,8 @@
             $('.inline-amount[data-product="' + pid + '"]').val(amount);
             $('.inline-weight[data-product="' + pid + '"]').html(parseInt(amount * weight * 100) / 100);
           }
-        })
+        event.preventDefault();
+        //})
       })
       $('.inline-amount').keyup(function() {
 
