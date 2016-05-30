@@ -33,6 +33,7 @@
       $('.view-osszes-akcio', context).on("click", ".inline-piece-selector .label", function(event) {
         event.stopPropagation();
         $(this).parent().find('.amount-selector-popup').removeClass('element-invisible');
+
         event.preventDefault();
       });
 
@@ -40,6 +41,7 @@
         pid = $(this).data('product');
         $('.plus-minus .inline-weight[data-product="' + pid + '"], .inline-weight-unit[data-product="' + pid + '"]').removeClass('element-remove');
         $('.plus-minus .inline-amount[data-product="' + pid + '"], .inline-piece-unit[data-product="' + pid + '"]').addClass('element-remove');
+
         event.preventDefault();
 
       })
@@ -48,13 +50,14 @@
         pid = $(this).data('product');
         $('.plus-minus .inline-weight[data-product="' + pid + '"], .inline-weight-unit[data-product="' + pid + '"]').addClass('element-remove');
         $('.plus-minus .inline-amount[data-product="' + pid + '"], .inline-piece-unit[data-product="' + pid + '"]').removeClass('element-remove');
+
         event.preventDefault();
 
       });
 
       $('body').on("click", function() {
         $('.amount-selector-popup').addClass('element-invisible');
-        event.preventDefault();
+
 
       })
 
