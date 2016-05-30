@@ -1,3 +1,9 @@
+<div id="cart-popup" class="remodal" data-remodal-id="modal">
+  <div class="modal-message"><?php print $message; ?></div>
+  <a data-remodal-action="close" class="remodal-close"></a>
+  <a data-remodal-action="close" class="remodal-yes" href="#"><?php print $yes; ?></a>
+  <a data-remodal-action="cancel" class="remodal-cancel" href="#"><?php print $no; ?></a>
+</div>
 <div id="summary" class="item item-from-<?php print $shop; ?>" data-pid="<?php print $pid; ?>">
   <div class="cart-row" data-row="row-x" data-product="<?php print $pid; ?>">
     <div class="content cell"><?php print $image; ?></div>

@@ -8,6 +8,10 @@
         var modal2 = $('[data-remodal-id=modalSameShop]').remodal();
       }
 
+      if ($('body').hasClass('page-matrix-cart')) {
+        var modal = $('[data-remodal-id=modal]').remodal();
+      }
+
       productsOnList = new Array();
       if ($.cookie('diszkont') !== null) {
         cartItems = $.cookie('diszkont').split(',');
@@ -434,9 +438,13 @@
       });
 
       $('#delete-order').click(function() {
+        modal.open();
+      });
+
+      $('.remodal-yes').click(function() {
         $.cookie('diszkont', null, {path: '/'});
         $('#discount-cart').hide();
-      })
+      });
 
 
 

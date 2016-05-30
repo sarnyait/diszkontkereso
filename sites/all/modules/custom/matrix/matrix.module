@@ -375,6 +375,8 @@ function matrix_cart_page($block = FALSE) {
   drupal_add_js(drupal_get_path('module', 'matrix') . '/js/remodal/remodal.js');
   drupal_add_js(drupal_get_path('module', 'matrix') . '/js/matrix_compare_page.js');
   drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_compare_page.css');
+  drupal_add_css(drupal_get_path('module', 'matrix') . '/js/remodal/remodal.css');
+  drupal_add_css(drupal_get_path('module', 'matrix') . '/js/remodal/remodal-default-theme.css');
   if ($_POST['block'] == 1) {
     $block = TRUE;
   }
@@ -455,7 +457,7 @@ function matrix_render_cart($line_items, $format = '', $block) {
 
         $weight = $pproduct->field_darabsuly->value() * 100;
         $weight = (int)$weight / 100;
-        $price = $product->field_akciosar->value();
+        $price = $product->field_akciosar->value() * $weight;
         $amount_selector = $product->field_weight_piece_selector->value();
         $percent = $product->field_szazalek->value() * -1;
         $img_exist = $pproduct->field_termekfoto->value();
@@ -482,6 +484,9 @@ function matrix_render_cart($line_items, $format = '', $block) {
           'image' => $img,
           'percent' => $percent,
           'selector' => ($amount_selector==null || $amount_selector == FALSE) ? FALSE : TRUE,
+          'message' => t('Are you sure you want to empty the cart?'),
+          'yes' => t('Yes'),
+          'no' => t('No'),
         );
         $sumOfPrice += $offered['amount'] * $price;
         $sumOfWeight += $offered['amount'] * $weight;
