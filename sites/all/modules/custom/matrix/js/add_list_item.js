@@ -4,8 +4,8 @@
     attach: function (context, settings) {
 
       //$('#block-system-main', context).on('click', '.add-to-cart', function() {
-      $('.add-to-cart').once('cart', function() {
-
+      $('.view-osszes-akcio', context).on('click', '.add-to-cart', function() {
+        $(this).unbind();
         $(this).click(function () {
           pid = $(this).data('product');
           console.log('before' + $.cookie('diszkont'));
@@ -29,18 +29,18 @@
       });
 
 
-      $('.inlist-counter-widget', context).on("click", ".inline-piece-selector .label", function(e) {
+      $('.view-osszes-akcio', context).on("click", ".inline-piece-selector .label", function(e) {
         e.stopPropagation();
         $(this).parent().find('.amount-selector-popup').removeClass('element-invisible');
       });
 
-      $('.inlist-counter-widget', context).on("click", ".amount-in-weight-inline", function() {
+      $('.view-osszes-akcio', context).on("click", ".amount-in-weight-inline", function() {
         pid = $(this).data('product');
         $('.plus-minus .inline-weight[data-product="' + pid + '"], .inline-weight-unit[data-product="' + pid + '"]').removeClass('element-remove');
         $('.plus-minus .inline-amount[data-product="' + pid + '"], .inline-piece-unit[data-product="' + pid + '"]').addClass('element-remove');
       })
 
-      $('.inlist-counter-widget', context).on("click", ".amount-in-piece-inline", function() {
+      $('.view-osszes-akcio', context).on("click", ".amount-in-piece-inline", function() {
         pid = $(this).data('product');
         $('.plus-minus .inline-weight[data-product="' + pid + '"], .inline-weight-unit[data-product="' + pid + '"]').addClass('element-remove');
         $('.plus-minus .inline-amount[data-product="' + pid + '"], .inline-piece-unit[data-product="' + pid + '"]').removeClass('element-remove');
@@ -52,7 +52,10 @@
 
 
       //$(document).on('click', '.cart-inline-plus', function() {
-      $('.cart-inline-plus').once('cartplus', function() {
+      $('.view-osszes-akcio', context).on('click', '.cart-inline-plus', function() {
+        //$('.cart-inline-plus').once('cartplus', function() {
+        $(this).unbind();
+
         $(this).click(function () {
           pid = $(this).data('product');
           amount = parseInt($('.inline-amount[data-product="' + pid + '"]').val()) + 1;
@@ -63,8 +66,10 @@
         })
       })
 
-      $('.cart-inline-minus').once('cartminus', function() {
+      $('.view-osszes-akcio', context).on('click', '.cart-inline-minus', function() {
+      //$('.cart-inline-minus').once('cartminus', function() {
         $(this).click(function () {
+          $(this).unbind();
 
           pid = $(this).data('product');
           amount = parseInt($('.inline-amount[data-product="' + pid + '"]').val());

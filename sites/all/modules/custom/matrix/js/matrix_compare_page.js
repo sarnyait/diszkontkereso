@@ -309,7 +309,7 @@
           sid = $(this).attr('data-shop');
           $(this).closest('.item').remove();
           pid = $(this).closest('.cart-row').data('product');
-          $('.add-to-cart[data-product="' + pid + '"]').closest('.views-row').removeClass('product-on-list').css('background', 'none');
+          $('.add-to-cart[data-product="' + pid + '"]').closest('.views-row').removeClass('product-on-list');
           cartModify('remove', pid , sid);
           updateShopSums(sid);
         })
