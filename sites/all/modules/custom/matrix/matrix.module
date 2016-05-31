@@ -463,7 +463,7 @@ function matrix_render_cart($line_items, $format = '', $block) {
         $img_exist = $pproduct->field_termekfoto->value();
         if ($img_exist) {
           $img_uri = $pproduct->field_termekfoto->file->value()->uri;
-          $img = theme('image_style', array('path' => $img_uri, 'style_name' => 'thumbnail'));
+          $img = theme('image_style', array('path' => $img_uri, 'style_name' => 'bevasarlokosar'));
         }
         else {
           $img = '<img src="/' . drupal_get_path('module', 'matrix') . '/images/no_image.png">';
