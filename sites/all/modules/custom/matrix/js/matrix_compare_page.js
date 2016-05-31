@@ -181,6 +181,25 @@
         });
       }
 
+
+      function formatPrice(p) {
+        p = parseInt(p).toString();
+        console.log(p);
+        newp = '';
+        for (c = 0; c < p.length; c++) {
+          ch = p.substr(p.length - c - 1, 1);
+          newp = ch + newp;
+          if ((c + 1) % 3 == 0) {
+            newp = ' ' + newp;
+          }
+          console.log('CH' + newp);
+
+        }
+        return newp;
+      }
+
+
+
       function addToCart(top, toSend) {
         console.log('before sort cart:' + toSend);
         data = toSend.split(',');
@@ -385,13 +404,14 @@
             amount = amount + method;
           }
           $('.amount[data-product="' + pid + '"]').val(amount);
-          $('.price[data-product="' + pid + '"]').html(amount * price);
+          $('.price[data-product="' + pid + '"]').html(formatPrice(amount * parseInt(price)));
           $('.weight[data-product="' + pid + '"]').html(parseInt(amount * weight * 100) / 100);
           //$('.piece[data-product="' + pid + '"]').html(amount);
         }
       }
 
       function updateShopSums(sid) {
+        console.log('SID' + sid);
         var weight = 0;
         $('.weight[data-shop="' + sid + '"]').each(function() {
           weight += $(this).html() * 1;
@@ -401,9 +421,9 @@
 
         var price = 0;
         $('.price[data-shop="' + sid + '"]').each(function() {
-          price += $(this).html() * 1;
+          price += parseInt($(this).html().replace(' ', ''));
         });
-        $('.cart-sum-price[data-shop="' + sid + '"]').html(price);
+        $('.cart-sum-price[data-shop="' + sid + '"]').html(formatPrice(price));
 
       }
 
@@ -464,7 +484,7 @@
             }
           });
           sumweight = parseInt(sumweight * 10) / 10;
-          $('.sum-price[data-shop="' + shop + '"]').html(sumprice + ' Ft');
+          $('.sum-price[data-shop="' + shop + '"]').html(formatPrice(sumprice) + ' Ft');
           $('.sum-weight[data-shop="' + shop + '"]').html(sumweight + ' Kg');
         });
       }
