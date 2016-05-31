@@ -4,7 +4,7 @@
     attach: function (context, settings) {
 
       //$('#block-system-main', context).on('click', '.add-to-cart', function() {
-      $('.view-osszes-akcio', context).on('click', '.add-to-cart', function(event) {
+      $('.main-container', context).on('click', '.add-to-cart', function(event) {
         //$(this).unbind();
         //$(this).click(function () {
           pid = $(this).data('product');
@@ -30,14 +30,14 @@
       });
 
 
-      $('.view-osszes-akcio', context).on("click", ".inline-piece-selector .label", function(event) {
+      $('.main-container', context).on("click", ".inline-piece-selector .label", function(event) {
         event.stopPropagation();
         $(this).parent().find('.amount-selector-popup').removeClass('element-invisible');
 
         event.preventDefault();
       });
 
-      $('.view-osszes-akcio', context).on("click", ".amount-in-weight-inline", function() {
+      $('.main-container', context).on("click", ".amount-in-weight-inline", function() {
         pid = $(this).data('product');
         $('.plus-minus .inline-weight[data-product="' + pid + '"], .inline-weight-unit[data-product="' + pid + '"]').removeClass('element-remove');
         $('.plus-minus .inline-amount[data-product="' + pid + '"], .inline-piece-unit[data-product="' + pid + '"]').addClass('element-remove');
@@ -46,7 +46,7 @@
 
       })
 
-      $('.view-osszes-akcio', context).on("click", ".amount-in-piece-inline", function() {
+      $('.main-container', context).on("click", ".amount-in-piece-inline", function() {
         pid = $(this).data('product');
         $('.plus-minus .inline-weight[data-product="' + pid + '"], .inline-weight-unit[data-product="' + pid + '"]').addClass('element-remove');
         $('.plus-minus .inline-amount[data-product="' + pid + '"], .inline-piece-unit[data-product="' + pid + '"]').removeClass('element-remove');
@@ -63,7 +63,7 @@
 
 
       //$(document).on('click', '.cart-inline-plus', function() {
-      $('.view-osszes-akcio', context).on('click', '.cart-inline-plus', function() {
+      $('.main-container', context).on('click', '.cart-inline-plus', function() {
         //$('.cart-inline-plus').once('cartplus', function() {
         //$(this).unbind();
 
@@ -77,7 +77,7 @@
         //})
       })
 
-      $('.view-osszes-akcio', context).on('click', '.cart-inline-minus', function() {
+      $('.main-container', context).on('click', '.cart-inline-minus', function() {
       //$('.cart-inline-minus').once('cartminus', function() {
        // $(this).click(function () {
          // $(this).unbind();
