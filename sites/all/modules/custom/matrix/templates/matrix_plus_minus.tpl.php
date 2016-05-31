@@ -2,10 +2,10 @@
   <div class="cell no-width">
     <input type="button" value="-" class="cart-inline-minus" data-product="<?php print $pid; ?>" data-shop="<?php print $shop; ?>">
   </div>
-  <input class="inline-amount cell" type="number" pattern="[0-9]*" data-product="<?php print $pid; ?>" data-price="<?php print $origprice; ?>" data-weight="<?php print $origweight; ?>" value="1">
-  <div class="inline-weight cell element-remove" data-shop="<?php print $shop; ?>" data-product="<?php print $pid; ?>" data-price="<?php print $origprice; ?>" data-weight="<?php print $origweight; ?>"><?php print $origweight; ?></div>
+  <input class="inline-amount cell" type="number" pattern="[0-9]*" data-product="<?php print $pid; ?>" data-price="<?php (isset($origprice)) ? print $origprice : print 0; ?>" data-weight="<?php print $origweight; ?>" value="1">
+  <div class="inline-weight cell element-remove" data-shop="<?php (isset($shop)) ? print $shop : print ''; ?>" data-product="<?php print $pid; ?>" data-price="<?php (isset($origprice)) ? print $origprice : print 0; ?>" data-weight="<?php print $origweight; ?>"><?php print $origweight; ?></div>
   <div class="cell no-width">
-    <input type="button" value="+" class="cart-inline-plus" data-product="<?php print $pid; ?>" data-shop="<?php print $shop; ?>">
+    <input type="button" value="+" class="cart-inline-plus" data-product="<?php print $pid; ?>" data-shop="<?php (isset($shop)) ? print $shop : print ''; ?>">
   </div>
 </div>
 <?php if ($selector) { ?>

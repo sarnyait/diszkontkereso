@@ -165,6 +165,7 @@ function matrix_find_product($category, $shop) {
     ->condition('aj.field_ajanlott_a_heten__value', 1)
     ->condition('k.field_kategoria_tid', $category);
   $result = $query->execute();
+  $rowitem = FALSE;
   foreach ($result as $row) {
     $rowitem = $row->nid;
   }
@@ -198,7 +199,9 @@ function matrix_get_termname($tid) {
 
 function matrix_get_shop_url($tid) {
   $shop = taxonomy_term_load($tid);
-  $url = $shop->field_url[LANGUAGE_NONE][0]['value'];
+  $shopWrapper = entity_metadata_wrapper('taxonomy_term', $shop);
+  //$url = $shop->field_url[LANGUAGE_NONE][0]['value'];
+  $url = $shopWrapper->field_url->value();
   return '<input type="button" value="Bolt webhelye" onClick="window.open(\'' . $url . '\');">';
 }
 
@@ -230,8 +233,18 @@ function matrix_compare_page() {
   foreach ($lefts as $left) {
     foreach ($tops as $top) {
       $pid = matrix_find_product($left, $top);
-      $product = node_load($pid);
-      $sumPrice[$top] += $product->field_akciosar[LANGUAGE_NONE][0]['value'];
+      if (isset($pid)) {
+        $product = node_load($pid);
+        if (isset($sumPrice[$top])) {
+          $sumPrice[$top] += $product->field_akciosar[LANGUAGE_NONE][0]['value'];
+        }
+        else {
+          $sumPrice[$top] = $product->field_akciosar[LANGUAGE_NONE][0]['value'];
+        }
+      }
+      else {
+        $sumPrice[$top] = 0;
+      }
 
     }
   }
@@ -286,11 +299,21 @@ function matrix_compare_page() {
           $weight = $weight[0];
         }
         $price = $product->field_akciosar[LANGUAGE_NONE][0]['value'];
-        $sumPrice[$top] += $price;
+        if (isset($sumPrice[$top])) {
+          $sumPrice[$top] += $price;
+        }
+        else {
+          $sumPrice[$top] = $price;
+        }
 
         $pproduct = node_load($product->field_termek[LANGUAGE_NONE][0]['nid']);
         $weight = $pproduct->field_darabsuly[LANGUAGE_NONE][0]['value'];
-        $sumWeight[$top] += $weight;
+        if (isset($sumWeight[$top])) {
+          $sumWeight[$top] += $weight;
+        }
+        else {
+          $sumWeight[$top] = $weight;
+        }
       }
       else {
         $product_title = '-';
@@ -363,7 +386,12 @@ function matrix_cookie_to_items() {
         'amount' => $amount,
       );
       $line_items[$shop][$offer][$product->nid]['title'] = $product->title;
-      $line_items[$shop][$offer][$product->nid]['amount'] += $amount;
+      if (isset($line_items[$shop][$offer][$product->nid]['amount'])) {
+        $line_items[$shop][$offer][$product->nid]['amount'] += $amount;
+      }
+      else {
+        $line_items[$shop][$offer][$product->nid]['amount'] = $amount;
+      }
     }
   }
 
@@ -377,7 +405,7 @@ function matrix_cart_page($block = FALSE) {
   drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_compare_page.css');
   drupal_add_css(drupal_get_path('module', 'matrix') . '/js/remodal/remodal.css');
   drupal_add_css(drupal_get_path('module', 'matrix') . '/js/remodal/remodal-default-theme.css');
-  if ($_POST['block'] == 1) {
+  if (isset($_POST['block']) && $_POST['block'] == 1) {
     $block = TRUE;
   }
 
@@ -535,9 +563,6 @@ function matrix_save_order() {
 function matrix_page_alter(&$page) {
   drupal_add_library('system', 'jquery.cookie');
   drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_mail.css');
-  if ($_GET['test'] == 1) {
-    drupal_add_css(drupal_get_path('module', 'matrix') . '/css/matrix_pdf.css');
-  }
   if (!isset($_COOKIE['Drupal_visitor_diszkont_uid'])) {
     user_cookie_save(array('diszkont_uid' => uniqid()));
   }
@@ -554,12 +579,7 @@ function matrix_page_alter(&$page) {
 
 }
 
-function matrix_css_alter(&$css) {
-  $a = 1;
-  if ($_GET['test'] == 1) {
-    unset($css['sites/all/themes/diszkont/css/styles.css']);
-  }
-}
+
 
 /**
  * Implements hook_form_alter().
