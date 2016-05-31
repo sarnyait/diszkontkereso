@@ -6,6 +6,7 @@
       if ($('body').hasClass('page-matrix')) {
         var modal = $('[data-remodal-id=modal]').remodal();
         var modal2 = $('[data-remodal-id=modalSameShop]').remodal();
+        $('.summary-row').clone().appendTo('#matrix-header');
       }
 
       if ($('body').hasClass('page-matrix-cart')) {
