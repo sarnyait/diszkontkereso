@@ -354,7 +354,7 @@
         if (!$('body').hasClass('cart-plus')) {
           $(document).on("click", ".cart-plus", function () {
             //$('.cart-plus').once('cartplus', function() {
-            //$(".cart-plus").unbind();
+            $(".cart-plus").unbind();
 
             //$(this).click(function () {
 
