@@ -351,29 +351,31 @@
           updateShopSums(sid);
         })
 
-        $(document).on("click", ".cart-plus", function () {
-        //$('.cart-plus').once('cartplus', function() {
-          $(this).unbind();
+        if (!$('body').hasClass('cart-plus')) {
+          $(document).on("click", ".cart-plus", function () {
+            //$('.cart-plus').once('cartplus', function() {
+            //$(".cart-plus").unbind();
 
-          $(this).click(function () {
+            //$(this).click(function () {
 
             pid = $(this).data('product');
             sid = $(this).data('shop');
             cartModify('plus', pid, sid);
             updateProductSums(pid, 1);
             updateShopSums(sid);
+            $('body').addClass('cart-plus');
 
+//          })
 
           })
-
-        })
+        }
 
         $('#discount-cart').on("click", ".cart-minus", function () {
 
         //$('.cart-plus').once('cartplus', function() {
-          $(this).unbind();
+          $(".cart-minus").unbind();
 
-          $(this).click(function () {
+         // $(this).click(function () {
 
 
 
@@ -392,7 +394,7 @@
           }
 
 
-          })
+         // })
 
         })
 

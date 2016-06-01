@@ -3,7 +3,7 @@
   Drupal.behaviors.matrixBaseXxx = {
     attach: function (context, settings) {
 
-      $('#block-system-main', context).on('click', '.add-to-cart', function() {
+      $('.main-container', context).on('click', '.add-to-cart', function() {
       //$('.main-container', context).on('click', '.add-to-cart', function(event) {
         $(this).unbind();
         $(this).click(function () {
