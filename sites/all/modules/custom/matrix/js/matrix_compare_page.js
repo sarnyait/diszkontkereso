@@ -21,7 +21,12 @@
           function (data) {
             $('#discount-cart').html(data).effect('shake', 'up');
           });
+
       }
+
+        $('#label_handle_edit-field-szazalek-value-selective').html('AKCIÓ MÉRTÉKE ' + parseInt((parseInt($('.ui-slider-handle').css('left')) / 136) * 100) + '%');
+
+
 
       productsOnList = new Array();
       if ($.cookie('diszkont') !== null) {

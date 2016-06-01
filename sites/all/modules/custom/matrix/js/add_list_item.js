@@ -63,7 +63,7 @@
 
 
       //$(document).on('click', '.cart-inline-plus', function() {
-      $('.main-container', context).on('click', '.cart-inline-plus', function() {
+      $('.main-container', context).on('click', '.cart-inline-plus', function(event) {
         //$('.cart-inline-plus').once('cartplus', function() {
         //$(this).unbind();
 
@@ -77,7 +77,7 @@
         //})
       })
 
-      $('.main-container', context).on('click', '.cart-inline-minus', function() {
+      $('.main-container', context).on('click', '.cart-inline-minus', function(event) {
       //$('.cart-inline-minus').once('cartminus', function() {
        // $(this).click(function () {
          // $(this).unbind();
