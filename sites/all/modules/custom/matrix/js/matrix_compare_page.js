@@ -13,13 +13,15 @@
         var modal = $('[data-remodal-id=modal]').remodal();
       }
 
-      if ($('#discount-cart').length && !$('body').hasClass('page-matrix-cart')) {
+
+      if ($('#discount-cart').length && !$('body').hasClass('page-matrix-cart') && !$('body').hasClass('matrix-ajax')) {
         $.post('/matrix_cart_ajax',
           {
             order: $.cookie('diszkont')
           },
           function (data) {
             $('#discount-cart').html(data).effect('shake', 'up');
+            $('body').addClass('matrix-ajax');
           });
 
       }
@@ -349,15 +351,32 @@
           updateShopSums(sid);
         })
 
-        $('#discount-cart').on("click", ".cart-plus", function () {
-          pid = $(this).data('product');
-          sid = $(this).data('shop');
-          cartModify('plus', pid, sid);
-          updateProductSums(pid, 1);
-          updateShopSums(sid);
+        $(document).on("click", ".cart-plus", function () {
+        //$('.cart-plus').once('cartplus', function() {
+          $(this).unbind();
+
+          $(this).click(function () {
+
+            pid = $(this).data('product');
+            sid = $(this).data('shop');
+            cartModify('plus', pid, sid);
+            updateProductSums(pid, 1);
+            updateShopSums(sid);
+
+
+          })
+
         })
 
         $('#discount-cart').on("click", ".cart-minus", function () {
+
+        //$('.cart-plus').once('cartplus', function() {
+          $(this).unbind();
+
+          $(this).click(function () {
+
+
+
           pid = $(this).attr('data-product');
           sid = $(this).attr('data-shop');
           amount = $('#summary .amount[data-product="' + pid + '"]').val();
@@ -371,6 +390,10 @@
             updateProductSums(pid, -1);
             updateShopSums(sid);
           }
+
+
+          })
+
         })
 
         $(document).on("keyup", "input.amount", function(e) {

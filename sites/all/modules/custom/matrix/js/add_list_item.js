@@ -3,10 +3,10 @@
   Drupal.behaviors.matrixBaseXxx = {
     attach: function (context, settings) {
 
-      //$('#block-system-main', context).on('click', '.add-to-cart', function() {
-      $('.main-container', context).on('click', '.add-to-cart', function(event) {
-        //$(this).unbind();
-        //$(this).click(function () {
+      $('#block-system-main', context).on('click', '.add-to-cart', function() {
+      //$('.main-container', context).on('click', '.add-to-cart', function(event) {
+        $(this).unbind();
+        $(this).click(function () {
           pid = $(this).data('product');
           console.log('before' + $.cookie('diszkont'));
           cart = ($.cookie('diszkont') == null) ? new Array() : $.cookie('diszkont').split(',');
@@ -24,7 +24,8 @@
               $('#discount-cart').html(data).effect('shake', 'up');
               $('#discount-cart .cart-row[data-product="' + pid + '"] .image').show().delay(1000).slideToggle();
             });
-        event.preventDefault();
+          event.preventDefault();
+        })
 
         //}).css('cursor', 'pointer');
       });
@@ -63,24 +64,25 @@
 
 
       //$(document).on('click', '.cart-inline-plus', function() {
-      $('.main-container', context).on('click', '.cart-inline-plus', function(event) {
-        //$('.cart-inline-plus').once('cartplus', function() {
-        //$(this).unbind();
+      //$(document, context).on('click', '.cart-inline-plus', function(event) {
+        $('.cart-inline-plus').once('cartplus', function() {
+        $(this).unbind();
 
-        //$(this).click(function () {
+        $(this).click(function () {
           pid = $(this).data('product');
           amount = parseInt($('.inline-amount[data-product="' + pid + '"]').val()) + 1;
           weight = $('.inline-amount[data-product="' + pid + '"]').data('weight');
           $('.inline-amount[data-product="' + pid + '"]').val(amount);
           $('.inline-weight[data-product="' + pid + '"]').html(parseInt(amount * weight * 100) / 100);
         event.preventDefault();
-        //})
+        })
       })
 
-      $('.main-container', context).on('click', '.cart-inline-minus', function(event) {
-      //$('.cart-inline-minus').once('cartminus', function() {
-       // $(this).click(function () {
-         // $(this).unbind();
+      //$('.main-container', context).on('click', '.cart-inline-minus', function(event) {
+      $('.cart-inline-minus').once('cartminus', function() {
+        $(this).unbind();
+
+        $(this).click(function () {
 
           pid = $(this).data('product');
           amount = parseInt($('.inline-amount[data-product="' + pid + '"]').val());
@@ -91,7 +93,7 @@
             $('.inline-weight[data-product="' + pid + '"]').html(parseInt(amount * weight * 100) / 100);
           }
         event.preventDefault();
-        //})
+        })
       })
       $('.inline-amount').keyup(function() {
 
