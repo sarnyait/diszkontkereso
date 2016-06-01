@@ -493,7 +493,8 @@ function matrix_render_cart($line_items, $format = '', $block) {
           $price = $product->field_akciosar->value() * $weight;
         }
         $amount_selector = $product->field_weight_piece_selector->value();
-        $percent = $product->field_szazalek->value() * -1;
+        $percent = $product->field_szazalek->value();
+
         $img_exist = $pproduct->field_termekfoto->value();
         if ($img_exist) {
           $img_uri = $pproduct->field_termekfoto->file->value()->uri;
