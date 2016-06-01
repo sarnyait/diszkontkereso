@@ -13,6 +13,16 @@
         var modal = $('[data-remodal-id=modal]').remodal();
       }
 
+      if ($('#discount-cart').length && !$('body').hasClass('page-matrix-cart')) {
+        $.post('/matrix_cart_ajax',
+          {
+            order: $.cookie('diszkont')
+          },
+          function (data) {
+            $('#discount-cart').html(data).effect('shake', 'up');
+          });
+      }
+
       productsOnList = new Array();
       if ($.cookie('diszkont') !== null) {
         cartItems = $.cookie('diszkont').split(',');
