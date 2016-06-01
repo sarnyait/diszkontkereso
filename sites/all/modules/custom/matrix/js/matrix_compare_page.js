@@ -20,7 +20,7 @@
             order: $.cookie('diszkont')
           },
           function (data) {
-            $('#discount-cart').html(data).effect('shake', 'up');
+            //$('#discount-cart').html(data).effect('shake', 'up');
             $('body').addClass('matrix-ajax');
           });
 
