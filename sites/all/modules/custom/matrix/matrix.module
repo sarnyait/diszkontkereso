@@ -485,7 +485,13 @@ function matrix_render_cart($line_items, $format = '', $block) {
 
         $weight = $pproduct->field_darabsuly->value() * 100;
         $weight = (int)$weight / 100;
-        $price = $product->field_akciosar->value() * $weight;
+        $weight_selector = $product->field_weight_piece_selector->value();
+        if (is_null($weight_selector)) {
+          $price = $product->field_akciosar->value();
+        }
+        else {
+          $price = $product->field_akciosar->value() * $weight;
+        }
         $amount_selector = $product->field_weight_piece_selector->value();
         $percent = $product->field_szazalek->value() * -1;
         $img_exist = $pproduct->field_termekfoto->value();
