@@ -5,8 +5,12 @@ var $ = jQuery.noConflict();
     attach: function(context, settings) {
         
        $(document).ajaxComplete(function () {
-          $(".views-field-field-szazalek span:contains('00%')").hide();
-          $(".views-field-field-szazalek span:contains('0%')").hide();
+          $(".views-field-field-szazalek span:contains('nincs')").hide();
+          $(".views-field-field-szazalek span:contains('NaN')").hide();
+		  $(" .form-type-bef-link a:visited").addClass("active");
+		  var active = $('input.bef-new-value').val();
+		  $("#edit-field-aruhaz-tid-selective-wrapper .form-item-edit-field-aruhaz-tid-selective-" + active + "").addClass("selected"); 
+		  
        }); 
        
        $("span.szazalek").each(function(i, elem){

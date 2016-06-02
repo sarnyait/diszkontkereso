@@ -1,0 +1,33 @@
+<?php
+/**
+ * @file
+ * Installation hooks.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function popup_forms_requirements($phase) {
+  $t = get_t();
+  $result = array(
+    'popup_forms_jquery_postmessage' => array(
+      'title' => 'jQuery Postmessage',
+      'severity' => REQUIREMENT_OK,
+      'value' => $t('jQuery Postmessage plugin found.'),
+    ),
+  );
+  if (function_exists('libraries_get_path')) {
+    $path = libraries_get_path('jquery.postmessage');
+  }
+  else {
+    $path = 'sites/all/libraries/jquery.postmessage';
+  }
+  if (!file_exists("$path/jquery.ba-postmessage.min.js")) {
+    $result['popup_forms_jquery_postmessage']['severity'] = REQUIREMENT_ERROR;
+    $result['popup_forms_jquery_postmessage']['value'] = $t('jQuery Postmessage plugin not found.');
+    $result['popup_forms_jquery_postmessage']['description'] = $t('Could not find jQuery Postmessage plugin.');
+    $result['popup_forms_jquery_postmessage']['description'] .= "\n";
+    $result['popup_forms_jquery_postmessage']['description'] .= $t('<a href="@postmessage_plugin_url">Download it here</a> and place into libraries directory.', array('@postmessage_plugin_url' => url('https://github.com/cowboy/jquery-postmessage', array('absolute' => TRUE))));
+  }
+  return $result;
+}

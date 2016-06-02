@@ -172,12 +172,53 @@
 }
 
 body {
-  font-family: "Lato", sans-serif !important;
+  font-family: "Lato";
   font-size: 75%;   /* also set in acquia_prosper.info: settings[base-font-size] = font-size-12 */
   overflow-x: hidden;
   overflow-y: scroll;
   background-image: url('http://www.jokosar.hu/sites/all/themes/diszkont/images/food.png');
   background-repeat: repeat-x;
+}
+
+body#pid-matrix #matrix-header .cell {
+    height: 0;
+}
+body#pid-matrix #matrix-header .button-cell {
+  height: 1px;
+}
+
+body#pid-matrix #matrix-header .first {
+background-color: rgba(250,221,153,0.20);
+}
+
+body#pid-matrix .compare-page #matrix-header  .sum-cell.sum-price {
+padding-top: 5px;
+padding-left: 140px;
+}
+
+body#pid-matrix #matrix-header .summary-row .cell#corner {
+  font-weight: 400;
+  padding-top: 5px;
+}
+
+body#pid-matrix #matrix-header .matrix_cart_button {
+  top:-35px;
+  line-height: 1;
+}
+
+
+body.logged-in .nav-tabs {
+position: relative;
+z-index: 55;
+}
+
+.form-type-bef-link.selected a {
+font-weight:700 !important;
+}
+
+body.page-taxonomy-term- .view input.cart-inline-plus {
+margin-left: 32px;
+margin-top: -9px;
 }
 
 body.page-search-products- div.content.cell.image, body#pid-osszes-akcio div.content.cell.image, body.taxonomy-term- div.content.cell.image {  
@@ -193,7 +234,7 @@ body.page-node #discount-cart div.price.cell, body.page-node div.price.cell + di
 }
 
 .product-on-list {
-  background: #B6CE13 !important;
+  background: #CCFF99 !important;
 }
 
 #popup-buttons button {
@@ -265,7 +306,7 @@ label.printmail-label {
   font-size: 14px;
 }
 
-body.page-node .region-content{padding-top: 25px;}
+body.page-node .region-content{padding-top: 25px; margin-left: 18px; margin-right: 9px;}
 
 body.page-taxonomy-term div.views-field.views-field-field-ar + div.views-field.views-field-field-olcsobban
 
@@ -277,6 +318,7 @@ body.page-taxonomy-term- .views-field-php div.inline-weight.cell {
   margin-left: 0 !important;
   margin-top: 0 !important;
   margin-bottom: -3px !important;
+  text-align: left;
 }
 
 body#pid-osszes-akcio .views-field-php div.inline-weight.cell {
@@ -386,8 +428,8 @@ display: inline-block;
 
 body#pid-matrix-cart span.cart-sum-price 
 {
-width: 40px; 
-max-width:40px !important;
+width: 90px;
+max-width:100px !important;
 min-width:40px !important;
 display:inline-block;
 }
@@ -433,7 +475,7 @@ margin-left:30px;
 }
 
 body.page-search-products .matrix_cart_block .cart-minus {
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 body.page-search-products .amount {
@@ -444,7 +486,8 @@ body.page-search-products .amount {
 }
 
 body.page-search-products .amount.cell {
-  margin-left: 15px !important;
+  margin-left: 12px !important;
+  text-align: center;
 }
 
 
@@ -777,7 +820,19 @@ div.inline-amount.cell, div.inline-weight.cell {
   font-weight: 400;
 }
 
+body.page-node .group-right div.inline-weight.cell {
+margin-top: 0px !important;
+margin-left: 0px !important;
+text-align: left ! important;
+margin-bottom: -6px !important;
+}
 
+body.page-node .views-field div.inline-weight.cell {
+margin-top: 0px !important;
+margin-left: 15px !important;
+text-align: left ! important;
+margin-bottom: -7px !important;
+}
 
 body.page-node #block-views-similar-block  .inlist-counter-widget {
 float:none;
@@ -1157,7 +1212,7 @@ body.page-search-products #discount-cart div.markup.cell.piece-selector {
 margin-top: -55px;
 }
 
-.remodal-cancel, .remodal-confirm, a.remodal-none {
+.remodal-cancel, .remodal-confirm, a.remodal-none, a.remodal-yes {
 width: auto;
 min-height: 40px;
 height: 40px;
@@ -1178,6 +1233,12 @@ padding: 10px 5px;
 a.remodal-none {
   margin-left: 18%;
 }
+
+body#pid-matrix-cart a.remodal-yes {
+  margin-left: 33%;
+  width: 16%;
+}
+
 
 .views-exposed-widgets {
     margin-bottom: 0;
@@ -1465,7 +1526,7 @@ float: none;
 margin-top: 0px;
 margin-left: 0px;
 clear: both;
-max-height: 15px;
+max-height: 30px;
 }
 
 body.page-search-products #discount-cart .cell.content {
@@ -1873,6 +1934,8 @@ body#pid-matrix-cart .inline-amount.cell, body#pid-matrix-cart .amount.cell {
 
 body.page-search-products .view input.inline-amount.cell {
   margin-left: -1px;
+  margin-top: 1px;
+  text-align: center;
 }
 
 
@@ -2082,7 +2145,8 @@ body.page-node .field-name-field-akciovege {
   line-height: 0.6;
   color: #ec4c43;
   float:right;
-  margin-top:10px
+  margin-top:-45px;
+  margin-right: -50px;
   }
 
 .col-sm-12 {
@@ -2886,6 +2950,8 @@ div.termeksuly {
     height: 35px !important;
     width: 95.7% !important;
     margin: 0 auto !important;
+    max-width: 95.7% !important;
+    min-width: 95.7% !important;
 }
 
 body#pid-matrix .stickynav-active {
@@ -2973,6 +3039,8 @@ text-align: center;
 
 body#pid-koszonjuk div.mc-field-group.input-group ul {
   list-style: none;
+  width: 220px;
+  margin-left: 45px;
 }
 
 body#pid-koszonjuk input[type="radio"] {
@@ -3006,6 +3074,8 @@ body#pid-koszonjuk label {
 body#pid-koszonjuk input#mc-embedded-subscribe.button {
 background: rgb(236, 76, 67);
 color: white;
+font-size: 12px;
+font-weight: 400;
 text-transform: uppercase;
 border: 0px;
 padding: 10px;
@@ -3401,13 +3471,17 @@ body#pid-toboggan-denied .password-strength {
 }
 
 body#pid-toboggan-denied .hybridauth-widget-wrapper ul.hybridauth-widget li {
-  width: 98%;
+  width: 240px;
   background: rgb(40,81,161);
   border-radius: 4px;
 }
 
 body#pid-toboggan-denied .hybridauth-widget-wrapper h3 {
   display: none;
+}
+
+body#pid-toboggan-denied .form-control {
+  
 }
 
 body#pid-toboggan-denied .help-block {
@@ -3725,8 +3799,9 @@ body.page-node div.field.field-name-field-termekfoto img {
 }
 
 body.page-node .field-name-body {
-  padding: 30px 0 0 0;
+  padding: 10px 0 0 0;
   clear:both;
+  border-top: 1px solid rgb(235,235,235);
 }
 
 body.page-node .field-items {
@@ -3789,6 +3864,7 @@ body.page-node  div.field.field-name-field-olcsobban {
 
 body.page-node .field-name-field-akciosar {
  font-size: 24px;
+ font-family:"Lato"; 
   color: rgb(52,52,52);
   margin-top: 0px;
   float: left;
@@ -3811,11 +3887,14 @@ body.page-node div.field.field-name-field-tapertek {
 div.field.field-name-field-egysegar {
   font-size: 16px;
   color: rgb(52,52,52);
+  font-family: "Lato" !important;
 }
 
 body.page-node div.field.field-name-field-egysegar {
   clear: both;
   padding-top: 50px;
+  position: relative;
+  top: -133px;
 }
 
 body.page-node .field-name-field-egysegar .field-items {
@@ -4053,7 +4132,7 @@ margin: 0 auto;
 padding: 0;  
 min-height: 1200px;
 min-width: 1220px;
-max-width: 1462px;
+/* max-width: 1700px; */
 background: #eeeeee;
 }
 
@@ -4062,7 +4141,7 @@ background: #eeeeee;
   padding: 0;
   border: 0;
   min-width: 1220px;
-  max-width: 1462px;
+  /*max-width: 1700px; */
 }
 
 #site-name a:link, #site-name a:visited {
@@ -4526,6 +4605,22 @@ padding-bottom: 80px;
   margin-left:20px;
 }
 
+body.page-search-products .panel-3col .panel-col {
+margin-top: -25px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 1300px){
+@-webkit-viewport{width:device-width}
+@-moz-viewport{width:device-width}
+@-ms-viewport{width:device-width}
+@-o-viewport{width:device-width}
+@viewport{width:device-width}
+
+.panel-3col .panel-col {
+width: 60.5%;
+}
+}
+
 .panel-3col .panel-col-first {
 background: white;
 width: 13%;
@@ -4929,7 +5024,7 @@ a#handle_edit-field-szazalek-value-selective {
   height: 15px;
   color: rgb(236, 76, 67);
   background: rgb(236, 76, 67);
-  border-radius: 5px;
+  border-radius: 15px;
   margin-top: -7px;
   position: absolute;
 }
@@ -4971,7 +5066,7 @@ select#edit-field-szazalek-value-selective {
 
 }
 .ui-slider .ui-slider-tooltip {
-
+display: block;
 }
 .ui-slider .screenReaderContext {
   position: absolute;
@@ -5306,4 +5401,11 @@ body.page-taxonomy-term #szuresek {
     margin-top: -2.4%;
     padding-right: 7%;
 }
+
+.taxonomy-description {
+margin-top: -39px;}
+
+body.page-taxonomy-term ol.breadcrumb {
+margin-top: -39px;}
+
 }
