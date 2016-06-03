@@ -180,6 +180,43 @@ body {
   background-repeat: repeat-x;
 }
 
+body.page-node .col-sm-3 {
+max-width:220px;
+}
+
+body.page-node .col-sm-3:nth-of-type(1) {
+clear: both;
+}
+
+body.page-node .col-sm-6 {
+    min-width: 840px;
+    margin-left: 1px;
+    margin-right: 10px;
+}
+
+body.page-node .region-sidebar-first.well {
+width: 13%;
+min-width: 220px;
+background: white;
+border-radius: 4px;
+margin-top: 50px;
+}
+
+body.page-node #block-nice-taxonomy-menu-ntm-1 h2.block-title {
+font-size: 12px;
+    padding: 10px 10px 10px 0px;
+    display: block !important;
+    margin-bottom: 15px;
+    max-width: 100%;
+    margin-left: 22px;
+    margin-top: 0px;
+    text-transform: uppercase;
+    font-family: "Lato";
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    color: #343434;
+}
+
 body#pid-matrix #matrix-header .cell {
     height: 0;
 }
@@ -1410,7 +1447,7 @@ body#pid-matrix .cell::nth-of-type(1) .matrix_cart_button {
 
 
 body.page-node .field-name-field-kategoria {
-  width: 94%;
+  width: 92.7%;
   height: 42px;
   font-family: "Lato";
   font-weight: 400;
@@ -1918,9 +1955,10 @@ body#pid-osszes-akcio .views input.inline-amount.cell {
 }
 
 body.page-node .group-right .inline-amount.cell, body.page-node .group-right .amount.cell {
-  margin-top: -1px;
-  margin-bottom: -1px;
-  margin-left: 1px;
+      margin-top: 1px;
+    margin-bottom: -2px;
+    margin-left: -1px;
+    text-align: center;
 }
 
 body#pid-matrix-cart .inline-amount.cell, body#pid-matrix-cart .amount.cell {
@@ -2658,7 +2696,7 @@ body#pid-osszes-akcio h1 {
   display: none;
 }
 
-aside.col-sm-3 {
+aside.col-sm-3:nth-of-type(2) {
   background-color: #EEEEEE;
   width: 23%;
   padding-bottom: 120px;
@@ -4132,7 +4170,7 @@ margin: 0 auto;
 padding: 0;  
 min-height: 1200px;
 min-width: 1220px;
-/* max-width: 1700px; */
+max-width: 1700px;
 background: #eeeeee;
 }
 
@@ -4141,7 +4179,7 @@ background: #eeeeee;
   padding: 0;
   border: 0;
   min-width: 1220px;
-  /*max-width: 1700px; */
+  max-width: 1700px;
 }
 
 #site-name a:link, #site-name a:visited {
@@ -4950,7 +4988,7 @@ button#edit-mefibs-form-rendezes-submit-szures.ctools-use-ajax.ctools-auto-submi
 
 #matrix-header.stick {
     position: fixed;
-    top: 40px;
+    top: 35px;
     z-index: 100;
     background: white;
   width:91%;
