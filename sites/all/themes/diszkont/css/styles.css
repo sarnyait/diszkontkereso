@@ -194,6 +194,18 @@ body.page-node .col-sm-6 {
     margin-right: 10px;
 }
 
+@media screen and (min-width: 1400px){
+@-webkit-viewport{width:device-width}
+@-moz-viewport{width:device-width}
+@-ms-viewport{width:device-width}
+@-o-viewport{width:device-width}
+@viewport{width:device-width}
+
+body.page-node .col-sm-6 {
+  width:73%;
+}
+}
+
 body.page-node .region-sidebar-first.well {
 width: 13%;
 min-width: 220px;
@@ -1020,7 +1032,8 @@ text-align: center;
 	letter-spacing: 2px;
 	color: #262735;
 	margin-top: 30px;
-	margin-bottom: 20px
+	margin-bottom: 20px;
+	max-width: 900px;
   
 }
 
@@ -2914,6 +2927,7 @@ body.page-node #block-system-main {
   background: white;
   padding: 20px;
   border-radius: 4px;
+  max-width: 900px;
 }
 
 .exposed_filter_data .content .filter .name {
@@ -4170,7 +4184,7 @@ margin: 0 auto;
 padding: 0;  
 min-height: 1200px;
 min-width: 1220px;
-max-width: 1700px;
+max-width: 1600px;
 background: #eeeeee;
 }
 
@@ -4179,7 +4193,7 @@ background: #eeeeee;
   padding: 0;
   border: 0;
   min-width: 1220px;
-  max-width: 1700px;
+  max-width: 1600px;
 }
 
 #site-name a:link, #site-name a:visited {

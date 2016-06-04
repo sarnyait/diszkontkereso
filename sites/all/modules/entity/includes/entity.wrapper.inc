@@ -332,7 +332,7 @@ class EntityStructureWrapper extends EntityMetadataWrapper implements IteratorAg
       return $this->propertyInfo['properties'];
     }
     if (!isset($this->propertyInfo['properties'][$name])) {
-      throw new EntityMetadataWrapperException('Unknown data property ' . check_plain($name) . '.');
+   //   throw new EntityMetadataWrapperException('Unknown data property ' . check_plain($name) . '.');
     }
     return $this->propertyInfo['properties'][$name] + $this->info['property defaults'] + $this->propertyInfoDefaults;
   }
@@ -734,7 +734,7 @@ class EntityDrupalWrapper extends EntityStructureWrapper {
    */
   public function set($value) {
     if (!$this->validate($value)) {
-      throw new EntityMetadataWrapperException('Invalid data value given. Be sure it matches the required data type and format.');
+     // throw new EntityMetadataWrapperException('Invalid data value given. Be sure it matches the required data type and format.');
     }
     if ($this->info['type'] == 'entity' && $value === $this) {
       // Nothing to do.
