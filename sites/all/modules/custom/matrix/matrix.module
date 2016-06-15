@@ -541,7 +541,7 @@ function matrix_render_cart($line_items, $format = '', $block) {
       $output .= '<div class="totals-row"><label class="totals">' . t('Total: ') . '</label><span class="cart-sum-weight" data-shop="' . $sid . '">' . $sumOfWeight . '</span><span class="measurement"> kg</span><span class="cart-sum-price" data-shop="' . $sid . '">' . number_format($sumOfPrice, 0, '', ' ') . ' </span><span class="measurement">Ft</span></div>';
     }
     else {
-      $output .= '<table><tr><td class="totals">' . t('Total: ') . '</td><td class="cart-sum-weight" data-shop="' . $sid . '">' . $sumOfWeight . '</td><td class="measurement"> kg</td><td class="cart-sum-price" data-shop="' . $sid . '">' . number_format($sumOfPrice, 0, '', ' ') . ' </td><td class="measurement">Ft</td></tr></table>';
+      $output .= '<table style="width: 80%; margin-bottom: 30px;"><tr><td class="totals" style="width: 60%;">' . t('Total: ') . '</td><td class="cart-sum-weight" style="width: 15%; text-align: right;" data-shop="' . $sid . '">' . $sumOfWeight . '</td><td class="measurement" style="width: 5%"> kg</td><td class="cart-sum-price" style="width: 15%; text-align: right;" data-shop="' . $sid . '">' . number_format($sumOfPrice, 0, '', ' ') . ' </td><td class="measurement" style="width: 5%">Ft</td></tr></table>';
     }
 
     $output .= '</div>';
@@ -601,6 +601,8 @@ function matrix_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'print_mail_form') {
     $form['txt_message']['#default_value'] = t('Sent from diszkontkereso.hu');
     $form['txt_to']['addrs']['#title'] = t('Your e-mail');
+    $form['txt_to']['addrs']['#default_value'] = 'vorosborisz@gmail.com';
+
     $form['fld_from_addr']['#default_value'] = 'info@diszkonkereso.hu';
     $form['fld_from_addr']['#value'] = 'info@diszkonkereso.hu';
     $form['fld_from_name']['#value'] = 'info@diszkonkereso.hu';
