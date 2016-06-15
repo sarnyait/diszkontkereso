@@ -601,7 +601,7 @@ function matrix_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'print_mail_form') {
     $form['txt_message']['#default_value'] = t('Sent from diszkontkereso.hu');
     $form['txt_to']['addrs']['#title'] = t('Your e-mail');
-    $form['txt_to']['addrs']['#default_value'] = 'vorosborisz@gmail.com';
+    //$form['txt_to']['addrs']['#default_value'] = 'vorosborisz@gmail.com';
 
     $form['fld_from_addr']['#default_value'] = 'info@diszkonkereso.hu';
     $form['fld_from_addr']['#value'] = 'info@diszkonkereso.hu';
