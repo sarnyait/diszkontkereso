@@ -74,7 +74,7 @@
   <head>
     <?php print $head; ?>
     <base href='<?php print $url ?>' />
-    <title><?php print 'Jókosár.hu'; ?></title>
+    <title><?php print $print_title; ?></title>
     <?php print $scripts; ?>
     <?php if (isset($sendtoprinter)) print $sendtoprinter; ?>
     <?php print $robots_meta; ?>
@@ -85,12 +85,10 @@
   </head>
   <body>
     <?php if (!empty($message)): ?>
-      <div class="print-message"><?php //print $message; ?></div><p />
+      <div class="print-message"><?php print $message; ?></div><p />
     <?php endif; ?>
     <?php if ($print_logo): ?>
-      <div class="print-logo" style="text-align:center;"><?php
-        print $print_logo;
-        ?></div>
+      <div class="print-logo" style="text-align:center;"><?php print $print_logo; ?></div>
     <?php endif; ?>
     <div class="print-site_name"><?php //print theme('print_published'); ?></div>
     <p />
@@ -100,8 +98,10 @@
       <h2 class="print-title"><?php //print $print_title; ?></h2>
     <?php endif; ?>
     <div class="print-content"><?php
-      print $content; ?></div>
-    <div class="print-footer" style="text-align:center;"><?php print 'Footer lorem ipsum'; ?></div>
+      $body = $node->body[LANGUAGE_NONE][0]['value'];
+      print $body;
+      ?></div>
+    <div class="print-footer" style="text-align:center;"><?php print 'Footer l1rem ipsum'; ?></div>
     <hr class="print-hr" />
     <?php if ($sourceurl_enabled): ?>
       <div class="print-source_url">
