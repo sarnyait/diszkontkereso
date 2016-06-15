@@ -1,7 +1,7 @@
 <div id="summary">
   <table>
     <tr>
-      <td class="content cell"><?php print $product; ?></td>
+      <td class="content cell" style="width: 40%;"><?php print $product; ?></td>
 
 
       <td class="amount cell"><?php print $amount; ?></td>

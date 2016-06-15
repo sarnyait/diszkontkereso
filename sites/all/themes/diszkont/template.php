@@ -1,5 +1,12 @@
 <?php
 
+function diszkont_ago($timestamp)
+{
+    $ago = format_interval((time() - $timestamp) , 2) . t(' ago');
+    return $ago;
+}
+
+
 function diszkont_form_search_block_form_alter(&$form, &$form_state, $form_id) {
     $form['search_block_form']['#size'] = 600;  // define size of the textfield
     // $form['search_block_form']['#default_value'] = t('Pl. Trappista sajt, marhahús'); // Set a default value for the textfield

@@ -4,6 +4,7 @@ var $ = jQuery.noConflict();
    $(document).ready(function () {
       $(".views-field-field-szazalek span:contains('nincs')").hide();
 	  $(".views-field-field-szazalek span:contains('NaN')").hide();
+	  $('.field-name-field-termekfoto').each(function(){$(this).after('<div class="separator"></div')})
    });
 
  

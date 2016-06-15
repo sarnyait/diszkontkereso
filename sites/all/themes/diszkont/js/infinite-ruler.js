@@ -25,7 +25,7 @@ var IASCallbacks=function(){return this.list=[],this.fireStack=[],this.isFiring=
         itemSelector: '.masonry-item',
         animate: true,
         columnWidth: 220,
-        gutter: 25
+        gutter: 20
       });
       
       var ias = $.ias({

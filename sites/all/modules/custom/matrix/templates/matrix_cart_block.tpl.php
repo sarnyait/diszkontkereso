@@ -5,7 +5,7 @@
       <div class="cell no-width">
         <input type="button" value="-" class="cart-minus" data-product="<?php print $pid; ?>" data-shop="<?php print $shop; ?>">
       </div>
-      <input type="number" pattern="[0-9]*" class="amount cell" data-shop="<?php print $shop; ?>" data-product="<?php print $pid; ?>" data-price="<?php print $origprice; ?>" data-weight="<?php print $origweight; ?>" value="<?php print $amount; ?>">
+      <input type="number" pattern="[0-9]*"   class="amount cell" data-shop="<?php print $shop; ?>" data-product="<?php print $pid; ?>" data-price="<?php print $origprice; ?>" data-weight="<?php print $origweight; ?>" value="<?php print $amount; ?>">
       <div class="weight cell element-remove" data-shop="<?php print $shop; ?>" data-product="<?php print $pid; ?>" data-price="<?php print $origprice; ?>" data-weight="<?php print $origweight; ?>"><?php print $weight; ?></div>
       <div class="cell no-width">
         <input type="button" value="+" class="cart-plus" data-product="<?php print $pid; ?>" data-shop="<?php print $shop; ?>">

@@ -1222,3 +1222,4 @@ class EntityMetadataArrayObject implements ArrayAccess, Countable, IteratorAggre
     return new ArrayIterator($this->data);
   }
 }
+

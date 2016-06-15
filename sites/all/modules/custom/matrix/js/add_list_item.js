@@ -1,12 +1,9 @@
 (function ($) {
 
-  Drupal.behaviors.matrixBaseXxx = {
+  Drupal.behaviors.matrixAddListItem = {
     attach: function (context, settings) {
 
-      $('.main-container', context).on('click', '.add-to-cart', function() {
-      //$('.main-container', context).on('click', '.add-to-cart', function(event) {
-        $(this).unbind();
-        $(this).click(function () {
+      $('.main-container', context).off('click', '.add-to-cart').on('click', '.add-to-cart', function() {
           pid = $(this).data('product');
           console.log('before' + $.cookie('diszkont'));
           cart = ($.cookie('diszkont') == null) ? new Array() : $.cookie('diszkont').split(',');
@@ -16,18 +13,13 @@
           $(this).closest('.views-row').addClass('product-on-list');
           console.log('after' + reCart);
           $.cookie('diszkont', reCart, {path: '/'});
-          $.post('/matrix_cart_ajax',
-            {
-              order: $.cookie('diszkont')
-            },
-            function (data) {
-              $('#discount-cart').html(data).effect('shake', 'up');
-              $('#discount-cart .cart-row[data-product="' + pid + '"] .image').show().delay(1000).slideToggle();
-            });
-          event.preventDefault();
-        })
-
-        //}).css('cursor', 'pointer');
+          $.post('/matrix_cart_ajax', {
+            order: $.cookie('diszkont')
+          },
+          function (data) {
+            $('#discount-cart').html(data).effect('shake', 'up');
+            $('#discount-cart .cart-row[data-product="' + pid + '"] .image').show().delay(1000).slideToggle();
+          });
       });
 
 
@@ -65,25 +57,17 @@
 
       //$(document).on('click', '.cart-inline-plus', function() {
       //$(document, context).on('click', '.cart-inline-plus', function(event) {
-        $('.cart-inline-plus').once('cartplus', function() {
-        $(this).unbind();
-
-        $(this).click(function () {
-          pid = $(this).data('product');
-          amount = parseInt($('.inline-amount[data-product="' + pid + '"]').val()) + 1;
-          weight = $('.inline-amount[data-product="' + pid + '"]').data('weight');
+      $('.main-container').off('click', '.cart-inline-plus').on('click', '.cart-inline-plus', function() {
+        pid = $(this).data('product');
+        amount = parseInt($('.inline-amount[data-product="' + pid + '"]').val()) + 1;
+        weight = $('.inline-amount[data-product="' + pid + '"]').data('weight');
+        if (amount < 100) {
           $('.inline-amount[data-product="' + pid + '"]').val(amount);
           $('.inline-weight[data-product="' + pid + '"]').html(parseInt(amount * weight * 100) / 100);
-        event.preventDefault();
-        })
-      })
+        }
+      });
 
-      //$('.main-container', context).on('click', '.cart-inline-minus', function(event) {
-      $('.cart-inline-minus').once('cartminus', function() {
-        $(this).unbind();
-
-        $(this).click(function () {
-
+      $('.main-container', context).off('click', '.cart-inline-minus').on('click', '.cart-inline-minus', function(event) {
           pid = $(this).data('product');
           amount = parseInt($('.inline-amount[data-product="' + pid + '"]').val());
           if (amount > 1) {
@@ -92,10 +76,8 @@
             $('.inline-amount[data-product="' + pid + '"]').val(amount);
             $('.inline-weight[data-product="' + pid + '"]').html(parseInt(amount * weight * 100) / 100);
           }
-        event.preventDefault();
-        })
-      })
-      $('.inline-amount').keyup(function() {
+      });
+      $('.main-container', context).off("keyup", ".inline-amount").on('keyup', '.inline-amount', function() {
 
         if ($(this).val().length > 2) {
           $(this).val($(this).val().substr(0,2));
@@ -103,6 +85,14 @@
         console.log($(this).length);
 
       })
+
+      function updateSliderVal() {
+        $('#label_handle_edit-field-szazalek-value-selective').html('AKCIÓ MÉRTÉKE ' + ($("#edit-field-szazalek-value-selective option:selected" ).text()));
+        setTimeout(updateSliderVal, 100);
+      }
+      updateSliderVal();
+
+
 
     }
   }

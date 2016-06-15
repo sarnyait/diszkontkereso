@@ -2,7 +2,6 @@
 
   Drupal.behaviors.matrixBase = {
     attach: function (context, settings) {
-
       if ($('body').hasClass('page-matrix')) {
         var modal = $('[data-remodal-id=modal]').remodal();
         var modal2 = $('[data-remodal-id=modalSameShop]').remodal();
@@ -26,7 +25,8 @@
 
       }
 
-        $('#label_handle_edit-field-szazalek-value-selective').html('AKCIÓ MÉRTÉKE ' + parseInt((parseInt($('.ui-slider-handle').css('left')) / 136) * 100) + '%');
+
+
 
 
 
@@ -92,8 +92,10 @@
             }
           }
           else {
-            v = $(source).val() * 1 + 1;
-            $(source).val(v);
+            if ($(source).val() < 99) {
+              v = $(source).val() * 1 + 1;
+              $(source).val(v);
+            }
           }
           updateSumValues();
         })
@@ -202,7 +204,6 @@
 
       function formatPrice(p) {
         p = parseInt(p).toString();
-        console.log(p);
         newp = '';
         for (c = 0; c < p.length; c++) {
           ch = p.substr(p.length - c - 1, 1);
@@ -349,41 +350,27 @@
           $('.add-to-cart[data-product="' + pid + '"]').closest('.views-row').removeClass('product-on-list');
           cartModify('remove', pid , sid);
           updateShopSums(sid);
-        })
+        });
 
-        if (!$('body').hasClass('cart-plus')) {
-          $(document).on("click", ".cart-plus", function () {
-            //$('.cart-plus').once('cartplus', function() {
-            $(".cart-plus").unbind();
-
-            //$(this).click(function () {
-
-            pid = $(this).data('product');
-            sid = $(this).data('shop');
+        $('#discount-cart').off('click', '.cart-plus').on("click", ".cart-plus", function () {
+          pid = $(this).data('product');
+          sid = $(this).data('shop');
+          amount = $('#summary .amount[data-product="' + pid + '"]').val();
+          if (amount < 99) {
             cartModify('plus', pid, sid);
             updateProductSums(pid, 1);
             updateShopSums(sid);
-            $('body').addClass('cart-plus');
-
-//          })
-
-          })
-        }
-
-        $('#discount-cart').on("click", ".cart-minus", function () {
-
-        //$('.cart-plus').once('cartplus', function() {
-          $(".cart-minus").unbind();
-
-         // $(this).click(function () {
+          }
+        });
 
 
-
+        $('#discount-cart').off('click', '.cart-minus').on("click", ".cart-minus", function () {
           pid = $(this).attr('data-product');
           sid = $(this).attr('data-shop');
           amount = $('#summary .amount[data-product="' + pid + '"]').val();
           if (amount == 1) {
             $(this).closest('.item').remove();
+            $('.add-to-cart[data-product="' + pid + '"]').closest('.views-row').removeClass('product-on-list');
             cartModify('remove', pid, sid);
             updateShopSums(sid);
           }
@@ -392,11 +379,7 @@
             updateProductSums(pid, -1);
             updateShopSums(sid);
           }
-
-
-         // })
-
-        })
+        });
 
         $(document).on("keyup", "input.amount", function(e) {
           pid = $(this).attr('data-product');
@@ -412,9 +395,7 @@
           if ($(this).val().length > 2) {
             $(this).val($(this).val().substr(0,2));
           }
-
           updateProductSums(pid, 3);
-
           updateShopSums(sid);
 
         })
@@ -462,9 +443,10 @@
 
         var price = 0;
         $('.price[data-shop="' + sid + '"]').each(function() {
-          price += parseInt($(this).html().replace(' ', ''));
+          price += parseInt($(this).html().replace(/\s/g, ''));
+
         });
-        $('.cart-sum-price[data-shop="' + sid + '"]').html(formatPrice(price));
+        $('.cart-sum-price[data-shop="' + sid + '"]').html(formatPrice(parseInt(price)));
 
       }
 
@@ -510,7 +492,9 @@
 
 
       function updateSumValues() {
-        $('#matrix-header .cell').each(function () {
+        min = 1000000;
+        minId = '';
+        $('#matrix-header .cell:not(#corner)').each(function () {
           var sumprice = 0;
           var sumweight = 0;
           var shop = $(this).attr('data-name');
@@ -527,8 +511,17 @@
           sumweight = parseInt(sumweight * 10) / 10;
           $('.sum-price[data-shop="' + shop + '"]').html(formatPrice(sumprice) + ' Ft');
           $('.sum-weight[data-shop="' + shop + '"]').html(sumweight + ' Kg');
+          if (min > sumprice) {
+            min = sumprice;
+            minId = shop;
+          }
         });
+        $('.cell').removeClass('best');
+        $('.cell[data-shop="' + minId + '"]').addClass('best');
+        $('.cell[data-name="' + minId + '"]').addClass('best');
+
       }
+      updateSumValues();
     }
   }
 }(jQuery));

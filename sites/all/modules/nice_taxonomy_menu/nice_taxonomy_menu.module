@@ -233,11 +233,11 @@ function nice_taxonomy_menu_recoursive_print_menu($taxonomy_tree, $root_element,
           $li_class .= " empty";
         }
         $count = _nice_taxonomy_menu_term_nc($element->tid);
-        ($count == 0) ? $count = '' : $count = '(' . $count . ')';
-        $link = '<a class="' . $class . '" href="' . $url . '">' . $element->name . $count . '</a>';
+        ($count == 0) ? $count = '' : $count = '' . '(' . $count . ')';
+        $link = '<a class="' . $class . '" href="' . $url . '">' . $element->name . " " . $count . '</a>';
       }
       else {
-        $link = '<a class="' . $class . '" href="javascript:void(0)" onclick="jQuery(\'#ntm-menu-' . $element->tid . '\').toggle(200); jQuery(\' . ntm-top-element\').removeClass(\'active-trail\'); jQuery(this).parent().parent().addClass(\'active-trail\');">' . $element->name . '(' . _nice_taxonomy_menu_term_nc($element->tid) . ')' . '</a>';
+        $link = '<a class="' . $class . '" href="javascript:void(0)" onclick="jQuery(\'#ntm-menu-' . $element->tid . '\').toggle(200); jQuery(\' . ntm-top-element\').removeClass(\'active-trail\'); jQuery(this).parent().parent().addClass(\'active-trail\');">' . $element->name . ' ' . '(' . _nice_taxonomy_menu_term_nc($element->tid) . ')' . '</a>';
       }
 
       if ($has_son == 0) {
@@ -408,7 +408,7 @@ function nice_taxonomy_menu_contents($ntm_number) {
         $li_class .= " active-trail";
       }
 
-      $body .= '<li class="ntm-top-element ntm-link' . $li_class . '"><div class="ntm-list-element"><span class="ntm-list-spacer">&nbsp;</span><a href="javascript:void(0)" onclick="jQuery(\'#ntm-menu-' . $base_element->tid . '\').toggle(200); jQuery(\' . ntm-top-element\').removeClass(\'active-trail\'); jQuery(this).parent().parent().addClass(\'active-trail\');" class="' . $class . '">' . $base_element->name . '(' . _nice_taxonomy_menu_term_nc($base_element->tid) . ')' . '</a></div></li><ul id="ntm-menu-' . $base_element->tid . '" class="ntm-categ-list ntm-subcat-list ntm-categ-list-1" style="display:' . $display . ';">' . $recoursive . '</ul>';
+      $body .= '<li class="ntm-top-element ntm-link' . $li_class . '"><div class="ntm-list-element"><span class="ntm-list-spacer">&nbsp;</span><a href="javascript:void(0)" onclick="jQuery(\'#ntm-menu-' . $base_element->tid . '\').toggle(200); jQuery(\' . ntm-top-element\').removeClass(\'active-trail\'); jQuery(this).parent().parent().addClass(\'active-trail\');" class="' . $class . '">' . $base_element->name . ' ' . '(' . _nice_taxonomy_menu_term_nc($base_element->tid) . ')' . '</a></div></li><ul id="ntm-menu-' . $base_element->tid . '" class="ntm-categ-list ntm-subcat-list ntm-categ-list-1" style="display:' . $display . ';">' . $recoursive . '</ul>';
     }
     else {
       $class = "";
@@ -429,7 +429,7 @@ function nice_taxonomy_menu_contents($ntm_number) {
 
       $url = base_path() . $view_url . '/' . $base_element->tid;
 
-      $body .= '<li class="ntm-top-element ntm-link' . $li_class . '"><div class="ntm-list-element"><span class="ntm-list-spacer">&nbsp;</span><a class="' . $class . '" href="' . $url . '">' . $base_element->name. '(' . _nice_taxonomy_menu_term_nc($base_element->tid) . ')' . '</a></div></li>';
+      $body .= '<li class="ntm-top-element ntm-link' . $li_class . '"><div class="ntm-list-element"><span class="ntm-list-spacer">&nbsp;</span><a class="' . $class . '" href="' . $url . '">' . $base_element->name. ' ' . '(' . _nice_taxonomy_menu_term_nc($base_element->tid) . ')' . '</a></div></li>';
     }
   }
 

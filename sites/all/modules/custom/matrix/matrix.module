@@ -306,8 +306,10 @@ function matrix_compare_page() {
           $sumPrice[$top] = $price;
         }
 
-        $pproduct = node_load($product->field_termek[LANGUAGE_NONE][0]['nid']);
-        $weight = $pproduct->field_darabsuly[LANGUAGE_NONE][0]['value'];
+        $productwrapper = entity_metadata_wrapper('node', $product);
+        $pproduct = $productwrapper->field_termek->value();
+        $pproductwrapper = entity_metadata_wrapper('node', $pproduct);
+        $weight = $pproductwrapper->field_darabsuly->value();
         if (isset($sumWeight[$top])) {
           $sumWeight[$top] += $weight;
         }
@@ -333,7 +335,7 @@ function matrix_compare_page() {
 
   $table .= '<div class="summary-row">';
   $table .= '<div class="cell" id="corner">' . t('Summary') . '</div>';
-  $firstclass = 'first';
+  $firstclass = 'best';
   foreach ($tops as $top) {
     $table .= '<div class="sum-cell sum-price ' . $top . ' ' . $firstclass . '" data-shop="' . $top . '">' . number_format($sumPrice[$top], 0, '', ' ') . ' Ft</div>';
     $firstclass = '';
@@ -388,6 +390,9 @@ function matrix_cookie_to_items() {
       $line_items[$shop][$offer][$product->nid]['title'] = $product->title;
       if (isset($line_items[$shop][$offer][$product->nid]['amount'])) {
         $line_items[$shop][$offer][$product->nid]['amount'] += $amount;
+        if ($line_items[$shop][$offer][$product->nid]['amount'] > 99) {
+          $line_items[$shop][$offer][$product->nid]['amount'] = 99;
+        }
       }
       else {
         $line_items[$shop][$offer][$product->nid]['amount'] = $amount;
@@ -456,7 +461,7 @@ function matrix_render_cart($line_items, $format = '', $block) {
       $img_exist = $shopwrapper->field_logo->value();
       if ($img_exist) {
         $img_uri = $shopwrapper->field_logo->file->value()->uri;
-        $output .= theme('image_style', array('path' => $img_uri, 'style_name' => 'thumbnail')) . '###product-count###';
+        $output .= '<img src="' . file_create_url($img_uri) . '"">' . '###product-count###';
       }
       else {
         $output .= $shop->name . '###product-count###';
@@ -503,12 +508,11 @@ function matrix_render_cart($line_items, $format = '', $block) {
         else {
           $img = '<img src="/' . drupal_get_path('module', 'matrix') . '/images/no_image.png">';
         }
-
         ($percent < 100 && $percent!== 0) ?  $percent = $percent . '%' : $percent = '';
         $vars = array(
           'amount' => $offered['amount'],
           'product' => ($template !== 'matrix_cart_print') ? l($offered['title'], 'node/' . $pid) : $offered['title'],
-          'product_short' => (strlen($offered['title']) > 33) ? l(substr($offered['title'], 0, 33) . '...', 'node/' . $pid) : l($offered['title'], 'node/' . $pid),
+          'product_short' => (strlen($offered['title']) > 26) ? l(mb_substr($offered['title'], 0, 26) . '...', 'node/' . $pid) : l($offered['title'], 'node/' . $pid),
           'piece' => $offered['amount'],
           'weight' => $offered['amount'] * $weight,
           'price' => number_format($offered['amount'] * $price, 0, '', ' '),

@@ -74,7 +74,7 @@
   <head>
     <?php print $head; ?>
     <base href='<?php print $url ?>' />
-    <title><?php print $print_title; ?></title>
+    <title><?php print 'Jókosár.hu'; ?></title>
     <?php print $scripts; ?>
     <?php if (isset($sendtoprinter)) print $sendtoprinter; ?>
     <?php print $robots_meta; ?>
@@ -85,10 +85,12 @@
   </head>
   <body>
     <?php if (!empty($message)): ?>
-      <div class="print-message"><?php print $message; ?></div><p />
+      <div class="print-message"><?php //print $message; ?></div><p />
     <?php endif; ?>
     <?php if ($print_logo): ?>
-      <div class="print-logo" style="text-align:center;"><?php print $print_logo; ?></div>
+      <div class="print-logo" style="text-align:center;"><?php
+        print $print_logo;
+        ?></div>
     <?php endif; ?>
     <div class="print-site_name"><?php //print theme('print_published'); ?></div>
     <p />

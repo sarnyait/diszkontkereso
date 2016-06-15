@@ -156,7 +156,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
-
+/*.panel-3col .panel-col {
+    width: 61% !important;
+} */
 
 
 
