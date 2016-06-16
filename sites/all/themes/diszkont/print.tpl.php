@@ -98,8 +98,10 @@
       <h2 class="print-title"><?php //print $print_title; ?></h2>
     <?php endif; ?>
     <div class="print-content"><?php
-      print $content; ?></div>
-    <div class="print-footer" style="text-align:center;"><?php print 'Footer lorem ipsum'; ?></div>
+      $body = $node->body[LANGUAGE_NONE][0]['value'];
+      print $body;
+      ?></div>
+    <div class="print-footer" style="text-align:center;"><?php print 'Magyarország összes élelmiszer akciója okos embereknek'; ?></div>
     <hr class="print-hr" />
     <?php if ($sourceurl_enabled): ?>
       <div class="print-source_url">

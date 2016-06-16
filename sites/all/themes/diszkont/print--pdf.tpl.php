@@ -99,7 +99,7 @@
     <?php endif; ?>
     <div class="print-content"><?php
       print $content; ?></div>
-    <div class="print-footer" style="text-align:center;"><?php print 'Footer l3rem ipsum'; ?></div>
+    <div class="print-footer" style="text-align:center;"><?php print 'Magyarország összes élelmiszer akciója okos embereknek'; ?></div>
     <hr class="print-hr" />
     <?php if ($sourceurl_enabled): ?>
       <div class="print-source_url">

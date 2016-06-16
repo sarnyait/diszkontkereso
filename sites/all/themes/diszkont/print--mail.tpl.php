@@ -101,7 +101,7 @@
       $body = $node->body[LANGUAGE_NONE][0]['value'];
       print $body;
       ?></div>
-    <div class="print-footer" style="text-align:center;"><?php print 'Footer l1rem ipsum'; ?></div>
+    <div class="print-footer" style="text-align:center;"><?php print 'Magyarország összes élelmiszer akciója okos embereknek'; ?></div>
     <hr class="print-hr" />
     <?php if ($sourceurl_enabled): ?>
       <div class="print-source_url">

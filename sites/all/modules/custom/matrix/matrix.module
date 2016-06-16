@@ -233,7 +233,7 @@ function matrix_compare_page() {
   foreach ($lefts as $left) {
     foreach ($tops as $top) {
       $pid = matrix_find_product($left, $top);
-      if (isset($pid)) {
+      if (isset($pid) && $pid !== FALSE) {
         $product = node_load($pid);
         if (isset($sumPrice[$top])) {
           $sumPrice[$top] += $product->field_akciosar[LANGUAGE_NONE][0]['value'];
@@ -429,7 +429,7 @@ function matrix_cart_page($block = FALSE) {
   }
   $output .= '</div>';
 
-  if ($_POST['block'] == 1) {
+  if (isset($_POST['block']) && $_POST['block'] == 1) {
     print $output;
   }
   else {
@@ -610,7 +610,16 @@ function matrix_form_alter(&$form, &$form_state, $form_id) {
     $form['fld_from_name']['#value'] = 'info@diszkonkereso.hu';
     $form['fld_subject']['#value'] = 'You can view your order on this link';
 
+    $form['#submit'][] = 'matrix_printmail_custom_submit';
+
+
+
   }
+}
+
+function matrix_printmail_custom_submit($form, &$form_state) {
+  $form_state['rebuild'] = TRUE;
+  $form_state['redirect'] = '/matrix-cart';
 }
 
 function matrix_get_shop_from_product() {
@@ -664,6 +673,7 @@ function matrix_inlist_counter_widget($pid = null) {
     'origweight' => $weight,
     'origPrice' => $price,
     'selector' => ($amount_selector==null || $amount_selector == FALSE) ? FALSE : TRUE,
+    'shop' => 'shopid',
   );
 
   print theme('matrix_plus_minus', $vars);
