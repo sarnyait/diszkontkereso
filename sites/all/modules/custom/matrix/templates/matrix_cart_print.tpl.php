@@ -1,5 +1,5 @@
 <div id="summary">
-  <table style="width: 80%;">
+  <table style="width: 100%;">
     <tr>
       <td style="border-bottom: 1px dotted #ccc; text-align: right; width: 40%;" class="content cell"><?php print $product; ?></td>
 
