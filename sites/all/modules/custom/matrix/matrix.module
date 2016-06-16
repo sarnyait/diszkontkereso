@@ -462,6 +462,7 @@ function matrix_render_cart($line_items, $format = '', $block) {
       if ($img_exist) {
         $img_uri = $shopwrapper->field_logo->file->value()->uri;
         $img_url = file_create_url($img_uri);
+        watchdog('matrix', 'IMG' . $img_url);
         $output .= '<img src="' . $img_url . '">' . '###product-count###';
       }
       else {
