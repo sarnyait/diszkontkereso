@@ -88,7 +88,7 @@
       <div class="print-message"><?php print $message; ?></div><p />
     <?php endif; ?>
     <?php if ($print_logo): ?>
-      <div class="print-logo" style="text-align:center;"><?php print $print_logo; ?></div>
+      <div class="print-logo" style="text-align:center;padding-left: 40%;"><?php print $print_logo; ?></div>
     <?php endif; ?>
     <div class="print-site_name"><?php //print theme('print_published'); ?></div>
     <p />
