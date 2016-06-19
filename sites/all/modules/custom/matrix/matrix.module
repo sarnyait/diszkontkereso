@@ -243,7 +243,7 @@ function matrix_compare_page() {
         }
       }
       else {
-        $sumPrice[$top] = 0;
+        //$sumPrice[$top] = 0;
       }
 
     }
