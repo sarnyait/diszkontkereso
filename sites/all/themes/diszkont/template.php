@@ -21,14 +21,18 @@ function diszkont_form_search_block_form_alter(&$form, &$form_state, $form_id) {
 function diszkont_form_alter(&$form, &$form_state, $form_id) {
 switch($form_id){
 case 'views_exposed_form':
-
+  
   foreach ($form['field_aruhaz_tid_selective']['#options'] as $tid => &$value) {
     $query = db_select('field_data_field_aruhaz', 'f')
             ->condition('f.field_aruhaz_tid', $tid);
     $query->addExpression('COUNT(*)');
     $count = $query->execute()->fetchField();
+    if (strpos($value, '(') === false) {
     $value = $value . ' (' . $count . ')';
+    }
   }
+  
+
   
   /* foreach ($form['field_kategoria_tid_selective']['#options'] as $tid => &$value) {
     $query = db_select('field_data_field_kategoria', 'f')
