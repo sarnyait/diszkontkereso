@@ -5,6 +5,9 @@ var $ = jQuery.noConflict();
       $(".views-field-field-szazalek span:contains('nincs')").hide();
 	  $(".views-field-field-szazalek span:contains('NaN')").hide();
 	  $('.field-name-field-termekfoto').each(function(){$(this).after('<div class="separator"></div')})
+	  $(".field-name-field-szazalek").each(function() {
+	     $(this).text($(this).text().replace(/^[0]/, "-"));
+	   });
    });
 
  

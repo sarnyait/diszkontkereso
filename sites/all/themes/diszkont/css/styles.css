@@ -1,4 +1,3 @@
-/****************************/
 /* LOCAL CSS                */
 /****************************/
 
@@ -12,6 +11,9 @@
 /* 1. Add your custom CSS to this file                */
 /* 2. Rename this file to local.css                   */
 /* 3. Clear cached data at admin/settings/performance */
+
+
+
 
 @font-face {
   font-family: 'Lato';
@@ -180,14 +182,23 @@ body {
   background-repeat: repeat-x; */
 }
 
+.ds-2col > .group-left {
+  width: 45%;
+}
+
+.panel-3col .panel-col-last .inside {
+  margin: 0 0 1em 0em;
+}
+
+
 div.field.field-name-listamra.field-type-ds.field-label-hidden {
   position: relative;
-  top:-30px;
+  top:-20px;
 }
 
 .ds-2col > .group-right {
   max-width: 300px;
-  margin-left: 35px;
+  margin-left: 9%;
 }
 
 div.main-container.container-fluid {
@@ -196,8 +207,9 @@ div.main-container.container-fluid {
 }
 
 body.page-node div.field.field-name-aruhaz {
-  float: right;
-  margin-top: 8px;
+  float: left;
+  margin-top: 15%;
+  margin-bottom: -15%;
 }
 
 body.page-node .separator {
@@ -205,7 +217,7 @@ border-top: 10px solid #eeeeee;
 clear: both;
 margin-top: 340px;
 margin-left: -20px;
-margin-right: -362px;
+margin-right: -500px;
 border-radius: 4px;
 border-bottom: 10px solid #eeeeee;
 }
@@ -232,11 +244,12 @@ body#pid-product-display-szerkeszto .field-name-field-akciosar, body#pid-product
 } 
 
 body.page-node .col-sm-3 {
-max-width:220px;
+width: 18% !important;
 }
 
 body.page-node .col-sm-3:nth-of-type(1) {
 clear: both;
+margin-left: 1%
 }
 
 body.page-node #block-system-main div.markup.cell.inline-piece-unit, body.page-node #block-system-main div.markup.cell.inline-weight-unit {
@@ -245,16 +258,16 @@ body.page-node #block-system-main div.markup.cell.inline-piece-unit, body.page-n
 }
 
 body.page-node .col-sm-6 {
-	min-width: 730px;
-	max-width: 780px;
-	margin-left: 1px;
-	margin-right: 10px;
-	width: 88%;
+	margin-left: -0.5%;
+	margin-right: 1%;
+	width: 61%;
+	max-width: 62%;
+	padding-right: 0;
+	padding-left: 0%;
 }
 
 body.page-node .region-sidebar-first.well {
-width: 220px;
-min-width: 220px;
+width: 100%;
 background: white;
 border-radius: 4px;
 margin-top: 50px;
@@ -411,7 +424,7 @@ label.printmail-label {
   font-size: 14px;
 }
 
-body.page-node .region-content{padding-top: 25px; margin-left: 18px; margin-right: 9px;}
+body.page-node .region-content{padding-top: 25px; margin-left: 2%; margin-right: 1%;}
 
 body.page-taxonomy-term div.views-field.views-field-field-ar + div.views-field.views-field-field-olcsobban
 
@@ -601,7 +614,7 @@ body.page-search-products .amount.cell {
 
 
 body.page-search-products  div.price.cell + div.markup.cell {
-  margin: -64px 0px 0 159px;
+  margin: -64px 0px 0 91%;
 }
 
 body.page-search-products .matrix_cart_block .cart-plus {
@@ -614,7 +627,7 @@ body.page-search-products .matrix_cart_block .cart-plus {
 
 body.page-search-products #discount-cart div.price.cell {
   margin-top: -64px;
-  margin-left: 80px;
+  margin-left: 43%;
 }
 
 body.page-search-products .cart-sum-weight {
@@ -653,11 +666,15 @@ body.page-search-products ol.breadcrumb {
 }
 
 body.page-search-products input.cart-delete {
-  color: #ec4c43 !important;
-  width: 15px;
-  margin-left: 157px;
-	  position: relative;
-	top: -23px;
+ color: #ec4c43;
+  border: 0;
+  float: left;
+  margin-top: -25px;
+  margin-bottom: 20px;
+  width: 90px;
+  /* margin-left: calc(110% / 2); */
+  position: relative;
+  left: calc(5em / 7 * 3);
 }
 
 ol.breadcrumb {
@@ -797,7 +814,7 @@ margin-left:95px;
 }
 
 div.price.cell + div.markup.cell {
-margin-left:123px;
+margin-left:65%;
 	margin-top: -30px;
 	margin-bottom: 25px;
 }
@@ -810,10 +827,10 @@ body.page-node #block-system-main .plus-minus {
   float: left;
   margin-top: 25px;
   margin-left: 30px;
-  width: 76px;
-  height: 41px;
-  border-radius: 14px;
-  padding: 0px 5px;
+  width: 60px;
+  height: 40px;
+  border-radius: 4px;
+  padding: 0px 0px;
 }
 
 body.page-node #block-system-main .amount-change {
@@ -831,17 +848,21 @@ margin-left: 25px
 }
 
 body.page-node .view input.cart-inline-plus {
+margin-top: -48px;
+margin-left: 30px
+}
+
+body.page-node .view input.cart-inline-plus {
   margin-top: -11.5px;
 }
 
 body.page-node #block-system-main input.cart-inline-plus {
 margin-top: -10px;
-margin-left: 30px;
+margin-left: 35px;
 min-width: 15px;
 min-height: 12px;
 position: relative;
 z-index: 5;
-margin-left: 40px;
 }
 
 div.amount-change {
@@ -1281,7 +1302,7 @@ body#pid-matrix-cart #discount-cart .shop-header {
 }
 
 body#pid-matrix-cart  #discount-cart div.weight.cell, #discount-cart div.price.cell {
-  margin-left: 90px;
+  margin-left: 43%;
   float: left;
   text-align: right;
 }
@@ -1339,6 +1360,7 @@ body.page-search-products .weight-unit, body.page-search-products .piece-unit {
 body.page-search-products .matrix_cart_block span.cart-sum-price {
   float: left;
   text-align: right;
+  margin-left: 55%;
 }
 
 
@@ -1507,10 +1529,10 @@ body#pid-matrix-cart .content.cell:first-child {
   height: 60px;
 }
 
-body#pid-matrix #matrix-header .cell:nth-child(2) {
+/* body#pid-matrix #matrix-header .cell:nth-child(2) {
   color: #ec4c43;
   background-color: rgba(250, 221, 153, 0.20);
-}
+} */
 
 body#pid-matrix .cell::nth-of-type(1) .matrix_cart_button {
   background: #ec4c43 !important;
@@ -1542,7 +1564,7 @@ body#pid-matrix .cell::nth-of-type(1) .matrix_cart_button {
 }
 
 body.page-node .matrix_cart_block span.cart-sum-price {
-  margin-left: 65%;
+  margin-left: 75%;
 }
 
 body#pid-osszes-akcio .matrix_cart_block span.cart-sum-price {
@@ -1569,7 +1591,7 @@ body.page-taxonomy-term .matrix_cart_block span.cart-sum-price {
 
 
 body.page-node .field-name-field-kategoria {
-  width: 92.7%;
+  width: 96.7%;
   height: 42px;
   font-family: "Lato";
   font-weight: 400;
@@ -1578,7 +1600,7 @@ body.page-node .field-name-field-kategoria {
   position: absolute;
   top: -0.5%;
   z-index: 50;
-  left: 35px;
+  left: 2.5%;
   background-image: url('http://www.jokosar.hu/sites/all/themes/diszkont/images/dotted-line.svg');
   background-position: 0px 40px;
   background-repeat: repeat-x;
@@ -1611,12 +1633,12 @@ body.page-node .field-name-field-kategoria {
 }
 
 body.page-node section#block-matrix-matrix.block.block-matrix.contextual-links-region.clearfix {
-max-width:220px;
-min-width:220px;
+width: 100%;
 overflow:hidden;
 word-wrap: break-word;
 word-break: break-all;
 min-height:162px;
+min-width: 18%;
 }
 
 div#tableBody {
@@ -1696,7 +1718,7 @@ margin-top: -10px;
 margin-left: 0px;
 clear: right;
 min-height: 35px;
-max-width: 110px;
+max-width: 99px;
 }
 
 #infscr-loading {
@@ -1892,7 +1914,7 @@ line-height: .5;
 margin-left: 0px;
 position: relative;
 top: 20px;
-right: -14px;
+right: -44px;
 background:url('http://www.jokosar.hu/sites/all/themes/diszkont/images/closeicon.png') no-repeat;
 text-indent: -9999px;
 }
@@ -1904,7 +1926,6 @@ content:""
 input.cart-delete {
  border:0;
  background: transparent;
- border-radius:5px;
  /* color: #ec4c43 !important; */
  /* border: solid 1px #979797; */
  margin-left: 80px;
@@ -1936,19 +1957,17 @@ margin-left:-5px;
 body#pid-osszes-akcio .cell input.cart-delete, body.page-taxonomy-term- .cell input.cart-delete,  body.page-node .cell input.cart-delete {
 	color: #ec4c43;
 	border: 0;
-	float: right;
-	clear: both;
+	float: left;
 	margin-top: -25px;
 	margin-bottom: 20px;
 	width: 90px;
-	margin-left: 129px;
+	position: relative;
+	left: calc(3.5em / 7 * 3);
 }
 
 body.page-node .cell input.cart-delete {
 position: relative;
-z-index: 500;
-margin-left: 136px;
-width: 15px;
+z-index: 9;
 }
 
 body#pid-matrix div.cell.best {
@@ -2025,7 +2044,7 @@ div.content.cell {
 
 body.page-node div.content.cell a {
   text-decoration: none;
-  width: 110px;
+  width: 100px;
   height: 39px;
   font-family: "Lato";
   font-weight: 300;
@@ -2084,12 +2103,13 @@ body#pid-osszes-akcio .views input.inline-amount.cell {
 }
 
 body.page-node .group-right .inline-amount.cell, body.page-node .group-right .amount.cell {
-	  margin-top: 10px;
+	margin-top: 10px;
 	  margin-bottom: -5px;
-	  margin-left: -1px;
+	  margin-left: -2px;
+	  margin-right: 0px;
 	  text-align: center;
-	  font-size: 14px;
-	  width: 40px;
+	  font-size: 13px;
+	  width: 30px;
 	  height: 20px;
 }
 
@@ -2100,6 +2120,8 @@ body#pid-matrix-cart .inline-amount.cell, body#pid-matrix-cart .amount.cell {
 
 .view-id-similar input.inline-amount.cell {
   margin-left: -1px;
+  margin-top: 1px;
+  margin-bottom: -2px;
 }
 
 body.page-search-products .view input.inline-amount.cell {
@@ -2338,6 +2360,10 @@ div.mc-field-group.input-group.elso, div.mc-field-group.input-group.masodik{
   margin: 0 auto;
 }
 
+div.mc-field-group.input-group.elso {
+  margin-bottom: 30px;
+}
+
 #block-matrix-matrix #save-order, #block-matrix-matrix #print-order, #block-matrix-matrix #email-order, .pane-matrix-matrix #save-order, .pane-matrix-matrix #print-order, .pane-matrix-matrix #email-order {
   display: none;
 }
@@ -2451,7 +2477,7 @@ padding-top: 2px;
 }
 
 body.page-node .add-to-cart {
-  width: 160px;
+  width: 180px;
   height: 40px;
   border-radius: 4px;
   background-color: #ec4c43;
@@ -2732,7 +2758,7 @@ body.page-node- input[value="Bolt webhelye"], body.page-node- input.nearest-shop
   display: none;
 }
 
-body.page-node- input[value="Ugrás a bevásárlókosárra"], body.page-search-products input[value="Ugrás a bevásárlókosárra"] {
+body.page-node- input[value="Ugrás a bevásárlókosárra"], body.page-search-products input[value="Ugrás a bevásárlókosárra"], body#pid-koszonjuk input[value="Ugrás a bevásárlókosárra"] {
   width: 180px;
   height: 40px;
   border-radius: 5px;
@@ -2849,17 +2875,17 @@ body#pid-osszes-akcio h1 {
 
 aside.col-sm-3:nth-of-type(2) {
   background-color: #EEEEEE;
-  width: 23%;
+  width: 18%;
   padding-bottom: 120px;
+  margin-left: 1%;
 }
 
 section#block-matrix-matrix {
   background: white;
-  max-width: 220px;
-  min-width: 220px;
+  width:100%;
   overflow: hidden;
   float: right;
-  padding:10px 20px 10px 20px;
+  padding:10px 5% 10px 2%;
   border-radius: 4px;
 }
 
@@ -2907,6 +2933,7 @@ margin-top: 8px;
 body#pid-osszes-akcio .view-osszes-akcio .view-header {
 padding-bottom: 0px;
 margin-top: -8px;
+margin-left: -1%;
 }
 
 .view-taxonomy-page .view-content {
@@ -3147,6 +3174,7 @@ div.termeksuly {
 	text-align: center;
 	height: 35px !important;
 	margin: 0 auto !important;
+	width: 66.2% !important;
 }   
 
 #backtotop {
@@ -3246,7 +3274,7 @@ margin: 8px 0px;
 body#pid-koszonjuk div.mc-field-group.input-group strong {
   font-size: 16px;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   display: block;
 }
 
@@ -3268,6 +3296,9 @@ margin: 8px 0px;
 body#pid-koszonjuk label {
   font-size: 16px;
   line-height: 180%;
+  text-align: left !important;
+  display: block;
+  padding-left: 24px;
 }
 
 body#pid-koszonjuk input#mc-embedded-subscribe.button {
@@ -3282,7 +3313,7 @@ width: 240px !important;
 height: 40px !important;
 text-indent: 0em !important;
 float: none !important;
-margin-top: 0px !important;
+margin-top: 60px !important;
 }
 
 body#pid-koszonjuk .clear {
@@ -3462,7 +3493,7 @@ body.page-node div.views-field.views-field-field-termekfoto  {
   overflow: hidden;
   display: inline-block;
   text-align: center;
-  margin: 0 23px;
+  margin: 0 20px;
 
 }
 
@@ -3990,7 +4021,7 @@ body.page-node div.field.field-name-field-termekfoto {
   width: 300px;
   max-width: 300px;
   font-weight: 300;
-  margin-left: -20px;
+  margin-left: -15%;
 }
 
 body.page-node div.field.field-name-field-termekfoto img {
@@ -4031,10 +4062,10 @@ body.page-node span.date-display-remaining {
 
 
 body.page-node div.field.field-name-field-szazalek {
-  text-align: left;
+  text-align: right;
   clear: left;
-  float: left;
-  width: 100px;
+  float: right;
+  width: 15%;
   height: 17px;
   font-family: "Lato";
   font-weight: 400;
@@ -4042,26 +4073,25 @@ body.page-node div.field.field-name-field-szazalek {
   letter-spacing: 1.2px;
   color: #ec4c43;
   margin-bottom: 0px;
-  margin-top: 5px;
+  margin-top: -50px;
   margin-right: 30px;
   margin-left: 10px;
 }
 
 body.page-node  div.field.field-name-field-olcsobban {
-  text-align: left;
+  text-align: right;
   clear: left;
-  width: 100px;
+  width: 20%;
   height: 17px;
   font-family: "Lato";
   font-weight: 400;
   font-size: 14px;
   letter-spacing: 1.2px;
   color: #343434;
-  float: left;
-  margin-bottom: 30px;
-  margin-top: -30px;
-  margin-right: 30px;
-  margin-left: 95px
+  float: right;
+  margin-bottom: 21px;
+  margin-top: -21px;
+  margin-right: 5px;
 }
 
 
@@ -4089,18 +4119,17 @@ body.page-node div.field.field-name-field-tapertek {
 
 
 div.field.field-name-field-egysegar {
-  font-size: 16px;
+  font-size: 14px;
   color: rgb(52,52,52);
   font-family: "Lato" !important;
 }
 
 body.page-node div.field.field-name-field-egysegar {
   clear: both;
-  padding: 50px 10px 10px 10px;
   position: relative;
-  top: -170px;
-  border-radius: 8px;
-  border: solid 1px #ec4c43;
+  top: -100px;
+  /* border-radius: 8px;
+  border: solid 1px #ec4c43; */
 }
 
 body.page-node .field-name-field-egysegar .field-items {
@@ -4114,7 +4143,7 @@ body.page-node .field-name-field-egysegar .field-items {
 
 body.page-node div.field.field-name-field-ar {
   text-decoration: line-through;
-  margin-top: 20px;
+  margin-top: -20px;
    width: 61px;
   height: 17px;
   font-family: "Lato";
@@ -4349,7 +4378,7 @@ background: #eeeeee;
   background: none;
   padding: 0;
   border: 0;
-  width: auto0;
+  width: auto;
   /*width: 1240px;
   min-width: 1220px;
   max-width: 1462px; */
@@ -4494,18 +4523,6 @@ form.mailchimp-signup-subscribe-form .form-actions button.form-submit {
   letter-spacing: 2px
 }
 
-@media screen and (min-width: 1500px) {
-@-webkit-viewport{width:device-width}
-@-moz-viewport{width:device-width}
-@-ms-viewport{width:device-width}
-@-o-viewport{width:device-width}
-@viewport{width:device-width}
-
-form.mailchimp-signup-subscribe-form .form-actions button.form-submit {
-margin-left: calc(100% - 100px);
-}
-
-}
 
 #header-top-wrapper .header-group-wrapper, .main-menu-wrapper {
   background: transparent;
@@ -4837,26 +4854,11 @@ body#pid-matrix div.input-group, body#pid-matrix-cart div.input-group {
 padding-bottom: 80px;
 }
 
-.panel-3col .panel-col {
-  width: 720px;
-  border-radius: 4px;
-  margin-left:16px;
-}
 
 body.page-search-products .panel-3col .panel-col {
 margin-top: -25px;
 }
 
-@media screen and (max-width: 1300px) {
-@-webkit-viewport{width:device-width}
-@-moz-viewport{width:device-width}
-@-ms-viewport{width:device-width}
-@-o-viewport{width:device-width}
-@viewport{width:device-width}
-
-.panel-3col .panel-col {
-width: 60.5% !important;
-}
 
 body#pid-matrix-cart #discount-cart div.price.cell {
   margin-left: -20px;
@@ -4868,71 +4870,31 @@ body#pid-matrix-cart .amount-change + .price.cell {
 }
 
 
-
-section#block-mailchimp-signup-k-vesse-emailben-is-az-akci-kat h2.block-title {
-  display: none;
-}
-
-}
-
-@media screen and (min-width: 1160px) and (max-width:1300px) {
-@-webkit-viewport{width:device-width}
-@-moz-viewport{width:device-width}
-@-ms-viewport{width:device-width}
-@-o-viewport{width:device-width}
-@viewport{width:device-width}
-
-
-body#pid-matrix-cart input.cart-delete {
-  position: relative;
-  top: 5px;
-  right: -25px;
-}
-}
-
-
-@media screen and (max-width: 1300px) {
-@-webkit-viewport{width:device-width}
-@-moz-viewport{width:device-width}
-@-ms-viewport{width:device-width}
-@-o-viewport{width:device-width}
-@viewport{width:device-width}
-
 .panel-3col .panel-col {
-width: 53.7% !important;
-}
-}
-
-@media screen and (max-width: 1160px) {
-@-webkit-viewport{width:device-width}
-@-moz-viewport{width:device-width}
-@-ms-viewport{width:device-width}
-@-o-viewport{width:device-width}
-@viewport{width:device-width}
-
-body#pid-matrix-cart input.cart-delete {
-  position: relative;
-  top: -25px;
-  right: -45px;
-}
+  width: 61%;
+  border-radius: 4px;
+  margin-left:1%;
 }
 
-.panel-3col .panel-col-first {
+.panel-3col .panel-col-first  {
 background: white;
-width: 13%;
+width: 18%;
 border-radius: 4px;
-min-width:220px;
-margin-left: 10px;
+margin-left: 1%;
 }
 
-.panel-3col .panel-col-last {
-width: 220px;
+.panel-3col .panel-col-last  {
+width: 18%;
 background: white;
 border-radius: 4px;
 padding: 10px;
-min-width: 220px;
-margin-left: 20px;
+margin-left: 1%;
+overflow: hidden;
 } 
+
+div.view.view-osszes-akcio {
+  padding-left: 1%;
+}
 
 body.page-search-products .panel-3col .panel-col-last {
 padding: 10px 20px 10px 15px;
@@ -4963,7 +4925,7 @@ min-height: 1px;
 
 
 div.masonry-item {
-margin: 10px 0px 12px 5px;
+margin: 10px 0px 10px 5px;
 padding: 10px;
 background-color: white;
 font-family: "Lato";
@@ -5262,6 +5224,7 @@ button#edit-mefibs-form-rendezes-submit-szures.ctools-use-ajax.ctools-auto-submi
 	z-index: 100;
 	background: white;
 	width: 93.7%;
+	max-width: 1240px;
 	/*min-width: 1210px;
 	max-width: 1462px; */
 }
@@ -5514,26 +5477,6 @@ div.ui-corner-all {
   width: 75%;
 }
 
-div.views-field.views-field-field-termekfoto img {
-  max-width: 80%;
-  height: auto;
-  max-height: 120px;
-}
-
-span.field-content.szazalek {
-	font-size: 22px;
-}
-
-span.field-content.akciosar {
-	font-size: 18px;
-}
-span.field-content.ar {
-	font-size: 14px;
-}
-
-.pane-block-1 {
-  background: white;
-}
 
 a#opener {
   padding: 20px 0.2em 0.2em 40px;
@@ -5544,43 +5487,6 @@ a#opener {
   z-index: 50;
 }
 
-#szuresek {
-  position: relative;
-  top: -1em;
-  float: right;
-  margin-right: 1em;
-  left: 0em;
-}
-
-h2#nezet {
-  font-size: 100%;
-}
-
-h4.termeknev a h4 {
-  font-size: 18px;
-}
-
-/* .form-item-keys-1 {
-width: 75%;
-margin-top: 0.3em;
-margin-left: 0em;
-float: left;
-}
-
-input#edit-submit-1 {
-  background: rgb(236,76,67);
-  color: white;
-  text-transform: uppercase;
-  border: 0px;
-  padding: 8px;
-  margin-left: 10px;
-  margin-top: 5px;
-  height: auto;
-  width: auto;
-  text-indent: 0;
-} */
-
-
 
 
 div#footer-wrapper {
@@ -5588,74 +5494,6 @@ div#footer-wrapper {
   display: none;
 }
 
-
-div.lista-item div.views-field.views-field-field-termekfoto img {
-  max-width: 130px;
-}
-div.lista-item div.views-field.views-field-field-termekfoto {
-  float:left;
-  width: 26%;
-  margin: 0em 3.5em 0 0;
-}
-
-div.lista-item div.views-field.views-field-field-ar {
-  background: rgb(236, 76, 67);
-  color: white;
-  margin: 0;
-  width: 25%;
-  padding: 10px;
-  text-align: center;
-}
-
-div.lista-item div.views-field.views-field-field-akciosar {
-  clear: right;
-  float: left;
-  background: rgb(236, 76, 67);
-  color: white;
-  width: 25%;
-  padding: 10px;
-  margin-bottom: 0px;
-  text-align: center;
-}
-
-div.lista-item div.views-field.views-field-field-szazalek {
-  float: left;
-  background: rgb(236, 76, 67);
-  color: white;
-  width: 25%;
-  padding: 10px;
-  text-align: center;
-}
-
-div.lista-item h4.termeknev {
-  float: none;
-  margin-top: 0;
-  width: 102%;
-}
-
-
-div.lista-item {
-  width: 95%;
-}
-
-fieldset#edit-bef-sort-options {
-  display: block;
-}
-
-/* div#block-search-api-page-teszt.block.block-search-api-page {
-  position: initial;
-  background: rgb(254, 206, 91);
-  display:block;
-  width: 92%;
-} 
-
-body#pid-cart div#block-search-api-page-teszt.block.block-search-api-page {
-  width: 92%;
-} 
-
-.pane-search-api-page-search-box {
-  display: none;
-} */
 
 
 body#pid-toboggan-denied .toboggan-unified #login-message {
@@ -5683,11 +5521,6 @@ div.masonry-item {
 }
 
 
-div.views-field.views-field-field-termekfoto {
-width: 100%;
-max-width: 100% !important;
-}
-
 body.not-front .view-display-id-block_similar td.col-2, body.not-front .view-display-id-block_similar td.col-3 {
   display: none;
 } 
@@ -5703,29 +5536,17 @@ body#pid-toboggan-denied  .confirm-parent, body#pid-toboggan-denied  .password-p
   width: 100%;
 }
 
-.views-field-fb-social {
-	max-width: 80px !important;
-	width: 80px !important;
-	overflow: hidden !important;
-	margin: 10px 0px;
-}
-
-
-select#edit-sort-bef-combine-szuresek {
-  margin-top: -5%;
-}
-
-div.form-item.form-type-select.form-item-sort-bef-combine-szuresek {
-  display: none;
-}
-
-
-
 }
 
 @-moz-document url-prefix() { 
   body#pid-matrix-cart .no-width input.cart-plus {
   margin-left: 7px;
+}
+
+body#pid-osszes-akcio .views-field-php div.inline-weight.cell {
+margin-top: 0px !important;
+margin-bottom: -6px !important;
+text-align: left;
 }
 
 input[type=number] {
@@ -5764,21 +5585,20 @@ padding-top: 3px;
 @media screen and (min-width: 1400px) {
 
   body.page-node div.field.field-name-field-ar {
-	margin-top: 0;
+	
   }
 
   body.page-node div.field.field-name-aruhaz {
-	  margin-top: -25px;
-	  margin-bottom: -25px;
+	
   }
 
   body.page-node div.field.field-name-field-egysegar {
-	padding: 80px 10px 10px 10px;
+	padding: 80px 10px 10px 0px;
 	top: -158px;
   }
   
   div.field.field-name-listamra.field-type-ds.field-label-hidden {
-  top:15px !important;
+  top:0px !important;
   }
 }
 
@@ -5792,6 +5612,26 @@ body.page-node .col-sm-6{
 body#pid-matrix .views-field-field-termekfoto-1 { 
  margin-right: 45px !important;
  }
+
+div.view.view-osszes-akcio {
+padding-left: 0;
+}
+
+.view-osszes-akcio .view-content {
+margin-left:-1.5%;
+width:110%;
+}
+.panel-3col .panel-col-first {
+margin-left: 0.5%;}
+
+body.page-node div.field.field-name-field-egysegar {
+top:-75px;
+}
+
+div.field.field-name-listamra.field-type-ds.field-label-hidden {
+top:10px;
+}
+
 }
 
 
@@ -5811,6 +5651,21 @@ margin-left: 0px !important;
 
 }
 
+@media screen and (min-width:800px) and (max-width:1300px) {
+
+body#pid-matrix .views-field-field-termekfoto-1 {
+margin-right: 15% !important;
+}
+
+}
+
+
+@media screen and (min-width:1300px) and (max-width:1400px) {
+
+body#pid-matrix .views-field-field-termekfoto-1 {
+margin-right: 20% !important; }
+}
+
 @media screen and (min-width:1221px) and (max-width:1300px) {
 
 div.region.region-header.stickynav-active {width:82.5% !important;}
@@ -5826,26 +5681,560 @@ div.region.region-header.stickynav-active {width:82.5% !important;}
 
 @media screen and (min-width:1301px) and (max-width:1366px) {
 
-.panel-3col .panel-col-first {width:185px !important; min-width:185px !important; margin-left: 0px !important;}
-
-.panel-3col .panel-col-last {margin-right: 0px !important; margin-left:10px !important; min-width:220px !important; width: 220px !important}
-
-.panel-3col .panel-col {width:711px !important; margin-left: 5px !important; margin-right: 5px !important;}
-
-body.page-node .col-sm-6 {min-width: 50% !important; max-width: 680px !important; width: 59% !important;}
-
-}
-
-@media screen and (min-width:800px) and (max-width:1366px) {
-
-body.page-node .col-sm-6 {min-width: 50% !important; max-width: 680px !important; width: 61% !important; margin-left: -5px;}
-
-.ds-2col > .group-left {width: 42% !important; margin-left:8px;}
-
-.ds-2col > .group-right {margin-left: 50px;margin-right: -15px;}
 
 body.page-node div.field.field-name-field-termekfoto {margin-left: -60px !important;}
 
-body.page-node .col-sm-3:nth-of-type(1) {margin-left:-5px;}
+}
 
+
+
+@media screen and (min-width: 1500px) {
+@-webkit-viewport{width:device-width}
+@-moz-viewport{width:device-width}
+@-ms-viewport{width:device-width}
+@-o-viewport{width:device-width}
+@viewport{width:device-width}
+
+form.mailchimp-signup-subscribe-form .form-actions button.form-submit {
+margin-left: calc(100% - 100px);
+}
+
+}
+
+
+@media screen and (max-width: 1024px) {
+
+section#block-mailchimp-signup-k-vesse-emailben-is-az-akci-kat h2.block-title {
+  display: none;
+}
+
+ul.menu li a, ul.menu li a:link, ul.menu li a:visited{
+  font-size: 150% !important;
+}
+
+.stickynav-active {
+  width: 86% !important;
+}
+
+div#header-group, .navbar.container-fluid {
+  background-size: cover;
+}
+
+body#pid-matrix .views-field-field-termekfoto-1 {
+  margin-right: 2% !important;
+}
+
+body#pid-matrix .views-field-field-termekfoto-1 img {
+    max-width: 65px;
+    min-width: 65px;
+    width: 65px;
+    min-height: 65px;
+    max-height: 65px;
+    height: 65px;
+}
+
+.compare-page #tableBody .product-name {
+  width:5% !important;
+}
+
+body#pid-matrix .compare-page .sum-cell.sum-price {
+  padding-left: 0 !important;
+  padding-top: 0 !important;
+  text-align: center !important;
+}
+
+body#pid-matrix .compare-page #matrix-header  .sum-cell.sum-price {
+  padding-left: 10% !important;
+}
+
+#matrix-header.stick {
+  width: 87% !important;
+}
+
+.pane-matrix-matrix h2, h2.block-title {
+  font-size: 115%;
+}
+
+div.pane-matrix-matrix input[value="Ugrás a bevásárlókosárra"] {
+  font-size: 80%;
+}
+
+body.page-node- input[value="Ugrás a bevásárlókosárra"], body.page-search-products input[value="Ugrás a bevásárlókosárra"] {
+font-size: 80%; }
+
+
+div.pane-matrix-matrix div.content.cell {
+  width: 75px;
+  height: 60px;
+}
+
+div.ui-corner-all {
+  width: 80%;
+}
+
+
+body#pid-osszes-akcio .cell input.cart-delete, body.page-taxonomy-term- .cell input.cart-delete, body.page-search-products .cell input.cart-delete {
+    left: calc(-15% / 7 * 3) !important;
+
+}
+
+body.page-node .cell input.cart-delete {
+    left: calc(-55% / 7 * 3) !important;
+}
+
+body.page-node  #discount-cart div.weight.cell, body.page-node  #discount-cart div.price.cell {
+  margin-left: 10% !important;
+}
+
+body#pid-matrix-cart  #discount-cart div.weight.cell, body#pid-matrix-cart  #discount-cart div.price.cell {
+  margin-left: 10% !important;
+}
+
+#discount-cart div.weight.cell, #discount-cart div.price.cell {
+  margin-left: 22% !important;
+}
+
+#discount-cart .plus-minus > div.weight.cell {
+  margin-left: -25% !important;
+}
+
+body.page-search-products div.price.cell + div.markup.cell {
+  margin-left: 103% !important;
+}
+
+div.price.cell + div.markup.cell {
+  margin-left: 55% !important;
+}
+
+.matrix_cart_block span.cart-sum-price {
+  margin-left: 45% !important;
+}
+
+body.page-node .matrix_cart_block span.cart-sum-price {
+  margin-left: 55% !important;
+}
+
+
+.matrix_cart_block span.measurement:last-child {
+  margin-left: 85% !important;
+}
+
+body.page-search .matrix_cart_block span.measurement:last-child {
+  margin-left: 92% !important;
+}
+
+body.page-taxonomy-term- select#edit-sort-bef-combine-szuresek, body.page-taxonomy-term- select#edit-mefibs-form-rendezes-sort-by {
+  left:90%;
+}
+
+.ds-2col > .group-left {
+  width: 42%;
+}
+
+.ds-2col > .group-right {
+  margin-left: 8%;
+}
+
+.field-name-acime h1 {
+  margin-bottom: -30px !important;
+}
+
+body.page-node div.field.field-name-field-egysegar {
+  top:-75px !important;
+}
+
+div.field.field-name-listamra.field-type-ds.field-label-hidden {
+  top:30px !important;
+}
+
+body#pid-matrix-cart #discount-cart .cell.content {
+  width: 245px;
+}
+
+body#pid-matrix-cart #discount-cart .cell.content:first-child {
+  width: 120px;
+}
+
+body#pid-matrix-cart input.cart-delete {
+  top: -25px;
+  right: -30px;
+}
+
+#save-order {
+    margin-left: 15%;
+}
+
+.view-id-similar .masonry-item {
+  display: none;
+}
+
+.view-id-similar .masonry-item:first-child {
+  display: block;
+}
+
+
+body.page-node div.field.field-name-field-termekfoto img {
+  max-width: 200px;
+}
+
+body.page-node #block-views-similar-block h2.block-title {
+  font-size: 18px;
+}
+
+body#pid-matrix-cart .plus-minus {
+  margin-left: 70px;
+  margin-right: 0px;
+}
+
+body#pid-matrix-cart .totals-row {
+ position: relative;
+  left: 55%;
+  top: -40px;
+  margin: 0;
+  float: none;
+}
+
+}
+
+@media screen and (min-width:1025px) and (max-width: 1280px) {
+
+ul.menu li a {
+  font-size: 150% !important;
+}
+
+section#block-mailchimp-signup-k-vesse-emailben-is-az-akci-kat h2.block-title {
+  display: none;
+}
+
+div#header-group, .navbar.container-fluid {
+  background-size: cover;
+}
+
+body#pid-matrix .views-field-field-termekfoto-1 {
+  margin-right: 15% !important;
+}
+
+body#pid-matrix .views-field-field-termekfoto-1 img {
+    max-width: 65px;
+    min-width: 65px;
+    width: 65px;
+    min-height: 65px;
+    max-height: 65px;
+    height: 65px;
+}
+
+.compare-page #tableBody .product-name {
+  width:23% !important;
+}
+
+body#pid-matrix .compare-page .sum-cell.sum-price {
+
+}
+
+body#pid-matrix .compare-page #matrix-header  .sum-cell.sum-price {
+  padding-left: 10%!important;
+}
+
+
+.pane-matrix-matrix h2, h2.block-title {
+  font-size: 130%;
+}
+
+div.pane-matrix-matrix input[value="Ugrás a bevásárlókosárra"] {
+  font-size: 110%;
+}
+
+body.page-node- input[value="Ugrás a bevásárlókosárra"] {
+  font-size: 120%;
+}
+
+body.page-search-products input[value="Ugrás a bevásárlókosárra"] {
+  font-size: 90%;
+}
+
+
+div.pane-matrix-matrix div.content.cell {
+  width: 75px;
+  height: 60px;
+}
+
+body.page-node- #discount-cart .cell.content {
+  max-height:40px;
+}
+
+body.page-node div.content.cell a {
+  width: 80px;
+}
+
+
+body#pid-osszes-akcio .cell input.cart-delete, body.page-taxonomy-term- .cell input.cart-delete, body.page-node .cell input.cart-delete {
+left: calc(2em / 7 * 3) !important;
+}
+
+body.page-node .cell input.cart-delete {
+left: calc(-2em / 7 * 3) !important;
+}
+
+body.page-search-products input.cart-delete {
+left: calc(1em / 7 * 3) !important;
+}
+
+body.page-search-products #discount-cart div.price.cell {
+  margin-left: 35%;
+}
+
+#discount-cart div.weight.cell, #discount-cart div.price.cell {
+  margin-left: 30%;
+}
+
+body.page-node #discount-cart div.cart-row div.price.cell + div.markup.cell {
+ margin-left: 58%; 
+}
+
+body.page-node #discount-cart div.price.cell {
+  margin-left: 25%;
+}
+
+div.price.cell + div.markup.cell {
+  margin-left: 55%;
+}
+
+.matrix_cart_block span.cart-sum-price {
+  margin-left: 50% !important;
+}
+
+.matrix_cart_block span.measurement:last-child {
+  margin-left: 85% !important;
+}
+
+body.page-taxonomy-term- select#edit-sort-bef-combine-szuresek, body.page-taxonomy-term- select#edit-mefibs-form-rendezes-sort-by {
+  left:25px;
+}
+
+.ds-2col > .group-left {
+  width: 42%;
+}
+
+.ds-2col > .group-right {
+  margin-left: 8%;
+}
+
+div.field.field-name-listamra.field-type-ds.field-label-hidden {
+  top:-10px;
+}
+
+.shop-header h2 {
+  font-size: 100%;
+}
+
+body.page-search- .shop-header h2 {
+  font-size: 90%;
+}
+
+.view-osszes-akcio .view-content {
+  width: 115%;
+  margin-left: -4%;
+}
+
+body.page-taxonomy-term .view-osszes-akcio .view-content {
+  margin-left: 0%;
+} 
+
+.panel-3col .panel-col-first {
+  margin-left: -1% !important;
+}
+
+.panel-3col .panel-col-last {
+  margin-left: 4%;
+  margin-right: -4%;
+}
+
+body.page-node div.field.field-name-field-termekfoto img {
+  margin: 0 20px !important;
+}
+
+.view-id-similar .masonry-item {
+  display: none;
+}
+
+.view-id-similar .masonry-item:first-child {
+  display: block;
+}
+
+body#pid-matrix-cart .totals-row {
+  margin-right: 12.5% !important;
+}
+
+body.page-node div.field.field-name-field-egysegar {
+  top: -85px;
+}
+
+body#pid-matrix-cart input.cart-delete {
+  right: -40px;
+}
+
+
+}
+
+@media screen and (min-width:1281px) and (max-width: 1366px) {
+
+.stickynav-active {
+  width: 82.5% !important;
+}
+
+.compare-page #tableBody .product-name {
+  width: 32% !important;
+}
+
+
+body.page-node- input[value="Ugrás a bevásárlókosárra"] {
+font-size: 140%;
+}
+
+body.page-search-products input[value="Ugrás a bevásárlókosárra"] {
+font-size: 110%;
+}
+
+
+body.page-search-products #discount-cart div.price.cell {
+  margin-left: 35%;
+}
+
+body.page-search-products input.cart-delete {
+  left: calc(3em / 7 * 3) !important;
+}
+
+body#pid-osszes-akcio .view-osszes-akcio .view-header {
+  width: 103%;
+  margin-left: -2%;
+}
+
+.ds-2col > .group-right {
+  margin-left: 8%;
+}
+
+body.page-node div.content.cell a {
+  width: 95px;
+}
+
+body.page-node- #discount-cart .cell.content {
+  max-height: 40px;
+}
+
+body.page-node #discount-cart div.price.cell {
+  margin-left: 50px;
+}
+
+body.page-node #discount-cart div.cart-row div.price.cell + div.markup.cell {
+  margin-left: 82px;
+}
+
+body.page-node .cell input.cart-delete  {
+left: calc(1em / 7 * 3) !important;
+}
+
+body.page-node .matrix_cart_block span.cart-sum-price {
+  margin-left: 70%;
+}
+
+body.page-node div.field.field-name-field-szazalek {
+  margin-top: -55px;
+}
+
+body#pid-matrix-cart input.cart-delete {
+  right: -50px;
+}
+
+body#pid-matrix-cart .totals-row {
+  margin-right: 12%;
+}
+
+body.page-node div.field.field-name-aruhaz {
+  margin-top: 5%;
+}
+
+}
+
+@media screen and (min-width:1367px) and (max-width:1400px) {
+
+body#pid-osszes-akcio .cell input.cart-delete, body.page-taxonomy-term- .cell input.cart-delete {
+left: calc(5em / 7 * 3) !important;
+}
+
+body.page-node .cell input.cart-delete  {
+left: calc(2em / 7 * 3) !important;
+}
+
+
+}
+
+@media screen and (min-width:1400px) {
+
+body#pid-osszes-akcio .cell input.cart-delete, body.page-taxonomy-term- .cell input.cart-delete  {
+left: calc(7em / 7 * 3) !important;
+}
+
+body.page-node .cell input.cart-delete  {
+left: calc(3em / 7 * 3) !important;
+}
+
+
+body#pid-matrix-cart .totals-row {
+  margin-right: 10%;
+}
+
+.stickynav-active {
+  width:84.9% !important;
+}
+
+}
+
+@media screen and (min-width:1900px) {
+
+.stickynav-active {
+  width:66% !important;
+}
+
+body.page-search-products div.price.cell + div.markup.cell {
+  margin: -64px 0px 0 98%;
+}
+
+body.page-search-products #discount-cart div.price.cell {
+  margin-left: 50%;
+}
+
+body.page-search-products input.cart-delete {
+  left: calc(7em / 7 * 3);
+}
+
+body.page-search-products .matrix_cart_block span.cart-sum-price {
+  margin-left: 60%;
+}
+
+body.page-node .matrix_cart_block span.cart-sum-price {
+  margin-left: 70%;
+}
+
+}
+
+body.page-printmail .alert-success {
+color: #808080;
+border-color: none;
+background-color: #fece5b;
+width: 406px;
+margin: 0 auto;
+text-align: center;
+font-family: "Lato";
+font-weight: 400;
+font-size: 12px;
+line-height: 1.2;  
+}
+
+body.page-printmail .alert-success a {
+  display: none;
+}
+
+
+body.page-default-search-page div.views-exposed-form {
+  height: auto !important;
 }
