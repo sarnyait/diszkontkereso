@@ -481,7 +481,7 @@ body#pid-matrix .matrix_cart_button {
 }
 
 body.page-search #discount-cart .amount-change + .no-width input.cart-delete {
-  top: -55px;
+  top: -30px;
 }
 
 body#pid-matrix-cart .amount.element-remove + .weight + .no-width {
@@ -1035,8 +1035,8 @@ body.page-taxonomy-term- .piece-selector span.label {
   margin-left: -20px;
 }
 
-body.page-search- .piece-selector span.label {
-  margin-left: -20px;
+body.page-search-products .piece-selector span.label {
+  margin-left: -20px !important;
 }
 
 body.page-taxonomy-term .piece-unit, body.page-taxonomy-term .weight-unit {
@@ -1714,7 +1714,7 @@ float: none;
 margin-top: 0px;
 margin-left: 0px;
 clear: both;
-max-height: 30px;
+max-height: 15px;
 }
 
 body.page-search-products #discount-cart .cell.content {
@@ -1723,7 +1723,7 @@ float: left;
 margin-top: -10px;
 margin-left: 0px;
 clear: right;
-min-height: 35px;
+min-height: 1px;
 max-width: 99px;
 }
 
@@ -2051,7 +2051,7 @@ div.content.cell {
 body.page-node div.content.cell a {
   text-decoration: none;
   width: 100px;
-  height: 39px;
+  height: auto;
   font-family: "Lato";
   font-weight: 300;
   font-size: 12px;
@@ -2072,7 +2072,7 @@ body.page-node div.content.cell a {
 div.content.cell a {
   text-decoration: none;
    width: 131px;
-  height: 30px;
+  height: auto;
   font-family: "Lato";
   font-weight: 300;
   font-size: 12px;
@@ -2831,7 +2831,7 @@ body#pid-matrix-cart input.nearest-shop {
 
 div.pane-matrix-matrix div.content.cell {
   width: 110px;
-  height: 39px;
+  height: auto;
   font-family: "Lato";
   font-weight: 300;
   font-size: 12px;
@@ -6196,6 +6196,12 @@ left: calc(7em / 7 * 3) !important;
 
 body.page-node .cell input.cart-delete  {
 left: calc(3em / 7 * 3) !important;
+}
+
+body.page-node div.field.field-name-aruhaz {
+  float: left;
+  margin-top: 8%;
+  margin-bottom: -15%;
 }
 
 
