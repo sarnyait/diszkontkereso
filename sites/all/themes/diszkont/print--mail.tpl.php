@@ -84,9 +84,7 @@
     <?php print $css; ?>
   </head>
   <body>
-    <?php if (!empty($message)): ?>
-      <div class="print-message"><?php print $message; ?></div><p />
-    <?php endif; ?>
+    
     <?php if ($print_logo): ?>
       <div class="print-logo" style="text-align:center;">
         <img src="/sites/default/files/logo_jokosar_white.png" style="width: 130px;">
