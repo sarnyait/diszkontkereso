@@ -88,7 +88,9 @@
       <div class="print-message"><?php print $message; ?></div><p />
     <?php endif; ?>
     <?php if ($print_logo): ?>
-      <div class="print-logo" style="text-align:center;"><?php print $print_logo; ?></div>
+      <div class="print-logo" style="text-align:center;">
+        <img src="/sites/default/files/logo_jokosar_white.png" style="width: 130px;">
+      </div>
     <?php endif; ?>
     <div class="print-site_name"><?php //print theme('print_published'); ?></div>
     <p />
