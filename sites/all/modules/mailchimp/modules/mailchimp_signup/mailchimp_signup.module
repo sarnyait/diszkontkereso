@@ -350,7 +350,7 @@ function mailchimp_signup_subscribe_form_submit($form, &$form_state) {
   // Filter out blank fields so we don't erase values on the Mailchimp side.
   $merge_values = array_filter($form_state['values']['mergevars']);
   $email = $merge_values['EMAIL'];
-  setcookie('email',$email, time()+60*60*24*30);
+  setcookie('email',$email, time()+60*60*24*30, '/', '.jokosar.hu');
   // If we only have one list we won't have checkbox values to investigate:
   if (count($signup->mc_lists) == 1) {
     /* $subscribe_lists[0] = array(

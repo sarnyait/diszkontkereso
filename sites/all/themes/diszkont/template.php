@@ -13,7 +13,7 @@ function diszkont_form_search_block_form_alter(&$form, &$form_state, $form_id) {
     $form['actions']['submit']['#value'] = t('Keresés!'); // Change the text on the submit button
     // Alternative (HTML5) placeholder attribute instead of using the javascript
     $form['search_block_form']['#attributes']['placeholder'] = t('Pl. Trappista sajt, marhahús');
-    $form['#action'] = '/search/products/find';
+    $form['#action'] = '/search/termek';
     $form['#submit'] = array('diszkont_search_form_submit');
 } 
 
@@ -60,7 +60,7 @@ case 'views_exposed_form':
 }
 
 function diszkont_search_form_submit($form, &$form_state) {
-  $form_state['redirect'] = 'search/products/find/'.$form_state['values']['search_block_form'];  
+  $form_state['redirect'] = 'search/termek/'.$form_state['values']['search_block_form'];  
 }
 
  function diszkont_preprocess_html(&$variables) {  
