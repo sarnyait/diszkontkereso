@@ -539,7 +539,7 @@ function matrix_render_cart($line_items, $format = '', $block) {
 
     if ($template !== 'matrix_cart_print') {
       $output .= matrix_get_shop_url($sid);
-      $output .= '<input type="button" class="nearest-shop" value="Még több innen: ' . $shop->name . '" onClick="window.open(\'/osszes-akcio?field_aruhaz_tid_selective[0]=' . $shop->tid . '\')">';
+      $output .= '<input type="button" class="nearest-shop" value="Még több innen: ' . $shop->name . '" onClick="window.open(\'/osszes-akcio?field_aruhaz_tid_selective[0]=' . $shop->tid . '&field_aruhaz_tid_selective[1]=' . $shop->tid . '\')">';
       $output .= '<div class="totals-row"><label class="totals">' . t('Total: ') . '</label><span class="cart-sum-weight" data-shop="' . $sid . '">' . $sumOfWeight . '</span><span class="measurement"> kg</span><span class="cart-sum-price" data-shop="' . $sid . '">' . number_format($sumOfPrice, 0, '', ' ') . ' </span><span class="measurement">Ft</span></div>';
     }
     else {
