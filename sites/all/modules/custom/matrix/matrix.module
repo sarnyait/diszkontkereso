@@ -514,7 +514,7 @@ function matrix_render_cart($line_items, $format = '', $block) {
         $vars = array(
           'amount' => $offered['amount'],
           'product' => ($template !== 'matrix_cart_print') ? l($offered['title'], 'node/' . $pid) : $offered['title'],
-          'product_short' => (strlen($offered['title']) > 26) ? l(mb_substr($offered['title'], 0, 20) . '...', 'node/' . $pid) : l($offered['title'], 'node/' . $pid),
+          'product_short' => (strlen($offered['title']) > 20) ? l(mb_substr($offered['title'], 0, 20) . '...', 'node/' . $pid) : l($offered['title'], 'node/' . $pid),
           'piece' => $offered['amount'],
           'weight' => $offered['amount'] * $weight,
           'price' => number_format($offered['amount'] * $price, 0, '', ' '),
