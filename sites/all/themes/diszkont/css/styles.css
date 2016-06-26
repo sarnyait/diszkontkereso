@@ -1603,7 +1603,13 @@ margin: 65% 15% 0px 6px;
 padding-right: 5px;
 }
 
-body#pid-matrix .first .matrix_cart_button {
+/* body#pid-matrix .first .matrix_cart_button {
+background-color: #ec4c43;  
+color: white;
+border: 0;
+} */
+
+body#pid-matrix .best .matrix_cart_button {
 background-color: #ec4c43;  
 color: white;
 border: 0;
@@ -6339,7 +6345,7 @@ left: calc(3em / 7 * 3) !important;
 body.page-node div.field.field-name-aruhaz {
   float: left;
   margin-top: -8%;
-  margin-bottom: -15%;
+  margin-bottom: -8%;
 }
 
 
