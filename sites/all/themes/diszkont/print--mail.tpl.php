@@ -86,7 +86,7 @@
   <body>
     
     <?php if ($print_logo): ?>
-      <div class="print-logo" style="text-align:center;width:130px;">
+      <div class="print-logo" style="text-align:center;width:130px;margin: 0 40%;">
         <img src="/sites/default/files/logo_jokosar_white.png" style="width: 130px;">
       </div>
     <?php endif; ?>
