@@ -4202,7 +4202,9 @@ body.page-node div.field.field-name-field-szazalek {
   text-align: right;
   clear: left;
   float: right;
+  max-width: 15%;
   width: 15%;
+  min-width: 10%;
   height: 17px;
   font-family: "Lato";
   font-weight: 400;
