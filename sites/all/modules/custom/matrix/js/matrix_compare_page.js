@@ -517,6 +517,7 @@
           }
         });
         $('.cell').removeClass('best');
+        $('.button-cell').removeClass('best');
         $('.cell[data-shop="' + minId + '"]').addClass('best');
         $('.cell[data-name="' + minId + '"]').addClass('best');
         $('.button-cell[data-name="' + minId + '"]').addClass('best');
