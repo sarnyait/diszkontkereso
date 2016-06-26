@@ -215,18 +215,47 @@ function matrix_compare_page() {
   $colors = array('red', 'green', 'blue', 'purple', 'yellow');
 
   $nodes = node_load_multiple(array(), array('type' => 'heti_ajanlat'));
-  $nodes = reset($nodes);
-  $terms = $nodes->field_kategoria[LANGUAGE_NONE];
-  $lefts = matrix_tax2flat_array($terms);
+  $week = date('W');
+
+  while (empty($result) && $week > 2) {
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'node')
+      ->entityCondition('bundle', 'heti_ajanlat')
+      ->propertyCondition('status', NODE_PUBLISHED)
+      ->fieldCondition('field_melyikhet', 'value', $week, '=')
+      ->fieldOrderBy('field_melyikhet', 'value', 'DESC');
+
+    $result = $query->execute();
+    $week--;
+  }
+
+  if (isset($result['node'])) {
+    $items_nids = reset($result['node']);
+    $node = node_load($items_nids->nid);
+  }
+  else {
+    return t('Weekly offer not found.');
+  }
+  $nodeWrapper = entity_metadata_wrapper('node', $node);
+  foreach ($nodeWrapper->field_kategoria as $field) {
+    $lefts[] = $field->value()->tid;
+  }
+
+  $terms = $node->field_kategoria[LANGUAGE_NONE];
+  //$lefts = matrix_tax2flat_array($terms);
   //$lefts = array('Sajt', 'Hus', 'Sor', 'aaa', 'bbb');
 
+  //$terms2 = $node->field_shop[LANGUAGE_NONE];
 
-  $vocabulary = taxonomy_vocabulary_machine_name_load('aruhaz');
-  $terms2 = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
-  $terms2 = $nodes->field_shop[LANGUAGE_NONE];
+
+  foreach ($nodeWrapper->field_shop as $field) {
+    $tops[] = $field->value()->tid;
+  }
+
+  // For test.
+  //$vocabulary = taxonomy_vocabulary_machine_name_load('aruhaz');
+  //$terms2 = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
   //$terms2 = taxonomy_term_load_multiple(array(519, 520, 2052, 2049));
-  $tops = matrix_tax2flat_array($terms2);
-  //$tops = array('Spar', 'Tesco', 'Lidl', 'CBA');
 
   $sumPrice = array();
   $sumWeight = array();
