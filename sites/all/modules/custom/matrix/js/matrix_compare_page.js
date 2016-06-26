@@ -517,10 +517,11 @@
           }
         });
         $('.cell').removeClass('best');
+        console.log(minId);
         $('.button-cell').removeClass('best');
         $('.cell[data-shop="' + minId + '"]').addClass('best');
         $('.cell[data-name="' + minId + '"]').addClass('best');
-        $('.button-cell[data-name="' + minId + '"]').addClass('best');
+        $('.button-cell[data-shop="' + minId + '"]').addClass('best');
       }
       updateSumValues();
     }
