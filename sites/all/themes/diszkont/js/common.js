@@ -8,7 +8,7 @@ var $ = jQuery.noConflict();
 		 $(this).after('<div class="separator"></div>');
 	  });
 	  $(".field-name-field-szazalek").each(function() {
-	     $(this).text($(this).text().replace(/^-[0+]/, '-'));
+	     $(this).text($(this).text().replace(/^-[0+]/, "-"));
 	   });	   
    });
 
