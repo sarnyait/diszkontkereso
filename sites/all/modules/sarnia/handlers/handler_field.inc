@@ -442,4 +442,23 @@ class SarniaViewsHandlerField extends views_handler_field {
     return $output;
   }
 
+  /**
+   * Sanitize the value for output.
+   *
+   * @param string $value
+   *   The value being rendered.
+   * @param string $type
+   *   The type of sanitization needed. If not provided, no processing is done.
+   *
+   * @return string
+   *   Returns the safe value.
+   *
+   * @see search_api_sanitize_field_value()
+   */
+  public function sanitize_value($value, $type = NULL) {
+    // Value is sanitized by Search API regardless of type - no other processing
+    // needs to be done.
+    return $value;
+  }
+
 }

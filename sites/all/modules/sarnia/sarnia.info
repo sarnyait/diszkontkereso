@@ -23,9 +23,9 @@ files[] = handlers/handler_filter_date.inc
 files[] = handlers/handler_sort.inc
 files[] = plugins/facetapi/SarniaFacetapiTerm.inc
 
-; Information added by Drupal.org packaging script on 2016-04-13
-version = "7.x-1.2"
+; Information added by Drupal.org packaging script on 2016-08-26
+version = "7.x-1.3"
 core = "7.x"
 project = "sarnia"
-datestamp = "1460543641"
+datestamp = "1472218800"
 
