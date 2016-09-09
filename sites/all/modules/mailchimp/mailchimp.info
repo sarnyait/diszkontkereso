@@ -14,6 +14,6 @@ configure = admin/config/services/mailchimp
 ; Information added by Drupal.org packaging script on 2015-09-10
 version = "7.x-4.4"
 core = "7.x"
-project = "mailchimp"
+#project = "mailchimp"
 datestamp = "1441921145"
 
