@@ -12,65 +12,66 @@
 /* 2. Rename this file to local.css                   */
 /* 3. Clear cached data at admin/settings/performance */
 
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i';
 
 
 
 @font-face {
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-style: normal;
   font-weight: 100;
   src: local('Lato Hairline'), local('Lato-Hairline'), url(https://fonts.gstatic.com/s/lato/v11/pTzFBqwzDU5_uumHzlVDTevvDin1pK8aKteLpeZ5c0A.woff) format('woff');
 }
 @font-face {
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-style: normal;
   font-weight: 300;
   src: local('Lato Light'), local('Lato-Light'), url(https://fonts.gstatic.com/s/lato/v11/7YeX5qGGVrvjpqFsvxNSRALUuEpTyoUstqEm5AMlJo4.woff) format('woff');
 }
 @font-face {
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-style: normal;
   font-weight: 400;
   src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v11/2V_mouV5odI0UgtVODTOwvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
 }
 @font-face {
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-style: normal;
   font-weight: 700;
   src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v11/sccV8o9st-AMv7Su44YKKQLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
 }
 @font-face {
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-style: normal;
   font-weight: 900;
   src: local('Lato Black'), local('Lato-Black'), url(https://fonts.gstatic.com/s/lato/v11/Ue1lpEind3fdmHHQkRYdowLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
 }
 @font-face {
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-style: italic;
   font-weight: 100;
   src: local('Lato Hairline Italic'), local('Lato-HairlineItalic'), url(https://fonts.gstatic.com/s/lato/v11/ltAXVgMneoy-oSOU9NjhfHYhjbSpvc47ee6xR_80Hnw.woff) format('woff');
 }
 @font-face {
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-style: italic;
   font-weight: 300;
   src: local('Lato Light Italic'), local('Lato-LightItalic'), url(https://fonts.gstatic.com/s/lato/v11/XNVd6tsqi9wmKNvnh5HNELO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
 }
 @font-face {
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-style: italic;
   font-weight: 400;
   src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v11/NdyT62s2uoMQ_OHiZ3MeDevvDin1pK8aKteLpeZ5c0A.woff) format('woff');
 }
 @font-face {
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-style: italic;
   font-weight: 700;
   src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v11/AcvTq8Q0lyKKNxRlL28Rn7O3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
 }
 @font-face {
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-style: italic;
   font-weight: 900;
   src: local('Lato Black Italic'), local('Lato-BlackItalic'), url(https://fonts.gstatic.com/s/lato/v11/81X-1TO5y4aMK2PPy9kFw7O3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
@@ -174,7 +175,7 @@
 }
 
 body {
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-size: 75%;   /* also set in acquia_prosper.info: settings[base-font-size] = font-size-12 */
   overflow-x: hidden;
   overflow-y: scroll;
@@ -183,12 +184,12 @@ body {
 }
 
 body.page-search-termek #block-system-main {
-  color: #808080; 
+  color: #808080;
   min-width: 406px;
   min-height: 600px;
   margin: 0 auto;
   text-align: center;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.2;
@@ -268,7 +269,7 @@ body.page-node div.field-name-field-tarolas {
 
 body#pid-product-display-szerkeszto .field-name-field-akciosar, body#pid-product-display-szerkeszto .field-name-field-ar {
   width: 120px;
-} 
+}
 
 body.page-node .col-sm-3 {
 width: 18% !important;
@@ -288,11 +289,11 @@ ol.search-results.apachesolr_search-results {
 
 .search-result h3 a {
  color: rgb(52, 52, 52);
- text-decoration: none; 
+ text-decoration: none;
 }
 
 .search-result h3 a:hover {
- text-decoration: underline; 
+ text-decoration: underline;
 }
 
 body.page-node .col-sm-3:nth-of-type(1) {
@@ -355,7 +356,7 @@ font-size: 12px;
   margin-left: 22px;
   margin-top: 0px;
   text-transform: uppercase;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   letter-spacing: 1.6px;
   color: #343434;
@@ -409,9 +410,9 @@ margin-left: 5px;
 }
 
 
-body.page-taxonomy-term- .view input.cart-inline-plus 
+body.page-taxonomy-term- .view input.cart-inline-plus
 
-body.page-search-termek- div.content.cell.image, body#pid-osszes-akcio div.content.cell.image, body.taxonomy-term- div.content.cell.image {  
+body.page-search-termek- div.content.cell.image, body#pid-osszes-akcio div.content.cell.image, body.taxonomy-term- div.content.cell.image {
 float: none;
 margin: 0 auto 50px; }
 
@@ -473,7 +474,7 @@ display:none;
 }
 
 body.node-type-order .alert-success {
-font-family: 'Lato';
+font-family: 'Open Sans', sans-serif;
 font-weight: 700;
 font-size: 16px;
 color: #262735;
@@ -481,7 +482,7 @@ color: #262735;
 
 body.node-type-order td {
 padding: 12px;
-font-family: 'Lato';
+font-family: 'Open Sans', sans-serif;
 font-weight: 700;
 font-size: 12px;
 color: #262735;
@@ -652,7 +653,7 @@ text-align: right;
 margin-right: -35px;
 }
 
-body#pid-matrix-cart span.cart-sum-price 
+body#pid-matrix-cart span.cart-sum-price
 {
 width: 90px;
 max-width:100px !important;
@@ -673,6 +674,7 @@ display: inline-block;
 body#pid-matrix-cart div.totals-row .cart-sum-price + span.measurement {
 font-size: 24px;
 color: #ec4c43;
+font-weight: 400 !important;
 }
 
 body#pid-osszes-akcio .inline-amount.cell.element-remove + div.inline-weight.cell + div.no-width input.cart-inline-plus {
@@ -758,7 +760,7 @@ body.page-node .pane-matrix-matrix span.cart-sum-weight {
 }
 
 body.page-taxonomy-term .masonry-item .views-field-php {
- margin-top: 20px; 
+ margin-top: 20px;
 }
 
 body.page-taxonomy-term- span.cart-sum-weight {
@@ -784,7 +786,7 @@ body.page-search-termek input.cart-delete {
 }
 
 ol.breadcrumb {
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: #535353;
@@ -852,12 +854,12 @@ float:left;
 body#pid-matrix-cart .amount-change + .price.cell {
   margin-top:0px;
   margin-left: -28px !important;
-}	
+}
 
 body#pid-matrix-cart .plus-minus + .price.cell {
   margin-top:0px;
   margin-left: 90px;
-}	
+}
 
 body.page-node #block-views-similar-block .add-to-cart {
 margin-right: 0;
@@ -1032,7 +1034,7 @@ margin-left: -4px;
 
 body.page-taxonomy-term- .matrix_cart_block input.cart-minus {
   margin-top: 5px;
-}    
+}
 
 .matrix_cart_block .cart-plus {
   vertical-align: middle;
@@ -1077,7 +1079,7 @@ div.inline-amount.cell, div.inline-weight.cell {
   margin-top: -21px;
   margin-left: 15px;
   font-size: 12px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
 }
 
@@ -1153,8 +1155,8 @@ body.page-taxonomy-term .piece-unit, body.page-taxonomy-term .weight-unit {
 div.amount-in-weight , div.amount-in-piece, div.amount-in-weight-inline, div.amount-in-piece-inline, body#pid-matrix-cart div.amount.piece .markup.cell  {
  font-size: 12px !important;
  color: #535353;
- font-family: "Lato";
- font-weight: 400; 
+ font-family: 'Open Sans', sans-serif;
+ font-weight: 400;
  margin: 9px 0px;
  cursor: pointer;
 }
@@ -1222,7 +1224,7 @@ body#pid-matrix-cart .piece-selector span.label{
   text-indent: -9999px;
   width:30px;
   height: 20px;
-  margin-left: 5px; 
+  margin-left: 5px;
   cursor:pointer;
 }
 
@@ -1239,7 +1241,7 @@ z-index: 10;
   text-indent: -9999px;
   width:30px;
   height: 20px;
-  margin-left: 5px; 
+  margin-left: 5px;
   cursor:pointer;
 }
 
@@ -1253,7 +1255,7 @@ div.view.view-similar.view-id-similar {
 
 body.page-node #block-views-similar-block h2.block-title {
 text-align: center;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 20px;
   letter-spacing: 2px;
@@ -1274,7 +1276,7 @@ line-height:2.5;
 
 .modal-message {
   color: rgb(52, 52, 52);
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.8px;
@@ -1310,7 +1312,7 @@ border-left: 15px solid #fade99;
 }
 
 body.page-search-termek div.plus-minus.inlist {
-margin-left:-220%;  
+margin-left:-220%;
 }
 
 body.page-search-termek .nearest-shop, body.page-search-termek input[value="Bolt webhelye"] {
@@ -1402,7 +1404,7 @@ margin-top: -30px
 }
 
 body#pid-matrix-cart h1.page-header {
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 1.6px;
@@ -1448,7 +1450,7 @@ body#pid-matrix-cart #discount-cart div.markup.cell {
 float: left;
 margin-top: 3px !important;
 text-align: left !important;
-margin-left: 0px !important; 
+margin-left: 0px !important;
 margin-right: 0px !important;
 }
 
@@ -1502,7 +1504,7 @@ min-height: 40px;
 height: 40px;
 border-radius: 4px;
 border: solid 1px #343434;
-font-family: 'Lato';
+font-family: 'Open Sans', sans-serif;
 font-weight: 700;
 font-size: 12px;
 letter-spacing: 2px;
@@ -1538,7 +1540,7 @@ p.search-info {
 
 section#block-views-similar-block .h2.block-title {
   margin: 0 auto;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 20px;
   letter-spacing: 2px;
@@ -1552,11 +1554,11 @@ body#pid-matrix .cell.starter_cell {
 
 form#search-block-form {
   margin: 3px 0 -2px;
-} 
+}
 
 body#pid-osszes-akcio form#search-block-form {
   margin: -3px 0 -2px;
-} 
+}
 
 body#osszes-akcio form#search-block-form {
   margin: 0;
@@ -1595,7 +1597,7 @@ body#pid-matrix .cell#corner div {
 }
 
 .starter_cell .plus-minus {
- margin: 65% 5% 20% 12%; 
+ margin: 65% 5% 20% 12%;
 }
 
 .starter_cell label {
@@ -1604,13 +1606,13 @@ padding-right: 5px;
 }
 
 /* body#pid-matrix .first .matrix_cart_button {
-background-color: #ec4c43;  
+background-color: #ec4c43;
 color: white;
 border: 0;
 } */
 
 body#pid-matrix .best .matrix_cart_button {
-background-color: #ec4c43;  
+background-color: #ec4c43;
 color: white;
 border: 0;
 }
@@ -1678,10 +1680,10 @@ body#pid-matrix .cell::nth-of-type(1) .matrix_cart_button {
   width: 33.3%;
   font-weight: 400;
   font-size: 14px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   color: #535353;
   line-height: 3em !important;
-} 
+}
 
 .compare-page #corner .category {
   text-transform: capitalize;
@@ -1712,7 +1714,7 @@ body.page-taxonomy-term .matrix_cart_block span.cart-sum-price {
 .matrix_cart_block span.cart-sum-price {
   width: 51px;
   height: 15px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 12px;
   color: #343434;
@@ -1722,7 +1724,7 @@ body.page-taxonomy-term .matrix_cart_block span.cart-sum-price {
 body.page-node .field-name-field-kategoria {
   width: 96.7%;
   height: 42px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: #535353;
@@ -1735,13 +1737,13 @@ body.page-node .field-name-field-kategoria {
   background-repeat: repeat-x;
   }
 
- body.page-node .field-name-field-kategoria a { 
-  font-family: "Lato";
+ body.page-node .field-name-field-kategoria a {
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 15px;
   color: #535353;
   text-decoration: none;
-  } 
+  }
 
 
 
@@ -1750,7 +1752,7 @@ body.page-node .field-name-field-kategoria {
   height: 20px;
   border-radius: 4px;
   border: solid 1px #343434;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 10px;
   color: #343434;
@@ -1816,7 +1818,7 @@ body.page-search-termek dl {
 }
 
 body#pid-osszes-akcio .form-control {
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-weight:400;
 }
 
@@ -1892,7 +1894,7 @@ body#pid-matrix .page-header {
   margin: 5px auto;
   text-align: center;
   height: 17px;
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 1.6px;
@@ -1903,7 +1905,7 @@ body#pid-matrix .page-header {
 
 ul#ntm-categ-list.ntm-categ-list li.empty a {
   font-weight: 400;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
 }
 
 .nearest-shop, input[value="Bolt webhelye"] {
@@ -1911,7 +1913,7 @@ width: 60px;
 height: 20px;
 border-radius: 4px;
 border: solid 1px #343434;
-font-family: 'Lato';
+font-family: 'Open Sans', sans-serif;
 font-weight: 400;
 font-size: 10px;
 color: #343434;
@@ -2075,7 +2077,7 @@ margin-left:-5px;
 .cell label {
   width: 80px;
   height: 30px;
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 12px;
   color: #535353;
@@ -2147,7 +2149,7 @@ div.pane-matrix-matrix  input#delete-order, section#block-matrix-matrix input#de
 div.amount, div.inline-amount {
    width: 9px;
   height: 17px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: #343434;
@@ -2163,7 +2165,7 @@ color: #535353;
 }
 
 div.content.cell {
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-size: 12px;
   color: #343434;
   width: 350px;
@@ -2175,7 +2177,7 @@ body.page-node div.content.cell a {
   text-decoration: none;
   width: 100px;
   height: auto;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   font-size: 12px;
   color: #343434;
@@ -2196,7 +2198,7 @@ div.content.cell a {
   text-decoration: none;
    width: 131px;
   height: auto;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   font-size: 12px;
   color: #343434;
@@ -2216,7 +2218,7 @@ div.content.cell a {
   text-align:center;
   width: auto;
   height: 15px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 12px;
   color: #535353;
@@ -2289,7 +2291,7 @@ body#pid-matrix-cart .amount.cell, body#pid-matrix-cart .markup.cell, body#pid-m
 text-align:left;
   width: auto;
   height: 15px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 20px;
   color: #535353;
@@ -2333,7 +2335,7 @@ body.page-node .amount.cell, body.page-node .inline-amount.cell {
 span.cart-sum-weight, span.cart-sum-price, span.measurement {
   width: 100px;
   height: 19px;
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   font-weight: 700;
   color: #343434;
@@ -2347,7 +2349,7 @@ body.page-node span.cart-sum-weight {
 }
 
 span.cart-sum-price {
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 24px;
   color: #ec4c43;
@@ -2367,7 +2369,7 @@ body#pid-osszes-akcio span.cart-sum-weight, body#pid-osszes-akcio span.cart-sum-
 body#pid-osszes-akcio .totals-row label, body.page-taxonomy-term- .totals-row label, body.page-node .totals-row label, body.page-search-termek .totals-row label {
    width: 90%;
   height: 25px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 12px;
   color: #262735;
@@ -2425,7 +2427,7 @@ body#pid-matrix-cart .totals-row {
 body#pid-matrix-cart .totals {
    width: 88px;
   height: 17px;
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 16px;
   letter-spacing: 1.6px;
@@ -2434,7 +2436,7 @@ body#pid-matrix-cart .totals {
 body#pid-osszes-akcio div.markup.cell, body.page-taxonomy-term- div.markup.cell, body.page-node div.markup.cell  {
   width: 100px;
   height: 17px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 12px;
   color: #343434;
@@ -2467,7 +2469,7 @@ width: 30px !important;
 body.page-node .field-name-field-akciovege {
  width: 196px;
   height: 24px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 17px;
   line-height: 0.6;
@@ -2479,7 +2481,7 @@ body.page-node .field-name-field-akciovege {
   }
 
 .col-sm-12 {
- background: white; 
+ background: white;
 }
 
 body#pid-matrix .col-sm-12 {
@@ -2503,7 +2505,7 @@ div.mc-field-group.input-group.elso {
   height: 40px;
   border-radius: 4px;
   border: solid 1px #343434;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 12px;
   letter-spacing: 2px;
@@ -2535,7 +2537,7 @@ line-height: 1;
 
 .delete-shop {
   float: right;
-  /* color: #ec4c43; 
+  /* color: #ec4c43;
  border: solid 1px #979797 !important; */
  border-radius: 30px;
  padding: 5px;
@@ -2557,7 +2559,7 @@ line-height: 1;
 }
 
 .page-header h1 {
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 1.6px;
@@ -2569,7 +2571,7 @@ line-height: 1;
 body.page-taxonomy.page-taxonomy-term.page-taxonomy-term- h1.page-header {
   width: 182px;
   height: 17px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: #535353;
@@ -2580,10 +2582,10 @@ body.page-taxonomy.page-taxonomy-term.page-taxonomy-term- h1.page-header {
   height: 20px;
   border-radius: 4px;
   border: solid 1px #343434;
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 10px;
-  color: #343434; 
+  color: #343434;
   text-align: center;
   background: white;
 }
@@ -2611,7 +2613,7 @@ body.page-node .add-to-cart {
   height: 40px;
   border-radius: 4px;
   background-color: #ec4c43;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 12px;
   letter-spacing: 2px;
@@ -2622,7 +2624,7 @@ body.page-node .add-to-cart {
   float:right;
   clear: right;
   margin-top: -25px
-}  
+}
 
 body.page-node #block-system-main .add-to-cart {
   margin-top: 25px;
@@ -2658,7 +2660,7 @@ body.page-taxonomy-term .views-field-nid {
 
 body#pid-osszes-akcio .cart-minus, body#pid-osszes-akcio .cart-plus, body#pid-osszes-akcio .inline-amount, body#pid-osszes-akcio .cart-inline-minus, body#pid-osszes-akcio .cart-inline-plus {
 font-size: 12px;
-font-family: "Lato";
+font-family: 'Open Sans', sans-serif;
 font-weight: 700;
 }
 
@@ -2686,11 +2688,11 @@ body#pid-osszes-akcio #discount-cart .inline-amount {
 .inline-amount {
 float:left;
 font-size: 12px;
-} 
+}
 
 
 body#pid-matrix .summary-row {
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: #343434;
@@ -2699,13 +2701,13 @@ body#pid-matrix .summary-row {
 }
 
 body#pid-matrix .cell {
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   padding: 3px;
   min-height: 120px;
-  border-right: solid 1px #979797;  
+  border-right: solid 1px #979797;
   width: 20% !important;
-}	
+}
 
 body#pid-matrix .cell:last-of-type {
   border-right: 0px;
@@ -2736,7 +2738,7 @@ body#pid-matrix .button-cell {
 }
 
 body#pid-matrix #matrix-header .cell {
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 14px;
   color: #535353;
@@ -2744,14 +2746,14 @@ body#pid-matrix #matrix-header .cell {
   }
 
 body#pid-matrix .cell:nth-of-type(1) {
-border-left: solid 0px #979797; 
+border-left: solid 0px #979797;
 }
 
 body#pid-matrix h4.termeknev a, body#pid-matrix .views-field-title  {
   display: block;
   width: 100px;
   height: auto;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 12px;
   color: #535353;
@@ -2770,7 +2772,7 @@ body#pid-matrix .views-field-field-egysegar, body#pid-matrix .views-field-field-
   display: block;
   width: auto;
   height: auto;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 12px;
   color: #535353;
@@ -2778,7 +2780,7 @@ body#pid-matrix .views-field-field-egysegar, body#pid-matrix .views-field-field-
 }
 
 body#pid-matrix .views-field-field-akciosar {
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 12px;
   letter-spacing: 1px;
@@ -2802,7 +2804,7 @@ text-decoration: line-through;
 
 
 .matrix-header .cell {
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 14px;
   color: #535353;
@@ -2826,7 +2828,7 @@ width:20% !important;
 }
 
 #summary {
-font-family: 'Lato';
+font-family: 'Open Sans', sans-serif;
 font-weight: 300;
 font-size: 12px;
 margin: 0;
@@ -2848,7 +2850,7 @@ div.vissza a.vissza {
   display: block;
   width: 39px;
   height: 17px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: #808080;
@@ -2869,7 +2871,7 @@ body#pid-matrix-cart h1.page-header {
   margin: 0 auto;
   width: 154px;
   height: 17px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 1.6px;
@@ -2893,7 +2895,7 @@ body.page-node- input[value="Ugrás a bevásárlókosárra"], body.page-search-t
   height: 40px;
   border-radius: 5px;
   background-color: #ec4c43;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 11px;
   color: #ffffff;
@@ -2902,19 +2904,31 @@ body.page-node- input[value="Ugrás a bevásárlókosárra"], body.page-search-t
   margin: 40px 3% 20px
 }
 
+@media screen and (max-width: 1400px) {
+  body.page-node- input[value="Ugrás a bevásárlókosárra"], body.page-search-termek input[value="Ugrás a bevásárlókosárra"], body#pid-koszonjuk input[value="Ugrás a bevásárlókosárra"] {
+    font-size: 9.5px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  body.page-node- input[value="Ugrás a bevásárlókosárra"], body.page-search-termek input[value="Ugrás a bevásárlókosárra"], body#pid-koszonjuk input[value="Ugrás a bevásárlókosárra"] {
+    font-size: 9.5px;
+  }
+}
+
 div.pane-matrix-matrix input[value="Ugrás a bevásárlókosárra"]  {
   width: 180px;
   height: 40px;
   border-radius: 5px;
   background-color: #ec4c43;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 9px;
   color: #ffffff;
   text-transform: uppercase;
   border: 0px;
   margin: 40px 1% 20px -1%;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
 }
 
 body#pid-osszes-akcio div.pane-matrix-matrix input[value="Ugrás a bevásárlókosárra"], body.page-taxonomy-term div.pane-matrix-matrix input[value="Ugrás a bevásárlókosárra"] {
@@ -2926,7 +2940,7 @@ body#pid-matrix-cart input[value="Bolt webhelye"] {
   height: 40px;
   border-radius: 5px;
   background-color: #ec4c43;
-   font-family: 'Lato';
+   font-family: 'Open Sans', sans-serif;
    font-weight: 700;
   font-size: 11px;
   letter-spacing: 2px;
@@ -2942,7 +2956,7 @@ body#pid-matrix-cart input.nearest-shop {
   height: 40px;
   border-radius: 4px;
   border: solid 1px #343434;
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 12px;
   letter-spacing: 2px;
@@ -2955,7 +2969,7 @@ body#pid-matrix-cart input.nearest-shop {
 div.pane-matrix-matrix div.content.cell {
   width: 110px;
   height: auto;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   font-size: 12px;
   color: #343434;
@@ -2976,7 +2990,7 @@ div.pane-matrix-matrix .cart-row {
 .shop-header h2 {
 width: auto;
 height: 25px;
-font-family: 'Lato';
+font-family: 'Open Sans', sans-serif;
 font-weight: 700;
 font-size: 16px;
 color: #262735;
@@ -3052,11 +3066,11 @@ ol.ui-slider-scale li:last-of-type {
 }
 
 .view-osszes-akcio .view-content {
-padding-top:25px; 
+padding-top:25px;
 }
 
 body#pid-osszes-akcio .view-osszes-akcio .view-content {
-padding-top:0px; 
+padding-top:0px;
 margin-top: 8px;
 }
 
@@ -3083,14 +3097,14 @@ width: 98%;
 .panel-2col-bricks .panel-col-first, .panels-flexible-region-1-left{
   width: 20% !important;
   background-color: white;
-} 
+}
 
 .panel-2col-bricks .panel-col-last, .panels-flexible-region-1-center{
   width: 60% !important;
 
-} 
+}
 .pane-matrix-matrix h2, h2.block-title  {
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 12px;
   letter-spacing: 1.4px;
@@ -3130,7 +3144,7 @@ body#pid-osszes-akcio .panel-col-first .pane-title, .panel-2col-bricks .pane-tit
   margin-left: 20px;
   margin-top: 0px;
   text-transform: uppercase;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   letter-spacing: 1.6px;
   color: #343434;
@@ -3139,7 +3153,7 @@ body#pid-osszes-akcio .panel-col-first .pane-title, .panel-2col-bricks .pane-tit
 .taxonomy-description {
   width: 182px;
   height: 17px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: #535353;
@@ -3151,7 +3165,7 @@ body#pid-osszes-akcio .panel-col-first .pane-title, .panel-2col-bricks .pane-tit
 #taxonomyname {
   width: 182px;
   height: 17px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: #535353;
@@ -3160,7 +3174,7 @@ body#pid-osszes-akcio .panel-col-first .pane-title, .panel-2col-bricks .pane-tit
 }
 
 .exposed_filter_data {
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: #535353;
@@ -3190,8 +3204,8 @@ ul#ntm-categ-list.ntm-categ-list li a{
    margin-bottom: 0;
    color: rgb(52, 52, 52);
    font-weight: 400;
-   font-size: 12px; 
-   font-family: "Lato";
+   font-size: 12px;
+   font-family: 'Open Sans', sans-serif;
 }
 
 ul#ntm-categ-list.ntm-categ-list li a {
@@ -3304,8 +3318,8 @@ div.termeksuly {
   text-align: center;
   height: 35px !important;
   margin: 0 auto !important;
-  width: 66.2% !important;
-}   
+  width: 86.5% !important;
+}
 
 #backtotop {
   bottom: 100px;
@@ -3361,7 +3375,7 @@ body#pid-koszonjuk #block-system-main h2 {
   background: rgb(254,206,91);
   padding: 20px 20px 20px 20px;
   text-align: center;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   color: rgb(52, 52, 52);
   text-transform: uppercase;
@@ -3378,7 +3392,7 @@ body#pid-koszonjuk h3 {
   display: block;
   padding: 0px 20px 20px 20px;
   text-align: center;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   color: rgb(52, 52, 52);
   font-weight: 600;
@@ -3457,7 +3471,7 @@ body#pid-koszonjuk .clear {
 
 body#pid-koszonjuk #block-mailchimp-signup-k-vesse-emailben-is-az-akci-kat {
   display: none;
-} 
+}
 
 body#pid-koszonjuk #block-widgets-s-socialmedia-share-default {
 height:169px !important;
@@ -3475,7 +3489,7 @@ body#pid-koszonjuk #footer-wrapper {
 /* body#pid-koszonjuk #footer-wrapper:hover #block-widgets-s-socialmedia-share-default {
   height: 169px;
   max-height: 169px;
-} 
+}
 
 body#pid-koszonjuk #footer-wrapper:hover div#widgets-element-socialmedia_share-default.widgets.widgets-set.widgets-set-horizontal.widgets-style-horizontal {
   height: 169px;
@@ -3489,13 +3503,13 @@ display:none;
 }
 
 body.page-search h2 {
-} 
+}
 
 body.page-search .search-result {
   margin: 10px 0px;
   padding: 10px;
   background-color: white;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-size: 15px;
   font-weight: 400;
   clear: both;
@@ -3515,7 +3529,7 @@ div.views-field.views-field-field-url a {
   text-indent: 0em !important;
   float: left !important;
   margin-top: 5px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   border-radius: 4px;
 }
 
@@ -3692,7 +3706,7 @@ body#pid-user-password input#edit-submit {
   margin: 30px auto 0px;
 }
 
-#pid-printmail-cart textarea.form-textarea, .pid-printmail-cart input.form-text, #pid-printmail-cart textarea.form-textarea.required { 
+#pid-printmail-cart textarea.form-textarea, .pid-printmail-cart input.form-text, #pid-printmail-cart textarea.form-textarea.required {
   width: 240px;
   height: 40px;
   border-radius: 4px;
@@ -3700,7 +3714,7 @@ body#pid-user-password input#edit-submit {
   border: 0px;
 }
 
-#pid-printmail-cart input.form-submit { 
+#pid-printmail-cart input.form-submit {
   background: rgb(236,76,67);
   color: white;
   text-transform: uppercase;
@@ -3808,29 +3822,29 @@ body#pid-toboggan-denied input.password-confirm, body#pid-toboggan-denied input.
 body#pid-toboggan-denied ::-webkit-input-placeholder {
    font-size: 16px;
    color:white;
-   padding: 1px 1px 1px 10px;  
+   padding: 1px 1px 1px 10px;
    color: rgb(128,128,128);
 }
 
 body#pid-toboggan-denied :-moz-placeholder { /* Firefox 18- */
    font-size: 16px;
    color:white;
-   padding: 1px 1px 1px 10px;  
+   padding: 1px 1px 1px 10px;
    color: rgb(128,128,128);
 }
 
 body#pid-toboggan-denied ::-moz-placeholder {  /* Firefox 19+ */
    font-size: 16px;
    color:white;
-   padding: 1px 1px 1px 10px; 
-   color: rgb(128,128,128); 
+   padding: 1px 1px 1px 10px;
+   color: rgb(128,128,128);
 }
 
-body#pid-toboggan-denied :-ms-input-placeholder {  
+body#pid-toboggan-denied :-ms-input-placeholder {
    font-size: 16px;
    color:white;
-   padding: 1px 1px 1px 10px;  
-   color: rgb(128,128,128);  
+   padding: 1px 1px 1px 10px;
+   color: rgb(128,128,128);
 }
 
 body#pid-toboggan-denied .password-strength {
@@ -3874,12 +3888,12 @@ body#pid-toboggan-denied input#edit-submit, body#pid-toboggan-denied input#edit-
 
 body#pid-toboggan-denied label {
   display: none;
-} 
+}
 
 body#pid-toboggan-denied label[for=edit-remember-me] {
   display: inline;
   font-size: 12px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   color: rgb(155,155,155);
   padding-left: 5px;
@@ -3977,29 +3991,29 @@ body#pid-user input.password-confirm, body#pid-user input.password-field {
 body#pid-user ::-webkit-input-placeholder {
    font-size: 16px;
    color:white;
-   padding: 1px 1px 1px 10px;  
+   padding: 1px 1px 1px 10px;
    color: rgb(128,128,128);
 }
 
 body#pid-user :-moz-placeholder { /* Firefox 18- */
    font-size: 16px;
    color:white;
-   padding: 1px 1px 1px 10px;  
+   padding: 1px 1px 1px 10px;
    color: rgb(128,128,128);
 }
 
 body#pid-user ::-moz-placeholder {  /* Firefox 19+ */
    font-size: 16px;
    color:white;
-   padding: 1px 1px 1px 10px; 
-   color: rgb(128,128,128); 
+   padding: 1px 1px 1px 10px;
+   color: rgb(128,128,128);
 }
 
-body#pid-user :-ms-input-placeholder {  
+body#pid-user :-ms-input-placeholder {
    font-size: 16px;
    color:white;
-   padding: 1px 1px 1px 10px;  
-   color: rgb(128,128,128);  
+   padding: 1px 1px 1px 10px;
+   color: rgb(128,128,128);
 }
 
 body#pid-user .password-strength {
@@ -4029,12 +4043,12 @@ body#pid-user input#edit-submit, body#pid-user input#edit-submit--2 {
 
 body#pid-user label {
   display: none;
-} 
+}
 
 body#pid-user label[for=edit-remember-me] {
   display: inline;
   font-size: 12px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   color: rgb(155,155,155);
   padding-left: 5px;
@@ -4092,7 +4106,7 @@ label#label_handle_edit-field-szazalek-value-selective {
   width:180px;
   margin-top: 0px;
   text-transform: uppercase;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   letter-spacing: 1.6px;
   color: #343434;
@@ -4120,7 +4134,7 @@ label#label_handle_edit-field-szazalek-value-selective {
 
 
 div#cboxOverlay {
- opacity: 0 !important; 
+ opacity: 0 !important;
 }
 
 .remodal-close {
@@ -4137,7 +4151,7 @@ right: 50px;
 background: none;
 width: 90px;
 height: 50px;
-text-indent: 0px; 
+text-indent: 0px;
 opacity: 0;
 font-size: 15px;
 border:  1px solid rgb(83,83,83);
@@ -4149,7 +4163,7 @@ body.page-node #content-region {
   margin: 0px;
   padding: 30px;
   background-color: white;
-  font-family: "Lato";	
+  font-family: 'Open Sans', sans-serif;
   max-width: 940px;
 }
 
@@ -4181,7 +4195,7 @@ body.page-node .field-items {
 }
 
 body.page-node  p {
-  font-family: "Lato";	
+  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   font-weight: 300;
 }
@@ -4206,7 +4220,7 @@ body.page-node div.field.field-name-field-szazalek {
   width: 15%;
   min-width: 10%;
   height: 17px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 30px;
   letter-spacing: 1.2px;
@@ -4222,7 +4236,7 @@ body.page-node  div.field.field-name-field-olcsobban {
   clear: left;
   width: 25%;
   height: 17px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
   letter-spacing: 1.2px;
@@ -4236,7 +4250,7 @@ body.page-node  div.field.field-name-field-olcsobban {
 
 body.page-node .field-name-field-akciosar {
  font-size: 24px;
- font-family:"Lato"; 
+ font-family:"Lato";
   color: rgb(52,52,52);
   margin-top: 0px;
   float: left;
@@ -4249,7 +4263,7 @@ body.page-node .field-name-field-akciosar {
   margin: 10px;
   padding: 10px;
   background-color: white;
-  font-family: "Lato";	
+  font-family: 'Open Sans', sans-serif;
 } */
 
 body.page-node div.field.field-name-field-tapertek {
@@ -4285,7 +4299,7 @@ body.page-node div.field.field-name-field-ar {
   margin-top: -20px;
    width: 61px;
   height: 17px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
   letter-spacing: 1.2px;
@@ -4308,7 +4322,7 @@ div.region.region-header {
 }
 
 .nav > li > a {
-font-size: 200%;  
+font-size: 200%;
 }
 
 section#block-menu-menu-diszkont.block.block-menu{
@@ -4359,7 +4373,7 @@ clear: both;
   max-width: 100%;
   margin-top: 0px;
   text-transform: uppercase;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   letter-spacing: 1.6px;
   color: #343434;
   display: block;
@@ -4396,11 +4410,11 @@ float: left;
 font-size: 16px;
 color: black;
 padding: 6px;
-text-transform: uppercase;  
+text-transform: uppercase;
 }
 
 ul.menu li a:link, ul.menu li a:visited {
-  font-family: 'Lato';
+  font-family: 'Open Sans', sans-serif;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -4508,7 +4522,7 @@ div#header-group, .navbar.container-fluid {
 #main-container, .row {
 width: 88.5%;
 margin: 0 auto;
-padding: 0;  
+padding: 0;
 min-height: 1200px;
 background: #eeeeee;
 }
@@ -4559,7 +4573,7 @@ display:block;
 width:100%;
 height: 100%;
 margin: 0 auto;
-font-family: "Lato";
+font-family: 'Open Sans', sans-serif;
 font-weight: 400;
 font-style: normal;
 }
@@ -4592,7 +4606,7 @@ margin: -30px auto 0;
 }
 
 section#block-mailchimp-signup-k-vesse-emailben-is-az-akci-kat {
-  width:50%; 
+  width:50%;
   padding-top: 10px;
 }
 
@@ -4608,7 +4622,7 @@ section#block-mailchimp-signup-k-vesse-emailben-is-az-akci-kat h2.block-title {
   background: none;
   text-align: center;
   font-size: 12px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   color: black;
   width: 260px;
@@ -4633,7 +4647,7 @@ width: 50% !important;
 border: 0px !important;
 border-radius: 5px;
 font-size: 14px;
-font-family: "Lato";
+font-family: 'Open Sans', sans-serif;
 font-weight: 400;
 font-style: italic;
 margin-left: 20px;
@@ -4652,12 +4666,12 @@ form.mailchimp-signup-subscribe-form .form-actions button.form-submit {
   width: 180px !important;
   height: 40px !important;
   text-indent: 0em !important;
-  margin-top: -53px !important; 
+  margin-top: -53px !important;
   border-radius: 4px;
   margin-left: 100%;
   text-shadow: none;
   white-space: normal;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   letter-spacing: 2px
 }
@@ -4690,7 +4704,7 @@ box-align:center;
 }
 
 .header-top-wrapper {
- min-height: 0px; 
+ min-height: 0px;
 }
 
 .footer-wrapper {
@@ -4741,7 +4755,7 @@ select#edit-sort-bef-combine-szuresek, select#edit-mefibs-form-rendezes-sort-by 
   z-index: 10;
   right: -32px;
   top:2px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
   box-shadow: none;
@@ -4766,7 +4780,7 @@ body#pid-osszes-akcio select#edit-sort-bef-combine-szuresek, body#pid-osszes-akc
   color: #535353;
   direction: rtl;
   padding-right: 20px;
-} 
+}
 
 body.page-search select#edit-sort-bef-combine-szuresek, body.page-search select#edit-mefibs-form-rendezes-sort-by, body.page-search select#edit-sort-by{
   top: 10px;
@@ -4776,7 +4790,7 @@ body.page-search select#edit-sort-bef-combine-szuresek, body.page-search select#
   color: #535353;
   direction: rtl;
   padding-right: 20px;
-}   
+}
 
 body.jquery-once-1-processed select#edit-sort-bef-combine-szuresek {
   right: 0px;
@@ -4823,13 +4837,13 @@ div#edit-field-szazalek-value-selective-wrapper {
 
 a#opener {
  display: none;
- font-family: "Lato";
+ font-family: 'Open Sans', sans-serif;
  font-weight: 400;
  color: rgb(128,128,128);
  background-image: url('http://www.jokosar.hu/sites/all/themes/diszkont/images/filter.png');
  background-repeat: no-repeat;
  margin-left: 10px;
- font-size: 25px; 
+ font-size: 25px;
  text-decoration: none;
  padding: 10px 0px 0px 40px;
  height: 37px
@@ -4881,7 +4895,7 @@ h2#nezet {
   float: none;
   font-size: 14px;
   line-height: 0.5;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   padding: 3px 0px;
 }
@@ -4907,9 +4921,9 @@ body.page-taxonomy-term- h2#nezet {
   height: 20px;
   text-indent: 0 !important;
   float: none !important;
-  border-radius: 4px;
+  border-radius: 4px !important;
   margin-right: 0px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 10px;
   line-height: 0.5;
@@ -4921,14 +4935,14 @@ body#pid-osszes-akcio .form-search .btn-primary {
   color: white !important;
   text-transform: uppercase !important;
   border: 0px !important;
-  margin-top: 3px !important; 
+  margin-top: 3px !important;
   width: 180px !important;
   height: 39px !important;
   text-indent: 0 !important;
   float: none !important;
   border-radius: 4px;
   margin-right: 0px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 1;
@@ -4956,7 +4970,7 @@ body#pid-osszes-akcio .form-search .btn-primary {
   margin-top: 2px;
   border-radius: 4px !important;
   font-size: 14px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-style:italic;
   border-top-right-radius: 4px !important;
@@ -4975,7 +4989,7 @@ body#pid-osszes-akcio .form-search input.form-control {
   margin-left: 5px;
   border-radius:4px !important;
   font-size: 14px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
 }
 
@@ -5029,7 +5043,7 @@ border-radius: 4px;
 padding: 10px;
 margin-left: 1%;
 overflow: hidden;
-} 
+}
 
 div.view.view-osszes-akcio {
   padding-left: 1%;
@@ -5037,7 +5051,7 @@ div.view.view-osszes-akcio {
 
 body.page-search-termek .panel-3col .panel-col-last {
 padding: 10px 20px 10px 15px;
-} 
+}
 
 .panel-3col .panel-col-last div.inner {
 float:left;
@@ -5067,8 +5081,8 @@ div.masonry-item {
 margin: 10px 0px 10px 5px;
 padding: 10px;
 background-color: white;
-font-family: "Lato";
-font-weight: 400;	
+font-family: 'Open Sans', sans-serif;
+font-weight: 400;
 /* width: 220px;
 max-width: 220px; */
 max-height: 350px;
@@ -5081,8 +5095,8 @@ body#pid-matrix div.masonry-item {
 margin: 0px auto;
 padding: 0px;
 background-color: white;
-font-family: "Lato";
-font-weight: 400;	
+font-family: 'Open Sans', sans-serif;
+font-weight: 400;
 width: 100%;
 height: auto;
 max-height: 0;
@@ -5095,9 +5109,9 @@ div.lista-item {
 margin: 10px 0px;
 padding: 10px;
 background-color: white;
-font-family: "Lato";
-font-weight: 400;	
-clear: both;  
+font-family: 'Open Sans', sans-serif;
+font-weight: 400;
+clear: both;
 height: auto;
 min-height: 220px;
 width: 96%;
@@ -5167,17 +5181,17 @@ div.lista-item input.form-submit {
 }
 
 span.field-content.szazalek {
- font-size: 24px; 
+ font-size: 24px;
 }
 
 span.field-content.ar {
- font-size: 10px; 
+ font-size: 10px;
  text-decoration: line-through;
 }
 
 span.field-content.akciosar {
- font-size: 20px; 
- font-family: "Lato";
+ font-size: 20px;
+ font-family: 'Open Sans', sans-serif;
  font-weight: 400;
  letter-spacing: 0.8px;
  color: #343434;
@@ -5185,7 +5199,7 @@ span.field-content.akciosar {
 
 div.views-field.views-field-field-akciosar {
 clear: both;
-float: left; 
+float: left;
 }
 
 body.page-taxonomy-term- div.views-field.views-field-field-olcsobban {
@@ -5203,7 +5217,7 @@ clear:none;
 
 body.page-taxonomy-term- div.views-field.views-field-field-ar {
 float: left;
-max-width: 100px !important; 
+max-width: 100px !important;
 margin: 0;
 }
 
@@ -5219,11 +5233,11 @@ div.views-field.views-field-field-ar {
 float: left;
 margin-top: -15px;
 margin-left: -50px;
-max-width: 100px !important; 
+max-width: 100px !important;
 }
 
 body#pid-osszes-akcio div.views-field.views-field-field-ar {
-  float: none; 
+  float: none;
   margin: 40px 0 5px 0;
   max-width: 100px !important;
 }
@@ -5304,12 +5318,12 @@ form#views-exposed-form-szures-frontpage {
 }
 
 /*
-::-webkit-scrollbar { 
-  display: none; 
+::-webkit-scrollbar {
+  display: none;
 }
 
-::-moz-scrollbar { 
-  display: none; 
+::-moz-scrollbar {
+  display: none;
 }
 */
 
@@ -5444,7 +5458,7 @@ input#edit-reset.form-submit {
  width: 140px !important;
  height: 35px !important;
  text-indent: 0 !important;
- float:none !important; 
+ float:none !important;
  display:block;
 } */
 
@@ -5495,7 +5509,7 @@ select#edit-field-szazalek-value-selective {
 /* slider widget */
 .ui-slider  {
   text-decoration: none !important;
-  width: 450px; 
+  width: 450px;
 }
 
 .ui-slider .ui-slider-handle  {
@@ -5518,7 +5532,7 @@ display: block;
 .ui-slider .ui-slider-tooltip .ui-tooltip-pointer-down, .ui-slider .ui-slider-tooltip .ui-tooltip-pointer-down-inner {
 display: block;
 }
-.ui-slider .ui-slider-tooltip .ui-tooltip-pointer-down {	
+.ui-slider .ui-slider-tooltip .ui-tooltip-pointer-down {
 
 }
 .ui-slider .ui-slider-tooltip .ui-tooltip-pointer-down-inner {
@@ -5579,7 +5593,7 @@ ol.ui-slider-scale li:nth-of-type(1) {
   float: left;
   margin: 15px -20px 0px 0px;
   font-size: 12px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   position: relative;
 }
@@ -5589,7 +5603,7 @@ ol.ui-slider-scale li:last-of-type {
   float: left;
   margin: 15px -20px 0px 0px;
   font-size: 12px;
-  font-family: "Lato";
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   position: relative;
 }
@@ -5662,7 +5676,7 @@ div.masonry-item {
 
 body.not-front .view-display-id-block_similar td.col-2, body.not-front .view-display-id-block_similar td.col-3 {
   display: none;
-} 
+}
 
 
 body#pid-toboggan-denied a#register-link {
@@ -5677,7 +5691,7 @@ body#pid-toboggan-denied  .confirm-parent, body#pid-toboggan-denied  .password-p
 
 }
 
-@-moz-document url-prefix() { 
+@-moz-document url-prefix() {
   body#pid-matrix-cart .no-width input.cart-plus {
   margin-left: 7px;
 }
@@ -5749,7 +5763,7 @@ padding-top: 3px;
 body.page-node .col-sm-6{
  margin-right: 1px !important; }
 
-body#pid-matrix .views-field-field-termekfoto-1 { 
+body#pid-matrix .views-field-field-termekfoto-1 {
  margin-right: 45px !important;
  }
 
@@ -5808,7 +5822,9 @@ margin-right: 20% !important; }
 
 @media screen and (min-width:1221px) and (max-width:1300px) {
 
-div.region.region-header.stickynav-active {width:82.5% !important;}
+div.region.region-header.stickynav-active {
+  width: 86.5% !important;
+}
 
 #matrix-header.stick {width:82.4% !important;}
 
@@ -5853,7 +5869,7 @@ ul.menu li a, ul.menu li a:link, ul.menu li a:visited{
 }
 
 .stickynav-active {
-  width: 86% !important;
+  width: 86.5% !important;
 }
 
 div#header-group, .navbar.container-fluid {
@@ -6128,7 +6144,7 @@ body.page-search-termek #discount-cart div.price.cell {
 }
 
 body.page-node #discount-cart div.cart-row div.price.cell + div.markup.cell {
- margin-left: 58%; 
+ margin-left: 58%;
 }
 
 body.page-node #discount-cart div.price.cell {
@@ -6178,7 +6194,7 @@ body.page-search- .shop-header h2 {
 
 body.page-taxonomy-term .view-osszes-akcio .view-content {
   margin-left: 0%;
-} 
+}
 
 .panel-3col .panel-col-first {
   margin-left: -1% !important;
@@ -6223,7 +6239,7 @@ body.page-taxonomy-term- select#edit-sort-bef-combine-szuresek, body.page-taxono
 }
 
 .stickynav-active {
-  width: 82.5% !important;
+  width: 86.5% !important;
 }
 
 .compare-page #tableBody .product-name {
@@ -6231,13 +6247,13 @@ body.page-taxonomy-term- select#edit-sort-bef-combine-szuresek, body.page-taxono
 }
 
 
-body.page-node- input[value="Ugrás a bevásárlókosárra"] {
-font-size: 140%;
-}
+// body.page-node- input[value="Ugrás a bevásárlókosárra"] {
+// font-size: 140%;
+// }
 
-body.page-search-termek input[value="Ugrás a bevásárlókosárra"] {
-font-size: 110%;
-}
+// body.page-search-termek input[value="Ugrás a bevásárlókosárra"] {
+// font-size: 110%;
+// }
 
 
 body.page-search-termek #discount-cart div.price.cell {
@@ -6356,7 +6372,9 @@ body#pid-matrix-cart .totals-row {
 }
 
 .stickynav-active {
-  width:84.9% !important;
+  width: 86.5% !important;
+  min-width: 880px !important;
+  max-width: 1266px;
 }
 
 body.page-node .matrix_cart_block span.cart-sum-price {
@@ -6388,7 +6406,7 @@ body#pid-matrix-cart  #discount-cart div.weight.cell, #discount-cart div.price.c
 @media screen and (min-width:1900px) {
 
 .stickynav-active {
-  width:66% !important;
+  width: 86.5% !important;
 }
 
 .field-name-acime {
@@ -6424,10 +6442,10 @@ background-color: #fece5b;
 width: 406px;
 margin: 0 auto;
 text-align: center;
-font-family: "Lato";
+font-family: 'Open Sans', sans-serif;
 font-weight: 400;
 font-size: 12px;
-line-height: 1.2;  
+line-height: 1.2;
 }
 
 body.page-printmail .alert-success a {
