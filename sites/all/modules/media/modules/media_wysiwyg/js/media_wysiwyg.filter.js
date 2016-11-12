@@ -43,10 +43,17 @@
           // Re-build the media if the macro has changed from the tagmap.
           if (!media && media_definition.fid) {
             Drupal.media.filter.ensureSourceMap();
-            var source = Drupal.settings.mediaSourceMap[media_definition.fid];
-            media = document.createElement(source.tagName);
-            media.src = source.src;
-            media.innerHTML = source.innerHTML;
+            var source;
+            if (source = Drupal.settings.mediaSourceMap[media_definition.fid]) {
+              media = document.createElement(source.tagName);
+              media.src = source.src;
+              media.innerHTML = source.innerHTML;
+            }
+            else {
+              // If the media element can't be found, leave it in to be resolved
+              // by the user later.
+              continue;
+            }
           }
 
           // Apply attributes.
