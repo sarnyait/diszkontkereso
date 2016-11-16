@@ -5,9 +5,9 @@ core = 7.x
 dependencies[] = media_wysiwyg
 files[] = media_wysiwyg_view_mode.test
 
-; Information added by Drupal.org packaging script on 2016-11-12
-version = "7.x-2.0-beta6"
+; Information added by Drupal.org packaging script on 2016-11-15
+version = "7.x-2.0-beta7"
 core = "7.x"
 project = "media"
-datestamp = "1478965141"
+datestamp = "1479212995"
 

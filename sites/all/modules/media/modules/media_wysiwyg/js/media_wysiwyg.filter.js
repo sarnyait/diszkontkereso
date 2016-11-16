@@ -189,7 +189,7 @@
       // media_get_file_without_label().
       //
       // Finds the media-element class.
-      var classRegex = 'class=([\'"])[^\\1]*?media-element';
+      var classRegex = 'class=[\'"][^\'"]*?media-element';
       // Image tag with the media-element class.
       var regex = '<img[^>]+' + classRegex + '[^>]*?>';
       // Or a span with the media-element class (used for documents).
