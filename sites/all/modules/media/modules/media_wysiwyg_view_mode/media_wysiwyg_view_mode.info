@@ -1,10 +1,7 @@
-name = Media test
-description = Provides hooks for testing Media module functionality.
+name = Media WYSIWYG View Mode
+description = DEPRECATED, this folder is only here so that the module can be uninstalled.
 package = Media
 core = 7.x
-hidden = TRUE
-
-files[] = includes/MediaModuleTest.inc
 
 ; Information added by Drupal.org packaging script on 2016-11-20
 version = "7.x-2.0-beta9"
