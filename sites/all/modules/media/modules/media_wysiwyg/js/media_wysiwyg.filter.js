@@ -345,7 +345,7 @@
           });
 
           // Extract the link text, if there is any.
-          file_info.link_text = element.find('a').html();
+          file_info.link_text = (Drupal.settings.mediaDoLinkText) ? element.find('a').html() : false;
 
           // When a file is embedded, its fields can be overridden. To allow for
           // the edge case where the same file is embedded multiple times with
