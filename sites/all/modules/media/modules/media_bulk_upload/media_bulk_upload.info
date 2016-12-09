@@ -13,9 +13,9 @@ test_dependencies[] = plupload
 files[] = includes/MediaBrowserBulkUpload.inc
 files[] = tests/media_bulk_upload.test
 
-; Information added by Drupal.org packaging script on 2016-12-06
-version = "7.x-2.0-beta12"
+; Information added by Drupal.org packaging script on 2016-12-07
+version = "7.x-2.0-beta13"
 core = "7.x"
 project = "media"
-datestamp = "1481043504"
+datestamp = "1481140093"
 
